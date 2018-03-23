@@ -1,0 +1,5 @@
+db\AuteurDb.class
+db\AlbumDb.class
+sample\Controller.class
+database\SQLiteConnection.class
+sample\Main.class
