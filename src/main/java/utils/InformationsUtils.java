@@ -1,7 +1,5 @@
 package utils;
 
-import sample.Main;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.jar.Attributes;
