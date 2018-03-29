@@ -17,6 +17,10 @@ public class AlbumDb {
         return numeroAlbum;
     }
 
+    public void setNumeroAlbum(Integer numeroAlbum) {
+        this.numeroAlbum = numeroAlbum;
+    }
+
     @Basic
     @Column(name = "titreAlbum")
     public String getTitreAlbum() {

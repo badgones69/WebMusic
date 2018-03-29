@@ -19,6 +19,10 @@ public class PlaylistDb {
         return idPlaylist;
     }
 
+    public void setIdPlaylist(Integer idPlaylist) {
+        this.idPlaylist = idPlaylist;
+    }
+
     @Basic
     @Column(name = "intitulePlaylist")
     public String getIntitulePlaylist() {
@@ -41,7 +45,7 @@ public class PlaylistDb {
         return listeMusiques;
     }
 
-    public void setListeMusique(List<MusiqueDb> listeMusiques) {
+    public void setListeMusiques(List<MusiqueDb> listeMusiques) {
         this.listeMusiques = listeMusiques;
     }
 

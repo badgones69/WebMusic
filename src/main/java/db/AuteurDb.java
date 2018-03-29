@@ -20,6 +20,10 @@ public class AuteurDb {
         return identifiantAuteur;
     }
 
+    public void setIdentifiantAuteur(Integer identifiantAuteur) {
+        this.identifiantAuteur = identifiantAuteur;
+    }
+
     @Basic
     @Column(name = "nomAuteur")
     public String getNomAuteur() {
@@ -45,7 +49,7 @@ public class AuteurDb {
         return listeOeuvres;
     }
 
-    public void setListePlaylists(List<MusiqueDb> listeOeuvres) {
+    public void setListeOeuvres(List<MusiqueDb> listeOeuvres) {
         this.listeOeuvres = listeOeuvres;
     }
 

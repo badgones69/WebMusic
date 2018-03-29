@@ -24,6 +24,10 @@ public class MusiqueDb {
         return codeMusique;
     }
 
+    public void setCodeMusique(Integer codeMusique) {
+        this.codeMusique = codeMusique;
+    }
+
     @Basic
     @Column(name = "titreMusique")
     public String getTitreMusique() {
