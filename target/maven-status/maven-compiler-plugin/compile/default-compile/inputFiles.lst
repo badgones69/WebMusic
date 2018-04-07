@@ -1,6 +1,14 @@
+C:\workspace\WebMusic\src\main\java\home\Controller.java
 C:\workspace\WebMusic\src\main\java\database\SQLiteConnection.java
-C:\workspace\WebMusic\src\main\java\sample\Controller.java
-C:\workspace\WebMusic\src\main\java\sample\Main.java
+C:\workspace\WebMusic\src\main\java\dao\MusiqueDao.java
+C:\workspace\WebMusic\src\main\java\db\MusiqueDb.java
+C:\workspace\WebMusic\src\main\java\dao\AbstractDao.java
+C:\workspace\WebMusic\src\main\java\home\Main.java
+C:\workspace\WebMusic\src\main\java\dao\PlaylistDao.java
+C:\workspace\WebMusic\src\main\java\utils\DaoUtils.java
 C:\workspace\WebMusic\src\main\java\db\AuteurDb.java
+C:\workspace\WebMusic\src\main\java\dao\AlbumDao.java
 C:\workspace\WebMusic\src\main\java\db\AlbumDb.java
-C:\workspace\WebMusic\src\main\java\utils\VersionUtils.java
+C:\workspace\WebMusic\src\main\java\utils\InformationsUtils.java
+C:\workspace\WebMusic\src\main\java\dao\AuteurDao.java
+C:\workspace\WebMusic\src\main\java\db\PlaylistDb.java

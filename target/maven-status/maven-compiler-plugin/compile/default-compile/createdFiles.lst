@@ -1,5 +1,14 @@
-db\AuteurDb.class
 db\AlbumDb.class
-sample\Controller.class
 database\SQLiteConnection.class
-sample\Main.class
+utils\DaoUtils.class
+dao\AbstractDao.class
+db\AuteurDb.class
+home\Main.class
+home\Controller.class
+dao\AuteurDao.class
+db\MusiqueDb.class
+dao\PlaylistDao.class
+dao\MusiqueDao.class
+dao\AlbumDao.class
+utils\InformationsUtils.class
+db\PlaylistDb.class

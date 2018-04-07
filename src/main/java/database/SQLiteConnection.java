@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class SQLiteConnection {
 
-    public static void connect() {
+    private static volatile Connection connection = null;
 
-        Connection connection = null;
+    public static void connect() {
 
         try {
             // URL to the database file
@@ -20,14 +20,13 @@ public class SQLiteConnection {
             System.out.println("Connection to your SQLite database established");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
         }
+    }
+
+    public static Connection getInstance() {
+        synchronized (SQLiteConnection.class) {
+            connect();
+        }
+        return connection;
     }
 }
