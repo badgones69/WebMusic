@@ -1,46 +1,116 @@
 package dao;
 
+import database.SQLiteConnection;
 import db.MusiqueDb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.WebMusicDatabase;
-
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import utils.DaoQueryUtils;
 import javax.transaction.TransactionalException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusiqueDao extends AbstractDao<MusiqueDb> {
 
     private static final Logger LOG = LogManager.getLogger(MusiqueDao.class);
-
-    @Inject
-    @WebMusicDatabase
-    EntityManager em;
+    private static final Connection CONNECTION = SQLiteConnection.getInstance();
+    private AlbumDao albumDao = new AlbumDao();
 
     @Override
-    public void persist(MusiqueDb musiqueDb) {
-        em.persist(musiqueDb);
+    public void insert(MusiqueDb musiqueDb) {
+        try {
+            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("musique", musiqueDb));
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void merge(MusiqueDb musiqueDb) throws TransactionalException {
-        em.merge(musiqueDb);
+    public void update(MusiqueDb musiqueDb) throws TransactionalException {
+        try {
+            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery("musique", musiqueDb));
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void remove(MusiqueDb musiqueDb) throws TransactionalException {
-        em.remove(musiqueDb);
+    public void delete(MusiqueDb musiqueDb) throws TransactionalException {
+        try {
+            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("musique", musiqueDb.getCodeMusique()));
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public MusiqueDb find(int id) throws TransactionalException {
-        return em.find(MusiqueDb.class, id);
+
+        try {
+            MusiqueDb musiqueDb = new MusiqueDb();
+
+            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
+                    "musique", id));
+            ResultSet result = statement.executeQuery();
+            result.next();
+            musiqueDb.setCodeMusique(result.getInt("codeMusique"));
+            musiqueDb.setTitreMusique(result.getString("titreMusique"));
+            musiqueDb.setDureeMusique(result.getString("dureeMusique"));
+            musiqueDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
+            musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
+            musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
+
+            result.close();
+            statement.close();
+
+            return musiqueDb;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public List<MusiqueDb> findAll() {
-        String sql = "SELECT a FROM MusiqueDb a";
-        return em.createQuery(sql, MusiqueDb.class).getResultList();
+
+        try {
+            List<MusiqueDb> musiquesList = new ArrayList<>();
+
+            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
+                    "musique"));
+            ResultSet result = statement.executeQuery();
+
+            while(result.next()) {
+                MusiqueDb musiqueDb = new MusiqueDb();
+
+                musiqueDb.setCodeMusique(result.getInt("codeMusique"));
+                musiqueDb.setTitreMusique(result.getString("titreMusique"));
+                musiqueDb.setDureeMusique(result.getString("dureeMusique"));
+                musiqueDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
+                musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
+                musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
+
+                musiquesList.add(musiqueDb);
+            }
+
+            result.close();
+            statement.close();
+
+            return musiquesList;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

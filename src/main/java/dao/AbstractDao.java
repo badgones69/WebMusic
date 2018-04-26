@@ -18,11 +18,11 @@ public abstract class AbstractDao<T> {
         this.entity = entity;
     }
 
-    public abstract void persist(T t);
+    public abstract void insert(T t);
 
-    public abstract void merge(T t) throws TransactionalException;
+    public abstract void update(T t) throws TransactionalException;
 
-    public abstract void remove(T t) throws TransactionalException;
+    public abstract void delete(T t) throws TransactionalException;
 
     public abstract T find(int id) throws TransactionalException;
 
