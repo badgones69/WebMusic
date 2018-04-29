@@ -1,10 +1,10 @@
 db\AlbumDb.class
+ihm\home\HomeController.class
 database\SQLiteConnection.class
-utils\DaoUtils.class
+ihm\home\Main.class
+utils\DaoQueryUtils.class
 dao\AbstractDao.class
 db\AuteurDb.class
-home\Main.class
-home\Controller.class
 dao\AuteurDao.class
 db\MusiqueDb.class
 dao\PlaylistDao.class
@@ -12,3 +12,4 @@ dao\MusiqueDao.class
 dao\AlbumDao.class
 utils\InformationsUtils.class
 db\PlaylistDb.class
+ihm\help\AboutController.class

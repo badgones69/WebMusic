@@ -1,2 +1,5 @@
 dao\TestAlbumDao.class
+dao\TestAuteurDao.class
+dao\TestMusiqueDao.class
 database\TestSQLiteConnection.class
+dao\TestPlaylistDao.class
