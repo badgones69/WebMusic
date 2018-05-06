@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="/styles/homeStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+   <top>
+       <MenuBar id="menuBar" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+           <menus>
+               <Menu id="albumMenu" mnemonicParsing="false" text="Album">
+                   <items>
+                       <MenuItem id="addAlbumItem" mnemonicParsing="false" onAction="#addAlbumItemClicked" text="Ajouter" />
+                       <MenuItem id="editAlbumItem" mnemonicParsing="false" onAction="#editAlbumItemClicked" text="Éditer" />
+                       <MenuItem id="deleteAlbumItem" mnemonicParsing="false" onAction="#deleteAlbumItemClicked" text="Supprimer" />
+                   </items>
+               </Menu>
+               <Menu id="helpMenu" mnemonicParsing="false" text="Aide">
+                   <items>
+                       <MenuItem id="aboutItem" mnemonicParsing="false" onAction="#aboutItemClicked" text="À propos" />
+                   </items>
+               </Menu>
+           </menus>
+       </MenuBar>
+   </top>
+</BorderPane>

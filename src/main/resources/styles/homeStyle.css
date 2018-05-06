@@ -1,0 +1,21 @@
+#menuPane {
+    -fx-background-color: #CCFF99;
+}
+
+#menuBar, #menuBar .menu, #menuBar .menu-item {
+    -fx-background-color: #809FFF;
+}
+
+#menuBar .label {
+    -fx-text-fill: #FFFFFF;
+}
+
+#menuBar .menu {
+    -fx-font-weight: bold;
+}
+
+#menuBar .menu:hover, #menuBar .menu-item:hover {
+    -fx-background-color: #FF0000;
+}
+
+
