@@ -39,7 +39,7 @@
               <transformers>
                 <transformer>
                   <manifestEntries>
-                    <Main-Class>ihm.home.Main</Main-Class>
+                    <Main-Class>controllers.home.Main</Main-Class>
                     <Implementation-Version>${project.version}</Implementation-Version>
                   </manifestEntries>
                 </transformer>
