@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: dao.TestMusiqueDao
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.238 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.642 sec

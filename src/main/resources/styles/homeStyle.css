@@ -1,9 +1,9 @@
-#menuPane {
-    -fx-background-color: #CCFF99;
+#menuPane, #aboutPanel {
+    -fx-background-color: #E6CCFF;
 }
 
 #menuBar, #menuBar .menu, #menuBar .menu-item {
-    -fx-background-color: #809FFF;
+    -fx-background-color: #80bfff;
 }
 
 #menuBar .label {
@@ -12,10 +12,15 @@
 
 #menuBar .menu {
     -fx-font-weight: bold;
+    -fx-font-size: 18;
 }
 
 #menuBar .menu:hover, #menuBar .menu-item:hover {
-    -fx-background-color: #FF0000;
+    -fx-background-color: #E6CCFF;
+}
+
+#welcomeMessage {
+    -fx-font-size: 40;
 }
 
 

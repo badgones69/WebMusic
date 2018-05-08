@@ -19,14 +19,13 @@ public class Main extends Application {
 
         this.setHomeStage(primaryStage);
 
-        Rectangle2D visualsBounds = Screen.getPrimary().getVisualBounds();
-
         InformationsUtils informationsUtils = new InformationsUtils();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         primaryStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
-        primaryStage.setScene(new Scene(root, visualsBounds.getWidth(), visualsBounds.getHeight()-32, Color.CYAN));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {

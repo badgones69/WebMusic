@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="/styles/homeStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<BorderPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0" stylesheets="/styles/homeStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
    <top>
        <MenuBar id="menuBar" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
            <menus>
@@ -24,4 +26,11 @@
            </menus>
        </MenuBar>
    </top>
+   <center>
+      <Pane prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="welcomeMessage" alignment="CENTER" contentDisplay="TOP" prefHeight="966.0" prefWidth="1920.0" text="Bienvenue sur WebMusic, votre espace musical !" textAlignment="CENTER" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>
