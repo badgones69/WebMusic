@@ -1,4 +1,4 @@
-#menuPane, #aboutPanel {
+#menuPane, #aboutPanel, #appCloseConfirmationPanel {
     -fx-background-color: #E6CCFF;
 }
 
@@ -6,7 +6,7 @@
     -fx-background-color: #80bfff;
 }
 
-#menuBar .label {
+#menuBar .label, #appCloseConfirmationNoButton {
     -fx-text-fill: #FFFFFF;
 }
 
@@ -23,4 +23,16 @@
     -fx-font-size: 40;
 }
 
+#appCloseConfirmationYesButton {
+    -fx-font-weight: bold;
+    -fx-background-color: #00FF00;
+}
 
+#appCloseConfirmationNoButton {
+    -fx-font-weight: bold;
+    -fx-background-color: #FF0000;
+}
+
+#appCloseConfirmationButtonsHBox {
+    -fx-spacing: 30;
+}

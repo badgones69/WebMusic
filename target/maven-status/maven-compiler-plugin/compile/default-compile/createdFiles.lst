@@ -11,5 +11,6 @@ controllers\AboutController.class
 dao\MusiqueDao.class
 dao\AlbumDao.class
 utils\InformationsUtils.class
+controllers\AppCloseConfirmationController.class
 db\PlaylistDb.class
 controllers\home\Main.class

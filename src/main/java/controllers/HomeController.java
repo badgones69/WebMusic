@@ -5,8 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuItem;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import utils.InformationsUtils;
 
@@ -24,7 +22,7 @@ public class HomeController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/views/about.fxml"));
             stage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - À propos");
-            stage.setScene(new Scene(root, 380, 140));
+            stage.setScene(new Scene(root, 370, 140));
             stage.show();
 
         } catch (IOException e) {

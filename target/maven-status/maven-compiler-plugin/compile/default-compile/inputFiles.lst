@@ -1,6 +1,7 @@
 C:\workspace\WebMusic\src\main\java\database\SQLiteConnection.java
 C:\workspace\WebMusic\src\main\java\dao\MusiqueDao.java
 C:\workspace\WebMusic\src\main\java\db\MusiqueDb.java
+C:\workspace\WebMusic\src\main\java\controllers\AppCloseConfirmationController.java
 C:\workspace\WebMusic\src\main\java\dao\AbstractDao.java
 C:\workspace\WebMusic\src\main\java\controllers\HomeController.java
 C:\workspace\WebMusic\src\main\java\utils\DaoQueryUtils.java
