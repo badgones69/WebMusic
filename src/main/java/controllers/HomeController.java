@@ -17,12 +17,12 @@ public class HomeController {
     public void aboutItemClicked(ActionEvent actionEvent) {
         InformationsUtils informationsUtils = new InformationsUtils();
         Stage stage = new Stage();
-        this.setAboutStage(stage);
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/views/about.fxml"));
             stage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - À propos");
-            stage.setScene(new Scene(root, 370, 140));
+            stage.setScene(new Scene(root, 380, 140));
+            this.setAboutStage(stage);
             stage.show();
 
         } catch (IOException e) {

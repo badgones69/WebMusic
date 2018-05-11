@@ -17,16 +17,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        this.setHomeStage(primaryStage);
-
         InformationsUtils informationsUtils = new InformationsUtils();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         primaryStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
         primaryStage.setScene(new Scene(root));
+        this.setHomeStage(primaryStage);
         this.configurateAppClose();
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {
@@ -54,12 +52,12 @@ public class Main extends Application {
             event.consume();
 
             Stage stage = new Stage();
-            this.setAppCloseConfirmationStage(stage);
 
             try {
                 Parent appCloseConfirmationParent = FXMLLoader.load(getClass().getResource("/views/appCloseConfirmation.fxml"));
                 stage.setTitle("WebMusic " + new InformationsUtils().getVersionApplication() + " - Fermeture");
                 stage.setScene(new Scene(appCloseConfirmationParent, 550, 140));
+                this.setAppCloseConfirmationStage(stage);
                 stage.show();
 
             } catch (IOException e) {
