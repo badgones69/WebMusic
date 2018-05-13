@@ -23,6 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
         primaryStage.setScene(new Scene(root));
         this.setHomeStage(primaryStage);
+        this.initializeAppClose();
         this.configurateAppClose();
         primaryStage.show();
     }
@@ -50,19 +51,25 @@ public class Main extends Application {
     private void configurateAppClose() {
         getHomeStage().setOnCloseRequest(event -> {
             event.consume();
-
-            Stage stage = new Stage();
-
-            try {
-                Parent appCloseConfirmationParent = FXMLLoader.load(getClass().getResource("/views/appCloseConfirmation.fxml"));
-                stage.setTitle("WebMusic " + new InformationsUtils().getVersionApplication() + " - Fermeture");
-                stage.setScene(new Scene(appCloseConfirmationParent, 550, 140));
-                this.setAppCloseConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Stage appCloseConfirmationStage = this.initializeAppClose();
+            appCloseConfirmationStage.show();
         });
+    }
+
+    private Stage initializeAppClose() {
+        Stage stage = new Stage();
+
+        try {
+            Parent appCloseConfirmationParent = FXMLLoader.load(getClass().getResource("/views/appCloseConfirmation.fxml"));
+            stage.setTitle("WebMusic " + new InformationsUtils().getVersionApplication() + " - Fermeture");
+            stage.setScene(new Scene(appCloseConfirmationParent, 550, 140));
+            this.setAppCloseConfirmationStage(stage);
+
+            return stage;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

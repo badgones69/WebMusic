@@ -13,9 +13,9 @@ import java.io.IOException;
 public class HomeController {
 
     private static Stage aboutStage;
+    private final InformationsUtils informationsUtils = new InformationsUtils();
 
     public void aboutItemClicked(ActionEvent actionEvent) {
-        InformationsUtils informationsUtils = new InformationsUtils();
         Stage stage = new Stage();
 
         try {
@@ -48,5 +48,16 @@ public class HomeController {
 
     public static Stage getAboutStage() {
         return HomeController.aboutStage;
+    }
+
+    public void appHomeItemClicked(ActionEvent actionEvent) {
+        Stage homeStage = Main.getHomeStage();
+        homeStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
+        homeStage.show();
+    }
+
+    public void appCloseItemClicked(ActionEvent actionEvent) {
+        Stage appCloseConfirmationStage = Main.getAppCloseConfirmationStage();
+        appCloseConfirmationStage.show();
     }
 }
