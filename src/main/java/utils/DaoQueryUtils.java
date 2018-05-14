@@ -21,13 +21,13 @@ public class DaoQueryUtils {
     }
 
     private static String bindInsertedValues(Object entity) {
-        if(entity instanceof AlbumDb) {
+        if (entity instanceof AlbumDb) {
             return bindAlbumToInsert((AlbumDb) entity);
-        } else if(entity instanceof AuteurDb) {
+        } else if (entity instanceof AuteurDb) {
             return bindAuteurToInsert((AuteurDb) entity);
-        } else if(entity instanceof MusiqueDb) {
+        } else if (entity instanceof MusiqueDb) {
             return bindMusiqueToInsert((MusiqueDb) entity);
-        } else if(entity instanceof PlaylistDb) {
+        } else if (entity instanceof PlaylistDb) {
             return bindPlaylistToInsert((PlaylistDb) entity);
         }
         return "";
@@ -77,13 +77,13 @@ public class DaoQueryUtils {
     }
 
     private static String bindUpdatedValues(String tableName, Object entity) {
-        if(entity instanceof AlbumDb) {
+        if (entity instanceof AlbumDb) {
             return bindAlbumToUpdate(tableName, (AlbumDb) entity);
-        } else if(entity instanceof AuteurDb) {
+        } else if (entity instanceof AuteurDb) {
             return bindAuteurToUpdate(tableName, (AuteurDb) entity);
-        } else if(entity instanceof MusiqueDb) {
+        } else if (entity instanceof MusiqueDb) {
             return bindMusiqueToUpdate(tableName, (MusiqueDb) entity);
-        } else if(entity instanceof PlaylistDb) {
+        } else if (entity instanceof PlaylistDb) {
             return bindPlaylistToUpdate(tableName, (PlaylistDb) entity);
         }
         return "";
@@ -91,7 +91,7 @@ public class DaoQueryUtils {
 
     private static String bindAlbumToUpdate(String tableName, AlbumDb albumDb) {
         return "titreAlbum = '" + albumDb.getTitreAlbum() + "'" +
-               " WHERE " + getIdColumnName(tableName) + " = " + albumDb.getNumeroAlbum();
+                " WHERE " + getIdColumnName(tableName) + " = " + albumDb.getNumeroAlbum();
     }
 
     private static String bindAuteurToUpdate(String tableName, AuteurDb auteurDb) {
@@ -125,7 +125,7 @@ public class DaoQueryUtils {
 
     private static String bindPlaylistToUpdate(String tableName, PlaylistDb playlistDb) {
         return "intitulePlaylist = '" + playlistDb.getIntitulePlaylist() + "'" +
-               " WHERE " + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
+                " WHERE " + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
     }
 
     /**
@@ -174,17 +174,17 @@ public class DaoQueryUtils {
     private static String getIdColumnName(String tableName) {
         String idColumnName = null;
 
-        switch(tableName) {
-            case "album" :
+        switch (tableName) {
+            case "album":
                 idColumnName = "numeroAlbum";
                 break;
-            case "auteur" :
+            case "auteur":
                 idColumnName = "identifiantAuteur";
                 break;
-            case "musique" :
+            case "musique":
                 idColumnName = "codeMusique";
                 break;
-            case "playlist" :
+            case "playlist":
                 idColumnName = "idPlaylist";
                 break;
             default:

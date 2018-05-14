@@ -14,6 +14,26 @@ public class Main extends Application {
     private static Stage homeStage;
     private static Stage appCloseConfirmationStage;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    public static Stage getHomeStage() {
+        return Main.homeStage;
+    }
+
+    private void setHomeStage(Stage stage) {
+        Main.homeStage = stage;
+    }
+
+    public static Stage getAppCloseConfirmationStage() {
+        return appCloseConfirmationStage;
+    }
+
+    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
+        Main.appCloseConfirmationStage = appCloseConfirmationStage;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -26,26 +46,6 @@ public class Main extends Application {
         this.initializeAppClose();
         this.configurateAppClose();
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    private void setHomeStage(Stage stage) {
-        Main.homeStage = stage;
-    }
-
-    public static Stage getHomeStage() {
-        return Main.homeStage;
-    }
-
-    public static Stage getAppCloseConfirmationStage() {
-        return appCloseConfirmationStage;
-    }
-
-    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
-        Main.appCloseConfirmationStage = appCloseConfirmationStage;
     }
 
     private void configurateAppClose() {

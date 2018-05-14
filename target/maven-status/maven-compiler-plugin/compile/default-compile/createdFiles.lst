@@ -1,9 +1,9 @@
-controllers\HomeController.class
 db\AlbumDb.class
 database\SQLiteConnection.class
 utils\DaoQueryUtils.class
 dao\AbstractDao.class
 db\AuteurDb.class
+controllers\MenuController.class
 dao\AuteurDao.class
 db\MusiqueDb.class
 dao\PlaylistDao.class

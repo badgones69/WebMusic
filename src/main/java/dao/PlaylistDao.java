@@ -86,7 +86,7 @@ public class PlaylistDao extends AbstractDao<PlaylistDb> {
                     "playlist"));
             ResultSet result = statement.executeQuery();
 
-            while(result.next()) {
+            while (result.next()) {
                 PlaylistDb playlistDb = new PlaylistDb();
 
                 playlistDb.setIdPlaylist(result.getInt("idPlaylist"));

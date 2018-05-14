@@ -91,7 +91,7 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
                     "musique"));
             ResultSet result = statement.executeQuery();
 
-            while(result.next()) {
+            while (result.next()) {
                 MusiqueDb musiqueDb = new MusiqueDb();
 
                 musiqueDb.setCodeMusique(result.getInt("codeMusique"));

@@ -87,7 +87,7 @@ public class AuteurDao extends AbstractDao<AuteurDb> {
                     "auteur"));
             ResultSet result = statement.executeQuery();
 
-            while(result.next()) {
+            while (result.next()) {
                 AuteurDb auteurDb = new AuteurDb();
 
                 auteurDb.setIdentifiantAuteur(result.getInt("identifiantAuteur"));

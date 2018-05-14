@@ -8,8 +8,8 @@ import java.util.List;
 
 public abstract class AbstractDao<T> {
 
-    private Class<T> entity;
     private static final Logger LOG = LogManager.getLogger(AbstractDao.class);
+    private Class<T> entity;
 
     public AbstractDao() {
     }

@@ -89,7 +89,7 @@ public class AlbumDao extends AbstractDao<AlbumDb> {
                     "album"));
             ResultSet result = statement.executeQuery();
 
-            while(result.next()) {
+            while (result.next()) {
                 AlbumDb albumDb = new AlbumDb();
 
                 albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
