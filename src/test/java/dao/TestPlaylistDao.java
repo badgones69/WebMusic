@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import utils.DaoQueryUtils;
+import utils.DaoTestsUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,13 +26,13 @@ public class TestPlaylistDao {
 
         playlistDao = new PlaylistDao();
         playlistDb = new PlaylistDb();
-        playlistDb.setIdPlaylist(1);
         playlistDb.setIntitulePlaylist("playlistTest");
     }
 
     @Test
     public void insert() {
         playlistDao.insert(playlistDb);
+        DaoTestsUtils.setIdToPlaylist(playlistDb);
 
         try {
             PlaylistDb resultDb = new PlaylistDb();
@@ -57,6 +58,7 @@ public class TestPlaylistDao {
     @Test
     public void update() {
         playlistDao.insert(playlistDb);
+        DaoTestsUtils.setIdToPlaylist(playlistDb);
         playlistDb.setIntitulePlaylist("playlistTestUpdated");
         playlistDao.update(playlistDb);
 
@@ -82,6 +84,8 @@ public class TestPlaylistDao {
     @Test
     public void delete() {
 
+        playlistDao.insert(playlistDb);
+        DaoTestsUtils.setIdToPlaylist(playlistDb);
         playlistDao.delete(playlistDb);
 
         try {
@@ -101,6 +105,7 @@ public class TestPlaylistDao {
     @Test
     public void find() {
         playlistDao.insert(playlistDb);
+        DaoTestsUtils.setIdToPlaylist(playlistDb);
 
         try {
 
@@ -117,7 +122,6 @@ public class TestPlaylistDao {
     @Test
     public void findAll() {
         PlaylistDb playlistDb2 = new PlaylistDb();
-        playlistDb2.setIdPlaylist(2);
         playlistDb2.setIntitulePlaylist("playlistTest2");
 
         playlistDao.insert(playlistDb);
@@ -126,7 +130,7 @@ public class TestPlaylistDao {
         try {
             List<PlaylistDb> playlistsList = playlistDao.findAll();
 
-            assertTrue(playlistsList.size() == 2);
+            assertTrue(playlistsList.size() >= 2);
 
         } catch (NullPointerException npe) {
             throw new NullPointerException("Aucune playlist n'est présent dans la base de données.");
@@ -136,7 +140,11 @@ public class TestPlaylistDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        statement.executeUpdate("DELETE FROM playlist");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'playlist'");
+        Integer nbPlaylists = playlistDao.findAll().size();
+        statement.executeUpdate("DELETE FROM playlist WHERE intitulePlaylist IN ('playlistTest', 'playlistTest2', 'playlistTestUpdated')");
+
+        if(nbPlaylists <= 2) {
+            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'playlist'");
+        }
     }
 }

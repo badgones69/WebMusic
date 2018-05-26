@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import utils.DaoQueryUtils;
+import utils.DaoTestsUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,6 @@ public class TestAuteurDao {
 
         auteurDao = new AuteurDao();
         auteurDb = new AuteurDb();
-        auteurDb.setIdentifiantAuteur(1);
         auteurDb.setNomAuteur("nomTest");
         auteurDb.setPrenomAuteur("prenomTest");
     }
@@ -33,6 +33,7 @@ public class TestAuteurDao {
     @Test
     public void insert() {
         auteurDao.insert(auteurDb);
+        DaoTestsUtils.setIdentifiantToAuteur(auteurDb);
 
         try {
             AuteurDb resultDb = new AuteurDb();
@@ -59,6 +60,7 @@ public class TestAuteurDao {
     @Test
     public void update() {
         auteurDao.insert(auteurDb);
+        DaoTestsUtils.setIdentifiantToAuteur(auteurDb);
         auteurDb.setNomAuteur("nomTestUpdated");
         auteurDb.setPrenomAuteur("prenomTestUpdated");
         auteurDao.update(auteurDb);
@@ -87,6 +89,7 @@ public class TestAuteurDao {
     @Test
     public void delete() {
         auteurDao.insert(auteurDb);
+        DaoTestsUtils.setIdentifiantToAuteur(auteurDb);
         auteurDao.delete(auteurDb);
 
         try {
@@ -107,6 +110,7 @@ public class TestAuteurDao {
     @Test
     public void find() {
         auteurDao.insert(auteurDb);
+        DaoTestsUtils.setIdentifiantToAuteur(auteurDb);
 
         try {
 
@@ -124,7 +128,6 @@ public class TestAuteurDao {
     @Test
     public void findAll() {
         AuteurDb auteurDb2 = new AuteurDb();
-        auteurDb2.setIdentifiantAuteur(2);
         auteurDb2.setNomAuteur("nomTest2");
         auteurDb2.setPrenomAuteur("prenomTest2");
 
@@ -134,7 +137,7 @@ public class TestAuteurDao {
         try {
             List<AuteurDb> auteursList = auteurDao.findAll();
 
-            assertTrue(auteursList.size() == 2);
+            assertTrue(auteursList.size() >= 2);
 
         } catch (NullPointerException npe) {
             throw new NullPointerException("Aucun auteur n'est présent dans la base de données.");
@@ -144,7 +147,11 @@ public class TestAuteurDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        statement.executeUpdate("DELETE FROM auteur");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'auteur'");
+        Integer nbAuteurs = auteurDao.findAll().size();
+        statement.executeUpdate("DELETE FROM auteur WHERE nomAuteur IN ('nomTest', 'nomTest2', 'nomTestUpdated')");
+
+        if(nbAuteurs <= 2) {
+            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'auteur'");
+        }
     }
 }

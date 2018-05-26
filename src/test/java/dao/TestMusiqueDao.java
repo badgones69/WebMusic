@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import utils.DaoQueryUtils;
+import utils.DaoTestsUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,10 +32,8 @@ public class TestMusiqueDao {
 
         albumDao = new AlbumDao();
         albumMusique = new AlbumDb();
-        albumMusique.setNumeroAlbum(1);
         albumMusique.setTitreAlbum("albumMusique");
 
-        musiqueDb.setCodeMusique(1);
         musiqueDb.setTitreMusique("musiqueTest");
         musiqueDb.setDureeMusique("00:03:57");
         musiqueDb.setDateInsertionMusique("09/04/2018");
@@ -45,7 +44,9 @@ public class TestMusiqueDao {
     @Test
     public void insert() {
         albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
         musiqueDao.insert(musiqueDb);
+        DaoTestsUtils.setCodeToMusique(musiqueDb);
 
         try {
             MusiqueDb resultDb = new MusiqueDb();
@@ -78,7 +79,9 @@ public class TestMusiqueDao {
     @Test
     public void update() {
         albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
         musiqueDao.insert(musiqueDb);
+        DaoTestsUtils.setCodeToMusique(musiqueDb);
         musiqueDb.setTitreMusique("musiqueTestUpdated");
         musiqueDb.setDureeMusique("00:07:07");
         musiqueDb.setDateInsertionMusique("26/04/2018");
@@ -112,7 +115,9 @@ public class TestMusiqueDao {
 
     @Test
     public void delete() {
-
+        albumDao.insert(albumMusique);
+        musiqueDao.insert(musiqueDb);
+        DaoTestsUtils.setCodeToMusique(musiqueDb);
         musiqueDao.delete(musiqueDb);
 
         try {
@@ -132,7 +137,9 @@ public class TestMusiqueDao {
     @Test
     public void find() {
         albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
         musiqueDao.insert(musiqueDb);
+        DaoTestsUtils.setCodeToMusique(musiqueDb);
 
         try {
 
@@ -153,10 +160,10 @@ public class TestMusiqueDao {
     @Test
     public void findAll() {
         albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
 
         MusiqueDb musiqueDb2 = new MusiqueDb();
 
-        musiqueDb2.setCodeMusique(2);
         musiqueDb2.setTitreMusique("musiqueTest2");
         musiqueDb2.setDureeMusique("00:04:21");
         musiqueDb2.setDateInsertionMusique("25/04/2018");
@@ -169,7 +176,7 @@ public class TestMusiqueDao {
         try {
             List<MusiqueDb> musiquesList = musiqueDao.findAll();
 
-            assertTrue(musiquesList.size() == 2);
+            assertTrue(musiquesList.size() >= 2);
 
         } catch (NullPointerException npe) {
             throw new NullPointerException("Aucune musique n'est présent dans la base de données.");
@@ -179,9 +186,17 @@ public class TestMusiqueDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        statement.executeUpdate("DELETE FROM musique");
-        statement.executeUpdate("DELETE FROM album");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'musique'");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'album'");
+        Integer nbAlbums = albumDao.findAll().size();
+        Integer nbMusiques = musiqueDao.findAll().size();
+        statement.executeUpdate("DELETE FROM album WHERE titreAlbum = 'albumMusique'");
+        statement.executeUpdate("DELETE FROM musique WHERE titreMusique IN ('musiqueTest', 'musiqueTest2', 'musiqueTestUpdated')");
+
+        if(nbAlbums <= 1) {
+            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'album'");
+        }
+
+        if(nbMusiques <= 2) {
+            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'musique'");
+        }
     }
 }

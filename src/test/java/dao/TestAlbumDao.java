@@ -3,9 +3,11 @@ package dao;
 import database.SQLiteConnection;
 import db.AlbumDb;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import utils.DaoQueryUtils;
+import utils.DaoTestsUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,13 +27,13 @@ public class TestAlbumDao {
 
         albumDao = new AlbumDao();
         albumDb = new AlbumDb();
-        albumDb.setNumeroAlbum(1);
         albumDb.setTitreAlbum("test");
     }
 
     @Test
     public void insert() {
         albumDao.insert(albumDb);
+        DaoTestsUtils.setNumeroToAlbum(albumDb);
 
         try {
             AlbumDb resultDb = new AlbumDb();
@@ -57,6 +59,7 @@ public class TestAlbumDao {
     @Test
     public void update() {
         albumDao.insert(albumDb);
+        DaoTestsUtils.setNumeroToAlbum(albumDb);
         albumDb.setTitreAlbum("testUpdated");
         albumDao.update(albumDb);
 
@@ -82,6 +85,7 @@ public class TestAlbumDao {
     @Test
     public void delete() {
         albumDao.insert(albumDb);
+        DaoTestsUtils.setNumeroToAlbum(albumDb);
         albumDao.delete(albumDb);
 
         try {
@@ -102,6 +106,7 @@ public class TestAlbumDao {
     @Test
     public void find() {
         albumDao.insert(albumDb);
+        DaoTestsUtils.setNumeroToAlbum(albumDb);
 
         try {
 
@@ -118,7 +123,6 @@ public class TestAlbumDao {
     @Test
     public void findAll() {
         AlbumDb albumDb2 = new AlbumDb();
-        albumDb2.setNumeroAlbum(2);
         albumDb2.setTitreAlbum("test2");
 
         albumDao.insert(albumDb);
@@ -127,7 +131,7 @@ public class TestAlbumDao {
         try {
             List<AlbumDb> albumsList = albumDao.findAll();
 
-            assertTrue(albumsList.size() == 2);
+            assertTrue(albumsList.size() >= 2);
 
         } catch (NullPointerException npe) {
             throw new NullPointerException("Aucun album n'est présent dans la base de données.");
@@ -137,7 +141,11 @@ public class TestAlbumDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        statement.executeUpdate("DELETE FROM album");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'album'");
+        Integer nbAlbums = albumDao.findAll().size();
+        statement.executeUpdate("DELETE FROM album WHERE titreAlbum IN ('test', 'test2', 'testUpdated')");
+
+        if(nbAlbums <= 2) {
+            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'album'");
+        }
     }
 }
