@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <properties>
+        <property name="name">webmusic</property>
+        <property name="patternLogStash">[GLF_INT]${name}|%p|%C{3}|%M|%L|%m%n</property><!--[GLF_INT]Application|level|class|methode|ligne|message-->
+        <property name="pattern">%d %-5p [%t] %C{2} (%F:%L) - %m%n</property>
+    </properties>
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>${patternLogStash}</pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="RollingFile" fileName="${name}.log" filePattern="$${date:yyyy-MM-dd}/${name}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout>
+                <pattern>${pattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
+    <Loggers>
+        <Root level="debug">
+            <appender-ref ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
