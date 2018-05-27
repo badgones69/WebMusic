@@ -186,17 +186,12 @@ public class TestMusiqueDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        Integer nbAlbums = albumDao.findAll().size();
-        Integer nbMusiques = musiqueDao.findAll().size();
         statement.executeUpdate("DELETE FROM album WHERE titreAlbum = 'albumMusique'");
         statement.executeUpdate("DELETE FROM musique WHERE titreMusique IN ('musiqueTest', 'musiqueTest2', 'musiqueTestUpdated')");
+        Integer nbAlbums = albumDao.findAll().size();
+        Integer nbMusiques = musiqueDao.findAll().size();
 
-        if(nbAlbums <= 1) {
-            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'album'");
-        }
-
-        if(nbMusiques <= 2) {
-            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'musique'");
-        }
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAlbums + "' WHERE name = 'album'");
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbMusiques + "' WHERE name = 'musique'");
     }
 }

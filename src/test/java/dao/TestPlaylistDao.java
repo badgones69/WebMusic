@@ -140,11 +140,9 @@ public class TestPlaylistDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        Integer nbPlaylists = playlistDao.findAll().size();
         statement.executeUpdate("DELETE FROM playlist WHERE intitulePlaylist IN ('playlistTest', 'playlistTest2', 'playlistTestUpdated')");
+        Integer nbPlaylists = playlistDao.findAll().size();
 
-        if(nbPlaylists <= 2) {
-            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'playlist'");
-        }
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbPlaylists + "' WHERE name = 'playlist'");
     }
 }

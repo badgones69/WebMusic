@@ -147,11 +147,9 @@ public class TestAuteurDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        Integer nbAuteurs = auteurDao.findAll().size();
         statement.executeUpdate("DELETE FROM auteur WHERE nomAuteur IN ('nomTest', 'nomTest2', 'nomTestUpdated')");
+        Integer nbAuteurs = auteurDao.findAll().size();
 
-        if(nbAuteurs <= 2) {
-            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'auteur'");
-        }
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAuteurs + "' WHERE name = 'auteur'");
     }
 }

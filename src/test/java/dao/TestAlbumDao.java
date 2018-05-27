@@ -141,11 +141,9 @@ public class TestAlbumDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
-        Integer nbAlbums = albumDao.findAll().size();
         statement.executeUpdate("DELETE FROM album WHERE titreAlbum IN ('test', 'test2', 'testUpdated')");
+        Integer nbAlbums = albumDao.findAll().size();
 
-        if(nbAlbums <= 2) {
-            statement.executeUpdate("UPDATE sqlite_sequence SET seq = '0' WHERE name = 'album'");
-        }
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAlbums + "' WHERE name = 'album'");
     }
 }
