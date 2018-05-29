@@ -62,7 +62,7 @@ public class Main extends Application {
         try {
             Parent appCloseConfirmationParent = FXMLLoader.load(getClass().getResource("/views/appCloseConfirmation.fxml"));
             stage.setTitle("WebMusic " + new InformationsUtils().getVersionApplication() + " - Fermeture");
-            stage.setScene(new Scene(appCloseConfirmationParent, 550, 140));
+            stage.setScene(new Scene(appCloseConfirmationParent, 650, 140));
             this.setAppCloseConfirmationStage(stage);
 
             return stage;
