@@ -3,7 +3,6 @@ package dao;
 import database.SQLiteConnection;
 import db.AlbumDb;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import utils.DaoQueryUtils;
