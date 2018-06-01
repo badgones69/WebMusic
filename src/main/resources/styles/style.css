@@ -1,4 +1,4 @@
-#menuPane, #aboutPanel, #appCloseConfirmationPanel {
+#menuPane, #aboutPanel, #appCloseConfirmationPanel, #musicLengthErrorPanel, #musicValidationSuccessPanel, #musicArtistErrorPanel {
     -fx-background-color: #E6CCFF;
 }
 
@@ -6,7 +6,7 @@
     -fx-background-color: #80bfff;
 }
 
-#menuBar .label, #appCloseConfirmationNoButton {
+#menuBar .label, .noButton {
     -fx-text-fill: #FFFFFF;
 }
 
@@ -19,20 +19,41 @@
     -fx-background-color: #E6CCFF;
 }
 
-#welcomeMessage {
+#welcomeMessage, .formTitle {
     -fx-font-size: 40;
 }
 
-#appCloseConfirmationYesButton {
+.yesButton {
     -fx-font-weight: bold;
     -fx-background-color: #00FF00;
 }
 
-#appCloseConfirmationNoButton {
+.noButton {
     -fx-font-weight: bold;
     -fx-background-color: #FF0000;
 }
 
 #appCloseConfirmationButtonsHBox {
     -fx-spacing: 30;
+}
+
+.formButtonsHBox {
+    -fx-spacing: 280;
+}
+
+.formTitle {
+    /*TOP, RIGHT, BOTTOM, LEFT*/
+    -fx-padding: 0 0 25 0;
+}
+
+.formLabel {
+    -fx-font-size: 25;
+}
+
+.formField {
+    -fx-font-size: 18;
+}
+
+#musicValidationSuccessPanel {
+    -fx-padding: 0 0 0 10;
 }

@@ -1,43 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-
-<BorderPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="998.0" prefWidth="1920.0" stylesheets="/styles/style.css"
-            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.HomeController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="controllers.MenuController">
     <top>
-        <MenuBar id="menuBar" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-            <menus>
-                <Menu id="appMenu" mnemonicParsing="false" text="WebMusic">
-                    <items>
-                        <MenuItem id="appHomeItem" onAction="#appHomeItemClicked" mnemonicParsing="false" text="Accueil"/>
-                        <MenuItem id="appCloseItem" onAction="#appCloseItemClicked" mnemonicParsing="false" text="Fermer"/>
-                    </items>
-                </Menu>
-                <Menu id="albumMenu" mnemonicParsing="false" text="Album">
-                    <items>
-                        <MenuItem id="addAlbumItem" mnemonicParsing="false" onAction="#addAlbumItemClicked"
-                                  text="Ajouter"/>
-                        <MenuItem id="editAlbumItem" mnemonicParsing="false" onAction="#editAlbumItemClicked"
-                                  text="Éditer"/>
-                        <MenuItem id="deleteAlbumItem" mnemonicParsing="false" onAction="#deleteAlbumItemClicked"
-                                  text="Supprimer"/>
-                    </items>
-                </Menu>
-                <Menu id="helpMenu" mnemonicParsing="false" text="Aide">
-                    <items>
-                        <MenuItem id="aboutItem" mnemonicParsing="false" onAction="#aboutItemClicked" text="À propos"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+        <fx:include source="menu.fxml"></fx:include>
     </top>
+
     <center>
         <Pane prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
             <children>

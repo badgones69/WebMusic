@@ -1,6 +1,7 @@
 package dao;
 
 import database.SQLiteConnection;
+import db.AuteurDb;
 import db.MusiqueDb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,9 +24,30 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
     @Override
     public void insert(MusiqueDb musiqueDb) {
         try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("musique", musiqueDb));
-            statement.executeUpdate();
-            statement.close();
+            // NEW MUSIC INSERTION
+            PreparedStatement musiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("musique", musiqueDb));
+            musiqueStatement.executeUpdate();
+            musiqueStatement.close();
+
+            // INSERTED MUSIC CODE RETRIEVING
+            PreparedStatement idMusiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                    "musique", "titreMusique", musiqueDb.getTitreMusique()));
+            ResultSet result = idMusiqueStatement.executeQuery();
+            result.next();
+            Integer musiqueIdGenerated = result.getInt("codeMusique");
+            idMusiqueStatement.close();
+
+            // MUSIC SINGER(S) INSERTION
+            PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
+
+            for(AuteurDb artiste : musiqueDb.getListeAuteurs()) {
+                artistesMusiqueStatement.setInt(1, musiqueIdGenerated);
+                artistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
+                artistesMusiqueStatement.executeUpdate();
+            }
+
+            artistesMusiqueStatement.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
