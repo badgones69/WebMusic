@@ -68,7 +68,7 @@ public class MusicController {
         musicFileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("MP3", "*.mp3"));
         File musicFile = musicFileChooser.showOpenDialog(Main.getHomeStage());
 
-        if(musicFile != null) {
+        if (musicFile != null) {
             nomFichier.setText(musicFile.getAbsolutePath());
         }
     }

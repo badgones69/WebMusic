@@ -11,34 +11,43 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox id="musicLengthErrorPanel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="330.0" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MusicController">
+<HBox xmlns:fx="http://javafx.com/fxml/1" id="musicLengthErrorPanel" alignment="CENTER" maxHeight="-Infinity"
+      maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="330.0"
+      stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
+      fx:controller="controllers.MusicController">
     <children>
         <ImageView fitHeight="90.0" fitWidth="150.0" preserveRatio="true">
             <image>
-                <Image url="@../icons/error.png" />
-            </image></ImageView>
+                <Image url="@../icons/error.png"/>
+            </image>
+        </ImageView>
         <GridPane prefHeight="113.0" prefWidth="359.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                <RowConstraints fillHeight="false" maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES"/>
+                <RowConstraints fillHeight="false" maxHeight="59.0" minHeight="10.0" prefHeight="59.0"
+                                vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
                 <VBox id="musicLengthErrorVBox" alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="180.0">
                     <children>
                         <Label text="La durée saisie est invalide !">
                             <font>
-                                <Font size="19.0" />
+                                <Font size="19.0"/>
                             </font>
                         </Label>
                     </children>
                 </VBox>
-                <HBox id="musicLengthErrorButtonHBox" alignment="TOP_CENTER" prefHeight="52.0" prefWidth="280.0" GridPane.rowIndex="2">
+                <HBox id="musicLengthErrorButtonHBox" alignment="TOP_CENTER" prefHeight="52.0" prefWidth="280.0"
+                      GridPane.rowIndex="2">
                     <children>
-                        <Button id="musicLengthErrorButton" onAction="#musicLengthErrorCloseButtonClicked" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" text="OK" />
+                        <Button id="musicLengthErrorButton" onAction="#musicLengthErrorCloseButtonClicked"
+                                alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0"
+                                text="OK"/>
                     </children>
                 </HBox>
             </children>

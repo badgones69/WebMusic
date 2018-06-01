@@ -40,7 +40,7 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
             // MUSIC SINGER(S) INSERTION
             PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
 
-            for(AuteurDb artiste : musiqueDb.getListeAuteurs()) {
+            for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
                 artistesMusiqueStatement.setInt(1, musiqueIdGenerated);
                 artistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
                 artistesMusiqueStatement.executeUpdate();

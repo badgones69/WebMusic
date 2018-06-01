@@ -52,7 +52,7 @@ public class AddMusicController extends MusicController implements Initializable
         List<String> albumValues = new ArrayList<>();
         List<AlbumDb> listAlbums = albumDao.findAll();
 
-        for(AlbumDb albumDb : listAlbums) {
+        for (AlbumDb albumDb : listAlbums) {
             albumValues.add(albumDb.getTitreAlbum());
         }
 
@@ -67,7 +67,7 @@ public class AddMusicController extends MusicController implements Initializable
         AuteurDao auteurDao = new AuteurDao();
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursValues = auteurDao.findAll();
-        for(AuteurDb auteurDb : listAuteursValues) {
+        for (AuteurDb auteurDb : listAuteursValues) {
             auteurSourceValues.add(new Label((auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim()));
         }
 
@@ -82,7 +82,7 @@ public class AddMusicController extends MusicController implements Initializable
 
     public void validForm() {
 
-        if(!FormControlUtils.dureeMusiqueIsValid(duree.getText())) {
+        if (!FormControlUtils.dureeMusiqueIsValid(duree.getText())) {
             Stage stage = new Stage();
 
             try {
@@ -97,7 +97,7 @@ public class AddMusicController extends MusicController implements Initializable
             }
         }
 
-        if(artistes.getTargetItems().size() == 0) {
+        if (artistes.getTargetItems().size() == 0) {
             Stage stage = new Stage();
 
             try {
@@ -115,7 +115,7 @@ public class AddMusicController extends MusicController implements Initializable
             AlbumDb albumMusique = new AlbumDb();
             List<AuteurDb> artistesMusique = new ArrayList<>();
 
-            if(album.getValue() != null) {
+            if (album.getValue() != null) {
                 albumMusique.setTitreAlbum(album.getValue());
                 DaoTestsUtils.setNumeroToAlbum(albumMusique);
             }
@@ -141,7 +141,7 @@ public class AddMusicController extends MusicController implements Initializable
                 DaoTestsUtils.setIdentifiantToAuteur(artiste);
                 artistesMusique.add(artiste);
             }
-                musique.setListeAuteurs(artistesMusique);
+            musique.setListeAuteurs(artistesMusique);
 
             MusiqueDao musiqueDao = new MusiqueDao();
             musiqueDao.insert(musique);

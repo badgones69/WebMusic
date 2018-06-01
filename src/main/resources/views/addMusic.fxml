@@ -3,9 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.ListSelectionView?>
-<BorderPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="998.0" prefWidth="1920.0" stylesheets="/styles/style.css"
-            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
             fx:controller="controllers.AddMusicController">
     <top>
         <fx:include source="menu.fxml"/>
@@ -46,7 +47,8 @@
 
                         <TextField fx:id="titre" alignment="CENTER_LEFT" maxWidth="350.0" styleClass="formField"
                                    GridPane.columnIndex="1"/>
-                        <TextField fx:id="duree" alignment="CENTER_LEFT" maxWidth="110.0" promptText="HH:MM:SS" styleClass="formField"
+                        <TextField fx:id="duree" alignment="CENTER_LEFT" maxWidth="110.0" promptText="HH:MM:SS"
+                                   styleClass="formField"
                                    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                         <TextField fx:id="dateInsertion" alignment="CENTER_LEFT" disable="true" maxWidth="120.0"
                                    styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
