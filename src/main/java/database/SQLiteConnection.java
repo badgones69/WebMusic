@@ -14,10 +14,10 @@ public class SQLiteConnection {
             // URL to the database file
             String url = "jdbc:sqlite:C:/workspace/WebMusicTest.db";
 
-            // Creation of a connection to the database
+            // Database connection creation
             connection = DriverManager.getConnection(url);
 
-            System.out.println("Connection to your SQLite database established");
+            System.out.print("");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

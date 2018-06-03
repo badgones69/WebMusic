@@ -24,7 +24,7 @@ public class TestSQLiteConnection {
     @Test
     public void connect() {
         SQLiteConnection.connect();
-        assertEquals("Connection to your SQLite database established" + "\r\n", outputStream.toString());
+        assertEquals("", outputStream.toString());
     }
 
     @After

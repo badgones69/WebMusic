@@ -121,8 +121,10 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
                 musiqueDb.setDureeMusique(result.getString("dureeMusique"));
                 musiqueDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
                 musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
-                musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
 
+                if (result.getInt("albumMusique") != 0) {
+                    musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
+                }
                 musiquesList.add(musiqueDb);
             }
 

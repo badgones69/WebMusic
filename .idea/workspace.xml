@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MusicController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/MusicController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/about.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/about.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/appCloseConfirmation.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/appCloseConfirmation.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/home.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/home.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/menu.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/menu.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicArtistError.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/musicArtistError.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicLengthError.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/musicLengthError.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicValidationSuccess.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/musicValidationSuccess.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLiteConnection.java" afterPath="$PROJECT_DIR$/src/main/java/database/SQLiteConnection.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java" afterPath="$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,143 +79,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="AddMusicController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
+      <file leaf-file-name="SQLiteConnection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/database/SQLiteConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2877">
-              <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
-              <folding>
-                <element signature="e#772#773#0" expanded="true" />
-                <element signature="e#809#810#0" expanded="true" />
-                <element signature="e#6050#6051#0" expanded="true" />
-                <element signature="e#6087#6088#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="musicArtistError.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicArtistError.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+            <state relative-caret-position="357">
+              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MusicController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MusicController.java">
+      <file leaf-file-name="TestSQLiteConnection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding>
-                <element signature="e#1118#1119#0" expanded="true" />
-                <element signature="e#1162#1163#0" expanded="true" />
-                <element signature="e#1376#1377#0" expanded="true" />
-                <element signature="e#1420#1421#0" expanded="true" />
-                <element signature="e#1637#1638#0" expanded="true" />
-                <element signature="e#1687#1688#0" expanded="true" />
-                <element signature="e#2426#2427#0" expanded="true" />
-                <element signature="e#2476#2477#0" expanded="true" />
-                <element signature="e#2555#2556#0" expanded="true" />
-                <element signature="e#2605#2606#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestMusiqueDao.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-              <folding>
-                <marker date="1527871885542" expanded="true" signature="9495:9546" ph="DELETE FROM album... " />
-                <marker date="1527871885542" expanded="true" signature="9583:9622" ph="DELETE FROM posseder... " />
-                <marker date="1527871885542" expanded="true" signature="9583:9625" ph="DELETE FROM posseder... " />
-                <marker date="1527871885542" expanded="true" signature="9583:9626" ph="DELETE FROM posseder... " />
-                <marker date="1527871885542" expanded="true" signature="9583:9661" ph="DELETE FROM posseder... " />
-                <marker date="1527871885542" expanded="true" signature="9583:9662" ph="DELETE FROM posseder... " />
-                <marker date="1527871885542" expanded="true" signature="9583:9681" ph="DELETE FROM posseder... " />
-                <marker date="1527871885542" expanded="true" signature="9718:9813" ph="DELETE FROM musique... " />
-                <marker date="1527871885542" expanded="true" signature="9850:9888" ph="DELETE FROM auteur... " />
-                <marker date="1527871885542" expanded="true" signature="9850:9921" ph="DELETE FROM auteur... " />
-                <marker date="1527871885542" expanded="true" signature="10127:10199" ph="UPDATE sqlite_sequence... " />
-                <marker date="1527871885542" expanded="true" signature="10236:10312" ph="UPDATE sqlite_sequence... " />
-                <marker date="1527871885542" expanded="true" signature="10349:10423" ph="UPDATE sqlite_sequence... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoTestsUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoTestsUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuteurDb.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/db/AuteurDb.java">
+      <file leaf-file-name="AlbumDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/AlbumDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="13">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MusiqueDao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MusiqueDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="336">
+              <caret line="124" column="54" lean-forward="false" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="54" />
               <folding>
-                <marker date="1527874627943" expanded="true" signature="1592:1626" ph="INSERT INTO posseder... " />
+                <marker date="1528015923301" expanded="true" signature="1592:1626" ph="INSERT INTO posseder... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="musicValidationSuccess.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicValidationSuccess.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="9" column="103" lean-forward="false" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appCloseConfirmation.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/appCloseConfirmation.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/styles/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="118" lean-forward="false" selection-start-line="0" selection-start-column="118" selection-end-line="0" selection-end-column="118" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -295,8 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/exceptions/EmptyTableException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/AuteurDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/PlaylistDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/DaoUtils.java" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -334,7 +225,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" />
         <option value="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/home/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/appCloseConfirmation.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" />
@@ -346,6 +236,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/styles/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MusicController.java" />
         <option value="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/database/SQLiteConnection.java" />
+        <option value="$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java" />
       </list>
     </option>
   </component>
@@ -424,7 +317,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -476,6 +368,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -537,10 +437,19 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -606,7 +515,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.WebMusic">
+  <component name="RunManager" selected="Maven.package">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -859,23 +768,12 @@
       <workItem from="1527793838306" duration="5119000" />
       <workItem from="1527848609918" duration="6067000" />
       <workItem from="1527871216179" duration="2593000" />
-      <workItem from="1527874409014" duration="247000" />
+      <workItem from="1527874409014" duration="369000" />
+      <workItem from="1528014569124" duration="1740000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestMusiqueDao - 2018.04.26 at 13h 43m 04s.xml">
-      <configuration name="TestMusiqueDao" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestMusiqueDao - 2018.04.26 at 13h 45m 48s.xml">
-      <configuration name="TestMusiqueDao" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestMusiqueDao - 2018.06.01 at 13h 26m 30s.xml">
-      <configuration name="TestMusiqueDao" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestMusiqueDao - 2018.06.01 at 13h 38m 51s.xml">
-      <configuration name="TestMusiqueDao" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestMusiqueDao - 2018.06.01 at 13h 45m 37s.xml">
       <configuration name="TestMusiqueDao" configurationId="JUnit" />
     </history-entry>
@@ -888,6 +786,18 @@
     <history-entry file="TestMusiqueDao - 2018.06.01 at 14h 01m 52s.xml">
       <configuration name="TestMusiqueDao" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestMusiqueDao - 2018.06.03 at 10h 41m 00s.xml">
+      <configuration name="TestMusiqueDao" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMusiqueDao - 2018.06.03 at 10h 44m 49s.xml">
+      <configuration name="TestMusiqueDao" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMusiqueDao - 2018.06.03 at 10h 46m 48s.xml">
+      <configuration name="TestMusiqueDao" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMusiqueDao - 2018.06.03 at 10h 52m 22s.xml">
+      <configuration name="TestMusiqueDao" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="TestPlaylistDao - 2018.04.25 at 21h 13m 05s.xml">
       <configuration name="TestPlaylistDao" configurationId="JUnit" />
     </history-entry>
@@ -896,7 +806,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="362584000" />
+    <option name="totallyTimeSpent" value="364446000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -909,6 +819,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -923,18 +834,18 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.79475486" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9213227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30900797" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20247047" sideWeight="0.44214877" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24060151" sideWeight="0.55785125" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24382384" sideWeight="0.55785125" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -945,11 +856,11 @@
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1090,9 +1001,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/classes/ihm/help/about.fxml" />
-    <entry file="file://$PROJECT_DIR$/target/classes/ihm/home/home.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ihm/album/addAlbum.fxml" />
     <entry file="file://$PROJECT_DIR$/target/classes/ihm/album/addAlbum.fxml" />
     <entry file="file://$PROJECT_DIR$/target/classes/ihm/home/styleTest.css" />
     <entry file="file://$PROJECT_DIR$/target/classes/styles/styleTest.css" />
@@ -1170,21 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/AlbumDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestAlbumDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1915">
-          <caret line="146" column="8" lean-forward="false" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1248,7 +1141,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,7 +1164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1303,7 +1194,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="420">
           <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding />
         </state>
@@ -1325,7 +1216,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
+        <state relative-caret-position="189">
           <caret line="9" column="103" lean-forward="false" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
           <folding />
         </state>
@@ -1344,41 +1235,9 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
+        <state relative-caret-position="735">
           <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2877">
-          <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
-          <folding>
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#6050#6051#0" expanded="true" />
-            <element signature="e#6087#6088#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding>
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-            <element signature="e#1376#1377#0" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-            <element signature="e#1687#1688#0" expanded="true" />
-            <element signature="e#2426#2427#0" expanded="true" />
-            <element signature="e#2476#2477#0" expanded="true" />
-            <element signature="e#2555#2556#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1397,16 +1256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <marker date="1527874627943" expanded="true" signature="1592:1626" ph="INSERT INTO posseder... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoTestsUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -1415,10 +1264,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestAlbumDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="146" column="5" lean-forward="true" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+          <folding>
+            <marker date="1527874176785" expanded="true" signature="4183:4253" ph="DELETE FROM album... " />
+            <marker date="1527874176785" expanded="true" signature="4345:4417" ph="UPDATE sqlite_sequence... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="587" column="8" lean-forward="false" selection-start-line="587" selection-start-column="8" selection-end-line="587" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state relative-caret-position="236">
+          <caret line="246" column="43" lean-forward="true" selection-start-line="246" selection-start-column="43" selection-end-line="246" selection-end-column="43" />
           <folding>
             <marker date="1527871885542" expanded="true" signature="9495:9546" ph="DELETE FROM album... " />
             <marker date="1527871885542" expanded="true" signature="9583:9622" ph="DELETE FROM posseder... " />
@@ -1433,6 +1317,40 @@
             <marker date="1527871885542" expanded="true" signature="10127:10199" ph="UPDATE sqlite_sequence... " />
             <marker date="1527871885542" expanded="true" signature="10236:10312" ph="UPDATE sqlite_sequence... " />
             <marker date="1527871885542" expanded="true" signature="10349:10423" ph="UPDATE sqlite_sequence... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/AlbumDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/database/SQLiteConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="124" column="54" lean-forward="false" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="54" />
+          <folding>
+            <marker date="1528015923301" expanded="true" signature="1592:1626" ph="INSERT INTO posseder... " />
           </folding>
         </state>
       </provider>

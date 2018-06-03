@@ -4,13 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <HBox xmlns:fx="http://javafx.com/fxml/1" id="musicLengthErrorPanel" alignment="CENTER" maxHeight="-Infinity"
       maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="330.0"
