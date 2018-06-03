@@ -11,27 +11,18 @@ import java.io.IOException;
 
 public class Main extends Application {
 
+    // HOME PAGE STAGE
     private static Stage homeStage;
+
+    // APP CLOSING CONFIRMATION POP-UP STAGE
     private static Stage appCloseConfirmationStage;
+
+    /**
+     * APP LAUNCHING
+     */
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public static Stage getHomeStage() {
-        return Main.homeStage;
-    }
-
-    private void setHomeStage(Stage stage) {
-        Main.homeStage = stage;
-    }
-
-    public static Stage getAppCloseConfirmationStage() {
-        return appCloseConfirmationStage;
-    }
-
-    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
-        Main.appCloseConfirmationStage = appCloseConfirmationStage;
     }
 
     @Override
@@ -47,6 +38,10 @@ public class Main extends Application {
         this.configurateAppClose();
         primaryStage.show();
     }
+
+    /**
+     * APP CLOSING CONFIRMATION POP-UP CONFIGURATION AND INITIALIZATION
+     */
 
     private void configurateAppClose() {
         getHomeStage().setOnCloseRequest(event -> {
@@ -71,5 +66,25 @@ public class Main extends Application {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getHomeStage() {
+        return Main.homeStage;
+    }
+
+    private void setHomeStage(Stage stage) {
+        Main.homeStage = stage;
+    }
+
+    public static Stage getAppCloseConfirmationStage() {
+        return appCloseConfirmationStage;
+    }
+
+    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
+        Main.appCloseConfirmationStage = appCloseConfirmationStage;
     }
 }

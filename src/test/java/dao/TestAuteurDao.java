@@ -144,6 +144,7 @@ public class TestAuteurDao {
         }
     }
 
+    // DATABASE CLEARING (TEST DATA REMOVING)
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();

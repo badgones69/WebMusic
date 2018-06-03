@@ -234,6 +234,7 @@ public class TestMusiqueDao {
         }
     }
 
+    // DATABASE CLEARING (TEST DATA REMOVING)
     @After
     public void reset() throws Exception {
 

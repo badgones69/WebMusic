@@ -67,6 +67,7 @@ public class DaoQueryUtils {
     /**
      * METHODS TO UPDATE A RECORD IN ANY TABLE
      */
+
     public static String generateUpdatingQuery(String tableName, Object entity) {
         String query = "UPDATE ";
         query += tableName;
@@ -131,6 +132,7 @@ public class DaoQueryUtils {
     /**
      * METHOD TO DELETE A RECORD IN ANY TABLE
      */
+
     public static String generateDeletingQuery(String tableName, Integer id) {
         String query = "DELETE FROM ";
         query += tableName;
@@ -145,6 +147,7 @@ public class DaoQueryUtils {
     /**
      * METHODS TO FIND A RECORD IN ANY TABLE
      */
+
     public static String generateFindingByIdQuery(String tableName, Integer id) {
         String query = "SELECT * FROM ";
         query += tableName;

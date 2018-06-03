@@ -12,21 +12,15 @@ import java.io.IOException;
 
 public class MenuController {
 
-
+    // ABOUT POP-UP STAGE
     private static Stage aboutStage;
+
     private final InformationsUtils informationsUtils = new InformationsUtils();
-
-    public static Stage getAboutStage() {
-        return MenuController.aboutStage;
-    }
-
-    private void setAboutStage(Stage stage) {
-        MenuController.aboutStage = stage;
-    }
 
     /**
      * ITEMS LISTENERS OF "WebMusic" MENU
      */
+
     public void appHomeItemClicked(ActionEvent actionEvent) {
         Stage homeStage = Main.getHomeStage();
         homeStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
@@ -46,6 +40,7 @@ public class MenuController {
     /**
      * ITEMS LISTENERS OF "Musique" MENU
      */
+
     public void listMusicItemClicked(ActionEvent actionEvent) {
     }
 
@@ -69,6 +64,7 @@ public class MenuController {
     /**
      * ITEMS LISTENERS OF "Album" MENU
      */
+
     public void addAlbumItemClicked(ActionEvent actionEvent) {
         Stage homeStage = Main.getHomeStage();
         homeStage.setTitle(homeStage.getTitle().replace("Accueil", "Ajout d'un album"));
@@ -84,6 +80,7 @@ public class MenuController {
     /**
      * ITEM LISTENER OF "Aide" MENU
      */
+
     public void aboutItemClicked(ActionEvent actionEvent) {
         Stage stage = new Stage();
 
@@ -97,5 +94,17 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getAboutStage() {
+        return MenuController.aboutStage;
+    }
+
+    private void setAboutStage(Stage stage) {
+        MenuController.aboutStage = stage;
     }
 }

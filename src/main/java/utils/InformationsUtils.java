@@ -7,6 +7,7 @@ import java.util.jar.Manifest;
 
 public class InformationsUtils {
 
+    // APP VERSION NUMBER RETRIEVING
     public String getVersionApplication() {
         URL manifestUrl = this.getClass().getResource("/META-INF/MANIFEST.MF");
         Manifest manifest = null;

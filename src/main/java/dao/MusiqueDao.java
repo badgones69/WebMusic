@@ -37,7 +37,7 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
             Integer musiqueIdGenerated = result.getInt("codeMusique");
             idMusiqueStatement.close();
 
-            // MUSIC SINGER(S) INSERTION
+            // MUSIC ARTIST(S) INSERTION
             PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
 
             for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {

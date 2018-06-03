@@ -25,6 +25,10 @@ import java.util.*;
 
 public class AddMusicController extends MusicController implements Initializable {
 
+    /**
+     * MUSIC ADDING FORM INITIALIZATION
+     */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.initializeForm();
@@ -80,6 +84,7 @@ public class AddMusicController extends MusicController implements Initializable
         super.artistes.getTargetItems().clear();
     }
 
+    // MUSIC ADDING FORM VALIDATION AND SENDING
     public void validForm() {
 
         if (!FormControlUtils.dureeMusiqueIsValid(duree.getText())) {
@@ -161,6 +166,7 @@ public class AddMusicController extends MusicController implements Initializable
         }
     }
 
+    // MUSIC ADDING FORM CANCELING
     public void cancelForm() {
         this.initializeForm();
     }

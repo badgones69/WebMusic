@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- MUSIC ADDING FORM VIEW -->
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.ListSelectionView?>

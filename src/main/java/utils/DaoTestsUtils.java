@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 public class DaoTestsUtils {
 
+    // METHOD TO KNOW WHAT'S CODE WAS SET TO THE ALBUM WHICH WAS INSERTED
     public static void setNumeroToAlbum(AlbumDb album) {
         try {
             PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("album",
@@ -29,6 +30,7 @@ public class DaoTestsUtils {
         }
     }
 
+    // METHOD TO KNOW WHAT'S CODE WAS SET TO THE MUSIC WHICH WAS INSERTED
     public static void setCodeToMusique(MusiqueDb musique) {
         try {
             PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("musique",
@@ -46,6 +48,7 @@ public class DaoTestsUtils {
         }
     }
 
+    // METHOD TO KNOW WHAT'S CODE WAS SET TO THE ARTIST WHICH WAS INSERTED
     public static void setIdentifiantToAuteur(AuteurDb auteur) {
         try {
             PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("auteur",
@@ -63,6 +66,7 @@ public class DaoTestsUtils {
         }
     }
 
+    // METHOD TO KNOW WHAT'S CODE WAS SET TO THE PLAYLIST WHICH WAS INSERTED
     public static void setIdToPlaylist(PlaylistDb playlist) {
         try {
             PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("playlist",

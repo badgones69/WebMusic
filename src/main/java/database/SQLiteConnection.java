@@ -11,10 +11,10 @@ public class SQLiteConnection {
     public static void connect() {
 
         try {
-            // URL to the database file
+            // DATABASE FILE URL
             String url = "jdbc:sqlite:C:/workspace/WebMusicTest.db";
 
-            // Database connection creation
+            // DATABASE CONNECTION CREATION
             connection = DriverManager.getConnection(url);
 
             System.out.print("");
