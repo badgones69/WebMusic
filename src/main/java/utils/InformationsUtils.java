@@ -8,7 +8,7 @@ import java.util.jar.Manifest;
 public class InformationsUtils {
 
     // APP VERSION NUMBER RETRIEVING
-    public String getVersionApplication() {
+    private String getVersionApplication() {
         URL manifestUrl = this.getClass().getResource("/META-INF/MANIFEST.MF");
         Manifest manifest = null;
         try {
@@ -19,5 +19,14 @@ public class InformationsUtils {
         Attributes attributes = manifest.getMainAttributes();
 
         return attributes.getValue("Implementation-Version");
+    }
+
+    // STAGE TITLE BUILDING
+    public String buildStageTitle(String title) {
+        if(title == null) {
+            return "WebMsuic " + getVersionApplication();
+        } else {
+            return "WebMsuic " + getVersionApplication() + " - " + title;
+        }
     }
 }

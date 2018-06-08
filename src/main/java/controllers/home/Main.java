@@ -17,6 +17,8 @@ public class Main extends Application {
     // APP CLOSING CONFIRMATION POP-UP STAGE
     private static Stage appCloseConfirmationStage;
 
+    private InformationsUtils informationsUtils = new InformationsUtils();
+
     /**
      * APP LAUNCHING
      */
@@ -27,11 +29,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        InformationsUtils informationsUtils = new InformationsUtils();
-
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
-        primaryStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
+        primaryStage.setTitle(informationsUtils.buildStageTitle("Accueil"));
         primaryStage.setScene(new Scene(root));
         this.setHomeStage(primaryStage);
         this.initializeAppClose();
@@ -56,7 +55,7 @@ public class Main extends Application {
 
         try {
             Parent appCloseConfirmationParent = FXMLLoader.load(getClass().getResource("/views/appCloseConfirmation.fxml"));
-            stage.setTitle("WebMusic " + new InformationsUtils().getVersionApplication() + " - Fermeture");
+            stage.setTitle(informationsUtils.buildStageTitle("Fermeture"));
             stage.setScene(new Scene(appCloseConfirmationParent, 650, 140));
             this.setAppCloseConfirmationStage(stage);
 
