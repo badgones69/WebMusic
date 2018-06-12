@@ -72,7 +72,11 @@ public class AddMusicController extends MusicController implements Initializable
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursValues = auteurDao.findAll();
         for (AuteurDb auteurDb : listAuteursValues) {
-            auteurSourceValues.add(new Label((auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim()));
+            auteurSourceValues.add(new Label(
+                    auteurDb.getPrenomAuteur() != null ?
+                    (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
+                    auteurDb.getNomAuteur()
+            ));
         }
 
         super.artistes.getSourceItems().clear();
@@ -92,7 +96,7 @@ public class AddMusicController extends MusicController implements Initializable
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicLengthError.fxml"));
-                stage.setTitle("WebMusic " + super.informationsUtils.getVersionApplication());
+                stage.setTitle(super.informationsUtils.buildStageTitle(null));
                 stage.setScene(new Scene(root, 330, 140));
                 super.setMusicLengthErrorStage(stage);
                 stage.show();
@@ -107,7 +111,7 @@ public class AddMusicController extends MusicController implements Initializable
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicArtistError.fxml"));
-                stage.setTitle("WebMusic " + super.informationsUtils.getVersionApplication());
+                stage.setTitle(super.informationsUtils.buildStageTitle(null));
                 stage.setScene(new Scene(root, 415, 140));
                 super.setMusicArtistErrorStage(stage);
                 stage.show();
@@ -155,7 +159,7 @@ public class AddMusicController extends MusicController implements Initializable
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicValidationSuccess.fxml"));
-                stage.setTitle("WebMusic " + super.informationsUtils.getVersionApplication());
+                stage.setTitle(super.informationsUtils.buildStageTitle(null));
                 stage.setScene(new Scene(root, 390, 140));
                 super.setMusicValidationSuccessStage(stage);
                 stage.show();

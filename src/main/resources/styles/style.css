@@ -3,7 +3,7 @@
 }
 
 #menuBar, #menuBar .menu, #menuBar .menu-item {
-    -fx-background-color: #80bfff;
+    -fx-background-color: #80BFFF;
 }
 
 #menuBar .label, .noButton {
@@ -56,4 +56,16 @@
 
 #musicValidationSuccessPanel {
     -fx-padding: 0 0 0 10;
+}
+
+.table-column, .table-cell{
+    -fx-font-size: 18;
+    -fx-alignment: BASELINE_CENTER;
+    -fx-border-width: 0.5px;
+    -fx-border-color: black;
+}
+
+.table-view {
+    -fx-selction-bar: #0080FF;
+    -fx-selection-bar-non-focused: #0080FF;
 }

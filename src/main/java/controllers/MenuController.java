@@ -23,7 +23,7 @@ public class MenuController {
 
     public void appHomeItemClicked(ActionEvent actionEvent) {
         Stage homeStage = Main.getHomeStage();
-        homeStage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - Accueil");
+        homeStage.setTitle(informationsUtils.buildStageTitle("Accueil"));
         try {
             homeStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/home.fxml")));
         } catch (IOException e) {
@@ -42,6 +42,19 @@ public class MenuController {
      */
 
     public void listMusicItemClicked(ActionEvent actionEvent) {
+        Stage homeStage = Main.getHomeStage();
+
+        try {
+            ListMusicController listMusicController = new ListMusicController();
+            listMusicController.initialize(getClass().getResource("/views/listMusic.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/listMusic.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitle("Liste des musiques"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addMusicItemClicked(ActionEvent actionEvent) {
@@ -52,7 +65,7 @@ public class MenuController {
             AddMusicController addMusicController = new AddMusicController();
             addMusicController.initialize(getClass().getResource("/views/addMusic.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/addMusic.fxml"));
-            homeStage.setTitle(homeStage.getTitle().replace("Accueil", "Ajout d'une musique"));
+            homeStage.setTitle(informationsUtils.buildStageTitle("Ajout d'une musique"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
             homeStage.show();
 
@@ -67,7 +80,7 @@ public class MenuController {
 
     public void addAlbumItemClicked(ActionEvent actionEvent) {
         Stage homeStage = Main.getHomeStage();
-        homeStage.setTitle(homeStage.getTitle().replace("Accueil", "Ajout d'un album"));
+        homeStage.setTitle(informationsUtils.buildStageTitle("Ajout d'un album"));
         homeStage.show();
     }
 
@@ -86,7 +99,7 @@ public class MenuController {
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/views/about.fxml"));
-            stage.setTitle("WebMusic " + informationsUtils.getVersionApplication() + " - À propos");
+            stage.setTitle(informationsUtils.buildStageTitle("À propos"));
             stage.setScene(new Scene(root, 450, 140));
             this.setAboutStage(stage);
             stage.show();

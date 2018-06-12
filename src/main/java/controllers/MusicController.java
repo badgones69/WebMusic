@@ -3,6 +3,9 @@ package controllers;
 import controllers.home.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,6 +15,7 @@ import org.controlsfx.control.ListSelectionView;
 import utils.InformationsUtils;
 
 import java.io.File;
+import java.io.IOException;
 
 public class MusicController {
 
@@ -23,6 +27,9 @@ public class MusicController {
 
     // MUSIC FORM VALIDATION SUCCESSFUL POP-UP STAGE
     protected static Stage musicValidationSuccessStage;
+
+    // MUSIC LIST PAGE STAGE
+    protected static Stage listMusicStage;
 
     protected final InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -74,7 +81,19 @@ public class MusicController {
     public void musicValidationSuccessCloseButtonClicked(ActionEvent actionEvent) {
         getMusicValidationSuccessStage().close();
 
-        // TODO : Redirection vers la liste des musiques
+        Stage homeStage = Main.getHomeStage();
+
+        try {
+            ListMusicController listMusicController = new ListMusicController();
+            listMusicController.initialize(getClass().getResource("/views/listMusic.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/listMusic.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitle("Liste des musiques"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -103,5 +122,13 @@ public class MusicController {
 
     public static void setMusicValidationSuccessStage(Stage musicValidationSuccessStage) {
         MusicController.musicValidationSuccessStage = musicValidationSuccessStage;
+    }
+
+    public static Stage getListMusicStage() {
+        return listMusicStage;
+    }
+
+    public static void setListMusicStage(Stage listMusicStage) {
+        MusicController.listMusicStage = listMusicStage;
     }
 }

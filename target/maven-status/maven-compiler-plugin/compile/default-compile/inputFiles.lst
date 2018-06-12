@@ -7,12 +7,16 @@ C:\workspace\WebMusic\src\main\java\dao\AbstractDao.java
 C:\workspace\WebMusic\src\main\java\utils\FormControlUtils.java
 C:\workspace\WebMusic\src\main\java\utils\DaoQueryUtils.java
 C:\workspace\WebMusic\src\main\java\dao\PlaylistDao.java
+C:\workspace\WebMusic\src\main\java\listeners\ListMusicListstener.java
 C:\workspace\WebMusic\src\main\java\controllers\AboutController.java
 C:\workspace\WebMusic\src\main\java\controllers\MusicController.java
 C:\workspace\WebMusic\src\main\java\controllers\home\Main.java
 C:\workspace\WebMusic\src\main\java\controllers\MenuController.java
+C:\workspace\WebMusic\src\main\java\controllers\ListMusicController.java
 C:\workspace\WebMusic\src\main\java\db\AuteurDb.java
+C:\workspace\WebMusic\src\main\java\mapper\MusiqueMapper.java
 C:\workspace\WebMusic\src\main\java\dao\AlbumDao.java
+C:\workspace\WebMusic\src\main\java\dto\MusiqueDto.java
 C:\workspace\WebMusic\src\main\java\db\AlbumDb.java
 C:\workspace\WebMusic\src\main\java\utils\InformationsUtils.java
 C:\workspace\WebMusic\src\main\java\controllers\AddMusicController.java

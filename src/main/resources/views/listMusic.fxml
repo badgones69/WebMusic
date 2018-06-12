@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListMusicController">
+    <top>
+        <fx:include source="menu.fxml" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="200.0" />
+                    </rowConstraints>
+                    <children>
+                        <TableView fx:id="listMusic" focusTraversable="false" maxWidth="1200.0" minHeight="850.0">
+                            <columns>
+                                <TableColumn fx:id="titreColumn" prefWidth="300.0" text="Titre" />
+                                <TableColumn fx:id="artisteColumn" editable="false" prefWidth="500.0" sortable="false" text="Artiste(s)" />
+                                <TableColumn fx:id="dureeColumn" prefWidth="100.0" text="Durée" />
+                                <TableColumn fx:id="albumColumn" prefWidth="300.0" text="Album" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

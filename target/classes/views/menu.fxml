@@ -1,3 +1,4 @@
+<!-- APP MENU VIEW -->
 <?import javafx.scene.control.*?>
 <MenuBar xmlns:fx="http://javafx.com/fxml/1" id="menuBar" xmlns="http://javafx.com/javafx/8.0.121"
          stylesheets="/styles/style.css"

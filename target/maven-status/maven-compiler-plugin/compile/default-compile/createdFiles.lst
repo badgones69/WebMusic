@@ -1,5 +1,8 @@
+listeners\ListMusicListstener.class
+controllers\ListMusicController.class
 utils\DaoQueryUtils.class
 controllers\AddMusicController.class
+mapper\MusiqueMapper.class
 dao\PlaylistDao.class
 controllers\AboutController.class
 dao\AlbumDao.class
@@ -16,5 +19,6 @@ controllers\MenuController.class
 dao\AuteurDao.class
 db\MusiqueDb.class
 controllers\MusicController.class
+dto\MusiqueDto.class
 utils\FormControlUtils.class
 dao\MusiqueDao.class

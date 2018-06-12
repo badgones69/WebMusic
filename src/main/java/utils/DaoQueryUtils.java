@@ -174,6 +174,17 @@ public class DaoQueryUtils {
         return query;
     }
 
+    public static String findBySpecificColumn(String tableName, String columnName, Integer searchedValue) {
+        String query = "SELECT * FROM ";
+        query += tableName;
+        query += " WHERE ";
+        query += columnName;
+        query += " = ";
+        query += searchedValue;
+
+        return query;
+    }
+
     private static String getIdColumnName(String tableName) {
         String idColumnName = null;
 
