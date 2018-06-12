@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="dao.TestAlbumDao" time="3.195" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="dao.TestAlbumDao" time="4.206" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2017.3.4"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -62,9 +62,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase classname="dao.TestAlbumDao" name="delete" time="1.11"/>
-  <testcase classname="dao.TestAlbumDao" name="insert" time="0.5"/>
-  <testcase classname="dao.TestAlbumDao" name="findAll" time="0.561"/>
-  <testcase classname="dao.TestAlbumDao" name="update" time="0.586"/>
-  <testcase classname="dao.TestAlbumDao" name="find" time="0.438"/>
+  <testcase classname="dao.TestAlbumDao" name="delete" time="1.836"/>
+  <testcase classname="dao.TestAlbumDao" name="insert" time="0.625"/>
+  <testcase classname="dao.TestAlbumDao" name="findAll" time="0.666"/>
+  <testcase classname="dao.TestAlbumDao" name="update" time="0.556"/>
+  <testcase classname="dao.TestAlbumDao" name="find" time="0.523"/>
 </testsuite>

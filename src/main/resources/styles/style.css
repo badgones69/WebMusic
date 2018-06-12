@@ -1,4 +1,4 @@
-#menuPane, #aboutPanel, #appCloseConfirmationPanel, #musicLengthErrorPanel, #musicValidationSuccessPanel, #musicArtistErrorPanel {
+.panel {
     -fx-background-color: #E6CCFF;
 }
 

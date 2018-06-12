@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.ListSelectionView?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="panel" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0"
             stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
