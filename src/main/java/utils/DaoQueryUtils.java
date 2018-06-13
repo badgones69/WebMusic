@@ -34,14 +34,14 @@ public class DaoQueryUtils {
     }
 
     private static String bindAlbumToInsert(AlbumDb albumDb) {
-        return "'" + albumDb.getTitreAlbum() + "')";
+        return "'" + albumDb.getTitreAlbum().replace("'", "''") + "')";
     }
 
     private static String bindAuteurToInsert(AuteurDb auteurDb) {
         String values = "'";
 
-        values += auteurDb.getNomAuteur() + "' , '";
-        values += auteurDb.getPrenomAuteur();
+        values += auteurDb.getNomAuteur().replace("'", "''") + "' , '";
+        values += auteurDb.getPrenomAuteur().replace("'", "''");
         values += "')";
 
         return values;
@@ -50,10 +50,10 @@ public class DaoQueryUtils {
     private static String bindMusiqueToInsert(MusiqueDb musiqueDb) {
         String values = "'";
 
-        values += musiqueDb.getTitreMusique() + "' , '";
+        values += musiqueDb.getTitreMusique().replace("'", "''") + "' , '";
         values += musiqueDb.getDureeMusique() + "' , '";
         values += musiqueDb.getDateInsertionMusique() + "' , '";
-        values += musiqueDb.getNomFichierMusique() + "' , ";
+        values += musiqueDb.getNomFichierMusique().replace("'", "''") + "' , ";
         values += musiqueDb.getAlbumMusique().getNumeroAlbum();
         values += ")";
 
@@ -61,7 +61,7 @@ public class DaoQueryUtils {
     }
 
     private static String bindPlaylistToInsert(PlaylistDb playlistDb) {
-        return "'" + playlistDb.getIntitulePlaylist() + "')";
+        return "'" + playlistDb.getIntitulePlaylist().replace("'", "''") + "')";
     }
 
     /**
@@ -91,15 +91,15 @@ public class DaoQueryUtils {
     }
 
     private static String bindAlbumToUpdate(String tableName, AlbumDb albumDb) {
-        return "titreAlbum = '" + albumDb.getTitreAlbum() + "'" +
+        return "titreAlbum = '" + albumDb.getTitreAlbum().replace("'", "''") + "'" +
                 " WHERE " + getIdColumnName(tableName) + " = " + albumDb.getNumeroAlbum();
     }
 
     private static String bindAuteurToUpdate(String tableName, AuteurDb auteurDb) {
         String values = "";
 
-        values += "nomAuteur = '" + auteurDb.getNomAuteur() + "', ";
-        values += "prenomAuteur = '" + auteurDb.getPrenomAuteur() + "'";
+        values += "nomAuteur = '" + auteurDb.getNomAuteur().replace("'", "''") + "', ";
+        values += "prenomAuteur = '" + auteurDb.getPrenomAuteur().replace("'", "''") + "'";
         values += " WHERE ";
         values += getIdColumnName(tableName);
         values += " = ";
@@ -111,10 +111,10 @@ public class DaoQueryUtils {
     private static String bindMusiqueToUpdate(String tableName, MusiqueDb musiqueDb) {
         String values = "";
 
-        values += "titreMusique = '" + musiqueDb.getTitreMusique() + "', ";
+        values += "titreMusique = '" + musiqueDb.getTitreMusique().replace("'", "''") + "', ";
         values += "dureeMusique = '" + musiqueDb.getDureeMusique() + "', ";
         values += "dateInsertionMusique = '" + musiqueDb.getDateInsertionMusique() + "', ";
-        values += "nomFichierMusique = '" + musiqueDb.getNomFichierMusique() + "', ";
+        values += "nomFichierMusique = '" + musiqueDb.getNomFichierMusique().replace("'", "''") + "', ";
         values += "albumMusique = " + musiqueDb.getAlbumMusique().getNumeroAlbum();
         values += " WHERE ";
         values += getIdColumnName(tableName);
@@ -125,7 +125,7 @@ public class DaoQueryUtils {
     }
 
     private static String bindPlaylistToUpdate(String tableName, PlaylistDb playlistDb) {
-        return "intitulePlaylist = '" + playlistDb.getIntitulePlaylist() + "'" +
+        return "intitulePlaylist = '" + playlistDb.getIntitulePlaylist().replace("'", "''") + "'" +
                 " WHERE " + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
     }
 
@@ -169,7 +169,7 @@ public class DaoQueryUtils {
         query += " WHERE ";
         query += columnName;
         query += " = ";
-        query += "'" + searchedValue + "'";
+        query += "'" + searchedValue.replace("'", "''") + "'";
 
         return query;
     }
