@@ -1,8 +1,13 @@
 package mapper;
 
+import dao.AlbumDao;
+import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
 import dto.MusiqueDto;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import listeners.listMusic.ListMusicSelectionListener;
 
 import java.util.List;
 
@@ -27,6 +32,25 @@ public class MusiqueMapper {
             musiqueDto.setTitreAlbumMusique(musiqueDb.getAlbumMusique().getTitreAlbum());
         }
         return musiqueDto;
+    }
+
+    // MusiqueDto TO MusiqueDb CONVERTING
+    public static MusiqueDb toDb(MusiqueDto musiqueDto) {
+        AlbumDao albumDao = new AlbumDao();
+        MusiqueDb musiqueDb = new MusiqueDb();
+
+        musiqueDb.setCodeMusique(musiqueDto.getCodeMusique());
+        musiqueDb.setTitreMusique(musiqueDto.getTitreMusique());
+        musiqueDb.setDureeMusique(musiqueDto.getDureeMusique());
+        musiqueDb.setDateInsertionMusique(musiqueDto.getDateInsertionMusique());
+        musiqueDb.setNomFichierMusique(musiqueDto.getNomFichierMusique());
+
+        if(musiqueDto.getNumeroAlbumMusique() == null) {
+            musiqueDb.setAlbumMusique(null);
+        } else {
+            musiqueDb.setAlbumMusique(albumDao.find(musiqueDto.getNumeroAlbumMusique()));
+        }
+        return musiqueDb;
     }
 
     // METHOD TO DISPLAY MUSIC'S ARTIST(S) NAME(S) INLINE

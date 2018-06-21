@@ -15,12 +15,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import utils.DaoTestsUtils;
-import utils.FormControlUtils;
+import utils.FormUtils;
+import utils.WindowUtils;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class AddMusicController extends MusicController implements Initializable {
@@ -46,10 +45,7 @@ public class AddMusicController extends MusicController implements Initializable
         super.nomFichier.clear();
 
         // "dateInsertion" FIELD INITIALIZATION
-        Date currentDate = Calendar.getInstance().getTime();
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String dateInsertionText = formatter.format(currentDate);
-        super.dateInsertion.setText(dateInsertionText);
+        super.dateInsertion.setText(FormUtils.getCurrentDate());
 
         // "album" FIELD INITIALIZATION
         AlbumDao albumDao = new AlbumDao();
@@ -91,7 +87,7 @@ public class AddMusicController extends MusicController implements Initializable
     // MUSIC ADDING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        if (!FormControlUtils.dureeMusiqueIsValid(duree.getText())) {
+        if (!FormUtils.dureeMusiqueIsValid(duree.getText())) {
             Stage stage = new Stage();
 
             try {
@@ -158,10 +154,13 @@ public class AddMusicController extends MusicController implements Initializable
             Stage stage = new Stage();
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/musicValidationSuccess.fxml"));
+                WindowUtils.setActionDone("ajoutée");
+                MusicController musicController = new MusicController();
+                musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));
                 stage.setTitle(super.informationsUtils.buildStageTitle(null));
                 stage.setScene(new Scene(root, 390, 140));
-                super.setMusicValidationSuccessStage(stage);
+                super.setMusicActionSuccessStage(stage);
                 stage.show();
 
             } catch (IOException e) {

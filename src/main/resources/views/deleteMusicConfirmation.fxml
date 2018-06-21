@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- FORM VALIDATION SUCCESSFUL POP-UP VIEW -->
+<!-- MUSIC DELETING CONFIRMATION POP-UP VIEW -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,18 +9,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <HBox xmlns:fx="http://javafx.com/fxml/1" styleClass="panel" alignment="CENTER" maxHeight="-Infinity"
-      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="380.0"
+      maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="650.0"
       stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
-      fx:controller="controllers.MusicController">
+      fx:controller="controllers.MusicDeleteConfirmationController">
     <children>
         <ImageView fitHeight="90.0" fitWidth="150.0" preserveRatio="true">
             <image>
-                <Image url="@../icons/success.png"/>
+                <Image url="@../icons/question.png"/>
             </image>
         </ImageView>
-        <GridPane prefHeight="113.0" prefWidth="359.0">
+        <GridPane prefHeight="113.0" prefWidth="559.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="500.0"/>
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES"/>
@@ -29,21 +30,23 @@
                                 vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
-                <VBox id="musicValidationSuccessVBox" alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="230.0">
+                <VBox id="deleteConfirmationQuestionVBox" alignment="BOTTOM_CENTER" prefHeight="150.0"
+                      prefWidth="500.0">
                     <children>
-                        <Label fx:id="musicValidationSuccessLabel">
+                        <Label fx:id="" text="Êtes-vous sûr(e) de bien vouloir supprimer cette musique ?">
                             <font>
                                 <Font size="19.0"/>
                             </font>
                         </Label>
                     </children>
                 </VBox>
-                <HBox id="musicValidationSuccessButtonHBox" alignment="TOP_CENTER" prefHeight="52.0" prefWidth="280.0"
+                <HBox id="deleteConfirmationButtonsHBox" styleClass="confirmationButtonsHBox" alignment="TOP_CENTER" prefHeight="52.0" prefWidth="280.0"
                       GridPane.rowIndex="2">
                     <children>
-                        <Button id="musicValidationSuccessButton" alignment="TOP_CENTER" contentDisplay="CENTER"
-                                mnemonicParsing="false" onAction="#musicValidationSuccessCloseButtonClicked"
-                                prefWidth="65.0" text="OK"/>
+                        <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onAction="#musicDeleteYesClicked" prefWidth="65.0" styleClass="yesButton" text="Oui"/>
+                        <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onAction="#musicDeleteNoClicked" prefWidth="65.0" styleClass="noButton" text="Non"/>
                     </children>
                 </HBox>
             </children>

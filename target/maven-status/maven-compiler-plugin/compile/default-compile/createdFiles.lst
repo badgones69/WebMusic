@@ -1,8 +1,9 @@
-listeners\ListMusicListstener.class
+listeners\listMusic\ListMusicSelectionListener.class
 controllers\ListMusicController.class
 utils\DaoQueryUtils.class
 controllers\AddMusicController.class
 mapper\MusiqueMapper.class
+utils\WindowUtils.class
 dao\PlaylistDao.class
 controllers\AboutController.class
 dao\AlbumDao.class
@@ -12,6 +13,7 @@ db\PlaylistDb.class
 controllers\home\Main.class
 db\AlbumDb.class
 database\SQLiteConnection.class
+controllers\MusicDeleteConfirmationController.class
 utils\DaoTestsUtils.class
 dao\AbstractDao.class
 db\AuteurDb.class

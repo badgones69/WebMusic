@@ -6,20 +6,34 @@ import dto.MusiqueDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
-import listeners.ListMusicListstener;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import listeners.listMusic.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
+import utils.InformationsUtils;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListMusicController implements Initializable {
+
+    // MUSIC DELETING CONFIRMATION POP-UP STAGE
+    private static Stage musicDeleteConfirmationStage;
+
+    private InformationsUtils informationsUtils = new InformationsUtils();
 
     /**
      * MUSIC LIST COLUMNS
@@ -40,6 +54,15 @@ public class ListMusicController implements Initializable {
     @FXML
     private TableColumn<MusiqueDto, String> albumColumn = new TableColumn<>();
 
+    @FXML
+    private ImageView playingActionImageView = new ImageView();
+
+    @FXML
+    private ImageView updatingActionImageView = new ImageView();
+
+    @FXML
+    private ImageView deletingActionImageView = new ImageView();
+
     /**
      * MUSIC LIST INITIALIZATION
      */
@@ -50,6 +73,15 @@ public class ListMusicController implements Initializable {
     }
 
     private void initializeList() {
+        Tooltip playingActionTooltip = new Tooltip("Lire");
+        Tooltip.install(playingActionImageView, playingActionTooltip);
+
+        Tooltip updatingActionTooltip = new Tooltip("Modifier");
+        Tooltip.install(updatingActionImageView, updatingActionTooltip);
+
+        Tooltip deletingActionTooltip = new Tooltip("Supprimer");
+        Tooltip.install(deletingActionImageView, deletingActionTooltip);
+
         MusiqueDao musiqueDao = new MusiqueDao();
         ObservableList<MusiqueDto> listMusiques = FXCollections.observableArrayList();
         List<MusiqueDb> musiquesDb = musiqueDao.findAll();
@@ -70,17 +102,43 @@ public class ListMusicController implements Initializable {
 
             MusiqueDto musiqueDto = this.listMusic.getItems().get(i);
 
-
-
             titreColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("titreMusique"));
             artisteColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("auteurs"));
             dureeColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("dureeMusique"));
             albumColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("titreAlbumMusique"));
             listMusic.getColumns().clear();
             listMusic.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-            listMusic.setOnMouseClicked(new ListMusicListstener());
+            listMusic.setOnMouseClicked(new ListMusicSelectionListener());
             listMusic.getColumns().addAll(titreColumn, artisteColumn, dureeColumn, albumColumn);
             listMusic.getSortOrder().add(titreColumn);
         }
+    }
+
+    // MUSIC DELETING ICON CLICKED
+    public void musicDeletingButtonClicked(MouseEvent mouseEvent) {
+        Stage stage = new Stage();
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/deleteMusicConfirmation.fxml"));
+            stage.setTitle(informationsUtils.buildStageTitle("Suppression d'une musique"));
+            stage.setScene(new Scene(root, 630, 140));
+            this.setMusicDeleteConfirmationStage(stage);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getMusicDeleteConfirmationStage() {
+        return musicDeleteConfirmationStage;
+    }
+
+    public static void setMusicDeleteConfirmationStage(Stage musicDeleteConfirmationStage) {
+        ListMusicController.musicDeleteConfirmationStage = musicDeleteConfirmationStage;
     }
 }

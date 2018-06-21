@@ -1,6 +1,5 @@
 package dto;
 
-import db.AuteurDb;
 import db.PlaylistDb;
 
 import java.util.List;

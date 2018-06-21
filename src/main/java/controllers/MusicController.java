@@ -4,6 +4,7 @@ import controllers.home.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -13,11 +14,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.ListSelectionView;
 import utils.InformationsUtils;
+import utils.WindowUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MusicController {
+public class MusicController implements Initializable {
 
     // MUSIC's LENGTH ERROR POP-UP STAGE
     protected static Stage musicLengthErrorStage;
@@ -25,13 +29,17 @@ public class MusicController {
     // MUSIC's ARTIST(S) ERROR POP-UP STAGE
     protected static Stage musicArtistErrorStage;
 
-    // MUSIC FORM VALIDATION SUCCESSFUL POP-UP STAGE
-    protected static Stage musicValidationSuccessStage;
+    // MUSIC ACTION SUCCESSFUL POP-UP STAGE
+    protected static Stage musicActionSuccessStage;
 
     // MUSIC LIST PAGE STAGE
     protected static Stage listMusicStage;
 
     protected final InformationsUtils informationsUtils = new InformationsUtils();
+
+    // MUSIC ACTION SUCCESSFUL POP-UP LABEL
+    @FXML
+    private Label musicActionSuccessLabel = new Label();
 
     /**
      * MUSIC FORM FIELDS
@@ -55,6 +63,12 @@ public class MusicController {
     @FXML
     protected ListSelectionView<Label> artistes = new ListSelectionView<>();
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        this.musicActionSuccessLabel.setText("Votre musique a bien été " + WindowUtils.getActionDone() + ".");
+    }
+
     // MUSIC SELECTION FILE CHOOSER OPENING
     public void openMusicFileChooser(ActionEvent actionEvent) {
         FileChooser musicFileChooser = new FileChooser();
@@ -77,9 +91,9 @@ public class MusicController {
         getMusicArtistErrorStage().close();
     }
 
-    // MUSIC FORM VALIDATION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
-    public void musicValidationSuccessCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicValidationSuccessStage().close();
+    // MUSIC ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
+    public void musicActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
+        getMusicActionSuccessStage().close();
 
         Stage homeStage = Main.getHomeStage();
 
@@ -116,12 +130,12 @@ public class MusicController {
         MusicController.musicArtistErrorStage = musicArtistErrorStage;
     }
 
-    public static Stage getMusicValidationSuccessStage() {
-        return musicValidationSuccessStage;
+    public static Stage getMusicActionSuccessStage() {
+        return musicActionSuccessStage;
     }
 
-    public static void setMusicValidationSuccessStage(Stage musicValidationSuccessStage) {
-        MusicController.musicValidationSuccessStage = musicValidationSuccessStage;
+    public static void setMusicActionSuccessStage(Stage musicActionSuccessStage) {
+        MusicController.musicActionSuccessStage = musicActionSuccessStage;
     }
 
     public static Stage getListMusicStage() {

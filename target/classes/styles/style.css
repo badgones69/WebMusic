@@ -33,7 +33,7 @@
     -fx-background-color: #FF0000;
 }
 
-#appCloseConfirmationButtonsHBox {
+.confirmationButtonsHBox {
     -fx-spacing: 30;
 }
 
@@ -52,10 +52,6 @@
 
 .formField {
     -fx-font-size: 18;
-}
-
-#musicValidationSuccessPanel {
-    -fx-padding: 0 0 0 10;
 }
 
 .table-column, .table-cell{

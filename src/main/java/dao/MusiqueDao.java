@@ -8,10 +8,7 @@ import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 
 import javax.transaction.TransactionalException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +34,7 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
             Integer musiqueIdGenerated = result.getInt("codeMusique");
             idMusiqueStatement.close();
 
-            // MUSIC ARTIST(S) INSERTION
+            // MUSIC/ARTIST(S) ASSIGNMENT
             PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
 
             for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
@@ -67,9 +64,21 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
     @Override
     public void delete(MusiqueDb musiqueDb) throws TransactionalException {
         try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("musique", musiqueDb.getCodeMusique()));
-            statement.executeUpdate();
+            MusiqueDao musiqueDao = new MusiqueDao();
+
+            PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("DELETE FROM posseder WHERE codeMusique=" + musiqueDb.getCodeMusique());
+            artistesMusiqueStatement.executeUpdate();
+            artistesMusiqueStatement.close();
+
+            PreparedStatement musiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("musique", musiqueDb.getCodeMusique()));
+            musiqueStatement.executeUpdate();
+            musiqueStatement.close();
+
+            Integer nbMusiques = musiqueDao.findAll().size();
+            Statement statement = SQLiteConnection.getInstance().createStatement();
+            statement.execute("UPDATE sqlite_sequence SET seq = '" + nbMusiques + "' WHERE name = 'musique'");
             statement.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

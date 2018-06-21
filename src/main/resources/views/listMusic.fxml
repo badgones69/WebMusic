@@ -2,20 +2,23 @@
 
 <!-- MUSIC LIST PAGE VIEW -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane styleClass="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListMusicController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0" styleClass="panel" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListMusicController">
     <top>
         <fx:include source="menu.fxml" />
     </top>
     <center>
-        <VBox alignment="CENTER" prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="898.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
             <children>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
@@ -38,4 +41,28 @@
             </children>
         </VBox>
     </center>
+    <right>
+        <VBox alignment="CENTER" prefHeight="966.0" prefWidth="480.0">
+            <children>
+                <ImageView fx:id="playingActionImageView">
+                    <image>
+                        <Image url="@../icons/playing.png" />
+                    </image>
+               <VBox.margin>
+                  <Insets bottom="105.0" />
+               </VBox.margin>
+                </ImageView>
+                <ImageView fx:id="updatingActionImageView" preserveRatio="true">
+                    <image>
+                        <Image url="@../icons/updating.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="deletingActionImageView" onMouseClicked="#musicDeletingButtonClicked">
+                    <image>
+                        <Image url="@../icons/deleting.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+    </right>
 </BorderPane>
