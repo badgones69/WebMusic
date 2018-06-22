@@ -36,32 +36,61 @@ public class MusicController implements Initializable {
     protected static Stage listMusicStage;
 
     protected final InformationsUtils informationsUtils = new InformationsUtils();
-
-    // MUSIC ACTION SUCCESSFUL POP-UP LABEL
-    @FXML
-    private Label musicActionSuccessLabel = new Label();
-
     /**
      * MUSIC FORM FIELDS
      */
 
     @FXML
     protected TextField titre = new TextField();
-
     @FXML
     protected TextField duree = new TextField();
-
     @FXML
     protected TextField dateInsertion = new TextField();
-
     @FXML
     protected TextField nomFichier = new TextField();
-
     @FXML
     protected ComboBox<String> album = new ComboBox<>();
-
     @FXML
     protected ListSelectionView<Label> artistes = new ListSelectionView<>();
+    // MUSIC ACTION SUCCESSFUL POP-UP LABEL
+    @FXML
+    private Label musicActionSuccessLabel = new Label();
+
+    /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getMusicLengthErrorStage() {
+        return musicLengthErrorStage;
+    }
+
+    public static void setMusicLengthErrorStage(Stage musicLengthErrorStage) {
+        AddMusicController.musicLengthErrorStage = musicLengthErrorStage;
+    }
+
+    public static Stage getMusicArtistErrorStage() {
+        return musicArtistErrorStage;
+    }
+
+    public static void setMusicArtistErrorStage(Stage musicArtistErrorStage) {
+        MusicController.musicArtistErrorStage = musicArtistErrorStage;
+    }
+
+    public static Stage getMusicActionSuccessStage() {
+        return musicActionSuccessStage;
+    }
+
+    public static void setMusicActionSuccessStage(Stage musicActionSuccessStage) {
+        MusicController.musicActionSuccessStage = musicActionSuccessStage;
+    }
+
+    public static Stage getListMusicStage() {
+        return listMusicStage;
+    }
+
+    public static void setListMusicStage(Stage listMusicStage) {
+        MusicController.listMusicStage = listMusicStage;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -108,41 +137,5 @@ public class MusicController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getMusicLengthErrorStage() {
-        return musicLengthErrorStage;
-    }
-
-    public static void setMusicLengthErrorStage(Stage musicLengthErrorStage) {
-        AddMusicController.musicLengthErrorStage = musicLengthErrorStage;
-    }
-
-    public static Stage getMusicArtistErrorStage() {
-        return musicArtistErrorStage;
-    }
-
-    public static void setMusicArtistErrorStage(Stage musicArtistErrorStage) {
-        MusicController.musicArtistErrorStage = musicArtistErrorStage;
-    }
-
-    public static Stage getMusicActionSuccessStage() {
-        return musicActionSuccessStage;
-    }
-
-    public static void setMusicActionSuccessStage(Stage musicActionSuccessStage) {
-        MusicController.musicActionSuccessStage = musicActionSuccessStage;
-    }
-
-    public static Stage getListMusicStage() {
-        return listMusicStage;
-    }
-
-    public static void setListMusicStage(Stage listMusicStage) {
-        MusicController.listMusicStage = listMusicStage;
     }
 }

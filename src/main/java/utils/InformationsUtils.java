@@ -23,7 +23,7 @@ public class InformationsUtils {
 
     // STAGE TITLE BUILDING
     public String buildStageTitle(String title) {
-        if(title == null) {
+        if (title == null) {
             return "WebMsuic " + getVersionApplication();
         } else {
             return "WebMsuic " + getVersionApplication() + " - " + title;

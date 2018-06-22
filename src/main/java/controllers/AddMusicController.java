@@ -72,8 +72,8 @@ public class AddMusicController extends MusicController implements Initializable
         for (AuteurDb auteurDb : listAuteursValues) {
             auteurSourceValues.add(new Label(
                     auteurDb.getPrenomAuteur() != null ?
-                    (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
-                    auteurDb.getNomAuteur()
+                            (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
+                            auteurDb.getNomAuteur()
             ));
         }
 

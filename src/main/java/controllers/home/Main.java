@@ -27,6 +27,26 @@ public class Main extends Application {
         launch(args);
     }
 
+    /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getHomeStage() {
+        return Main.homeStage;
+    }
+
+    private void setHomeStage(Stage stage) {
+        Main.homeStage = stage;
+    }
+
+    public static Stage getAppCloseConfirmationStage() {
+        return appCloseConfirmationStage;
+    }
+
+    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
+        Main.appCloseConfirmationStage = appCloseConfirmationStage;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
@@ -65,25 +85,5 @@ public class Main extends Application {
             e.printStackTrace();
             return null;
         }
-    }
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getHomeStage() {
-        return Main.homeStage;
-    }
-
-    private void setHomeStage(Stage stage) {
-        Main.homeStage = stage;
-    }
-
-    public static Stage getAppCloseConfirmationStage() {
-        return appCloseConfirmationStage;
-    }
-
-    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
-        Main.appCloseConfirmationStage = appCloseConfirmationStage;
     }
 }

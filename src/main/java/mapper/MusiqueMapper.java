@@ -20,7 +20,7 @@ public class MusiqueMapper {
         musiqueDto.setNomFichierMusique(musiqueDb.getNomFichierMusique());
         musiqueDto.setAuteurs(artistsListInString(musiqueDb.getListeAuteurs()));
 
-        if(musiqueDb.getAlbumMusique() == null) {
+        if (musiqueDb.getAlbumMusique() == null) {
             musiqueDto.setNumeroAlbumMusique(null);
             musiqueDto.setTitreAlbumMusique("-");
         } else {
@@ -41,7 +41,7 @@ public class MusiqueMapper {
         musiqueDb.setDateInsertionMusique(musiqueDto.getDateInsertionMusique());
         musiqueDb.setNomFichierMusique(musiqueDto.getNomFichierMusique());
 
-        if(musiqueDto.getNumeroAlbumMusique() == null) {
+        if (musiqueDto.getNumeroAlbumMusique() == null) {
             musiqueDb.setAlbumMusique(null);
         } else {
             musiqueDb.setAlbumMusique(albumDao.find(musiqueDto.getNumeroAlbumMusique()));
@@ -54,13 +54,13 @@ public class MusiqueMapper {
         String stringList = "";
 
         for (int i = 0; i < artistsList.size(); i++) {
-            if(artistsList.get(i).getPrenomAuteur() != null) {
+            if (artistsList.get(i).getPrenomAuteur() != null) {
                 stringList += artistsList.get(i).getPrenomAuteur() + " ";
             }
 
             stringList += artistsList.get(i).getNomAuteur();
 
-            if(i != artistsList.size()-1) {
+            if (i != artistsList.size() - 1) {
                 stringList += " & ";
             }
         }

@@ -18,6 +18,18 @@ public class MenuController {
     private final InformationsUtils informationsUtils = new InformationsUtils();
 
     /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getAboutStage() {
+        return MenuController.aboutStage;
+    }
+
+    private void setAboutStage(Stage stage) {
+        MenuController.aboutStage = stage;
+    }
+
+    /**
      * ITEMS LISTENERS OF "WebMusic" MENU
      */
 
@@ -107,17 +119,5 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getAboutStage() {
-        return MenuController.aboutStage;
-    }
-
-    private void setAboutStage(Stage stage) {
-        MenuController.aboutStage = stage;
     }
 }

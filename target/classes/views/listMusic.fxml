@@ -13,27 +13,32 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0" styleClass="panel" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListMusicController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="998.0" prefWidth="1920.0" styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="controllers.ListMusicController">
     <top>
-        <fx:include source="menu.fxml" />
+        <fx:include source="menu.fxml"/>
     </top>
     <center>
         <VBox alignment="CENTER" prefHeight="898.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
             <children>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="200.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="200.0"/>
                     </rowConstraints>
                     <children>
                         <TableView fx:id="listMusic" focusTraversable="false" maxWidth="1200.0" minHeight="850.0">
                             <columns>
-                                <TableColumn fx:id="titreColumn" prefWidth="300.0" text="Titre" />
-                                <TableColumn fx:id="artisteColumn" editable="false" prefWidth="500.0" sortable="false" text="Artiste(s)" />
-                                <TableColumn fx:id="dureeColumn" prefWidth="100.0" text="Durée" />
-                                <TableColumn fx:id="albumColumn" prefWidth="300.0" text="Album" />
+                                <TableColumn fx:id="titreColumn" prefWidth="300.0" text="Titre"/>
+                                <TableColumn fx:id="artisteColumn" editable="false" prefWidth="500.0" sortable="false"
+                                             text="Artiste(s)"/>
+                                <TableColumn fx:id="dureeColumn" prefWidth="100.0" text="Durée"/>
+                                <TableColumn fx:id="albumColumn" prefWidth="300.0" text="Album"/>
                             </columns>
                         </TableView>
                     </children>
@@ -46,20 +51,20 @@
             <children>
                 <ImageView fx:id="playingActionImageView">
                     <image>
-                        <Image url="@../icons/playing.png" />
+                        <Image url="@../icons/playing.png"/>
                     </image>
-               <VBox.margin>
-                  <Insets bottom="105.0" />
-               </VBox.margin>
+                    <VBox.margin>
+                        <Insets bottom="105.0"/>
+                    </VBox.margin>
                 </ImageView>
                 <ImageView fx:id="updatingActionImageView" preserveRatio="true">
                     <image>
-                        <Image url="@../icons/updating.png" />
+                        <Image url="@../icons/updating.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="deletingActionImageView" onMouseClicked="#musicDeletingButtonClicked">
                     <image>
-                        <Image url="@../icons/deleting.png" />
+                        <Image url="@../icons/deleting.png"/>
                     </image>
                 </ImageView>
             </children>

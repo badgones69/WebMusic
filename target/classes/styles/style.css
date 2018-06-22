@@ -54,7 +54,7 @@
     -fx-font-size: 18;
 }
 
-.table-column, .table-cell{
+.table-column, .table-cell {
     -fx-font-size: 18;
     -fx-alignment: BASELINE_CENTER;
     -fx-border-width: 0.5px;

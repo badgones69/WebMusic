@@ -10,16 +10,16 @@ public class ListMusicSelectionListener implements EventHandler<MouseEvent> {
     // SELECTED MUSIC IN MUSIC LIST
     private static MusiqueDto musiqueSelected;
 
+    // GETTER
+    public static MusiqueDto getMusiqueSelected() {
+        return musiqueSelected;
+    }
+
     // METHOD TO CONSERVE THE SELECTED MUSIC IN MUSIC LIST
     @Override
     public void handle(MouseEvent event) {
         TableView<MusiqueDto> table = (TableView<MusiqueDto>) event.getSource();
         musiqueSelected = table.getSelectionModel().getSelectedItem();
-    }
-
-    // GETTER
-    public static MusiqueDto getMusiqueSelected() {
-        return musiqueSelected;
     }
 
 }

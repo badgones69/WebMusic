@@ -64,6 +64,18 @@ public class ListMusicController implements Initializable {
     private ImageView deletingActionImageView = new ImageView();
 
     /**
+     * GETTERS AND SETTERS
+     */
+
+    public static Stage getMusicDeleteConfirmationStage() {
+        return musicDeleteConfirmationStage;
+    }
+
+    public static void setMusicDeleteConfirmationStage(Stage musicDeleteConfirmationStage) {
+        ListMusicController.musicDeleteConfirmationStage = musicDeleteConfirmationStage;
+    }
+
+    /**
      * MUSIC LIST INITIALIZATION
      */
 
@@ -128,17 +140,5 @@ public class ListMusicController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getMusicDeleteConfirmationStage() {
-        return musicDeleteConfirmationStage;
-    }
-
-    public static void setMusicDeleteConfirmationStage(Stage musicDeleteConfirmationStage) {
-        ListMusicController.musicDeleteConfirmationStage = musicDeleteConfirmationStage;
     }
 }
