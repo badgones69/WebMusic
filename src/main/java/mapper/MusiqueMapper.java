@@ -1,13 +1,9 @@
 package mapper;
 
 import dao.AlbumDao;
-import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
 import dto.MusiqueDto;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import listeners.listMusic.ListMusicSelectionListener;
 
 import java.util.List;
 
