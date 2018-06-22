@@ -1,6 +1,11 @@
+/* ANY WINDOW PANEL */
 .panel {
     -fx-background-color: #E6CCFF;
 }
+
+/**
+ * APP MENU
+ */
 
 #menuBar, #menuBar .menu, #menuBar .menu-item {
     -fx-background-color: #80BFFF;
@@ -23,23 +28,31 @@
     -fx-font-size: 40;
 }
 
+/* ANY CONFIRMATION POP-UP "YES" BUTTON AND ANY FORM VALIDATION BUTTON */
 .yesButton {
     -fx-font-weight: bold;
     -fx-background-color: #00FF00;
 }
 
+/* ANY CONFIRMATION POP-UP "NO" BUTTON AND ANY FORM CANCELING BUTTON */
 .noButton {
     -fx-font-weight: bold;
     -fx-background-color: #FF0000;
 }
 
+/* ANY CONFIRMATION POP-UP BUTTON */
 .confirmationButtonsHBox {
     -fx-spacing: 30;
 }
 
+/* ANY FORM VALIDATION AND CANCELING BUTTON */
 .formButtonsHBox {
     -fx-spacing: 280;
 }
+
+/**
+ * ANY FORM
+ */
 
 .formTitle {
     /*TOP, RIGHT, BOTTOM, LEFT*/
@@ -53,6 +66,10 @@
 .formField {
     -fx-font-size: 18;
 }
+
+/**
+ * ANY LIST
+ */
 
 .table-column, .table-cell{
     -fx-font-size: 18;
