@@ -6,6 +6,7 @@ import dao.MusiqueDao;
 import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
+import dto.MusiqueDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import listeners.listMusic.ListMusicSelectionListener;
+import mapper.MusiqueMapper;
 import org.controlsfx.control.ListSelectionView;
 import utils.DaoTestsUtils;
 import utils.FormUtils;
@@ -29,10 +32,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AddMusicController extends MusicController implements Initializable {
+public class EditMusicController extends MusicController implements Initializable {
 
     /**
-     * MUSIC ADDING FORM FIELDS
+     * MUSIC EDITING FORM FIELDS
      */
 
     @FXML
@@ -49,7 +52,7 @@ public class AddMusicController extends MusicController implements Initializable
     protected ListSelectionView<Label> artistes = new ListSelectionView<>();
 
     /**
-     * MUSIC ADDING FORM INITIALIZATION
+     * MUSIC EDITING FORM INITIALIZATION
      */
 
     @Override
@@ -58,18 +61,20 @@ public class AddMusicController extends MusicController implements Initializable
     }
 
     private void initializeForm() {
+        MusiqueDto musiqueDto = ListMusicSelectionListener.getMusiqueSelected();
+        MusiqueDb musiqueDb = MusiqueMapper.toDb(musiqueDto);
 
         // "titre" FIELD INITIALIZATION
-        this.titre.clear();
+        this.titre.setText(musiqueDb.getTitreMusique());
 
         // "durée" FIELD INITIALIZATION
-        this.duree.clear();
+        this.duree.setText(musiqueDb.getDureeMusique());
 
         // "nomFichier" FIELD INITIALIZATION
-        this.nomFichier.clear();
+        this.nomFichier.setText(musiqueDb.getNomFichierMusique());
 
         // "dateInsertion" FIELD INITIALIZATION
-        this.dateInsertion.setText(FormUtils.getCurrentDate());
+        this.dateInsertion.setText(musiqueDb.getDateInsertionMusique());
 
         // "album" FIELD INITIALIZATION
         AlbumDao albumDao = new AlbumDao();
@@ -82,16 +87,21 @@ public class AddMusicController extends MusicController implements Initializable
 
         this.album.getItems().clear();
         this.album.getItems().addAll(albumValues);
-        this.album.setValue(null);
 
+        if (musiqueDb.getAlbumMusique() != null) {
+            this.album.setValue(musiqueDb.getAlbumMusique().getTitreAlbum());
+        } else {
+            this.album.setValue(null);
+        }
         // "artistes" PICKLIST INITIALIZATION
         Label sourceLabel = new Label("Liste des artistes");
         sourceLabel.setStyle("-fx-font-weight:bold");
         this.artistes.setSourceHeader(sourceLabel);
         AuteurDao auteurDao = new AuteurDao();
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
-        List<AuteurDb> listAuteursValues = auteurDao.findAll();
-        for (AuteurDb auteurDb : listAuteursValues) {
+        List<AuteurDb> listAuteursSourceValues = auteurDao.findAll();
+        listAuteursSourceValues.removeAll(musiqueDb.getListeAuteurs());
+        for (AuteurDb auteurDb : listAuteursSourceValues) {
             auteurSourceValues.add(new Label(
                     auteurDb.getPrenomAuteur() != null ?
                             (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
@@ -105,7 +115,17 @@ public class AddMusicController extends MusicController implements Initializable
         Label targetLabel = new Label("Artiste(s) de la musique");
         targetLabel.setStyle("-fx-font-weight:bold");
         this.artistes.setTargetHeader(targetLabel);
+        ObservableList<Label> auteurTargetValues = FXCollections.observableArrayList();
+        List<AuteurDb> listAuteursTargetValues = musiqueDb.getListeAuteurs();
+        for (AuteurDb auteurDb : listAuteursTargetValues) {
+            auteurTargetValues.add(new Label(
+                    auteurDb.getPrenomAuteur() != null ?
+                            (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
+                            auteurDb.getNomAuteur()
+            ));
+        }
         this.artistes.getTargetItems().clear();
+        this.artistes.getTargetItems().addAll(auteurTargetValues);
     }
 
     // MUSIC SELECTION FILE CHOOSER OPENING
@@ -113,17 +133,17 @@ public class AddMusicController extends MusicController implements Initializable
         this.nomFichier.setText(super.getFileSelected(actionEvent));
     }
 
-    // MUSIC ADDING FORM VALIDATION AND SENDING
+    // MUSIC EDITING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        if (!FormUtils.dureeMusiqueIsValid(duree.getText())) {
+        if (!FormUtils.dureeMusiqueIsValid(this.duree.getText())) {
             Stage stage = new Stage();
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicLengthError.fxml"));
                 stage.setTitle(super.informationsUtils.buildStageTitle(null));
                 stage.setScene(new Scene(root, 330, 140));
-                this.setMusicLengthErrorStage(stage);
+                super.setMusicLengthErrorStage(stage);
                 stage.show();
 
             } catch (IOException e) {
@@ -131,7 +151,7 @@ public class AddMusicController extends MusicController implements Initializable
             }
         }
 
-        if (artistes.getTargetItems().size() == 0) {
+        if (this.artistes.getTargetItems().size() == 0) {
             Stage stage = new Stage();
 
             try {
@@ -144,16 +164,19 @@ public class AddMusicController extends MusicController implements Initializable
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
+        }
+
+        if (FormUtils.dureeMusiqueIsValid(this.duree.getText()) && this.artistes.getTargetItems().size() > 0) {
             MusiqueDb musique = new MusiqueDb();
             AlbumDb albumMusique = new AlbumDb();
             List<AuteurDb> artistesMusique = new ArrayList<>();
 
-            if (album.getValue() != null) {
-                albumMusique.setTitreAlbum(album.getValue());
+            if (this.album.getValue() != null) {
+                albumMusique.setTitreAlbum(this.album.getValue());
                 DaoTestsUtils.setNumeroToAlbum(albumMusique);
             }
 
+            musique.setCodeMusique(ListMusicSelectionListener.getMusiqueSelected().getCodeMusique());
             musique.setTitreMusique(this.titre.getText());
             musique.setDureeMusique(this.duree.getText());
             musique.setDateInsertionMusique(this.dateInsertion.getText());
@@ -178,18 +201,18 @@ public class AddMusicController extends MusicController implements Initializable
             musique.setListeAuteurs(artistesMusique);
 
             MusiqueDao musiqueDao = new MusiqueDao();
-            musiqueDao.insert(musique);
+            musiqueDao.update(musique);
 
             Stage stage = new Stage();
 
             try {
-                WindowUtils.setActionDone("ajoutée");
+                WindowUtils.setActionDone("modifiée");
                 MusicController musicController = new MusicController();
                 musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));
                 stage.setTitle(super.informationsUtils.buildStageTitle(null));
                 stage.setScene(new Scene(root, 390, 140));
-                this.setMusicActionSuccessStage(stage);
+                super.setMusicActionSuccessStage(stage);
                 stage.show();
 
             } catch (IOException e) {
@@ -198,7 +221,7 @@ public class AddMusicController extends MusicController implements Initializable
         }
     }
 
-    // MUSIC ADDING FORM CANCELING
+    // MUSIC EDITING FORM CANCELING
     public void cancelForm() {
         this.initializeForm();
     }

@@ -56,6 +56,21 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
             PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery("musique", musiqueDb));
             statement.executeUpdate();
             statement.close();
+
+            // MUSIC/ARTIST(S) ASSIGNMENT
+            Statement deletingArtistesMusiqueStatement = SQLiteConnection.getInstance().createStatement();
+            deletingArtistesMusiqueStatement.execute("DELETE FROM posseder WHERE codeMusique = " + musiqueDb.getCodeMusique());
+            deletingArtistesMusiqueStatement.close();
+
+            PreparedStatement insertingArtistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
+
+            for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
+                insertingArtistesMusiqueStatement.setInt(1, musiqueDb.getCodeMusique());
+                insertingArtistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
+                insertingArtistesMusiqueStatement.executeUpdate();
+            }
+
+            insertingArtistesMusiqueStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -99,7 +114,24 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
             musiqueDb.setDureeMusique(result.getString("dureeMusique"));
             musiqueDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
             musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
-            musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
+
+            // MUSIC ARTIST(S) RETRIEVING
+            PreparedStatement artistesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                    "posseder", "codeMusique", musiqueDb.getCodeMusique()));
+            ResultSet artistesResult = artistesStatement.executeQuery();
+            AuteurDao auteurDao = new AuteurDao();
+            List<AuteurDb> artistes = new ArrayList<>();
+
+            while (artistesResult.next()) {
+                AuteurDb auteur = auteurDao.find(artistesResult.getInt("identifiantAuteur"));
+                artistes.add(auteur);
+            }
+
+            musiqueDb.setListeAuteurs(artistes);
+
+            if (result.getInt("albumMusique") != 0) {
+                musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
+            }
 
             result.close();
             statement.close();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- delete CONFIRMATION POP-UP VIEW -->
+<!-- MUSIC DELETING CONFIRMATION POP-UP VIEW -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>

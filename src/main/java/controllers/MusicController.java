@@ -7,12 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.controlsfx.control.ListSelectionView;
 import utils.InformationsUtils;
 import utils.WindowUtils;
 
@@ -36,22 +33,7 @@ public class MusicController implements Initializable {
     protected static Stage listMusicStage;
 
     protected final InformationsUtils informationsUtils = new InformationsUtils();
-    /**
-     * MUSIC FORM FIELDS
-     */
 
-    @FXML
-    protected TextField titre = new TextField();
-    @FXML
-    protected TextField duree = new TextField();
-    @FXML
-    protected TextField dateInsertion = new TextField();
-    @FXML
-    protected TextField nomFichier = new TextField();
-    @FXML
-    protected ComboBox<String> album = new ComboBox<>();
-    @FXML
-    protected ListSelectionView<Label> artistes = new ListSelectionView<>();
     // MUSIC ACTION SUCCESSFUL POP-UP LABEL
     @FXML
     private Label musicActionSuccessLabel = new Label();
@@ -98,16 +80,18 @@ public class MusicController implements Initializable {
         this.musicActionSuccessLabel.setText("Votre musique a bien été " + WindowUtils.getActionDone() + ".");
     }
 
-    // MUSIC SELECTION FILE CHOOSER OPENING
-    public void openMusicFileChooser(ActionEvent actionEvent) {
+    // MUSIC'S FILE SELECTION
+    public String getFileSelected(ActionEvent actionEvent) {
         FileChooser musicFileChooser = new FileChooser();
         musicFileChooser.setTitle("Sélection de la musique");
         musicFileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("MP3", "*.mp3"));
         File musicFile = musicFileChooser.showOpenDialog(Main.getHomeStage());
 
         if (musicFile != null) {
-            nomFichier.setText(musicFile.getAbsolutePath());
+            //TODO : retourner le chemin du fichier et le setter dans les classes filles
+            return musicFile.getAbsolutePath();
         }
+        return "";
     }
 
     // MUSIC's LENGTH ERROR POP-UP "OK" BUTTON CLICKED

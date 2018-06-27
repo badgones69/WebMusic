@@ -50,7 +50,7 @@
                         <Insets bottom="105.0"/>
                     </VBox.margin>
                 </ImageView>
-                <ImageView fx:id="updatingActionImageView" preserveRatio="true">
+                <ImageView fx:id="updatingActionImageView" onMousePressed="#musicEditingButtonClicked">
                     <image>
                         <Image url="@../icons/updating.png"/>
                     </image>

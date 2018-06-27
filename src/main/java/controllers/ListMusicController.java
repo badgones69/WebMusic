@@ -1,5 +1,6 @@
 package controllers;
 
+import controllers.home.Main;
 import dao.MusiqueDao;
 import db.MusiqueDb;
 import dto.MusiqueDto;
@@ -123,6 +124,24 @@ public class ListMusicController implements Initializable {
             listMusic.setOnMouseClicked(new ListMusicSelectionListener());
             listMusic.getColumns().addAll(titreColumn, artisteColumn, dureeColumn, albumColumn);
             listMusic.getSortOrder().add(titreColumn);
+        }
+    }
+
+    // MUSIC EDITING ICON CLICKED
+    public void musicEditingButtonClicked(MouseEvent mouseEvent) {
+        Stage homeStage = Main.getHomeStage();
+        homeStage.show();
+
+        try {
+            EditMusicController editMusicController = new EditMusicController();
+            editMusicController.initialize(getClass().getResource("/views/editMusic.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/editMusic.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitle("Modification d'une musique"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

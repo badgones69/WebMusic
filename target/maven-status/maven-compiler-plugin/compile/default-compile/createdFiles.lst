@@ -12,9 +12,11 @@ controllers\AppCloseConfirmationController.class
 db\PlaylistDb.class
 controllers\home\Main.class
 db\AlbumDb.class
+controllers\EditMusicController.class
 database\SQLiteConnection.class
 controllers\MusicDeleteConfirmationController.class
 utils\DaoTestsUtils.class
+utils\FormUtils.class
 dao\AbstractDao.class
 db\AuteurDb.class
 controllers\MenuController.class
@@ -22,5 +24,4 @@ dao\AuteurDao.class
 db\MusiqueDb.class
 controllers\MusicController.class
 dto\MusiqueDto.class
-utils\FormControlUtils.class
 dao\MusiqueDao.class

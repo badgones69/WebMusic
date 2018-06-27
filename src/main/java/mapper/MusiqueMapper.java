@@ -1,6 +1,7 @@
 package mapper;
 
 import dao.AlbumDao;
+import dao.MusiqueDao;
 import db.AuteurDb;
 import db.MusiqueDb;
 import dto.MusiqueDto;
@@ -33,6 +34,7 @@ public class MusiqueMapper {
     // MusiqueDto TO MusiqueDb CONVERTING
     public static MusiqueDb toDb(MusiqueDto musiqueDto) {
         AlbumDao albumDao = new AlbumDao();
+        MusiqueDao musiqueDao = new MusiqueDao();
         MusiqueDb musiqueDb = new MusiqueDb();
 
         musiqueDb.setCodeMusique(musiqueDto.getCodeMusique());
@@ -40,6 +42,7 @@ public class MusiqueMapper {
         musiqueDb.setDureeMusique(musiqueDto.getDureeMusique());
         musiqueDb.setDateInsertionMusique(musiqueDto.getDateInsertionMusique());
         musiqueDb.setNomFichierMusique(musiqueDto.getNomFichierMusique());
+        musiqueDb.setListeAuteurs(musiqueDao.find(musiqueDto.getCodeMusique()).getListeAuteurs());
 
         if (musiqueDto.getNumeroAlbumMusique() == null) {
             musiqueDb.setAlbumMusique(null);
