@@ -24,9 +24,9 @@ public class InformationsUtils {
     // STAGE TITLE BUILDING
     public String buildStageTitle(String title) {
         if (title == null) {
-            return "WebMsuic " + getVersionApplication();
+            return "WebMusic " + getVersionApplication();
         } else {
-            return "WebMsuic " + getVersionApplication() + " - " + title;
+            return "WebMusic " + getVersionApplication() + " - " + title;
         }
     }
 }
