@@ -34,6 +34,9 @@ public class ListMusicController implements Initializable {
     // MUSIC DELETING CONFIRMATION POP-UP STAGE
     private static Stage musicDeleteConfirmationStage;
 
+    // MUSIC LISTENING POP-UP STAGE
+    private static Stage musicListenStage;
+
     private InformationsUtils informationsUtils = new InformationsUtils();
 
     /**
@@ -56,7 +59,7 @@ public class ListMusicController implements Initializable {
     private TableColumn<MusiqueDto, String> albumColumn = new TableColumn<>();
 
     @FXML
-    private ImageView playingActionImageView = new ImageView();
+    private ImageView listeningActionImageView = new ImageView();
 
     @FXML
     private ImageView updatingActionImageView = new ImageView();
@@ -76,6 +79,14 @@ public class ListMusicController implements Initializable {
         ListMusicController.musicDeleteConfirmationStage = musicDeleteConfirmationStage;
     }
 
+    public static Stage getMusicListenStage() {
+        return musicListenStage;
+    }
+
+    public static void setMusicListenStage(Stage musicListenStage) {
+        ListMusicController.musicListenStage = musicListenStage;
+    }
+
     /**
      * MUSIC LIST INITIALIZATION
      */
@@ -86,8 +97,8 @@ public class ListMusicController implements Initializable {
     }
 
     private void initializeList() {
-        Tooltip playingActionTooltip = new Tooltip("Lire");
-        Tooltip.install(playingActionImageView, playingActionTooltip);
+        Tooltip listeningActionTooltip = new Tooltip("Écouter");
+        Tooltip.install(listeningActionImageView, listeningActionTooltip);
 
         Tooltip updatingActionTooltip = new Tooltip("Modifier");
         Tooltip.install(updatingActionImageView, updatingActionTooltip);
@@ -126,7 +137,30 @@ public class ListMusicController implements Initializable {
             listMusic.getSortOrder().add(titreColumn);
         }
     }
+    
+    // MUSIC LISTENING ICON CLICKED
+    public void musicListeningButtonClicked(MouseEvent mouseEvent) {
+        Stage stage = new Stage();
 
+        try {
+            ListenMusicController listenMusicController = new ListenMusicController();
+            listenMusicController.initialize(getClass().getResource("/views/listenMusic.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/listenMusic.fxml"));
+            stage.setTitle(informationsUtils.buildStageTitle("Écoute d'une musique"));
+            stage.setScene(new Scene(root, 600, 260));
+            this.setMusicListenStage(stage);
+
+            getMusicListenStage().setOnCloseRequest(event -> {
+                ListenMusicController.getMediaPlayer().dispose();
+            });
+
+            musicListenStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     // MUSIC EDITING ICON CLICKED
     public void musicEditingButtonClicked(MouseEvent mouseEvent) {
         Stage homeStage = Main.getHomeStage();

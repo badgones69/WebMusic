@@ -63,7 +63,7 @@
     -fx-font-size: 25;
 }
 
-.formField {
+.formField, .listeningLabel, .listeningTitle {
     -fx-font-size: 18;
 }
 
@@ -81,4 +81,19 @@
 .table-view {
     -fx-selction-bar: #0080FF;
     -fx-selection-bar-non-focused: #0080FF;
+}
+
+/**
+ * ANY LISTENING WINDOW
+*/
+
+.listeningTitle {
+    -fx-font-weight: bold;
+
+    /*TOP, RIGHT, BOTTOM, LEFT*/
+    -fx-padding: 0 0 10 0;
+}
+
+.listeningLengthHBox {
+    -fx-spacing: 15;
 }

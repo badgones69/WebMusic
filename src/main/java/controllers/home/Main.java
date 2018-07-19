@@ -65,7 +65,6 @@ public class Main extends Application {
     private void configurateAppClose() {
         getHomeStage().setOnCloseRequest(event -> {
             event.consume();
-            Stage appCloseConfirmationStage = this.initializeAppClose();
             appCloseConfirmationStage.show();
         });
     }

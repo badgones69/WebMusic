@@ -42,15 +42,15 @@
     <right>
         <VBox alignment="CENTER" prefHeight="966.0" prefWidth="480.0">
             <children>
-                <ImageView fx:id="playingActionImageView">
+                <ImageView fx:id="listeningActionImageView" onMouseClicked="#musicListeningButtonClicked">
                     <image>
-                        <Image url="@../icons/playing.png"/>
+                        <Image url="@../icons/listening.png"/>
                     </image>
                     <VBox.margin>
                         <Insets bottom="105.0"/>
                     </VBox.margin>
                 </ImageView>
-                <ImageView fx:id="updatingActionImageView" onMousePressed="#musicEditingButtonClicked">
+                <ImageView fx:id="updatingActionImageView" onMouseClicked="#musicEditingButtonClicked">
                     <image>
                         <Image url="@../icons/updating.png"/>
                     </image>

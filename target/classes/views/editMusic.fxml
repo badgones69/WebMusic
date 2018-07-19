@@ -18,7 +18,8 @@
         <VBox alignment="CENTER" prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
-                       text="Formulaire de modification d'une musique" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                       text="Formulaire de modification d'une musique" textAlignment="CENTER"
+                       BorderPane.alignment="CENTER"/>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
