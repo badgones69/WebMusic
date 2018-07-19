@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import org.controlsfx.control.ListSelectionView;
 import utils.DaoTestsUtils;
 import utils.FormUtils;
-import utils.WindowUtils;
+import utils.PopUpUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -183,7 +183,7 @@ public class AddMusicController extends MusicController implements Initializable
             Stage stage = new Stage();
 
             try {
-                WindowUtils.setActionDone("ajoutée");
+                PopUpUtils.setActionDone("ajoutée");
                 MusicController musicController = new MusicController();
                 musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));

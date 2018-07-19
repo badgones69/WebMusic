@@ -24,7 +24,7 @@ import mapper.MusiqueMapper;
 import org.controlsfx.control.ListSelectionView;
 import utils.DaoTestsUtils;
 import utils.FormUtils;
-import utils.WindowUtils;
+import utils.PopUpUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -206,7 +206,7 @@ public class EditMusicController extends MusicController implements Initializabl
             Stage stage = new Stage();
 
             try {
-                WindowUtils.setActionDone("modifiée");
+                PopUpUtils.setActionDone("modifiée");
                 MusicController musicController = new MusicController();
                 musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));

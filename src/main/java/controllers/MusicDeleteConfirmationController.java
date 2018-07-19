@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import listeners.listMusic.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
 import utils.InformationsUtils;
-import utils.WindowUtils;
+import utils.PopUpUtils;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class MusicDeleteConfirmationController {
         Stage stage = new Stage();
 
         try {
-            WindowUtils.setActionDone("supprimée");
+            PopUpUtils.setActionDone("supprimée");
             MusicController musicController = new MusicController();
             musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));

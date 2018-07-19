@@ -1,6 +1,6 @@
 package utils;
 
-public class WindowUtils {
+public class PopUpUtils {
 
     // CUURENT ACTION DONE (WITH A FORM OR A LIST)
     public static String actionDone = "";
@@ -14,6 +14,6 @@ public class WindowUtils {
     }
 
     public static void setActionDone(String actionDone) {
-        WindowUtils.actionDone = actionDone;
+        PopUpUtils.actionDone = actionDone;
     }
 }

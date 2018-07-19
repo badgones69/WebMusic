@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import utils.InformationsUtils;
-import utils.WindowUtils;
+import utils.PopUpUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,10 +20,10 @@ import java.util.ResourceBundle;
 
 public class MusicController implements Initializable {
 
-    // MUSIC's LENGTH ERROR POP-UP STAGE
+    // MUSIC'S LENGTH ERROR POP-UP STAGE
     protected static Stage musicLengthErrorStage;
 
-    // MUSIC's ARTIST(S) ERROR POP-UP STAGE
+    // MUSIC'S ARTIST(S) ERROR POP-UP STAGE
     protected static Stage musicArtistErrorStage;
 
     // MUSIC ACTION SUCCESSFUL POP-UP STAGE
@@ -76,8 +76,7 @@ public class MusicController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        this.musicActionSuccessLabel.setText("Votre musique a bien été " + WindowUtils.getActionDone() + ".");
+        this.musicActionSuccessLabel.setText("Votre musique a bien été " + PopUpUtils.getActionDone() + ".");
     }
 
     // MUSIC'S FILE SELECTION
@@ -88,18 +87,17 @@ public class MusicController implements Initializable {
         File musicFile = musicFileChooser.showOpenDialog(Main.getHomeStage());
 
         if (musicFile != null) {
-            //TODO : retourner le chemin du fichier et le setter dans les classes filles
             return musicFile.getAbsolutePath();
         }
         return "";
     }
 
-    // MUSIC's LENGTH ERROR POP-UP "OK" BUTTON CLICKED
+    // MUSIC'S LENGTH ERROR POP-UP "OK" BUTTON CLICKED
     public void musicLengthErrorCloseButtonClicked(ActionEvent actionEvent) {
         getMusicLengthErrorStage().close();
     }
 
-    // MUSIC's ARTIST(S) ERROR POP-UP "OK" BUTTON CLICKED
+    // MUSIC'S ARTIST(S) ERROR POP-UP "OK" BUTTON CLICKED
     public void musicArtistErrorCloseButtonClicked(ActionEvent actionEvent) {
         getMusicArtistErrorStage().close();
     }
