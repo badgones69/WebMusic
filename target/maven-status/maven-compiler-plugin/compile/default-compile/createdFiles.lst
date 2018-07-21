@@ -1,7 +1,6 @@
 listeners\listMusic\ListMusicSelectionListener.class
 controllers\ListMusicController.class
 mapper\MusiqueMapper.class
-utils\WindowUtils.class
 dao\PlaylistDao.class
 controllers\ListenMusicController.class
 controllers\AppCloseConfirmationController.class
@@ -20,6 +19,7 @@ controllers\AboutController.class
 dao\AlbumDao.class
 utils\InformationsUtils.class
 db\PlaylistDb.class
+utils\PopUpUtils.class
 dao\AbstractDao.class
 db\AuteurDb.class
 controllers\MenuController.class

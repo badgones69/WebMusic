@@ -10,9 +10,15 @@ public class ListMusicSelectionListener implements EventHandler<MouseEvent> {
     // SELECTED MUSIC IN MUSIC LIST
     private static MusiqueDto musiqueSelected;
 
-    // GETTER
+    /**
+     * GETTER AND SETTER
+     */
     public static MusiqueDto getMusiqueSelected() {
         return musiqueSelected;
+    }
+
+    public static void setMusiqueSelected(MusiqueDto musiqueSelected) {
+        ListMusicSelectionListener.musiqueSelected = musiqueSelected;
     }
 
     // METHOD TO CONSERVE THE SELECTED MUSIC IN MUSIC LIST

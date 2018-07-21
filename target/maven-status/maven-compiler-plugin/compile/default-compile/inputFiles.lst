@@ -1,12 +1,12 @@
 C:\workspace\WebMusic\src\main\java\database\SQLiteConnection.java
 C:\workspace\WebMusic\src\main\java\controllers\AppCloseConfirmationController.java
+C:\workspace\WebMusic\src\main\java\utils\PopUpUtils.java
 C:\workspace\WebMusic\src\main\java\controllers\MusicController.java
 C:\workspace\WebMusic\src\main\java\controllers\MenuController.java
 C:\workspace\WebMusic\src\main\java\controllers\EditMusicController.java
 C:\workspace\WebMusic\src\main\java\db\AuteurDb.java
 C:\workspace\WebMusic\src\main\java\mapper\MusiqueMapper.java
 C:\workspace\WebMusic\src\main\java\controllers\MusicDeleteConfirmationController.java
-C:\workspace\WebMusic\src\main\java\utils\WindowUtils.java
 C:\workspace\WebMusic\src\main\java\db\AlbumDb.java
 C:\workspace\WebMusic\src\main\java\listeners\listMusic\ListMusicSelectionListener.java
 C:\workspace\WebMusic\src\main\java\utils\InformationsUtils.java

@@ -6,6 +6,7 @@ import db.MusiqueDb;
 import dto.MusiqueDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,6 +31,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListMusicController implements Initializable {
+
+    // MUSIC SELECTION ERROR POP-UP STAGE
+    private static Stage musicSelectionErrorStage;
 
     // MUSIC DELETING CONFIRMATION POP-UP STAGE
     private static Stage musicDeleteConfirmationStage;
@@ -87,6 +91,14 @@ public class ListMusicController implements Initializable {
         ListMusicController.musicListenStage = musicListenStage;
     }
 
+    public static Stage getMusicSelectionErrorStage() {
+        return musicSelectionErrorStage;
+    }
+
+    public static void setMusicSelectionErrorStage(Stage musicSelectionErrorStage) {
+        ListMusicController.musicSelectionErrorStage = musicSelectionErrorStage;
+    }
+
     /**
      * MUSIC LIST INITIALIZATION
      */
@@ -97,6 +109,8 @@ public class ListMusicController implements Initializable {
     }
 
     private void initializeList() {
+        ListMusicSelectionListener.setMusiqueSelected(null);
+
         Tooltip listeningActionTooltip = new Tooltip("Écouter");
         Tooltip.install(listeningActionImageView, listeningActionTooltip);
 
@@ -137,61 +151,112 @@ public class ListMusicController implements Initializable {
             listMusic.getSortOrder().add(titreColumn);
         }
     }
-    
+
+    // MUSIC SELECTION ERROR POP-UP "OK" BUTTON CLICKED
+    public void musicSelectionErrorCloseButtonClicked(ActionEvent actionEvent) {
+        getMusicSelectionErrorStage().close();
+    }
+
     // MUSIC LISTENING ICON CLICKED
     public void musicListeningButtonClicked(MouseEvent mouseEvent) {
-        Stage stage = new Stage();
+        if(ListMusicSelectionListener.getMusiqueSelected() == null) {
+            Stage stage = new Stage();
 
-        try {
-            ListenMusicController listenMusicController = new ListenMusicController();
-            listenMusicController.initialize(getClass().getResource("/views/listenMusic.fxml"), null);
-            Parent root = FXMLLoader.load(getClass().getResource("/views/listenMusic.fxml"));
-            stage.setTitle(informationsUtils.buildStageTitle("Écoute d'une musique"));
-            stage.setScene(new Scene(root, 600, 260));
-            this.setMusicListenStage(stage);
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicSelectionError.fxml"));
+                stage.setTitle(informationsUtils.buildStageTitle(null));
+                stage.setScene(new Scene(root, 455, 140));
+                ListMusicController.setMusicSelectionErrorStage(stage);
+                stage.show();
 
-            getMusicListenStage().setOnCloseRequest(event -> {
-                ListenMusicController.getMediaPlayer().dispose();
-            });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Stage stage = new Stage();
 
-            musicListenStage.show();
+            try {
+                ListenMusicController listenMusicController = new ListenMusicController();
+                listenMusicController.initialize(getClass().getResource("/views/listenMusic.fxml"), null);
+                Parent root = FXMLLoader.load(getClass().getResource("/views/listenMusic.fxml"));
+                stage.setTitle(informationsUtils.buildStageTitle("Écoute d'une musique"));
+                stage.setScene(new Scene(root, 600, 260));
+                setMusicListenStage(stage);
 
-        } catch (IOException e) {
-            e.printStackTrace();
+                getMusicListenStage().setOnCloseRequest(event -> {
+                    ListenMusicController.getMediaPlayer().dispose();
+                });
+
+                musicListenStage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     
     // MUSIC EDITING ICON CLICKED
     public void musicEditingButtonClicked(MouseEvent mouseEvent) {
-        Stage homeStage = Main.getHomeStage();
-        homeStage.show();
+        if(ListMusicSelectionListener.getMusiqueSelected() == null) {
+            Stage stage = new Stage();
 
-        try {
-            EditMusicController editMusicController = new EditMusicController();
-            editMusicController.initialize(getClass().getResource("/views/editMusic.fxml"), null);
-            Parent root = FXMLLoader.load(getClass().getResource("/views/editMusic.fxml"));
-            homeStage.setTitle(informationsUtils.buildStageTitle("Modification d'une musique"));
-            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicSelectionError.fxml"));
+                stage.setTitle(informationsUtils.buildStageTitle(null));
+                stage.setScene(new Scene(root, 455, 140));
+                ListMusicController.setMusicSelectionErrorStage(stage);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Stage homeStage = Main.getHomeStage();
             homeStage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                EditMusicController editMusicController = new EditMusicController();
+                editMusicController.initialize(getClass().getResource("/views/editMusic.fxml"), null);
+                Parent root = FXMLLoader.load(getClass().getResource("/views/editMusic.fxml"));
+                homeStage.setTitle(informationsUtils.buildStageTitle("Modification d'une musique"));
+                homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+                homeStage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     // MUSIC DELETING ICON CLICKED
     public void musicDeletingButtonClicked(MouseEvent mouseEvent) {
-        Stage stage = new Stage();
+        if(ListMusicSelectionListener.getMusiqueSelected() == null) {
+            Stage stage = new Stage();
 
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/deleteMusicConfirmation.fxml"));
-            stage.setTitle(informationsUtils.buildStageTitle("Suppression d'une musique"));
-            stage.setScene(new Scene(root, 630, 140));
-            this.setMusicDeleteConfirmationStage(stage);
-            stage.show();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicSelectionError.fxml"));
+                stage.setTitle(informationsUtils.buildStageTitle(null));
+                stage.setScene(new Scene(root, 455, 140));
+                ListMusicController.setMusicSelectionErrorStage(stage);
+                stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Stage stage = new Stage();
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/deleteMusicConfirmation.fxml"));
+                stage.setTitle(informationsUtils.buildStageTitle("Suppression d'une musique"));
+                stage.setScene(new Scene(root, 630, 140));
+                setMusicDeleteConfirmationStage(stage);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
+//TODO : A la fin de la modification, de la suppression ou de l'écoute de la musique : remettre le ListMusicSelectionListener.getMusiqueSelected() à NULL
