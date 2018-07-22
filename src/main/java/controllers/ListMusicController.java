@@ -259,4 +259,3 @@ public class ListMusicController implements Initializable {
         }
     }
 }
-//TODO : A la fin de la modification, de la suppression ou de l'écoute de la musique : remettre le ListMusicSelectionListener.getMusiqueSelected() à NULL
