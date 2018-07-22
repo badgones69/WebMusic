@@ -87,22 +87,6 @@ public class MenuController {
     }
 
     /**
-     * ITEMS LISTENERS OF "Album" MENU
-     */
-
-    public void addAlbumItemClicked(ActionEvent actionEvent) {
-        Stage homeStage = Main.getHomeStage();
-        homeStage.setTitle(informationsUtils.buildStageTitle("Ajout d'un album"));
-        homeStage.show();
-    }
-
-    public void editAlbumItemClicked(ActionEvent actionEvent) {
-    }
-
-    public void deleteAlbumItemClicked(ActionEvent actionEvent) {
-    }
-
-    /**
      * ITEM LISTENER OF "Aide" MENU
      */
 

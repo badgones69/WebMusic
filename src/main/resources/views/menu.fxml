@@ -14,28 +14,20 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Musique">
             <items>
-                <MenuItem id="listMusicItem" mnemonicParsing="false" text="Lister" onAction="#listMusicItemClicked"/>
-                <MenuItem id="addMusicItem" mnemonicParsing="false" text="Ajouter" onAction="#addMusicItemClicked"/>
+                <MenuItem id="listMusicItem" mnemonicParsing="false" text="Liste" onAction="#listMusicItemClicked"/>
+                <MenuItem id="addMusicItem" mnemonicParsing="false" text="Ajout" onAction="#addMusicItemClicked"/>
             </items>
         </Menu>
         <Menu id="albumMenu" mnemonicParsing="false" text="Album">
             <items>
-                <MenuItem id="addAlbumItem" mnemonicParsing="false" onAction="#addAlbumItemClicked"
-                          text="Ajouter"/>
-                <MenuItem id="editAlbumItem" mnemonicParsing="false" onAction="#editAlbumItemClicked"
-                          text="Éditer"/>
-                <MenuItem id="deleteAlbumItem" mnemonicParsing="false" onAction="#deleteAlbumItemClicked"
-                          text="Supprimer"/>
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Artiste">
             <items>
-                <MenuItem mnemonicParsing="false" text="Action 1"/>
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Playlist">
             <items>
-                <MenuItem mnemonicParsing="false" text="Action 1"/>
             </items>
         </Menu>
         <Menu id="helpMenu" mnemonicParsing="false" text="Aide">
