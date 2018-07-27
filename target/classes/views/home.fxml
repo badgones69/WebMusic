@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="panel" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0"
@@ -17,8 +20,15 @@
     <center>
         <Pane prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
             <children>
-                <Label id="welcomeMessage" alignment="CENTER" contentDisplay="TOP" prefHeight="966.0" prefWidth="1920.0"
-                       text="Bienvenue sur WebMusic, votre espace musical !" textAlignment="CENTER"/>
+                <VBox alignment="CENTER" prefHeight="966.0" prefWidth="1920.0">
+                    <children>
+                        <ImageView>
+                            <Image url="@../icons/logo.png"/>
+                        </ImageView>
+                        <Label id="welcomeMessage" contentDisplay="TOP" alignment="CENTER"
+                               text="Bienvenue sur WebMusic, votre espace musical !" textAlignment="CENTER"/>
+                    </children>
+                </VBox>
             </children>
         </Pane>
     </center>

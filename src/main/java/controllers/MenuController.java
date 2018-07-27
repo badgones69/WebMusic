@@ -35,7 +35,7 @@ public class MenuController {
 
     public void appHomeItemClicked(ActionEvent actionEvent) {
         Stage homeStage = Main.getHomeStage();
-        homeStage.setTitle(informationsUtils.buildStageTitle("Accueil"));
+        homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Accueil"));
         try {
             homeStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/home.fxml")));
         } catch (IOException e) {
@@ -60,7 +60,7 @@ public class MenuController {
             ListMusicController listMusicController = new ListMusicController();
             listMusicController.initialize(getClass().getResource("/views/listMusic.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/listMusic.fxml"));
-            homeStage.setTitle(informationsUtils.buildStageTitle("Liste des musiques"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des musiques"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
             homeStage.show();
 
@@ -77,7 +77,7 @@ public class MenuController {
             AddMusicController addMusicController = new AddMusicController();
             addMusicController.initialize(getClass().getResource("/views/addMusic.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/addMusic.fxml"));
-            homeStage.setTitle(informationsUtils.buildStageTitle("Ajout d'une musique"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'une musique"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
             homeStage.show();
 
@@ -95,7 +95,7 @@ public class MenuController {
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/views/about.fxml"));
-            stage.setTitle(informationsUtils.buildStageTitle("À propos"));
+            stage.setTitle(informationsUtils.buildStageTitleBar(stage, "À propos"));
             stage.setScene(new Scene(root, 450, 140));
             this.setAboutStage(stage);
             stage.show();

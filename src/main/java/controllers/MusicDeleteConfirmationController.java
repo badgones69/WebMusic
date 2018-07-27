@@ -30,7 +30,7 @@ public class MusicDeleteConfirmationController {
             MusicController musicController = new MusicController();
             musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));
-            stage.setTitle(informationsUtils.buildStageTitle(null));
+            stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
             stage.setScene(new Scene(root, 420, 140));
             MusicController.setMusicActionSuccessStage(stage);
             stage.show();

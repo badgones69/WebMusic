@@ -164,7 +164,7 @@ public class ListMusicController implements Initializable {
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitle(null));
+                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 455, 140));
                 ListMusicController.setMusicSelectionErrorStage(stage);
                 stage.show();
@@ -179,7 +179,7 @@ public class ListMusicController implements Initializable {
                 ListenMusicController listenMusicController = new ListenMusicController();
                 listenMusicController.initialize(getClass().getResource("/views/listenMusic.fxml"), null);
                 Parent root = FXMLLoader.load(getClass().getResource("/views/listenMusic.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitle("Écoute d'une musique"));
+                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Écoute d'une musique"));
                 stage.setScene(new Scene(root, 600, 260));
                 setMusicListenStage(stage);
 
@@ -202,7 +202,7 @@ public class ListMusicController implements Initializable {
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitle(null));
+                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 455, 140));
                 ListMusicController.setMusicSelectionErrorStage(stage);
                 stage.show();
@@ -218,7 +218,7 @@ public class ListMusicController implements Initializable {
                 EditMusicController editMusicController = new EditMusicController();
                 editMusicController.initialize(getClass().getResource("/views/editMusic.fxml"), null);
                 Parent root = FXMLLoader.load(getClass().getResource("/views/editMusic.fxml"));
-                homeStage.setTitle(informationsUtils.buildStageTitle("Modification d'une musique"));
+                homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Modification d'une musique"));
                 homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
                 homeStage.show();
 
@@ -235,7 +235,7 @@ public class ListMusicController implements Initializable {
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitle(null));
+                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 455, 140));
                 ListMusicController.setMusicSelectionErrorStage(stage);
                 stage.show();
@@ -248,7 +248,7 @@ public class ListMusicController implements Initializable {
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/deleteMusicConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitle("Suppression d'une musique"));
+                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'une musique"));
                 stage.setScene(new Scene(root, 630, 140));
                 setMusicDeleteConfirmationStage(stage);
                 stage.show();

@@ -1,5 +1,8 @@
 package utils;
 
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.jar.Attributes;
@@ -22,7 +25,10 @@ public class InformationsUtils {
     }
 
     // STAGE TITLE BUILDING
-    public String buildStageTitle(String title) {
+    public String buildStageTitleBar(Stage stage, String title) {
+        Image logo = new Image("/icons/logo.png");
+        stage.getIcons().add(logo);
+
         if (title == null) {
             return "WebMusic " + getVersionApplication();
         } else {

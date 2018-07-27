@@ -141,7 +141,7 @@ public class EditMusicController extends MusicController implements Initializabl
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicLengthError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitle(null));
+                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 330, 140));
                 super.setMusicLengthErrorStage(stage);
                 stage.show();
@@ -156,7 +156,7 @@ public class EditMusicController extends MusicController implements Initializabl
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicArtistError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitle(null));
+                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 415, 140));
                 this.setMusicArtistErrorStage(stage);
                 stage.show();
@@ -210,7 +210,7 @@ public class EditMusicController extends MusicController implements Initializabl
                 MusicController musicController = new MusicController();
                 musicController.initialize(getClass().getResource("/views/musicActionSuccess.fxml"), null);
                 Parent root = FXMLLoader.load(getClass().getResource("/views/musicActionSuccess.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitle(null));
+                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 390, 140));
                 super.setMusicActionSuccessStage(stage);
                 stage.show();

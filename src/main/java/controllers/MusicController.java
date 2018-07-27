@@ -112,7 +112,7 @@ public class MusicController implements Initializable {
             ListMusicController listMusicController = new ListMusicController();
             listMusicController.initialize(getClass().getResource("/views/listMusic.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/listMusic.fxml"));
-            homeStage.setTitle(informationsUtils.buildStageTitle("Liste des musiques"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des musiques"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
             homeStage.show();
 
