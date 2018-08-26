@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import utils.InformationsUtils;
 
@@ -48,11 +47,11 @@ public class Main extends Application {
         Main.appCloseConfirmationStage = appCloseConfirmationStage;
     }
 
+    // APPLICATION STARTING
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/home.fxml"));
         primaryStage.setTitle(informationsUtils.buildStageTitleBar(primaryStage, "Accueil"));
-//        primaryStage.getIcons().add(new Image("/icons/logo.png"));
         primaryStage.setScene(new Scene(root));
         this.setHomeStage(primaryStage);
         this.initializeAppClose();

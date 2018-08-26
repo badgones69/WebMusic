@@ -8,30 +8,41 @@
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity"
-            prefHeight="998.0" prefWidth="1920.0" styleClass="panel"
-            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
-            fx:controller="controllers.ListMusicController">
+            styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="controllers.ListMusicController"
+            fx:id="listMusicBorderPane">
+            <!--prefHeight="998.0" prefWidth="1920.0" OK -->
     <top>
         <fx:include source="menu.fxml"/>
     </top>
     <center>
-        <VBox alignment="CENTER" prefHeight="898.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <!--heightBorderPane - 100 OK -->
+        <VBox fx:id="listMusicTableVBox" alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
-                <GridPane BorderPane.alignment="CENTER">
+                <GridPane fx:id="listMusicGridPane" BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="200.0"/>
+                        <!--heightBorderPane - 698 OK -->
+                        <RowConstraints /> <!--minHeight="10.0" prefHeight="200.0"-->
                     </rowConstraints>
                     <children>
-                        <TableView fx:id="listMusic" focusTraversable="false" maxWidth="1200.0" minHeight="850.0">
+
+                        <!-- TODO : corriger les pb de largeur -->
+
+                        <!--widthEcran - 720 || heightBorderPane - 148-->
+                        <TableView fx:id="listMusic" focusTraversable="false"> <!-- maxWidth="1200.0"-->
                             <columns>
-                                <TableColumn fx:id="titreColumn" prefWidth="300.0" text="Titre"/>
-                                <TableColumn fx:id="artisteColumn" editable="false" prefWidth="500.0" sortable="false"
-                                             text="Artiste(s)"/>
-                                <TableColumn fx:id="dureeColumn" prefWidth="100.0" text="Durée"/>
-                                <TableColumn fx:id="albumColumn" prefWidth="300.0" text="Album"/>
+                                <!--widthEcran - 1620-->
+                                <TableColumn fx:id="titreColumn" text="Titre"/> <!-- prefWidth="300.0"-->
+                                <!--widthEcran - 1420-->
+                                <TableColumn fx:id="artisteColumn" editable="false" sortable="false" text="Artiste(s)"/> <!-- prefWidth="500.0"-->
+                                <!--widthEcran - 1820-->
+                                <TableColumn fx:id="dureeColumn" text="Durée"/> <!-- prefWidth="100.0"-->
+                                <!--widthEcran - 1620-->
+                                <TableColumn fx:id="albumColumn" text="Album" /> <!-- minWidth="300.0"-->
                             </columns>
                         </TableView>
                     </children>
@@ -40,7 +51,12 @@
         </VBox>
     </center>
     <right>
-        <VBox alignment="CENTER" prefHeight="966.0" prefWidth="480.0">
+        <!--heightBorderPane - 32 || widthEcran - 1440 OK -->
+
+        <!-- TODO : corriger les pb de largeur
+             prefWidth="480.0" -->
+
+        <VBox fx:id="litMusicButtonsVBox" alignment="CENTER">
             <children>
                 <ImageView fx:id="listeningActionImageView" onMouseClicked="#musicListeningButtonClicked">
                     <image>

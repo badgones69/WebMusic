@@ -8,30 +8,29 @@
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity"
-            prefHeight="998.0" prefWidth="1920.0" styleClass="panel"
-            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
+            styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
             fx:controller="controllers.ListMusicController">
     <top>
         <fx:include source="menu.fxml"/>
     </top>
     <center>
-        <VBox alignment="CENTER" prefHeight="898.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="200.0"/>
+                        <RowConstraints />
                     </rowConstraints>
                     <children>
-                        <TableView fx:id="listMusic" focusTraversable="false" maxWidth="1200.0" minHeight="850.0">
+                        <TableView fx:id="listMusic" focusTraversable="false">
                             <columns>
-                                <TableColumn fx:id="titreColumn" prefWidth="300.0" text="Titre"/>
-                                <TableColumn fx:id="artisteColumn" editable="false" prefWidth="500.0" sortable="false"
-                                             text="Artiste(s)"/>
-                                <TableColumn fx:id="dureeColumn" prefWidth="100.0" text="Durée"/>
-                                <TableColumn fx:id="albumColumn" prefWidth="300.0" text="Album"/>
+                                <TableColumn fx:id="titreColumn" text="Titre"/>
+                                <TableColumn fx:id="artisteColumn" editable="false" sortable="false" text="Artiste(s)"/>
+                                <TableColumn fx:id="dureeColumn" text="Durée"/>
+                                <TableColumn fx:id="albumColumn" text="Album" />
                             </columns>
                         </TableView>
                     </children>
@@ -40,7 +39,7 @@
         </VBox>
     </center>
     <right>
-        <VBox alignment="CENTER" prefHeight="966.0" prefWidth="480.0">
+        <VBox alignment="CENTER">
             <children>
                 <ImageView fx:id="listeningActionImageView" onMouseClicked="#musicListeningButtonClicked">
                     <image>

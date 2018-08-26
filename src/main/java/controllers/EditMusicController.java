@@ -13,11 +13,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import listeners.listMusic.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
@@ -52,12 +56,30 @@ public class EditMusicController extends MusicController implements Initializabl
     protected ListSelectionView<Label> artistes = new ListSelectionView<>();
 
     /**
+     * MUSIC ADDING FORM CONTAINERS
+     */
+
+    @FXML
+    BorderPane editMusicBorderPane = new BorderPane();
+    @FXML
+    VBox editMusicVBox = new VBox();
+
+    /**
      * MUSIC EDITING FORM INITIALIZATION
      */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.initializeSizes();
         this.initializeForm();
+    }
+
+    private void initializeSizes() {
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        editMusicBorderPane.setPrefWidth(primaryScreenBounds.getWidth());
+        editMusicBorderPane.setPrefHeight(primaryScreenBounds.getHeight()-32);
+        editMusicVBox.setPrefWidth(primaryScreenBounds.getWidth());
+        editMusicVBox.setPrefHeight(editMusicBorderPane.getPrefHeight()-32);
     }
 
     private void initializeForm() {

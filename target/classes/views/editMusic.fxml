@@ -7,15 +7,16 @@
 <?import org.controlsfx.control.ListSelectionView?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="panel" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="998.0" prefWidth="1920.0"
-            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
-            fx:controller="controllers.EditMusicController">
+            minWidth="-Infinity"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="controllers.EditMusicController"
+            fx:id="editMusicBorderPane">
     <top>
         <fx:include source="menu.fxml"/>
     </top>
 
     <center>
-        <VBox alignment="CENTER" prefHeight="966.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="editMusicVBox" alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
                        text="Formulaire de modification d'une musique" textAlignment="CENTER"
@@ -26,13 +27,14 @@
                         <ColumnConstraints hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="40.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="40.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="40.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="40.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="40.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="5.0"/>
-                        <RowConstraints minHeight="10.0" prefHeight="500.0"/>
+                        <!-- TODO : corriger les pb de hauteur -->
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints maxHeight="250.0" />
                     </rowConstraints>
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "

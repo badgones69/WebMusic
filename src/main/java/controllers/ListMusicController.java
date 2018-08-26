@@ -19,6 +19,9 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import listeners.listMusic.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
@@ -105,7 +108,12 @@ public class ListMusicController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.initializeSizes();
         this.initializeList();
+    }
+
+    private void initializeSizes() {
+        listMusic.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void initializeList() {
