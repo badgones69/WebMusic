@@ -178,7 +178,7 @@ public class AddMusicController extends MusicController implements Initializable
 
             musique.setTitreMusique(this.titre.getText());
             musique.setDureeMusique(this.duree.getText());
-            musique.setDateInsertionMusique(this.dateInsertion.getText());
+            musique.setDateActionMusique(this.dateInsertion.getText());
             musique.setNomFichierMusique(this.nomFichier.getText());
             musique.setAlbumMusique(albumMusique);
 

@@ -17,7 +17,7 @@ public class MusiqueMapper {
         musiqueDto.setCodeMusique(musiqueDb.getCodeMusique());
         musiqueDto.setTitreMusique(musiqueDb.getTitreMusique());
         musiqueDto.setDureeMusique(musiqueDb.getDureeMusique());
-        musiqueDto.setDateInsertionMusique(musiqueDb.getDateInsertionMusique());
+        musiqueDto.setDateActionMusique(musiqueDb.getDateActionMusique());
         musiqueDto.setNomFichierMusique(musiqueDb.getNomFichierMusique());
         musiqueDto.setAuteurs(artistsListInString(musiqueDb.getListeAuteurs()));
 
@@ -40,7 +40,7 @@ public class MusiqueMapper {
         musiqueDb.setCodeMusique(musiqueDto.getCodeMusique());
         musiqueDb.setTitreMusique(musiqueDto.getTitreMusique());
         musiqueDb.setDureeMusique(musiqueDto.getDureeMusique());
-        musiqueDb.setDateInsertionMusique(musiqueDto.getDateInsertionMusique());
+        musiqueDb.setDateActionMusique(musiqueDto.getDateActionMusique());
         musiqueDb.setNomFichierMusique(musiqueDto.getNomFichierMusique());
         musiqueDb.setListeAuteurs(musiqueDao.find(musiqueDto.getCodeMusique()).getListeAuteurs());
 

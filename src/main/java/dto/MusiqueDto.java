@@ -9,7 +9,7 @@ public class MusiqueDto {
     private Integer codeMusique;
     private String titreMusique;
     private String dureeMusique;
-    private String dateInsertionMusique;
+    private String dateActionMusique;
     private String nomFichierMusique;
     private Integer numeroAlbumMusique;
     private String titreAlbumMusique;
@@ -40,12 +40,12 @@ public class MusiqueDto {
         this.dureeMusique = dureeMusique;
     }
 
-    public String getDateInsertionMusique() {
-        return dateInsertionMusique;
+    public String getDateActionMusique() {
+        return dateActionMusique;
     }
 
-    public void setDateInsertionMusique(String dateInsertionMusique) {
-        this.dateInsertionMusique = dateInsertionMusique;
+    public void setDateActionMusique(String dateActionMusique) {
+        this.dateActionMusique = dateActionMusique;
     }
 
     public String getNomFichierMusique() {

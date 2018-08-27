@@ -6,27 +6,24 @@
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/home/Main.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/home/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/MusiqueDb.java" afterPath="$PROJECT_DIR$/src/main/java/db/MusiqueDb.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java" afterPath="$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java" afterPath="$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" afterPath="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/editMusic.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/editMusic.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/home.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/home.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/listMusic.fxml" afterPath="$PROJECT_DIR$/src/main/resources/views/listMusic.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" afterPath="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/addMusic.fxml" afterPath="$PROJECT_DIR$/target/classes/views/addMusic.fxml" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/editMusic.fxml" afterPath="$PROJECT_DIR$/target/classes/views/editMusic.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/home.fxml" afterPath="$PROJECT_DIR$/target/classes/views/home.fxml" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/listMusic.fxml" afterPath="$PROJECT_DIR$/target/classes/views/listMusic.fxml" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAlbumDao.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestAlbumDao.txt" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,27 +96,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="addMusic.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addMusic.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/views/addMusic.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-475">
+            <state relative-caret-position="567">
               <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listMusic.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/listMusic.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="38" column="15" lean-forward="true" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -131,8 +115,88 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-454">
-              <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+            <state relative-caret-position="1176">
+              <caret line="56" column="45" lean-forward="false" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusiqueDb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/db/MusiqueDb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="56" column="61" lean-forward="false" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+              <folding>
+                <element signature="e#1364#1365#0" expanded="true" />
+                <element signature="e#1422#1423#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoQueryUtils.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestMusiqueDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2583">
+              <caret line="140" column="66" lean-forward="false" selection-start-line="140" selection-start-column="66" selection-end-line="140" selection-end-column="66" />
+              <folding>
+                <marker date="1535371080533" expanded="true" signature="9505:9556" ph="DELETE FROM album... " />
+                <marker date="1535371080533" expanded="true" signature="9593:9691" ph="DELETE FROM posseder... " />
+                <marker date="1535371080533" expanded="true" signature="9728:9823" ph="DELETE FROM musique... " />
+                <marker date="1535371080533" expanded="true" signature="9860:9931" ph="DELETE FROM auteur... " />
+                <marker date="1535371080533" expanded="true" signature="10137:10209" ph="UPDATE sqlite_sequence... " />
+                <marker date="1535371080533" expanded="true" signature="10246:10322" ph="UPDATE sqlite_sequence... " />
+                <marker date="1535371080533" expanded="true" signature="10359:10433" ph="UPDATE sqlite_sequence... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusiqueDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3234">
+              <caret line="164" column="79" lean-forward="false" selection-start-line="164" selection-start-column="79" selection-end-line="164" selection-end-column="79" />
+              <folding>
+                <marker date="1535371080474" expanded="true" signature="1492:1526" ph="INSERT INTO posseder... " />
+                <marker date="1535371080474" expanded="true" signature="2467:2508" ph="DELETE FROM posseder... " />
+                <marker date="1535371080474" expanded="true" signature="2691:2725" ph="INSERT INTO posseder... " />
+                <marker date="1535371080474" expanded="true" signature="3446:3485" ph="DELETE FROM posseder... " />
+                <marker date="1535371080474" expanded="true" signature="4035:4111" ph="UPDATE sqlite_sequence... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusiqueDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#1092#1093#0" expanded="true" />
+                <element signature="e#1150#1151#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusiqueMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,60 +205,8 @@
       <file leaf-file-name="EditMusicController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/home/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListMusicController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding>
-                <element signature="e#2284#2285#0" expanded="true" />
-                <element signature="e#2335#2336#0" expanded="true" />
-                <element signature="e#2573#2574#0" expanded="true" />
-                <element signature="e#2612#2613#0" expanded="true" />
-                <element signature="e#2810#2811#0" expanded="true" />
-                <element signature="e#2857#2858#0" expanded="true" />
-                <element signature="e#3271#3272#0" expanded="true" />
-                <element signature="e#3355#3356#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
-              <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="121" lean-forward="false" selection-start-line="11" selection-start-column="121" selection-end-line="11" selection-end-column="121" />
+            <state relative-caret-position="3549">
+              <caret line="203" column="40" lean-forward="false" selection-start-line="203" selection-start-column="20" selection-end-line="203" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -203,12 +215,9 @@
       <file leaf-file-name="AddMusicController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="966">
-              <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-              <folding>
-                <element signature="e#7927#7928#0" expanded="true" />
-                <element signature="e#7964#7965#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1302">
+              <caret line="93" column="61" lean-forward="false" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="61" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -228,7 +237,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MediaPlayer</find>
       <find>mediaPlayer</find>
       <find>OnEnd</find>
       <find>OnEN</find>
@@ -258,6 +266,7 @@
       <find>prefHeight</find>
       <find>http://javafx.com/javafx/8.0.121</find>
       <find>listMusic.s</find>
+      <find>dateInsertionMusique</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -281,15 +290,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/TestPlaylistDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/DeletingActionCell.java" />
         <option value="$PROJECT_DIR$/src/main/java/cells/DeletingActionCell.java" />
         <option value="$PROJECT_DIR$/src/main/java/listeners/ListMusicListstener.java" />
         <option value="$PROJECT_DIR$/src/main/java/listeners/listMusic/ListMusicDeletingListener.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/musicValidationSuccess.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/FormControlUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/FormUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/enums/TypeActionForm.java" />
@@ -298,7 +303,6 @@
         <option value="$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/FormDataInvalidException.java" />
         <option value="$PROJECT_DIR$/src/main/java/exceptions/FormDataInvalidException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/PlayingMusicController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/playMusic.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/PlayMusicController.java" />
@@ -313,11 +317,9 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/MusicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MusicDeleteConfirmationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/InformationsUtils.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/home/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/about.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/appCloseConfirmation.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/deleteMusicConfirmation.fxml" />
@@ -330,8 +332,15 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/editMusic.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/listMusic.fxml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/editMusic.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/MusiqueDb.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
       </list>
     </option>
   </component>
@@ -406,10 +415,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -441,7 +450,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -449,8 +458,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -466,6 +482,27 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -885,7 +922,9 @@
       <workItem from="1535106206958" duration="890000" />
       <workItem from="1535107416234" duration="2540000" />
       <workItem from="1535214811584" duration="1390000" />
-      <workItem from="1535286106820" duration="779000" />
+      <workItem from="1535286106820" duration="978000" />
+      <workItem from="1535367950309" duration="3294000" />
+      <workItem from="1535391453437" duration="491000" />
     </task>
     <servers />
   </component>
@@ -922,7 +961,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="728768000" />
+    <option name="totallyTimeSpent" value="732752000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,7 +974,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -954,12 +992,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6259977" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run Dashboard" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6259977" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20247047" sideWeight="0.44214877" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17669173" sideWeight="0.55785125" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1820623" sideWeight="0.55785125" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1127,54 +1165,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3360">
-          <caret line="160" column="8" lean-forward="false" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/listeners/listMusic/ListMusicSelectionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="71" lean-forward="false" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListenMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2457">
-          <caret line="142" column="9" lean-forward="false" selection-start-line="142" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MusicDeleteConfirmationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicArtistError.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicSelectionError.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="34" column="75" lean-forward="false" selection-start-line="34" selection-start-column="75" selection-end-line="34" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2331">
@@ -1214,13 +1204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5565">
           <caret line="265" column="74" lean-forward="false" selection-start-line="265" selection-start-column="74" selection-end-line="265" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1310,16 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/styles/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1338,7 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
           <caret line="114" column="79" lean-forward="false" selection-start-line="114" selection-start-column="79" selection-end-line="114" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1445,7 +1417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1464,37 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-          <folding>
-            <element signature="e#7927#7928#0" expanded="true" />
-            <element signature="e#7964#7965#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/editMusic.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-454">
-          <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1502,16 +1442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#2284#2285#0" expanded="true" />
-            <element signature="e#2335#2336#0" expanded="true" />
-            <element signature="e#2573#2574#0" expanded="true" />
-            <element signature="e#2612#2613#0" expanded="true" />
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2857#2858#0" expanded="true" />
-            <element signature="e#3271#3272#0" expanded="true" />
-            <element signature="e#3355#3356#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1526,13 +1456,125 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="336">
+            <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/addMusic.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-475">
+        <state relative-caret-position="567">
           <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="93" column="61" lean-forward="false" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3549">
+          <caret line="203" column="40" lean-forward="false" selection-start-line="203" selection-start-column="20" selection-end-line="203" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/editMusic.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="56" column="45" lean-forward="false" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#1092#1093#0" expanded="true" />
+            <element signature="e#1150#1151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2583">
+          <caret line="140" column="66" lean-forward="false" selection-start-line="140" selection-start-column="66" selection-end-line="140" selection-end-column="66" />
+          <folding>
+            <marker date="1535371080533" expanded="true" signature="9505:9556" ph="DELETE FROM album... " />
+            <marker date="1535371080533" expanded="true" signature="9593:9691" ph="DELETE FROM posseder... " />
+            <marker date="1535371080533" expanded="true" signature="9728:9823" ph="DELETE FROM musique... " />
+            <marker date="1535371080533" expanded="true" signature="9860:9931" ph="DELETE FROM auteur... " />
+            <marker date="1535371080533" expanded="true" signature="10137:10209" ph="UPDATE sqlite_sequence... " />
+            <marker date="1535371080533" expanded="true" signature="10246:10322" ph="UPDATE sqlite_sequence... " />
+            <marker date="1535371080533" expanded="true" signature="10359:10433" ph="UPDATE sqlite_sequence... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3234">
+          <caret line="164" column="79" lean-forward="false" selection-start-line="164" selection-start-column="79" selection-end-line="164" selection-end-column="79" />
+          <folding>
+            <marker date="1535371080474" expanded="true" signature="1492:1526" ph="INSERT INTO posseder... " />
+            <marker date="1535371080474" expanded="true" signature="2467:2508" ph="DELETE FROM posseder... " />
+            <marker date="1535371080474" expanded="true" signature="2691:2725" ph="INSERT INTO posseder... " />
+            <marker date="1535371080474" expanded="true" signature="3446:3485" ph="DELETE FROM posseder... " />
+            <marker date="1535371080474" expanded="true" signature="4035:4111" ph="UPDATE sqlite_sequence... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/MusiqueDb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="61" lean-forward="false" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+          <folding>
+            <element signature="e#1364#1365#0" expanded="true" />
+            <element signature="e#1422#1423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
           <folding />
         </state>
       </provider>

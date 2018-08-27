@@ -26,13 +26,6 @@
                         <ColumnConstraints hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <!--TODO : corriger les pb de hauteur-->
-                        <!--<RowConstraints minHeight="10.0" prefHeight="40.0"/>-->
-                        <!--<RowConstraints minHeight="10.0" prefHeight="40.0"/>-->
-                        <!--<RowConstraints minHeight="10.0" prefHeight="40.0"/>-->
-                        <!--<RowConstraints minHeight="10.0" prefHeight="40.0"/>-->
-                        <!--<RowConstraints minHeight="10.0" prefHeight="40.0"/>-->
-                        <!--<RowConstraints minHeight="10.0" prefHeight="5.0"/>-->
                         <RowConstraints />
                         <RowConstraints />
                         <RowConstraints />

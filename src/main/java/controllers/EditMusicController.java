@@ -47,7 +47,7 @@ public class EditMusicController extends MusicController implements Initializabl
     @FXML
     protected TextField duree = new TextField();
     @FXML
-    protected TextField dateInsertion = new TextField();
+    protected TextField dateModification = new TextField();
     @FXML
     protected TextField nomFichier = new TextField();
     @FXML
@@ -95,8 +95,8 @@ public class EditMusicController extends MusicController implements Initializabl
         // "nomFichier" FIELD INITIALIZATION
         this.nomFichier.setText(musiqueDb.getNomFichierMusique());
 
-        // "dateInsertion" FIELD INITIALIZATION
-        this.dateInsertion.setText(musiqueDb.getDateInsertionMusique());
+        // "dateModification" FIELD INITIALIZATION
+        this.dateModification.setText(FormUtils.getCurrentDate());
 
         // "album" FIELD INITIALIZATION
         AlbumDao albumDao = new AlbumDao();
@@ -201,7 +201,7 @@ public class EditMusicController extends MusicController implements Initializabl
             musique.setCodeMusique(ListMusicSelectionListener.getMusiqueSelected().getCodeMusique());
             musique.setTitreMusique(this.titre.getText());
             musique.setDureeMusique(this.duree.getText());
-            musique.setDateInsertionMusique(this.dateInsertion.getText());
+            musique.setDateActionMusique(this.dateModification.getText());
             musique.setNomFichierMusique(this.nomFichier.getText());
             musique.setAlbumMusique(albumMusique);
 

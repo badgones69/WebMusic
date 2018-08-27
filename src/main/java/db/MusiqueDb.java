@@ -11,7 +11,7 @@ public class MusiqueDb {
     private Integer codeMusique;
     private String titreMusique;
     private String dureeMusique;
-    private String dateInsertionMusique;
+    private String dateActionMusique;
     private String nomFichierMusique;
     private AlbumDb albumMusique;
     private List<PlaylistDb> listePlaylists;
@@ -49,13 +49,13 @@ public class MusiqueDb {
     }
 
     @Basic
-    @Column(name = "dateInsertionMusique")
-    public String getDateInsertionMusique() {
-        return dateInsertionMusique;
+    @Column(name = "dateActionMusique")
+    public String getDateActionMusique() {
+        return dateActionMusique;
     }
 
-    public void setDateInsertionMusique(String dateInsertionMusique) {
-        this.dateInsertionMusique = dateInsertionMusique;
+    public void setDateActionMusique(String dateActionMusique) {
+        this.dateActionMusique = dateActionMusique;
     }
 
     @Basic

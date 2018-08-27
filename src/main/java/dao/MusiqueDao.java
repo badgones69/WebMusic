@@ -112,7 +112,7 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
             musiqueDb.setCodeMusique(result.getInt("codeMusique"));
             musiqueDb.setTitreMusique(result.getString("titreMusique"));
             musiqueDb.setDureeMusique(result.getString("dureeMusique"));
-            musiqueDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
+            musiqueDb.setDateActionMusique(result.getString("dateActionMusique"));
             musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
 
             // MUSIC ARTIST(S) RETRIEVING
@@ -162,7 +162,7 @@ public class MusiqueDao extends AbstractDao<MusiqueDb> {
                 musiqueDb.setCodeMusique(musiquesResult.getInt("codeMusique"));
                 musiqueDb.setTitreMusique(musiquesResult.getString("titreMusique"));
                 musiqueDb.setDureeMusique(musiquesResult.getString("dureeMusique"));
-                musiqueDb.setDateInsertionMusique(musiquesResult.getString("dateInsertionMusique"));
+                musiqueDb.setDateActionMusique(musiquesResult.getString("dateActionMusique"));
                 musiqueDb.setNomFichierMusique(musiquesResult.getString("nomFichierMusique"));
 
                 // MUSIC ARTIST(S) RETRIEVING

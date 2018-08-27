@@ -59,14 +59,14 @@ public class TestMusiqueDao {
 
         musiqueDb.setTitreMusique("musiqueTest");
         musiqueDb.setDureeMusique("00:03:57");
-        musiqueDb.setDateInsertionMusique("09/04/2018");
+        musiqueDb.setDateActionMusique("09/04/2018");
         musiqueDb.setNomFichierMusique("musiqueTest.mp3");
         musiqueDb.setAlbumMusique(albumMusique);
         musiqueDb.setListeAuteurs(artistes);
 
         musiqueDb2.setTitreMusique("musiqueTest2");
         musiqueDb2.setDureeMusique("00:04:21");
-        musiqueDb2.setDateInsertionMusique("25/04/2018");
+        musiqueDb2.setDateActionMusique("25/04/2018");
         musiqueDb2.setNomFichierMusique("musiqueTest2.mp3");
         musiqueDb2.setAlbumMusique(albumMusique);
         musiqueDb2.setListeAuteurs(artistes);
@@ -94,14 +94,14 @@ public class TestMusiqueDao {
             resultDb.setCodeMusique(result.getInt("codeMusique"));
             resultDb.setTitreMusique(result.getString("titreMusique"));
             resultDb.setDureeMusique(result.getString("dureeMusique"));
-            resultDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
+            resultDb.setDateActionMusique(result.getString("dateActionMusique"));
             resultDb.setNomFichierMusique(result.getString("nomFichierMusique"));
             resultDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
 
             assertTrue(musiqueDb.getCodeMusique().equals(resultDb.getCodeMusique()));
             assertTrue(musiqueDb.getTitreMusique().equals(resultDb.getTitreMusique()));
             assertTrue(musiqueDb.getDureeMusique().equals(resultDb.getDureeMusique()));
-            assertTrue(musiqueDb.getDateInsertionMusique().equals(resultDb.getDateInsertionMusique()));
+            assertTrue(musiqueDb.getDateActionMusique().equals(resultDb.getDateActionMusique()));
             assertTrue(musiqueDb.getNomFichierMusique().equals(resultDb.getNomFichierMusique()));
             assertTrue(musiqueDb.getAlbumMusique().getNumeroAlbum().equals(resultDb.getAlbumMusique().getNumeroAlbum()));
 
@@ -125,7 +125,7 @@ public class TestMusiqueDao {
         idMusique1 = musiqueDb.getCodeMusique();
         musiqueDb.setTitreMusique("musiqueTestUpdated");
         musiqueDb.setDureeMusique("00:07:07");
-        musiqueDb.setDateInsertionMusique("26/04/2018");
+        musiqueDb.setDateActionMusique("26/04/2018");
         musiqueDb.setNomFichierMusique("musiqueTestUpdated.mp3");
         musiqueDao.update(musiqueDb);
 
@@ -138,12 +138,12 @@ public class TestMusiqueDao {
             result.next();
             resultDb.setTitreMusique(result.getString("titreMusique"));
             resultDb.setDureeMusique(result.getString("dureeMusique"));
-            resultDb.setDateInsertionMusique(result.getString("dateInsertionMusique"));
+            resultDb.setDateActionMusique(result.getString("dateActionMusique"));
             resultDb.setNomFichierMusique(result.getString("nomFichierMusique"));
 
             assertTrue("musiqueTestUpdated".equals(resultDb.getTitreMusique()));
             assertTrue("00:07:07".equals(resultDb.getDureeMusique()));
-            assertTrue("26/04/2018".equals(resultDb.getDateInsertionMusique()));
+            assertTrue("26/04/2018".equals(resultDb.getDateActionMusique()));
             assertTrue("musiqueTestUpdated.mp3".equals(resultDb.getNomFichierMusique()));
 
             result.close();
@@ -199,7 +199,7 @@ public class TestMusiqueDao {
             assertTrue(musiqueDb.getCodeMusique().equals(musique.getCodeMusique()));
             assertTrue(musiqueDb.getTitreMusique().equals(musique.getTitreMusique()));
             assertTrue(musiqueDb.getDureeMusique().equals(musique.getDureeMusique()));
-            assertTrue(musiqueDb.getDateInsertionMusique().equals(musique.getDateInsertionMusique()));
+            assertTrue(musiqueDb.getDateActionMusique().equals(musique.getDateActionMusique()));
             assertTrue(musiqueDb.getNomFichierMusique().equals(musique.getNomFichierMusique()));
             assertTrue(musiqueDb.getAlbumMusique().getNumeroAlbum().equals(musique.getAlbumMusique().getNumeroAlbum()));
 

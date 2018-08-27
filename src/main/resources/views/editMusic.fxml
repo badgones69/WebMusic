@@ -40,7 +40,7 @@
                                textAlignment="RIGHT"/>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Durée : "
                                textAlignment="CENTER" GridPane.rowIndex="1"/>
-                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date d'insertion : "
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date de modification : "
                                textAlignment="CENTER" GridPane.rowIndex="2"/>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Nom du fichier : "
                                textAlignment="CENTER" GridPane.rowIndex="3"/>
@@ -54,7 +54,7 @@
                         <TextField fx:id="duree" alignment="CENTER_LEFT" maxWidth="110.0" promptText="HH:MM:SS"
                                    styleClass="formField"
                                    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                        <TextField fx:id="dateInsertion" alignment="CENTER_LEFT" disable="true" maxWidth="120.0"
+                        <TextField fx:id="dateModification" alignment="CENTER_LEFT" disable="true" maxWidth="120.0"
                                    styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                         <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <TextField fx:id="nomFichier" alignment="CENTER_LEFT" prefWidth="350.0"

@@ -52,7 +52,7 @@ public class DaoQueryUtils {
 
         values += musiqueDb.getTitreMusique().replace("'", "''") + "' , '";
         values += musiqueDb.getDureeMusique() + "' , '";
-        values += musiqueDb.getDateInsertionMusique() + "' , '";
+        values += musiqueDb.getDateActionMusique() + "' , '";
         values += musiqueDb.getNomFichierMusique().replace("'", "''") + "' , ";
         values += musiqueDb.getAlbumMusique().getNumeroAlbum();
         values += ")";
@@ -113,7 +113,7 @@ public class DaoQueryUtils {
 
         values += "titreMusique = '" + musiqueDb.getTitreMusique().replace("'", "''") + "', ";
         values += "dureeMusique = '" + musiqueDb.getDureeMusique() + "', ";
-        values += "dateInsertionMusique = '" + musiqueDb.getDateInsertionMusique() + "', ";
+        values += "dateActionMusique = '" + musiqueDb.getDateActionMusique() + "', ";
         values += "nomFichierMusique = '" + musiqueDb.getNomFichierMusique().replace("'", "''") + "', ";
         values += "albumMusique = " + musiqueDb.getAlbumMusique().getNumeroAlbum();
         values += " WHERE ";
