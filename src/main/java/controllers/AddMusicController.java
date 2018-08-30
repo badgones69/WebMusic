@@ -3,6 +3,7 @@ package controllers;
 import dao.AlbumDao;
 import dao.AuteurDao;
 import dao.MusiqueDao;
+import database.SQLiteConnection;
 import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
@@ -23,12 +24,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.controlsfx.control.ListSelectionView;
+import utils.DaoQueryUtils;
 import utils.DaoTestsUtils;
 import utils.FormUtils;
 import utils.PopUpUtils;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -103,6 +108,7 @@ public class AddMusicController extends MusicController implements Initializable
         }
 
         this.album.getItems().clear();
+        this.album.getItems().add(null);
         this.album.getItems().addAll(albumValues);
         this.album.setValue(null);
 
@@ -187,7 +193,23 @@ public class AddMusicController extends MusicController implements Initializable
                 String identiteArtiste = this.artistes.getTargetItems().get(i).getText();
                 Integer indexSeparateurIdentite = identiteArtiste.indexOf(" ");
 
-                if (indexSeparateurIdentite == -1) {
+                // ARTIST(S) NAME RETRIEVING (TO KNOW IF WHITESPACES CONTAINING)
+                Boolean auteurHasWhitespacedName = Boolean.FALSE;
+                try {
+                    PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                            "auteur", "nomAuteur",
+                            indexSeparateurIdentite != -1 ? identiteArtiste.substring(indexSeparateurIdentite).trim() : identiteArtiste));
+                    ResultSet resultSet = statement.executeQuery();
+
+                    if(resultSet.isClosed()) {
+                        auteurHasWhitespacedName = Boolean.TRUE;
+                    }
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                if (indexSeparateurIdentite == -1 || Boolean.TRUE.equals(auteurHasWhitespacedName)) {
                     artiste.setNomAuteur(identiteArtiste);
                 } else {
                     artiste.setNomAuteur(identiteArtiste.substring(indexSeparateurIdentite).trim());
