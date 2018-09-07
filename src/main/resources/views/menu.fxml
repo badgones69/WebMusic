@@ -24,6 +24,7 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Artiste">
             <items>
+                <MenuItem id="addArtistItem" mnemonicParsing="false" text="Ajout" onAction="#addArtistItemClicked"/>
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Playlist">

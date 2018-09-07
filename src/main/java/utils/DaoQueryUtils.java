@@ -40,9 +40,17 @@ public class DaoQueryUtils {
     private static String bindAuteurToInsert(AuteurDb auteurDb) {
         String values = "'";
 
-        values += auteurDb.getNomAuteur().replace("'", "''") + "' , '";
-        values += auteurDb.getPrenomAuteur().replace("'", "''");
-        values += "')";
+        values += auteurDb.getNomAuteur().replace("'", "''") + "' , ";
+
+        if (auteurDb.getPrenomAuteur() == null) {
+            values += "null";
+        } else {
+            values += "'";
+            values += auteurDb.getPrenomAuteur().replace("'", "''");
+            values += "'";
+        }
+
+        values += ")";
 
         return values;
     }

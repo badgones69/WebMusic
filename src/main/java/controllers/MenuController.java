@@ -127,6 +127,27 @@ public class MenuController implements Initializable {
     }
 
     /**
+     * ITEMS LISTENERS OF "Artiste" MENU
+     */
+
+    public void addArtistItemClicked() {
+        Stage homeStage = Main.getHomeStage();
+        homeStage.show();
+
+        try {
+            AddMusicController addMusicController = new AddMusicController();
+            addMusicController.initialize(getClass().getResource("/views/addArtist.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/addArtist.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'un(e) artiste"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * ITEM LISTENER OF "Aide" MENU
      */
 

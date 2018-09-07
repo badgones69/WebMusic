@@ -48,6 +48,9 @@
 /* ANY FORM VALIDATION AND CANCELING BUTTON */
 .formButtonsHBox {
     -fx-spacing: 280;
+
+    /*TOP, RIGHT, BOTTOM, LEFT*/
+    -fx-padding: 25 0 0 0;
 }
 
 /**
