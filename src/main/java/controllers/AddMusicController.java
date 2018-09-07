@@ -144,7 +144,26 @@ public class AddMusicController extends MusicController implements Initializable
     // MUSIC ADDING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        if (!FormUtils.dureeMusiqueIsValid(duree.getText())) {
+        Boolean titreInvalide = "".equals(titre.getText());
+        Boolean dureeInvalide = !FormUtils.dureeMusiqueIsValid(duree.getText());
+        Boolean artistesInvalides = artistes.getTargetItems().size() == 0;
+
+        if (titreInvalide) {
+            Stage stage = new Stage();
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicTitleError.fxml"));
+                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
+                stage.setScene(new Scene(root, 330, 140));
+                this.setMusicTitleErrorStage(stage);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (dureeInvalide) {
             Stage stage = new Stage();
 
             try {
@@ -159,7 +178,7 @@ public class AddMusicController extends MusicController implements Initializable
             }
         }
 
-        if (artistes.getTargetItems().size() == 0) {
+        if (artistesInvalides) {
             Stage stage = new Stage();
 
             try {
@@ -172,7 +191,9 @@ public class AddMusicController extends MusicController implements Initializable
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
+        }
+
+        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(dureeInvalide) && Boolean.FALSE.equals(artistesInvalides)) {
             MusiqueDb musique = new MusiqueDb();
             AlbumDb albumMusique = new AlbumDb();
             List<AuteurDb> artistesMusique = new ArrayList<>();

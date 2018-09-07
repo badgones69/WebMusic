@@ -23,6 +23,9 @@ public class MusicController implements Initializable {
     // MUSIC'S LENGTH ERROR POP-UP STAGE
     protected static Stage musicLengthErrorStage;
 
+    // MUSIC'S TITLE ERROR POP-UP STAGE
+    protected static Stage musicTitleErrorStage;
+
     // MUSIC'S ARTIST(S) ERROR POP-UP STAGE
     protected static Stage musicArtistErrorStage;
 
@@ -48,6 +51,14 @@ public class MusicController implements Initializable {
 
     public static void setMusicLengthErrorStage(Stage musicLengthErrorStage) {
         AddMusicController.musicLengthErrorStage = musicLengthErrorStage;
+    }
+
+    public static Stage getMusicTitleErrorStage() {
+        return musicTitleErrorStage;
+    }
+
+    public static void setMusicTitleErrorStage(Stage musicTitleErrorStage) {
+        MusicController.musicTitleErrorStage = musicTitleErrorStage;
     }
 
     public static Stage getMusicArtistErrorStage() {
@@ -95,6 +106,11 @@ public class MusicController implements Initializable {
     // MUSIC'S LENGTH ERROR POP-UP "OK" BUTTON CLICKED
     public void musicLengthErrorCloseButtonClicked(ActionEvent actionEvent) {
         getMusicLengthErrorStage().close();
+    }
+
+    // MUSIC'S TITLE ERROR POP-UP "OK" BUTTON CLICKED
+    public void musicTitleErrorCloseButtonClicked(ActionEvent actionEvent) {
+        getMusicTitleErrorStage().close();
     }
 
     // MUSIC'S ARTIST(S) ERROR POP-UP "OK" BUTTON CLICKED

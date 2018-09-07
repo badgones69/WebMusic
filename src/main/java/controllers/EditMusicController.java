@@ -164,14 +164,18 @@ public class EditMusicController extends MusicController implements Initializabl
     // MUSIC EDITING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        if (!FormUtils.dureeMusiqueIsValid(this.duree.getText())) {
+        Boolean titreInvalide = "".equals(titre.getText());
+        Boolean dureeInvalide = !FormUtils.dureeMusiqueIsValid(duree.getText());
+        Boolean artistesInvalides = artistes.getTargetItems().size() == 0;
+
+        if (titreInvalide) {
             Stage stage = new Stage();
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/musicLengthError.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicTitleError.fxml"));
                 stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 330, 140));
-                super.setMusicLengthErrorStage(stage);
+                this.setMusicTitleErrorStage(stage);
                 stage.show();
 
             } catch (IOException e) {
@@ -179,7 +183,22 @@ public class EditMusicController extends MusicController implements Initializabl
             }
         }
 
-        if (this.artistes.getTargetItems().size() == 0) {
+        if (dureeInvalide) {
+            Stage stage = new Stage();
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/musicLengthError.fxml"));
+                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
+                stage.setScene(new Scene(root, 330, 140));
+                this.setMusicLengthErrorStage(stage);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (artistesInvalides) {
             Stage stage = new Stage();
 
             try {
@@ -194,7 +213,7 @@ public class EditMusicController extends MusicController implements Initializabl
             }
         }
 
-        if (FormUtils.dureeMusiqueIsValid(this.duree.getText()) && this.artistes.getTargetItems().size() > 0) {
+        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(dureeInvalide) && Boolean.FALSE.equals(artistesInvalides)) {
             MusiqueDb musique = new MusiqueDb();
             AlbumDb albumMusique = new AlbumDb();
             List<AuteurDb> artistesMusique = new ArrayList<>();
@@ -220,7 +239,8 @@ public class EditMusicController extends MusicController implements Initializabl
                 Boolean auteurHasWhitespacedName = Boolean.FALSE;
                 try {
                     PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                            "auteur", "nomAuteur", identiteArtiste.substring(indexSeparateurIdentite).trim()));
+                            "auteur", "nomAuteur",
+                            indexSeparateurIdentite != -1 ? identiteArtiste.substring(indexSeparateurIdentite).trim() : identiteArtiste));
                     ResultSet resultSet = statement.executeQuery();
 
                     if(resultSet.isClosed()) {
