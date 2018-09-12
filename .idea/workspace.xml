@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/AuteurDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/listeners/listArtist/ListArtistSelectionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/AuteurMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/views/listArtist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ArtistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAlbumDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestAlbumDao.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,7 +72,7 @@
     <session id="-416262042">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.64" value="1" />
@@ -104,12 +82,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="44" />
+          <entry key="java" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="44" />
+          <entry key="JAVA" value="48" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -150,11 +138,20 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1714">
-              <caret line="132" column="52" selection-start-line="132" selection-start-column="52" selection-end-line="132" selection-end-column="52" />
+            <state relative-caret-position="466">
+              <caret line="132" column="54" lean-forward="true" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="173" column="41" selection-start-line="173" selection-start-column="41" selection-end-line="173" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -317,7 +314,6 @@
         <option value="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/MusiqueDb.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/musicFileError.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/artistActionSuccess.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/addArtist.fxml" />
@@ -337,6 +333,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/views/menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" />
       </list>
     </option>
   </component>
@@ -898,7 +895,7 @@
       <workItem from="1536499986097" duration="494000" />
       <workItem from="1536577712586" duration="226000" />
       <workItem from="1536578173920" duration="1082000" />
-      <workItem from="1536750478665" duration="2119000" />
+      <workItem from="1536750478665" duration="2555000" />
     </task>
     <servers />
   </component>
@@ -935,7 +932,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="764552000" />
+    <option name="totallyTimeSpent" value="764988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -948,9 +945,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.55785125" visible="true" weight="0.26174498" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55785125" visible="true" weight="0.26174498" />
       <window_info id="Structure" order="1" weight="0.24973147" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1384,13 +1380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="210" column="77" selection-start-line="210" selection-start-column="77" selection-end-line="210" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4263">
@@ -1538,8 +1527,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1714">
-          <caret line="132" column="52" selection-start-line="132" selection-start-column="52" selection-end-line="132" selection-end-column="52" />
+        <state relative-caret-position="466">
+          <caret line="132" column="54" lean-forward="true" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="173" column="41" selection-start-line="173" selection-start-column="41" selection-end-line="173" selection-end-column="41" />
         </state>
       </provider>
     </entry>

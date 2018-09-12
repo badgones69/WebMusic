@@ -4,6 +4,7 @@ import controllers.home.Main;
 import dao.MusiqueDao;
 import db.MusiqueDb;
 import dto.MusiqueDto;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -169,6 +170,8 @@ public class ListMusicController implements Initializable {
             listMusic.getColumns().addAll(titreColumn, artisteColumn, dureeColumn, albumColumn);
             listMusic.getSortOrder().add(titreColumn);
         }
+
+        Platform.runLater(() -> listMusic.refresh());
     }
 
     // MUSIC SELECTION ERROR POP-UP "OK" BUTTON CLICKED
