@@ -130,13 +130,30 @@ public class MenuController implements Initializable {
      * ITEMS LISTENERS OF "Artiste" MENU
      */
 
+    public void listArtistItemClicked() {
+        Stage homeStage = Main.getHomeStage();
+        homeStage.show();
+
+        try {
+            ListArtistController listArtistController = new ListArtistController();
+            listArtistController.initialize(getClass().getResource("/views/listArtist.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/listArtist.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des artistes"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void addArtistItemClicked() {
         Stage homeStage = Main.getHomeStage();
         homeStage.show();
 
         try {
-            AddMusicController addMusicController = new AddMusicController();
-            addMusicController.initialize(getClass().getResource("/views/addArtist.fxml"), null);
+            AddArtistController addArtistController = new AddArtistController();
+            addArtistController.initialize(getClass().getResource("/views/addArtist.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/addArtist.fxml"));
             homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'un(e) artiste"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));

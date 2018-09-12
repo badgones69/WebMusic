@@ -75,7 +75,7 @@ public class ArtistController implements Initializable {
     public void artistActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
         getArtistActionSuccessStage().close();
 
-        /*Stage homeStage = Main.getHomeStage();
+        Stage homeStage = Main.getHomeStage();
 
         try {
             ListMusicController listMusicController = new ListMusicController();
@@ -87,6 +87,6 @@ public class ArtistController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }

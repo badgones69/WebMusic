@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ARTIST LIST PAGE VIEW -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="controllers.ListArtistController">
+    <top>
+        <fx:include source="menu.fxml"/>
+    </top>
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <TableView fx:id="listArtist" focusTraversable="false">
+                            <columns>
+                                <TableColumn fx:id="nomColumn" text="Nom" />
+                                <TableColumn fx:id="prenomColumn" text="Prénom"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+    <right>
+        <VBox alignment="CENTER">
+            <children>
+                <ImageView fx:id="updatingActionImageView" onMouseClicked="#artistEditingButtonClicked">
+                    <image>
+                        <Image url="@../icons/updating.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="deletingActionImageView" onMouseClicked="#artistDeletingButtonClicked">
+                    <image>
+                        <Image url="@../icons/deleting.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+    </right>
+</BorderPane>

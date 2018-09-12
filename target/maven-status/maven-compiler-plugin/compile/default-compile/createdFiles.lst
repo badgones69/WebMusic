@@ -1,4 +1,6 @@
+listeners\listArtist\ListArtistSelectionListener.class
 listeners\listMusic\ListMusicSelectionListener.class
+dto\AuteurDto.class
 controllers\ListMusicController.class
 controllers\AddArtistController.class
 mapper\MusiqueMapper.class
@@ -20,9 +22,11 @@ controllers\AboutController.class
 dao\AlbumDao.class
 utils\InformationsUtils.class
 db\PlaylistDb.class
+controllers\ListArtistController.class
 utils\PopUpUtils.class
 dao\AbstractDao.class
 db\AuteurDb.class
+mapper\AuteurMapper.class
 controllers\MenuController.class
 dao\AuteurDao.class
 controllers\ArtistController.class
