@@ -8,6 +8,7 @@ dao\PlaylistDao.class
 controllers\ListenMusicController.class
 controllers\AppCloseConfirmationController.class
 controllers\home\Main.class
+controllers\ArtistDeleteConfirmationController.class
 db\AlbumDb.class
 controllers\EditMusicController.class
 database\SQLiteConnection.class

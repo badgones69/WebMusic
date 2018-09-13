@@ -2,6 +2,7 @@ C:\workspace\WebMusic\src\main\java\database\SQLiteConnection.java
 C:\workspace\WebMusic\src\main\java\listeners\listArtist\ListArtistSelectionListener.java
 C:\workspace\WebMusic\src\main\java\controllers\AppCloseConfirmationController.java
 C:\workspace\WebMusic\src\main\java\controllers\ArtistController.java
+C:\workspace\WebMusic\src\main\java\controllers\ArtistDeleteConfirmationController.java
 C:\workspace\WebMusic\src\main\java\dto\AuteurDto.java
 C:\workspace\WebMusic\src\main\java\utils\PopUpUtils.java
 C:\workspace\WebMusic\src\main\java\controllers\MusicController.java

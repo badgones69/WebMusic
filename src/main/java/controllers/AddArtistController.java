@@ -83,13 +83,13 @@ public class AddArtistController extends ArtistController implements Initializab
                 e.printStackTrace();
             }
         } else {
-            AuteurDb auteur = new AuteurDb();
+            AuteurDb auteurDb = new AuteurDb();
 
-            auteur.setPrenomAuteur("".equals(this.prenom.getText()) ? null : this.prenom.getText());
-            auteur.setNomAuteur(this.nom.getText());
+            auteurDb.setPrenomAuteur("".equals(this.prenom.getText()) ? null : this.prenom.getText());
+            auteurDb.setNomAuteur(this.nom.getText());
 
             AuteurDao auteurDao = new AuteurDao();
-            auteurDao.insert(auteur);
+            auteurDao.insert(auteurDb);
 
             Stage stage = new Stage();
 

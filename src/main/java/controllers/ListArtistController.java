@@ -34,10 +34,10 @@ import java.util.ResourceBundle;
 public class ListArtistController implements Initializable {
 
     // MUSIC SELECTION ERROR POP-UP STAGE
-    // private static Stage artistSelectionErrorStage;
+    private static Stage artistSelectionErrorStage;
 
     // MUSIC DELETING CONFIRMATION POP-UP STAGE
-    // private static Stage artistDeleteConfirmationStage;
+    private static Stage artistDeleteConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -64,7 +64,7 @@ public class ListArtistController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    /*public static Stage getArtistDeleteConfirmationStage() {
+    public static Stage getArtistDeleteConfirmationStage() {
         return artistDeleteConfirmationStage;
     }
 
@@ -78,7 +78,7 @@ public class ListArtistController implements Initializable {
 
     public static void setArtistSelectionErrorStage(Stage artistSelectionErrorStage) {
         ListArtistController.artistSelectionErrorStage = artistSelectionErrorStage;
-    }*/
+    }
 
     /**
      * MUSIC LIST INITIALIZATION
@@ -135,7 +135,7 @@ public class ListArtistController implements Initializable {
 
     // MUSIC SELECTION ERROR POP-UP "OK" BUTTON CLICKED
     public void artistSelectionErrorCloseButtonClicked(ActionEvent actionEvent) {
-        // getArtistSelectionErrorStage().close();
+        getArtistSelectionErrorStage().close();
     }
     
     // MUSIC EDITING ICON CLICKED
@@ -173,7 +173,7 @@ public class ListArtistController implements Initializable {
 
     // MUSIC DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
-        /*if(ListArtistSelectionListener.getAuteurSelected() == null) {
+        if(ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -199,6 +199,6 @@ public class ListArtistController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
     }
 }
