@@ -33,16 +33,16 @@ import java.util.ResourceBundle;
 
 public class ListArtistController implements Initializable {
 
-    // MUSIC SELECTION ERROR POP-UP STAGE
+    // ARTIST SELECTION ERROR POP-UP STAGE
     private static Stage artistSelectionErrorStage;
 
-    // MUSIC DELETING CONFIRMATION POP-UP STAGE
+    // ARTIST DELETING CONFIRMATION POP-UP STAGE
     private static Stage artistDeleteConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
     /**
-     * MUSIC LIST COLUMNS
+     * ARTIST LIST COLUMNS
      */
 
     @FXML
@@ -81,7 +81,7 @@ public class ListArtistController implements Initializable {
     }
 
     /**
-     * MUSIC LIST INITIALIZATION
+     * ARTIST LIST INITIALIZATION
      */
 
     @Override
@@ -133,14 +133,14 @@ public class ListArtistController implements Initializable {
         Platform.runLater(() -> listArtist.refresh());
     }
 
-    // MUSIC SELECTION ERROR POP-UP "OK" BUTTON CLICKED
+    // ARTIST SELECTION ERROR POP-UP "OK" BUTTON CLICKED
     public void artistSelectionErrorCloseButtonClicked(ActionEvent actionEvent) {
         getArtistSelectionErrorStage().close();
     }
     
-    // MUSIC EDITING ICON CLICKED
+    // ARTIST EDITING ICON CLICKED
     public void artistEditingButtonClicked(MouseEvent mouseEvent) {
-        /*if(ListArtistSelectionListener.getAuteurSelected() == null) {
+        if(ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -168,10 +168,10 @@ public class ListArtistController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
     }
 
-    // MUSIC DELETING ICON CLICKED
+    // ARTIST DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
         if(ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();

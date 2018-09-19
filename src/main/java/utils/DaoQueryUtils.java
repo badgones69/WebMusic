@@ -106,8 +106,11 @@ public class DaoQueryUtils {
     private static String bindAuteurToUpdate(String tableName, AuteurDb auteurDb) {
         String values = "";
 
-        values += "nomAuteur = '" + auteurDb.getNomAuteur().replace("'", "''") + "', ";
-        values += "prenomAuteur = '" + auteurDb.getPrenomAuteur().replace("'", "''") + "'";
+        values += "nomAuteur = '" + auteurDb.getNomAuteur().replace("'", "''") + "'";
+        if (auteurDb.getPrenomAuteur() != null) {
+            values += ", ";
+            values += "prenomAuteur = '" + auteurDb.getPrenomAuteur().replace("'", "''") + "'";
+        }
         values += " WHERE ";
         values += getIdColumnName(tableName);
         values += " = ";

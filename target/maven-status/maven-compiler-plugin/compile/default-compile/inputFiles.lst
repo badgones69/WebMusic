@@ -4,6 +4,7 @@ C:\workspace\WebMusic\src\main\java\controllers\AppCloseConfirmationController.j
 C:\workspace\WebMusic\src\main\java\controllers\ArtistController.java
 C:\workspace\WebMusic\src\main\java\controllers\ArtistDeleteConfirmationController.java
 C:\workspace\WebMusic\src\main\java\dto\AuteurDto.java
+C:\workspace\WebMusic\src\main\java\controllers\EditArtistController.java
 C:\workspace\WebMusic\src\main\java\utils\PopUpUtils.java
 C:\workspace\WebMusic\src\main\java\controllers\MusicController.java
 C:\workspace\WebMusic\src\main\java\controllers\MenuController.java

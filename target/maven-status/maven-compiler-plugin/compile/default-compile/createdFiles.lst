@@ -32,4 +32,5 @@ controllers\MenuController.class
 dao\AuteurDao.class
 controllers\ArtistController.class
 controllers\MusicController.class
+controllers\EditArtistController.class
 dao\MusiqueDao.class
