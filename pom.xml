@@ -4,7 +4,7 @@
 
     <groupId>com.badgones69</groupId>
     <artifactId>WebMusic</artifactId>
-    <version>${project.version}</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>WebMusic</name>
@@ -13,7 +13,6 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.version>1.0</project.version>
     </properties>
 
     <dependencies>
@@ -44,18 +43,19 @@
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
             <version>8.40.14</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>2.6.5</version>
         </dependency>
 
         <!-- Logging -->
@@ -99,6 +99,8 @@
                                 <filter>
                                     <artifact>*:*</artifact>
                                     <excludes>
+                                        <exclude>junit:junit</exclude>
+                                        <exclude>log4j:log4j:jar:</exclude>
                                         <exclude>META-INF/*.SF</exclude>
                                         <exclude>META-INF/*.DSA</exclude>
                                         <exclude>META-INF/*.RSA</exclude>
