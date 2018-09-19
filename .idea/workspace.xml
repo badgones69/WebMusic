@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_commonj_sdo_2_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_eclipselink_2_6_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_javax_persistence_2_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_0_4.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebMusic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WebMusic.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" afterDir="false" />
@@ -93,7 +84,7 @@
     <session id="-416262042">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.51" value="1" />
@@ -113,14 +104,14 @@
           <entry key="fxml" value="99" />
           <entry key="iml" value="5" />
           <entry key="java" value="292" />
-          <entry key="xml" value="102" />
+          <entry key="xml" value="104" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="IDEA_MODULE" value="5" />
           <entry key="JAVA" value="292" />
-          <entry key="XML" value="201" />
+          <entry key="XML" value="203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -128,14 +119,14 @@
           <entry key="fxml" value="5" />
           <entry key="iml" value="1" />
           <entry key="java" value="12" />
-          <entry key="xml" value="2" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="12" />
-          <entry key="XML" value="7" />
+          <entry key="XML" value="8" />
         </counts>
       </usages-collector>
     </session>
@@ -148,19 +139,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="109" column="112" selection-start-line="109" selection-start-column="112" selection-end-line="109" selection-end-column="112" />
+            <state relative-caret-position="102">
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -276,9 +258,9 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/editArtist.fxml" />
         <option value="$PROJECT_DIR$/WebMusic.iml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -433,7 +415,7 @@
     <property name="ToolWindowAnt Build.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537356906090" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537357782636" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -529,7 +511,7 @@
       </method>
     </configuration>
     <configuration name="WebMusic" type="JarApplication" factoryName="JAR Application">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/WebMusic-1.0.jar" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/WebMusic-1.0.0.jar" />
       <option name="WORKING_DIRECTORY" value="C:\workspace\WebMusic" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
@@ -820,7 +802,7 @@
       <workItem from="1537211214839" duration="252000" />
       <workItem from="1537268847513" duration="2795000" />
       <workItem from="1537304643858" duration="602000" />
-      <workItem from="1537355309962" duration="1705000" />
+      <workItem from="1537355309962" duration="2476000" />
     </task>
     <servers />
   </component>
@@ -857,7 +839,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="775752000" />
+    <option name="totallyTimeSpent" value="776523000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -870,9 +852,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55785125" visible="true" weight="0.28993288" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.55785125" visible="true" weight="0.28993288" />
       <window_info id="Structure" order="1" weight="0.24973147" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -907,7 +888,7 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Bean Validation" order="6" show_stripe_button="false" weight="0.32975295" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.24697986" />
+      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.24697986" />
       <window_info anchor="right" id="Database" order="8" weight="0.32975295" />
       <window_info anchor="right" id="CDI" order="9" show_stripe_button="false" weight="0.32975295" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -1394,13 +1375,6 @@
     <entry file="file://$PROJECT_DIR$/dependency-reduced-pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="106" column="47" lean-forward="true" selection-start-line="106" selection-start-column="47" selection-end-line="106" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/MusiqueDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1194">
@@ -1422,13 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="109" column="112" selection-start-line="109" selection-start-column="112" selection-end-line="109" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/editArtist.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1441,6 +1408,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="109" column="112" selection-start-line="109" selection-start-column="112" selection-end-line="109" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
         </state>
       </provider>
     </entry>
