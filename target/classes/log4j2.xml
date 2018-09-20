@@ -3,7 +3,7 @@
     <properties>
         <property name="name">webmusic</property>
         <property name="patternLogStash">[GLF_INT]${name}|%p|%C{3}|%M|%L|%m%n
-        </property><!--[GLF_INT]Application|level|class|methode|ligne|message-->
+        </property><!--[GLF_INT]Home|level|class|methode|ligne|message-->
         <property name="pattern">%d %-5p [%t] %C{2} (%F:%L) - %m%n</property>
     </properties>
     <appenders>

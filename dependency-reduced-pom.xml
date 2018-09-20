@@ -41,7 +41,7 @@
               <transformers>
                 <transformer>
                   <manifestEntries>
-                    <Main-Class>controllers.home.Main</Main-Class>
+                    <Main-Class>controllers.common.Home</Main-Class>
                     <Implementation-Version>${project.version}</Implementation-Version>
                   </manifestEntries>
                 </transformer>

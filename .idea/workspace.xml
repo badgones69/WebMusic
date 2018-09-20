@@ -6,7 +6,69 @@
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/help/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AddArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/AddArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/AddMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AppCloseConfirmationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/common/AppCloseConfirmationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/ArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ArtistDeleteConfirmationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/ArtistDeleteConfirmationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/EditArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/EditMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/ListArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ListenMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/common/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/MusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MusicDeleteConfirmationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/MusicDeleteConfirmationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/home/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/common/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/help/about.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/addArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/addArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/addMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/appCloseConfirmation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/common/appCloseConfirmation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/artistActionSuccess.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/artistActionSuccess.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/artistError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/errors/artistNameError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/artistSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/errors/artistSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/deleteArtistConfirmation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/deleteArtistConfirmation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/deleteMusicConfirmation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/deleteMusicConfirmation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/editArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/editArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/editMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/editMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/common/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/listArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/listArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/listMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/listMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/listenMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/listenMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicActionSuccess.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/musicActionSuccess.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicArtistError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicArtistError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicFileError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicFileError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicLengthError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicLengthError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/musicTitleError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicTitleError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/help/about.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/addArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/addArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/addMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/addMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/appCloseConfirmation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/appCloseConfirmation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artistActionSuccess.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/artistActionSuccess.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artistError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/errors/artistNameError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artistSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/errors/artistSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/deleteArtistConfirmation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/deleteArtistConfirmation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/deleteMusicConfirmation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/deleteMusicConfirmation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/editArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/editArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/editMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/editMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/listArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/listArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/listMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/listMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/listenMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/listenMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/common/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/musicActionSuccess.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/musicActionSuccess.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/musicArtistError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicArtistError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/musicFileError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicFileError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/musicLengthError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicLengthError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/musicSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/musicTitleError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicTitleError.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" afterDir="false" />
@@ -16,6 +78,7 @@
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,17 +153,19 @@
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.57" value="1" />
+          <entry key="project.open.time.58" value="1" />
           <entry key="project.open.time.64" value="1" />
           <entry key="project.open.time.68" value="1" />
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.82" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="15" />
           <entry key="fxml" value="99" />
           <entry key="iml" value="5" />
           <entry key="java" value="292" />
@@ -111,6 +176,7 @@
         <counts>
           <entry key="IDEA_MODULE" value="5" />
           <entry key="JAVA" value="292" />
+          <entry key="PLAIN_TEXT" value="15" />
           <entry key="XML" value="203" />
         </counts>
       </usages-collector>
@@ -118,15 +184,17 @@
         <counts>
           <entry key="fxml" value="5" />
           <entry key="iml" value="1" />
-          <entry key="java" value="12" />
-          <entry key="xml" value="3" />
+          <entry key="java" value="27" />
+          <entry key="md" value="1" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="12" />
-          <entry key="XML" value="8" />
+          <entry key="JAVA" value="27" />
+          <entry key="Markdown" value="1" />
+          <entry key="XML" value="9" />
         </counts>
       </usages-collector>
     </session>
@@ -138,11 +206,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -210,7 +288,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/listeners/listMusic/ListMusicSelectionListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/ListenMusicController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/windowStructure.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/WindowStructureController.java" />
@@ -228,7 +305,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/views/musicSelectionError.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/addMusic.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/listMusic.fxml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/resources/views/editMusic.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/dto/MusiqueDto.java" />
         <option value="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
@@ -261,6 +337,8 @@
         <option value="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/help/AboutController.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -294,7 +372,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="290" />
     <option name="y" value="-20" />
     <option name="width" value="1615" />
@@ -330,6 +408,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -369,7 +449,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="listeners" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -386,21 +466,11 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -415,7 +485,7 @@
     <property name="ToolWindowAnt Build.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537357782636" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537443634887" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -427,8 +497,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="listeners" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\workspace\WebMusic\src\main\resources\views\artist\errors" />
+      <recent name="C:\workspace\WebMusic\src\main\resources\views\music\errors" />
+      <recent name="C:\workspace\WebMusic\src\main\resources\views\help" />
+      <recent name="C:\workspace\WebMusic\src\main\resources\views\common" />
+      <recent name="C:\workspace\WebMusic\src\main\resources\views\artist" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -447,12 +521,8 @@
       <recent name="dto" />
       <recent name="listeners.listMusic" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\workspace\WebMusic\src\main\resources\views" />
-      <recent name="C:\workspace\WebMusic\src\main\resources\styles" />
-      <recent name="C:\workspace\WebMusic\src\main\resources\META-INF\spring" />
-      <recent name="C:\workspace\WebMusic\src\main\java" />
-      <recent name="C:\workspace\WebMusic\target\classes\home" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="listeners" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -803,6 +873,7 @@
       <workItem from="1537268847513" duration="2795000" />
       <workItem from="1537304643858" duration="602000" />
       <workItem from="1537355309962" duration="2476000" />
+      <workItem from="1537441973196" duration="2251000" />
     </task>
     <servers />
   </component>
@@ -839,7 +910,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="776523000" />
+    <option name="totallyTimeSpent" value="778774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -851,9 +922,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.55785125" visible="true" weight="0.28993288" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55785125" visible="true" weight="0.29395974" />
       <window_info id="Structure" order="1" weight="0.24973147" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -862,7 +934,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Persistence" order="7" sideWeight="0.44214877" side_tool="true" weight="0.20247047" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.71379703" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.71347517" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.79475486" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -888,7 +960,7 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Bean Validation" order="6" show_stripe_button="false" weight="0.32975295" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.24697986" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.24697986" />
       <window_info anchor="right" id="Database" order="8" weight="0.32975295" />
       <window_info anchor="right" id="CDI" order="9" show_stripe_button="false" weight="0.32975295" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -1036,45 +1108,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="336">
-            <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/editMusic.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapper/MusiqueMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/database/TestSQLiteConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/MusiqueDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="61" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/listeners/listMusic/ListMusicSelectionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1124,7 +1157,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicSelectionError.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/music/errors/musicSelectionError.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1132,7 +1165,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicActionSuccess.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/music/musicActionSuccess.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1140,7 +1173,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicFileError.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/music/errors/musicFileError.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1148,7 +1181,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicArtistError.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/music/errors/musicArtistError.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1156,7 +1189,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artistActionSuccess.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/artistActionSuccess.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1171,7 +1204,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/addMusic.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/music/addMusic.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -1186,21 +1219,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1701">
-          <caret line="112" column="33" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListenMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="133" column="9" selection-start-line="133" selection-start-column="9" selection-end-line="133" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/musicTitleError.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/music/errors/musicTitleError.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
@@ -1208,14 +1227,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="186" column="50" selection-start-line="186" selection-start-column="50" selection-end-line="186" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artistError.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/errors/artistNameError.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1230,14 +1242,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ArtistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/listArtist.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/listArtist.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1245,25 +1250,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/menu.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/common/menu.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="100" selection-start-line="27" selection-start-column="100" selection-end-line="27" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="173" column="41" selection-start-line="173" selection-start-column="41" selection-end-line="173" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1274,7 +1265,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artistSelectionError.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/errors/artistSelectionError.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1282,14 +1273,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ListArtistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="161" column="44" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/addArtist.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/addArtist.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1311,14 +1295,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddArtistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="88" column="54" selection-start-line="88" selection-start-column="54" selection-end-line="88" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/deleteArtistConfirmation.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/deleteArtistConfirmation.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -1326,30 +1303,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ArtistDeleteConfirmationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dto/AuteurDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-          <folding>
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1364,11 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1389,14 +1341,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2076">
-          <caret line="242" column="138" selection-start-line="242" selection-start-column="138" selection-end-line="242" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/editArtist.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/artist/editArtist.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1411,10 +1356,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EditArtistController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/artist/AddArtistController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="109" column="112" selection-start-line="109" selection-start-column="112" selection-end-line="109" selection-end-column="112" />
+        <state relative-caret-position="68">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/artist/ArtistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/artist/ArtistDeleteConfirmationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/artist/EditArtistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/artist/ListArtistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/MusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/MusicDeleteConfirmationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/EditMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/AddMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/common/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/help/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/common/AppCloseConfirmationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/common/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1422,6 +1465,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- MUSIC ADDING FORM VIEW -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.ListSelectionView?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="panel" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="controllers.music.AddMusicController"
+            fx:id="addMusicBorderPane">
+    <top>
+        <fx:include source="../common/menu.fxml"/>
+    </top>
+
+    <center>
+        <VBox fx:id="addMusicVBox" alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
+                       text="Formulaire d'ajout d'une musique" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
+                        <ColumnConstraints hgrow="SOMETIMES"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints maxHeight="250.0" />
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "
+                               textAlignment="RIGHT"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Durée : "
+                               textAlignment="CENTER" GridPane.rowIndex="1"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date d'insertion : "
+                               textAlignment="CENTER" GridPane.rowIndex="2"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Nom du fichier : "
+                               textAlignment="CENTER" GridPane.rowIndex="3"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Album : "
+                               textAlignment="RIGHT" GridPane.rowIndex="4"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Artiste(s) : "
+                               textAlignment="RIGHT" GridPane.rowIndex="6"/>
+
+                        <TextField fx:id="titre" alignment="CENTER_LEFT" maxWidth="350.0" styleClass="formField"
+                                   GridPane.columnIndex="1"/>
+                        <TextField fx:id="duree" alignment="CENTER_LEFT" maxWidth="110.0" promptText="HH:MM:SS"
+                                   styleClass="formField"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="dateInsertion" alignment="CENTER_LEFT" disable="true" maxWidth="120.0"
+                                   styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <TextField fx:id="nomFichier" alignment="CENTER_LEFT" prefWidth="350.0"
+                                       styleClass="formField"/>
+                            <Button mnemonicParsing="false" onAction="#openMusicFileChooser" styleClass="formField"
+                                    text="Choisir"/>
+                        </HBox>
+                        <ComboBox fx:id="album" prefWidth="350.0" styleClass="formField" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="4"/>
+                        <ListSelectionView fx:id="artistes" maxWidth="700.0" styleClass="formField"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                    </children>
+                </GridPane>
+                <HBox styleClass="formButtonsHBox" alignment="TOP_CENTER" prefHeight="52.0" prefWidth="570.0">
+                    <children>
+                        <Button styleClass="yesButton" alignment="TOP_CENTER" contentDisplay="CENTER"
+                                onAction="#validForm" mnemonicParsing="false" prefWidth="80.0" text="Valider"/>
+                        <Button styleClass="noButton" alignment="TOP_CENTER" contentDisplay="CENTER"
+                                onAction="#cancelForm" mnemonicParsing="false" prefWidth="80.0" text="Annuler"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
