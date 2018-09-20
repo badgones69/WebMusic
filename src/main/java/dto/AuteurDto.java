@@ -1,9 +1,5 @@
 package dto;
 
-import db.PlaylistDb;
-
-import java.util.List;
-
 public class AuteurDto {
 
     private Integer identifiantAuteur;
