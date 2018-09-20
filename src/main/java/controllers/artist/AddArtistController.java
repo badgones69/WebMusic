@@ -52,9 +52,9 @@ public class AddArtistController extends ArtistController implements Initializab
     private void initializeSizes() {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         addArtistBorderPane.setPrefWidth(primaryScreenBounds.getWidth());
-        addArtistBorderPane.setPrefHeight(primaryScreenBounds.getHeight()-32);
+        addArtistBorderPane.setPrefHeight(primaryScreenBounds.getHeight() - 32);
         addArtistVBox.setPrefWidth(primaryScreenBounds.getWidth());
-        addArtistVBox.setPrefHeight(addArtistBorderPane.getPrefHeight()-32);
+        addArtistVBox.setPrefHeight(addArtistBorderPane.getPrefHeight() - 32);
     }
 
     private void initializeForm() {

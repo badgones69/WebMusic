@@ -25,8 +25,8 @@
                         <ColumnConstraints hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
+                        <RowConstraints/>
+                        <RowConstraints/>
                     </rowConstraints>
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Prénom : "

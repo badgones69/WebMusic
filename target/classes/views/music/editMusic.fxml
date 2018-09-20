@@ -27,20 +27,21 @@
                         <ColumnConstraints hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints maxHeight="250.0" />
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints maxHeight="250.0"/>
                     </rowConstraints>
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "
                                textAlignment="RIGHT"/>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Durée : "
                                textAlignment="CENTER" GridPane.rowIndex="1"/>
-                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date de modification : "
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel"
+                               text="Date de modification : "
                                textAlignment="CENTER" GridPane.rowIndex="2"/>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Nom du fichier : "
                                textAlignment="CENTER" GridPane.rowIndex="3"/>

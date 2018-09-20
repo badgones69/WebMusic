@@ -18,15 +18,16 @@
         <VBox fx:id="editArtistVBox" alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
-                       text="Formulaire de modification d'un(e) artiste" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                       text="Formulaire de modification d'un(e) artiste" textAlignment="CENTER"
+                       BorderPane.alignment="CENTER"/>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
                         <ColumnConstraints hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
+                        <RowConstraints/>
+                        <RowConstraints/>
                     </rowConstraints>
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Prénom : "

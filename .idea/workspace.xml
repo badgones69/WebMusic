@@ -4,12 +4,42 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/AuteurDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/AuteurDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/AuteurMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/AuteurMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/artist/AddArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/AddArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/artist/EditArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/EditArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/artist/ListArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/artist/ListArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/common/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/common/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/music/AddMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/AddMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/music/EditMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/EditMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/artist/addArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/addArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/artist/editArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/editArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/artist/errors/artistSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/errors/artistSelectionError.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/artist/listArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/artist/listArtist.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/common/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/music/addMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/addMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/music/editMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/editMusic.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicFileError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicFileError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/errors/musicSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/music/listMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/listMusic.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/music/listenMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/music/listenMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/addArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/addArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/editArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/editArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/errors/artistSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/errors/artistSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/listArtist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/artist/listArtist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/common/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/common/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/addMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/addMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/editMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/editMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicFileError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicFileError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicSelectionError.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/errors/musicSelectionError.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/listMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/listMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/listenMusic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/music/listenMusic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,7 +108,7 @@
     <session id="-416262042">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.51" value="1" />
@@ -283,7 +313,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="290" />
     <option name="y" value="-20" />
     <option name="width" value="1615" />
@@ -396,7 +426,7 @@
     <property name="ToolWindowAnt Build.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537444544226" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537444791192" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -784,7 +814,7 @@
       <workItem from="1537268847513" duration="2795000" />
       <workItem from="1537304643858" duration="602000" />
       <workItem from="1537355309962" duration="2476000" />
-      <workItem from="1537441973196" duration="2511000" />
+      <workItem from="1537441973196" duration="2788000" />
     </task>
     <servers />
   </component>
@@ -821,7 +851,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="779034000" />
+    <option name="totallyTimeSpent" value="779311000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1217,6 +1247,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+          <folding>
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#687#688#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1231,6 +1274,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

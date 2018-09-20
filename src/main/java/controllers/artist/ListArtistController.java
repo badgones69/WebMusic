@@ -137,10 +137,10 @@ public class ListArtistController implements Initializable {
     public void artistSelectionErrorCloseButtonClicked(ActionEvent actionEvent) {
         getArtistSelectionErrorStage().close();
     }
-    
+
     // ARTIST EDITING ICON CLICKED
     public void artistEditingButtonClicked(MouseEvent mouseEvent) {
-        if(ListArtistSelectionListener.getAuteurSelected() == null) {
+        if (ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -173,7 +173,7 @@ public class ListArtistController implements Initializable {
 
     // ARTIST DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
-        if(ListArtistSelectionListener.getAuteurSelected() == null) {
+        if (ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {

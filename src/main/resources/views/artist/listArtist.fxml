@@ -23,12 +23,12 @@
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints />
+                        <RowConstraints/>
                     </rowConstraints>
                     <children>
                         <TableView fx:id="listArtist" focusTraversable="false">
                             <columns>
-                                <TableColumn fx:id="nomColumn" text="Nom" />
+                                <TableColumn fx:id="nomColumn" text="Nom"/>
                                 <TableColumn fx:id="prenomColumn" text="Prénom"/>
                             </columns>
                         </TableView>

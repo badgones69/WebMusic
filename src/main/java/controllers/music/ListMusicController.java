@@ -183,7 +183,7 @@ public class ListMusicController implements Initializable {
 
     // MUSIC LISTENING ICON CLICKED
     public void musicListeningButtonClicked(MouseEvent mouseEvent) {
-        if(ListMusicSelectionListener.getMusiqueSelected() == null) {
+        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -196,8 +196,8 @@ public class ListMusicController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if(ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique() == null ||
-                  "".equals(ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique())) {
+        } else if (ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique() == null ||
+                "".equals(ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique())) {
 
             MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
             Stage stage = new Stage();
@@ -235,10 +235,10 @@ public class ListMusicController implements Initializable {
             }
         }
     }
-    
+
     // MUSIC EDITING ICON CLICKED
     public void musicEditingButtonClicked(MouseEvent mouseEvent) {
-        if(ListMusicSelectionListener.getMusiqueSelected() == null) {
+        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -271,7 +271,7 @@ public class ListMusicController implements Initializable {
 
     // MUSIC DELETING ICON CLICKED
     public void musicDeletingButtonClicked(MouseEvent mouseEvent) {
-        if(ListMusicSelectionListener.getMusiqueSelected() == null) {
+        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
             Stage stage = new Stage();
 
             try {

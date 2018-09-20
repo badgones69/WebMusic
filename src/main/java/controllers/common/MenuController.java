@@ -64,11 +64,11 @@ public class MenuController implements Initializable {
     private void initializeSizes() {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         homeBorderPane.setPrefWidth(primaryScreenBounds.getWidth());
-        homeBorderPane.setPrefHeight(primaryScreenBounds.getHeight()-32);
+        homeBorderPane.setPrefHeight(primaryScreenBounds.getHeight() - 32);
         homePane.setPrefWidth(primaryScreenBounds.getWidth());
-        homePane.setPrefHeight(homeBorderPane.getPrefHeight()-32);
+        homePane.setPrefHeight(homeBorderPane.getPrefHeight() - 32);
         homeVBox.setPrefWidth(primaryScreenBounds.getWidth());
-        homeVBox.setPrefHeight(homeBorderPane.getPrefHeight()-32);
+        homeVBox.setPrefHeight(homeBorderPane.getPrefHeight() - 32);
     }
 
 

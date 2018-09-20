@@ -27,15 +27,12 @@ import static java.lang.String.format;
 
 public class ListenMusicController implements Initializable {
 
-    // "PLAY" ICON
-    private Image playButtonImage = new Image(getClass().getResourceAsStream("/icons/playing.png"));
-
-    // "PAUSE" ICON
-    private Image pauseButtonImage = new Image(getClass().getResourceAsStream("/icons/pause.png"));
-
     // MEDIA PLAYER
     private static MediaPlayer mediaPlayer;
-
+    // "PLAY" ICON
+    private Image playButtonImage = new Image(getClass().getResourceAsStream("/icons/playing.png"));
+    // "PAUSE" ICON
+    private Image pauseButtonImage = new Image(getClass().getResourceAsStream("/icons/pause.png"));
     // MEDIA PLAYER'S TOTAL LENGTH
     private Duration totalLength;
 
@@ -69,6 +66,51 @@ public class ListenMusicController implements Initializable {
 
     @FXML
     private Label listeningTotalLengthLabel = new Label();
+
+    // PROGRESSION TIMES FORMATTING
+    private static String formatTime(Duration elapsed, Duration duration) {
+        int intElapsed = (int) floor(elapsed.toSeconds());
+        int elapsedHours = intElapsed / (60 * 60);
+        if (elapsedHours > 0) {
+            intElapsed -= elapsedHours * 60 * 60;
+        }
+        int elapsedMinutes = intElapsed / 60;
+        int elapsedSeconds = intElapsed - elapsedHours * 60 * 60
+                - elapsedMinutes * 60;
+
+        if (duration.greaterThan(Duration.ZERO)) {
+            int intDuration = (int) floor(duration.toSeconds());
+            int durationHours = intDuration / (60 * 60);
+            if (durationHours > 0) {
+                intDuration -= durationHours * 60 * 60;
+            }
+            int durationMinutes = intDuration / 60;
+            int durationSeconds = intDuration - durationHours * 60 * 60
+                    - durationMinutes * 60;
+            if (durationHours > 0) {
+                return format("%d:%02d:%02d/%d:%02d:%02d",
+                        elapsedHours, elapsedMinutes, elapsedSeconds,
+                        durationHours, durationMinutes, durationSeconds);
+            } else {
+                return format("%02d:%02d/%02d:%02d",
+                        elapsedMinutes, elapsedSeconds, durationMinutes,
+                        durationSeconds);
+            }
+        } else {
+            if (elapsedHours > 0) {
+                return format("%d:%02d:%02d", elapsedHours,
+                        elapsedMinutes, elapsedSeconds);
+            } else {
+                return format("%02d:%02d", elapsedMinutes,
+                        elapsedSeconds);
+            }
+        }
+    }
+
+    // GETTER
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
 
     /**
      * MUSIC LISTENING COMPONENTS INITIALIZATION
@@ -132,50 +174,5 @@ public class ListenMusicController implements Initializable {
             mediaPlayer.play();
             mediaPlayer.setOnEndOfMedia(this::basicInitialize);
         }
-    }
-
-    // PROGRESSION TIMES FORMATTING
-    private static String formatTime(Duration elapsed, Duration duration) {
-        int intElapsed = (int) floor(elapsed.toSeconds());
-        int elapsedHours = intElapsed / (60 * 60);
-        if (elapsedHours > 0) {
-            intElapsed -= elapsedHours * 60 * 60;
-        }
-        int elapsedMinutes = intElapsed / 60;
-        int elapsedSeconds = intElapsed - elapsedHours * 60 * 60
-                - elapsedMinutes * 60;
-
-        if (duration.greaterThan(Duration.ZERO)) {
-            int intDuration = (int) floor(duration.toSeconds());
-            int durationHours = intDuration / (60 * 60);
-            if (durationHours > 0) {
-                intDuration -= durationHours * 60 * 60;
-            }
-            int durationMinutes = intDuration / 60;
-            int durationSeconds = intDuration - durationHours * 60 * 60
-                    - durationMinutes * 60;
-            if (durationHours > 0) {
-                return format("%d:%02d:%02d/%d:%02d:%02d",
-                        elapsedHours, elapsedMinutes, elapsedSeconds,
-                        durationHours, durationMinutes, durationSeconds);
-            } else {
-                return format("%02d:%02d/%02d:%02d",
-                        elapsedMinutes, elapsedSeconds, durationMinutes,
-                        durationSeconds);
-            }
-        } else {
-            if (elapsedHours > 0) {
-                return format("%d:%02d:%02d", elapsedHours,
-                        elapsedMinutes, elapsedSeconds);
-            } else {
-                return format("%02d:%02d", elapsedMinutes,
-                        elapsedSeconds);
-            }
-        }
-    }
-
-    // GETTER
-    public static MediaPlayer getMediaPlayer() {
-        return mediaPlayer;
     }
 }

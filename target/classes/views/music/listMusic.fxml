@@ -22,7 +22,7 @@
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints />
+                        <RowConstraints/>
                     </rowConstraints>
                     <children>
                         <TableView fx:id="listMusic" focusTraversable="false">
@@ -30,7 +30,7 @@
                                 <TableColumn fx:id="titreColumn" text="Titre"/>
                                 <TableColumn fx:id="artisteColumn" editable="false" sortable="false" text="Artiste(s)"/>
                                 <TableColumn fx:id="dureeColumn" text="Durée"/>
-                                <TableColumn fx:id="albumColumn" text="Album" />
+                                <TableColumn fx:id="albumColumn" text="Album"/>
                             </columns>
                         </TableView>
                     </children>

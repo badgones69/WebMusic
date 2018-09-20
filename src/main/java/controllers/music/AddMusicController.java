@@ -79,9 +79,9 @@ public class AddMusicController extends MusicController implements Initializable
     private void initializeSizes() {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         addMusicBorderPane.setPrefWidth(primaryScreenBounds.getWidth());
-        addMusicBorderPane.setPrefHeight(primaryScreenBounds.getHeight()-32);
+        addMusicBorderPane.setPrefHeight(primaryScreenBounds.getHeight() - 32);
         addMusicVBox.setPrefWidth(primaryScreenBounds.getWidth());
-        addMusicVBox.setPrefHeight(addMusicBorderPane.getPrefHeight()-32);
+        addMusicVBox.setPrefHeight(addMusicBorderPane.getPrefHeight() - 32);
     }
 
     private void initializeForm() {
@@ -222,7 +222,7 @@ public class AddMusicController extends MusicController implements Initializable
                             indexSeparateurIdentite != -1 ? identiteArtiste.substring(indexSeparateurIdentite).trim() : identiteArtiste));
                     ResultSet resultSet = statement.executeQuery();
 
-                    if(resultSet.isClosed()) {
+                    if (resultSet.isClosed()) {
                         auteurHasWhitespacedName = Boolean.TRUE;
                     }
                     statement.close();

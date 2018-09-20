@@ -9,9 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="homeBorderPane" styleClass="panel" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.common.MenuController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="homeBorderPane" styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="controllers.common.MenuController">
     <top>
-        <fx:include source="menu.fxml" />
+        <fx:include source="menu.fxml"/>
     </top>
 
     <center>
@@ -20,9 +22,10 @@
                 <VBox alignment="CENTER" fx:id="homeVBox">
                     <children>
                         <ImageView>
-                            <Image url="@../../icons/logo.png" />
+                            <Image url="@../../icons/logo.png"/>
                         </ImageView>
-                        <Label id="welcomeMessage" alignment="CENTER" contentDisplay="TOP" text="Bienvenue sur WebMusic, votre espace musical !" textAlignment="CENTER" />
+                        <Label id="welcomeMessage" alignment="CENTER" contentDisplay="TOP"
+                               text="Bienvenue sur WebMusic, votre espace musical !" textAlignment="CENTER"/>
                     </children>
                 </VBox>
             </children>
