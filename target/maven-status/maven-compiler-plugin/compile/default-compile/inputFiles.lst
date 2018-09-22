@@ -10,6 +10,7 @@ C:\workspace\WebMusic\src\main\java\utils\PopUpUtils.java
 C:\workspace\WebMusic\src\main\java\db\AuteurDb.java
 C:\workspace\WebMusic\src\main\java\mapper\MusiqueMapper.java
 C:\workspace\WebMusic\src\main\java\controllers\common\MenuController.java
+C:\workspace\WebMusic\src\main\java\mapper\AlbumMapper.java
 C:\workspace\WebMusic\src\main\java\db\AlbumDb.java
 C:\workspace\WebMusic\src\main\java\listeners\listMusic\ListMusicSelectionListener.java
 C:\workspace\WebMusic\src\main\java\utils\InformationsUtils.java
@@ -32,5 +33,6 @@ C:\workspace\WebMusic\src\main\java\dao\AlbumDao.java
 C:\workspace\WebMusic\src\main\java\dto\MusiqueDto.java
 C:\workspace\WebMusic\src\main\java\controllers\help\AboutController.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\AddArtistController.java
+C:\workspace\WebMusic\src\main\java\dto\AlbumDto.java
 C:\workspace\WebMusic\src\main\java\mapper\AuteurMapper.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\EditArtistController.java

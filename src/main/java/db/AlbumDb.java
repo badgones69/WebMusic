@@ -9,6 +9,7 @@ public class AlbumDb {
 
     private Integer numeroAlbum;
     private String titreAlbum;
+    private Integer anneeAlbum;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,16 @@ public class AlbumDb {
 
     public void setTitreAlbum(String titreAlbum) {
         this.titreAlbum = titreAlbum;
+    }
+
+    @Basic
+    @Column(name = "anneeAlbum")
+    public Integer getAnneeAlbum() {
+        return anneeAlbum;
+    }
+
+    public void setAnneeAlbum(Integer anneeAlbum) {
+        this.anneeAlbum = anneeAlbum;
     }
 
     @Override

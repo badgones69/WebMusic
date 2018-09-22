@@ -27,6 +27,7 @@ public class TestAlbumDao {
         albumDao = new AlbumDao();
         albumDb = new AlbumDb();
         albumDb.setTitreAlbum("test");
+        albumDb.setAnneeAlbum(2015);
     }
 
     @Test
@@ -43,9 +44,11 @@ public class TestAlbumDao {
             result.next();
             resultDb.setNumeroAlbum(result.getInt("numeroAlbum"));
             resultDb.setTitreAlbum(result.getString("titreAlbum"));
+            resultDb.setAnneeAlbum(result.getInt("anneeAlbum"));
 
             assertTrue(albumDb.getNumeroAlbum().equals(resultDb.getNumeroAlbum()));
             assertTrue(albumDb.getTitreAlbum().equals(resultDb.getTitreAlbum()));
+            assertTrue(albumDb.getAnneeAlbum().equals(resultDb.getAnneeAlbum()));
 
             result.close();
             statement.close();
@@ -60,6 +63,7 @@ public class TestAlbumDao {
         albumDao.insert(albumDb);
         DaoTestsUtils.setNumeroToAlbum(albumDb);
         albumDb.setTitreAlbum("testUpdated");
+        albumDb.setAnneeAlbum(2018);
         albumDao.update(albumDb);
 
         try {
@@ -70,8 +74,10 @@ public class TestAlbumDao {
             ResultSet result = statement.executeQuery();
             result.next();
             resultDb.setTitreAlbum(result.getString("titreAlbum"));
+            resultDb.setAnneeAlbum(result.getInt("anneeAlbum"));
 
             assertTrue("testUpdated".equals(resultDb.getTitreAlbum()));
+            assertTrue(resultDb.getAnneeAlbum() == 2018);
 
             result.close();
             statement.close();
@@ -113,6 +119,7 @@ public class TestAlbumDao {
 
             assertTrue(albumDb.getNumeroAlbum().equals(album.getNumeroAlbum()));
             assertTrue(albumDb.getTitreAlbum().equals(album.getTitreAlbum()));
+            assertTrue(albumDb.getAnneeAlbum().equals(album.getAnneeAlbum()));
 
         } catch (NullPointerException npe) {
             throw new NullPointerException("Aucun album n'est présent dans la base de données.");
@@ -123,6 +130,7 @@ public class TestAlbumDao {
     public void findAll() {
         AlbumDb albumDb2 = new AlbumDb();
         albumDb2.setTitreAlbum("test2");
+        albumDb2.setAnneeAlbum(2017);
 
         albumDao.insert(albumDb);
         albumDao.insert(albumDb2);
@@ -145,5 +153,6 @@ public class TestAlbumDao {
         Integer nbAlbums = albumDao.findAll().size();
 
         statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAlbums + "' WHERE name = 'album'");
+        statement.close();
     }
 }

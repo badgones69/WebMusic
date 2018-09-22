@@ -34,7 +34,19 @@ public class DaoQueryUtils {
     }
 
     private static String bindAlbumToInsert(AlbumDb albumDb) {
-        return "'" + albumDb.getTitreAlbum().replace("'", "''") + "')";
+        String values = "'";
+
+        values += albumDb.getTitreAlbum().replace("'", "''") + "',";
+
+        if(albumDb.getAnneeAlbum() == null) {
+            values += "null";
+        } else {
+            values += albumDb.getAnneeAlbum();
+        }
+
+        values += ")";
+
+        return values;
     }
 
     private static String bindAuteurToInsert(AuteurDb auteurDb) {
@@ -99,8 +111,19 @@ public class DaoQueryUtils {
     }
 
     private static String bindAlbumToUpdate(String tableName, AlbumDb albumDb) {
-        return "titreAlbum = '" + albumDb.getTitreAlbum().replace("'", "''") + "'" +
-                " WHERE " + getIdColumnName(tableName) + " = " + albumDb.getNumeroAlbum();
+        String values = "";
+
+        values += "titreAlbum = '" + albumDb.getTitreAlbum().replace("'", "''") + "'";
+        if (albumDb.getAnneeAlbum() != null) {
+            values += ", ";
+            values += "anneeAlbum = " + albumDb.getAnneeAlbum();
+        }
+        values += " WHERE ";
+        values += getIdColumnName(tableName);
+        values += " = ";
+        values += albumDb.getNumeroAlbum();
+
+        return values;
     }
 
     private static String bindAuteurToUpdate(String tableName, AuteurDb auteurDb) {

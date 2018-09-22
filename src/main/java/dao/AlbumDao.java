@@ -24,10 +24,8 @@ public class AlbumDao extends AbstractDao<AlbumDb> {
 
     @Override
     public void insert(AlbumDb albumDb) {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("album", albumDb));
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("album", albumDb))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,6 +65,7 @@ public class AlbumDao extends AbstractDao<AlbumDb> {
             result.next();
             albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
             albumDb.setTitreAlbum(result.getString("titreAlbum"));
+            albumDb.setAnneeAlbum(result.getInt("anneeAlbum"));
 
             result.close();
             statement.close();
@@ -94,6 +93,7 @@ public class AlbumDao extends AbstractDao<AlbumDb> {
 
                 albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
                 albumDb.setTitreAlbum(result.getString("titreAlbum"));
+                albumDb.setAnneeAlbum(result.getInt("anneeAlbum"));
 
                 albumsList.add(albumDb);
             }

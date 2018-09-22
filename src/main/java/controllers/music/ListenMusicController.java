@@ -1,4 +1,4 @@
-package controllers;
+package controllers.music;
 
 import db.MusiqueDb;
 import dto.MusiqueDto;
