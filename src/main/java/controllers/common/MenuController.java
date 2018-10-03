@@ -1,5 +1,6 @@
 package controllers.common;
 
+import controllers.album.AddAlbumController;
 import controllers.artist.AddArtistController;
 import controllers.artist.ListArtistController;
 import controllers.music.AddMusicController;
@@ -121,6 +122,44 @@ public class MenuController implements Initializable {
             addMusicController.initialize(getClass().getResource("/views/music/addMusic.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/music/addMusic.fxml"));
             homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'une musique"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * ITEMS LISTENERS OF "Album" MENU
+     */
+
+    /*public void listAlbumItemClicked() {
+        Stage homeStage = Home.getHomeStage();
+        homeStage.show();
+
+        try {
+            ListAlbumController listAlbumController = new ListAlbumController();
+            listAlbumController.initialize(getClass().getResource("/views/album/listAlbum.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/album/listAlbum.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des albums"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+
+    public void addAlbumItemClicked() {
+        Stage homeStage = Home.getHomeStage();
+        homeStage.show();
+
+        try {
+            AddAlbumController addAlbumController = new AddAlbumController();
+            addAlbumController.initialize(getClass().getResource("/views/album/addAlbum.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/album/addAlbum.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'un album"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
             homeStage.show();
 

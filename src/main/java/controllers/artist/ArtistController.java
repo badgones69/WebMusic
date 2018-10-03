@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class ArtistController implements Initializable {
 
     // ARTIST'S NAME ERROR POP-UP STAGE
-    protected static Stage nameErrorStage;
+    protected static Stage artistNameErrorStage;
 
     // ARTIST ACTION SUCCESSFUL POP-UP STAGE
     protected static Stage artistActionSuccessStage;
@@ -30,7 +30,7 @@ public class ArtistController implements Initializable {
 
     protected final InformationsUtils informationsUtils = new InformationsUtils();
 
-    // MUSIC ACTION SUCCESSFUL POP-UP LABEL
+    // ARTIST ACTION SUCCESSFUL POP-UP LABEL
     @FXML
     private Label artistActionSuccessLabel = new Label();
 
@@ -38,12 +38,12 @@ public class ArtistController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getNameErrorStage() {
-        return nameErrorStage;
+    public static Stage getArtistNameErrorStage() {
+        return artistNameErrorStage;
     }
 
-    public static void setNameErrorStage(Stage nameErrorStage) {
-        ArtistController.nameErrorStage = nameErrorStage;
+    public static void setArtistNameErrorStage(Stage artistNameErrorStage) {
+        ArtistController.artistNameErrorStage = artistNameErrorStage;
     }
 
     public static Stage getArtistActionSuccessStage() {
@@ -68,8 +68,8 @@ public class ArtistController implements Initializable {
     }
 
     // ARTIST'S NAME ERROR POP-UP "OK" BUTTON CLICKED
-    public void artistErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getNameErrorStage().close();
+    public void artistNameErrorCloseButtonClicked(ActionEvent actionEvent) {
+        getArtistNameErrorStage().close();
     }
 
     // ARTIST ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED

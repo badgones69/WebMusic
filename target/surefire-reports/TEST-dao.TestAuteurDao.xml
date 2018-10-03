@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="dao.TestAuteurDao" time="1.771" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="dao.TestAuteurDao" time="2.01" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2018.2.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -62,9 +62,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase classname="dao.TestAuteurDao" name="delete" time="0.306"/>
-  <testcase classname="dao.TestAuteurDao" name="insert" time="0.332"/>
-  <testcase classname="dao.TestAuteurDao" name="findAll" time="0.421"/>
-  <testcase classname="dao.TestAuteurDao" name="update" time="0.389"/>
-  <testcase classname="dao.TestAuteurDao" name="find" time="0.323"/>
+  <testcase classname="dao.TestAuteurDao" name="delete" time="0.489"/>
+  <testcase classname="dao.TestAuteurDao" name="insert" time="0.299"/>
+  <testcase classname="dao.TestAuteurDao" name="findAll" time="0.467"/>
+  <testcase classname="dao.TestAuteurDao" name="update" time="0.443"/>
+  <testcase classname="dao.TestAuteurDao" name="find" time="0.312"/>
 </testsuite>

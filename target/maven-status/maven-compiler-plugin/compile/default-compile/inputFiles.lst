@@ -2,6 +2,7 @@ C:\workspace\WebMusic\src\main\java\controllers\music\EditMusicController.java
 C:\workspace\WebMusic\src\main\java\database\SQLiteConnection.java
 C:\workspace\WebMusic\src\main\java\controllers\music\MusicController.java
 C:\workspace\WebMusic\src\main\java\listeners\listArtist\ListArtistSelectionListener.java
+C:\workspace\WebMusic\src\main\java\controllers\album\AlbumController.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\ArtistDeleteConfirmationController.java
 C:\workspace\WebMusic\src\main\java\dto\AuteurDto.java
 C:\workspace\WebMusic\src\main\java\controllers\common\Home.java
@@ -18,6 +19,7 @@ C:\workspace\WebMusic\src\main\java\dao\AuteurDao.java
 C:\workspace\WebMusic\src\main\java\db\PlaylistDb.java
 C:\workspace\WebMusic\src\main\java\utils\FormUtils.java
 C:\workspace\WebMusic\src\main\java\controllers\music\AddMusicController.java
+C:\workspace\WebMusic\src\main\java\controllers\album\AddAlbumController.java
 C:\workspace\WebMusic\src\main\java\dao\MusiqueDao.java
 C:\workspace\WebMusic\src\main\java\db\MusiqueDb.java
 C:\workspace\WebMusic\src\main\java\utils\DaoTestsUtils.java

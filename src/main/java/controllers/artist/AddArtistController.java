@@ -62,7 +62,7 @@ public class AddArtistController extends ArtistController implements Initializab
         // "prenom" FIELD INITIALIZATION
         this.prenom.clear();
 
-        // "nom" FIELD INITIALIZATION
+        // "titre" FIELD INITIALIZATION
         this.nom.clear();
     }
 
@@ -76,7 +76,7 @@ public class AddArtistController extends ArtistController implements Initializab
                 Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistNameError.fxml"));
                 stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 350, 140));
-                this.setNameErrorStage(stage);
+                this.setArtistNameErrorStage(stage);
                 stage.show();
 
             } catch (IOException e) {

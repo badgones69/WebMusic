@@ -67,7 +67,7 @@ public class EditArtistController extends ArtistController implements Initializa
         // "prenom" FIELD INITIALIZATION
         this.prenom.setText(auteurDb.getPrenomAuteur());
 
-        // "nom" FIELD INITIALIZATION
+        // "titre" FIELD INITIALIZATION
         this.nom.setText(auteurDb.getNomAuteur());
     }
 
@@ -81,7 +81,7 @@ public class EditArtistController extends ArtistController implements Initializa
                 Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistNameError.fxml"));
                 stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
                 stage.setScene(new Scene(root, 350, 140));
-                this.setNameErrorStage(stage);
+                this.setArtistNameErrorStage(stage);
                 stage.show();
 
             } catch (IOException e) {

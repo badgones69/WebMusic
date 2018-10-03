@@ -20,6 +20,7 @@
         </Menu>
         <Menu id="albumMenu" mnemonicParsing="false" text="Album">
             <items>
+                <MenuItem id="addAlbumItem" mnemonicParsing="false" text="Ajout" onAction="#addAlbumItemClicked"/>
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Artiste">

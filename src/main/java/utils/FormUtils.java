@@ -18,4 +18,14 @@ public class FormUtils {
     public static Boolean dureeMusiqueIsValid(String duree) {
         return duree.matches("[0-9][0-9]:[0-5][0-9]:[0-5][0-9]");
     }
+
+    // ALBUM YEAR CHECKING
+    public static Boolean anneeAlbumIsValid(String annee) {
+        Boolean isValid = annee.matches("[0-9][0-9][0-9][0-9]");
+        if(isValid) {
+            Integer year = Integer.parseInt(annee);
+            isValid = year <= Integer.parseInt(getCurrentDate().substring(6));
+        }
+        return isValid;
+    }
 }

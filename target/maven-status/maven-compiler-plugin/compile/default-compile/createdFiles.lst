@@ -13,6 +13,7 @@ controllers\music\MusicController.class
 database\SQLiteConnection.class
 dto\AlbumDto.class
 utils\DaoTestsUtils.class
+controllers\album\AddAlbumController.class
 utils\FormUtils.class
 db\MusiqueDb.class
 dto\MusiqueDto.class
@@ -34,5 +35,6 @@ dao\AbstractDao.class
 db\AuteurDb.class
 mapper\AuteurMapper.class
 dao\AuteurDao.class
+controllers\album\AlbumController.class
 dao\MusiqueDao.class
 controllers\common\MenuController.class
