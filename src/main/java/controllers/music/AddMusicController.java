@@ -34,9 +34,9 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.text.Collator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddMusicController extends MusicController implements Initializable {
 
@@ -107,6 +107,8 @@ public class AddMusicController extends MusicController implements Initializable
             albumValues.add(albumDb.getTitreAlbum());
         }
 
+        Collections.sort(albumValues, Collator.getInstance(new Locale("fr")));
+
         this.album.getItems().clear();
         this.album.getItems().add(null);
         this.album.getItems().addAll(albumValues);
@@ -119,12 +121,19 @@ public class AddMusicController extends MusicController implements Initializable
         AuteurDao auteurDao = new AuteurDao();
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursValues = auteurDao.findAll();
+        List<String> auteursInString = new ArrayList<>();
         for (AuteurDb auteurDb : listAuteursValues) {
-            auteurSourceValues.add(new Label(
-                    auteurDb.getPrenomAuteur() != null ?
-                            (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
-                            auteurDb.getNomAuteur()
-            ));
+            auteursInString.add(
+                auteurDb.getPrenomAuteur() != null ?
+                        (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
+                        auteurDb.getNomAuteur()
+            );
+        }
+
+        Collections.sort(auteursInString, Collator.getInstance(new Locale("fr")));
+
+        for (String auteur : auteursInString) {
+            auteurSourceValues.add(new Label(auteur));
         }
 
         this.artistes.getSourceItems().clear();

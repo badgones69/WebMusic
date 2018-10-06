@@ -37,9 +37,9 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.text.Collator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class EditMusicController extends MusicController implements Initializable {
 
@@ -112,6 +112,8 @@ public class EditMusicController extends MusicController implements Initializabl
             albumValues.add(albumDb.getTitreAlbum());
         }
 
+        Collections.sort(albumValues, Collator.getInstance(new Locale("fr")));
+
         this.album.getItems().clear();
         this.album.getItems().add(null);
         this.album.getItems().addAll(albumValues);
@@ -129,12 +131,20 @@ public class EditMusicController extends MusicController implements Initializabl
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursSourceValues = auteurDao.findAll();
         listAuteursSourceValues.removeAll(musiqueDb.getListeAuteurs());
+
+        List<String> auteursSourceInString = new ArrayList<>();
         for (AuteurDb auteurDb : listAuteursSourceValues) {
-            auteurSourceValues.add(new Label(
+            auteursSourceInString.add(
                     auteurDb.getPrenomAuteur() != null ?
                             (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
                             auteurDb.getNomAuteur()
-            ));
+            );
+        }
+
+        Collections.sort(auteursSourceInString, Collator.getInstance(new Locale("fr")));
+
+        for (String auteur : auteursSourceInString) {
+            auteurSourceValues.add(new Label(auteur));
         }
 
         this.artistes.getSourceItems().clear();
@@ -145,12 +155,19 @@ public class EditMusicController extends MusicController implements Initializabl
         this.artistes.setTargetHeader(targetLabel);
         ObservableList<Label> auteurTargetValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursTargetValues = musiqueDb.getListeAuteurs();
+        List<String> auteursTargetInString = new ArrayList<>();
         for (AuteurDb auteurDb : listAuteursTargetValues) {
-            auteurTargetValues.add(new Label(
+            auteursTargetInString.add(
                     auteurDb.getPrenomAuteur() != null ?
                             (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
                             auteurDb.getNomAuteur()
-            ));
+            );
+        }
+
+        Collections.sort(auteursTargetInString, Collator.getInstance(new Locale("fr")));
+
+        for (String auteur : auteursTargetInString) {
+            auteurTargetValues.add(new Label(auteur));
         }
         this.artistes.getTargetItems().clear();
         this.artistes.getTargetItems().addAll(auteurTargetValues);
