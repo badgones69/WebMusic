@@ -5,10 +5,18 @@ import dao.MusiqueDao;
 import db.AuteurDb;
 import db.MusiqueDb;
 import dto.MusiqueDto;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class MusiqueMapper {
+
+    private static final Logger LOG = LogManager.getLogger(MusiqueMapper.class);
+
+    private MusiqueMapper() {
+        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+    }
 
     // MusiqueDb TO MusiqueDto CONVERTING
     public static MusiqueDto toDto(MusiqueDb musiqueDb) {
@@ -54,19 +62,19 @@ public class MusiqueMapper {
 
     // METHOD TO DISPLAY MUSIC'S ARTIST(S) NAME(S) INLINE
     private static String artistsListInString(List<AuteurDb> artistsList) {
-        String stringList = "";
+        StringBuilder stringListBuilder = new StringBuilder();
 
         for (int i = 0; i < artistsList.size(); i++) {
             if (artistsList.get(i).getPrenomAuteur() != null) {
-                stringList += artistsList.get(i).getPrenomAuteur() + " ";
+                stringListBuilder.append(artistsList.get(i).getPrenomAuteur() + " ");
             }
 
-            stringList += artistsList.get(i).getNomAuteur();
+            stringListBuilder.append(artistsList.get(i).getNomAuteur());
 
             if (i != artistsList.size() - 1) {
-                stringList += " & ";
+                stringListBuilder.append(" & ");
             }
         }
-        return stringList;
+        return stringListBuilder.toString();
     }
 }

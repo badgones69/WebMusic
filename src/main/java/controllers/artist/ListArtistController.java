@@ -21,8 +21,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import listeners.listArtist.ListArtistSelectionListener;
+import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
 import java.io.IOException;
@@ -32,6 +34,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListArtistController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(ListArtistController.class);
+    private static final String IO_EXCEPTION = "IOException : ";
 
     // ARTIST SELECTION ERROR POP-UP STAGE
     private static Stage artistSelectionErrorStage;
@@ -95,7 +100,7 @@ public class ListArtistController implements Initializable {
     }
 
     private void initializeList() {
-        ListArtistSelectionListener.setAuteurSelected(null);
+        new ListArtistSelectionListener().setAuteurSelected(null);
 
         Tooltip updatingActionTooltip = new Tooltip("Modifier");
         Tooltip.install(updatingActionImageView, updatingActionTooltip);
@@ -140,7 +145,7 @@ public class ListArtistController implements Initializable {
 
     // ARTIST EDITING ICON CLICKED
     public void artistEditingButtonClicked(MouseEvent mouseEvent) {
-        if (ListArtistSelectionListener.getAuteurSelected() == null) {
+        if (new ListArtistSelectionListener().getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -151,10 +156,10 @@ public class ListArtistController implements Initializable {
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         } else {
-            Stage homeStage = Home.getHomeStage();
+            Stage homeStage = new Home().getHomeStage();
             homeStage.show();
 
             try {
@@ -166,14 +171,14 @@ public class ListArtistController implements Initializable {
                 homeStage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         }
     }
 
     // ARTIST DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
-        if (ListArtistSelectionListener.getAuteurSelected() == null) {
+        if (new ListArtistSelectionListener().getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -184,7 +189,7 @@ public class ListArtistController implements Initializable {
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         } else {
             Stage stage = new Stage();
@@ -197,7 +202,7 @@ public class ListArtistController implements Initializable {
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         }
     }

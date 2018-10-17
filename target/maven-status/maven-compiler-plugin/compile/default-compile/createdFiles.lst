@@ -1,6 +1,4 @@
 controllers\music\ListMusicController.class
-listeners\listArtist\ListArtistSelectionListener.class
-listeners\listMusic\ListMusicSelectionListener.class
 dto\AuteurDto.class
 controllers\music\MusicDeleteConfirmationController.class
 mapper\MusiqueMapper.class
@@ -29,6 +27,7 @@ controllers\music\AddMusicController.class
 db\PlaylistDb.class
 controllers\artist\EditArtistController.class
 controllers\common\AppCloseConfirmationController.class
+listeners\ListArtistSelectionListener.class
 utils\PopUpUtils.class
 controllers\music\EditMusicController.class
 dao\AbstractDao.class
@@ -36,5 +35,6 @@ db\AuteurDb.class
 mapper\AuteurMapper.class
 dao\AuteurDao.class
 controllers\album\AlbumController.class
+listeners\ListMusicSelectionListener.class
 dao\MusiqueDao.class
 controllers\common\MenuController.class

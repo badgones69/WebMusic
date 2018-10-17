@@ -15,7 +15,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
-import listeners.listMusic.ListMusicSelectionListener;
+import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
 
 import java.io.File;
@@ -28,16 +28,13 @@ import static java.lang.String.format;
 public class ListenMusicController implements Initializable {
 
     // MEDIA PLAYER
-    private static MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
     // "PLAY" ICON
     private Image playButtonImage = new Image(getClass().getResourceAsStream("/icons/playing.png"));
     // "PAUSE" ICON
     private Image pauseButtonImage = new Image(getClass().getResourceAsStream("/icons/pause.png"));
     // MEDIA PLAYER'S TOTAL LENGTH
     private Duration totalLength;
-
-    // LISTENING PROGRESSION SLIDER LISTENER
-    private InvalidationListener listeningProgressionSliderListener;
 
     // MEDIA PLAYER LISTENER
     private ChangeListener<Duration> mediaPlayerListener;
@@ -108,8 +105,8 @@ public class ListenMusicController implements Initializable {
     }
 
     // GETTER
-    public static MediaPlayer getMediaPlayer() {
-        return mediaPlayer;
+    public MediaPlayer getMediaPlayer() {
+        return this.mediaPlayer;
     }
 
     /**
@@ -123,7 +120,7 @@ public class ListenMusicController implements Initializable {
 
     private void advancedInitialize() {
 
-        listeningProgressionSliderListener = observable -> {
+        InvalidationListener listeningProgressionSliderListener = observable -> {
             double newTime = (listeningProgressionSlider.getValue() * totalLength.toMillis()) / 100;
             mediaPlayer.seek(new Duration(newTime));
         };
@@ -131,7 +128,7 @@ public class ListenMusicController implements Initializable {
         mediaPlayerListener = (observable, oldValue, newValue) -> {
             listeningProgressionSlider.valueProperty().removeListener(listeningProgressionSliderListener);
             String progressionTimesFormatted = formatTime(newValue, totalLength);
-            listeningCurrentTimeLabel.setText(progressionTimesFormatted.substring(0, progressionTimesFormatted.indexOf("/")));
+            listeningCurrentTimeLabel.setText(progressionTimesFormatted.substring(0, progressionTimesFormatted.indexOf('/')));
             listeningProgressionSlider.setDisable(totalLength.isUnknown());
             listeningProgressionSlider.setValue(newValue.toSeconds() / totalLength.toSeconds() * 100.0);
             if (!listeningProgressionSlider.isDisabled() && totalLength.greaterThan(Duration.ZERO) && !listeningProgressionSlider.isValueChanging()) {
@@ -144,13 +141,13 @@ public class ListenMusicController implements Initializable {
 
     public void basicInitialize() {
         // MEDIA PLAYER
-        MusiqueDto musiqueDto = ListMusicSelectionListener.getMusiqueSelected();
+        MusiqueDto musiqueDto = new ListMusicSelectionListener().getMusiqueSelected();
         MusiqueDb musiqueDb = MusiqueMapper.toDb(musiqueDto);
         String musicPath = musiqueDb.getNomFichierMusique();
         Media media = new Media(new File(musicPath).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setOnReady(() -> totalLength = mediaPlayer.getMedia().getDuration());
-        mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
+        this.mediaPlayer = new MediaPlayer(media);
+        this.mediaPlayer.setOnReady(() -> totalLength = mediaPlayer.getMedia().getDuration());
+        this.mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
 
         // "PLAY"/"PAUSE" BUTTON
         this.playPauseImageView.setImage(this.playButtonImage);

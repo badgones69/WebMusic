@@ -1,12 +1,20 @@
 package database;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SQLiteConnection {
 
+    private static final Logger LOG = LogManager.getLogger(SQLiteConnection.class);
     private static volatile Connection connection = null;
+
+    private SQLiteConnection() {
+        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+    }
 
     public static void connect() {
 
@@ -17,9 +25,9 @@ public class SQLiteConnection {
             // DATABASE CONNECTION CREATION
             connection = DriverManager.getConnection(url);
 
-            System.out.print("");
+            LOG.info("");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            LOG.error("SQLException : " + e.getMessage(), e);
         }
     }
 

@@ -6,105 +6,91 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 
-import javax.transaction.TransactionalException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class AuteurDao extends AbstractDao<AuteurDb> {
+public class AuteurDao implements AbstractDao<AuteurDb> {
 
     private static final Logger LOG = LogManager.getLogger(AuteurDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
+    private static final String AUTEUR = "auteur";
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
     @Override
     public void insert(AuteurDb auteurDb) {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("auteur", auteurDb));
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery(AUTEUR, auteurDb))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void update(AuteurDb auteurDb) throws TransactionalException {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery("auteur", auteurDb));
+    public void update(AuteurDb auteurDb) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery(AUTEUR, auteurDb))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void delete(AuteurDb auteurDb) throws TransactionalException {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("auteur", auteurDb.getIdentifiantAuteur()));
+    public void delete(AuteurDb auteurDb) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery(AUTEUR, auteurDb.getIdentifiantAuteur()))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public AuteurDb find(int id) throws TransactionalException {
+    public AuteurDb find(int id) {
+        AuteurDb auteurDb = new AuteurDb();
 
-        try {
-            AuteurDb auteurDb = new AuteurDb();
-
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
-                    "auteur", id));
-            ResultSet result = statement.executeQuery();
-            result.next();
-            auteurDb.setIdentifiantAuteur(result.getInt("identifiantAuteur"));
-            auteurDb.setNomAuteur(result.getString("nomAuteur"));
-            auteurDb.setPrenomAuteur(result.getString("prenomAuteur"));
-
-            result.close();
-            statement.close();
-
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
+                AUTEUR, id))) {
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                auteurDb.setIdentifiantAuteur(result.getInt("identifiantAuteur"));
+                auteurDb.setNomAuteur(result.getString("nomAuteur"));
+                auteurDb.setPrenomAuteur(result.getString("prenomAuteur"));
+            }
             return auteurDb;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
         return null;
     }
 
     @Override
     public List<AuteurDb> findAll() {
+        List<AuteurDb> auteursList = new ArrayList<>();
 
-        try {
-            List<AuteurDb> auteursList = new ArrayList<>();
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
+                AUTEUR))) {
+            try (ResultSet result = statement.executeQuery()) {
 
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
-                    "auteur"));
-            ResultSet result = statement.executeQuery();
+                while (result.next()) {
+                    AuteurDb auteurDb = new AuteurDb();
 
-            while (result.next()) {
-                AuteurDb auteurDb = new AuteurDb();
+                    auteurDb.setIdentifiantAuteur(result.getInt("identifiantAuteur"));
+                    auteurDb.setNomAuteur(result.getString("nomAuteur"));
+                    auteurDb.setPrenomAuteur(result.getString("prenomAuteur"));
 
-                auteurDb.setIdentifiantAuteur(result.getInt("identifiantAuteur"));
-                auteurDb.setNomAuteur(result.getString("nomAuteur"));
-                auteurDb.setPrenomAuteur(result.getString("prenomAuteur"));
-
-                auteursList.add(auteurDb);
+                    auteursList.add(auteurDb);
+                }
             }
-
-            result.close();
-            statement.close();
-
             return auteursList;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
-        return null;
+        return Collections.emptyList();
     }
 }

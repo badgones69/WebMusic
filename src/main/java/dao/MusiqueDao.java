@@ -7,190 +7,190 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 
-import javax.transaction.TransactionalException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class MusiqueDao extends AbstractDao<MusiqueDb> {
+public class MusiqueDao implements AbstractDao<MusiqueDb> {
 
     private static final Logger LOG = LogManager.getLogger(MusiqueDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
     private AlbumDao albumDao = new AlbumDao();
+    private static final String MUSIQUE = "musique";
+    private static final String CODE_MUSIQUE = "codeMusique";
+    private static final String ALBUM_MUSIQUE = "albumMusique";
+    private static final String TITRE_MUSIQUE = "titreMusique";
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
     @Override
     public void insert(MusiqueDb musiqueDb) {
         try {
             // NEW MUSIC INSERTION
-            PreparedStatement musiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("musique", musiqueDb));
-            musiqueStatement.executeUpdate();
-            musiqueStatement.close();
+            try (PreparedStatement musiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery(MUSIQUE, musiqueDb))) {
+                musiqueStatement.executeUpdate();
+            }
 
             // INSERTED MUSIC CODE RETRIEVING
-            PreparedStatement idMusiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                    "musique", "titreMusique", musiqueDb.getTitreMusique()));
-            ResultSet result = idMusiqueStatement.executeQuery();
-            result.next();
-            Integer musiqueIdGenerated = result.getInt("codeMusique");
-            idMusiqueStatement.close();
-
-            // MUSIC/ARTIST(S) ASSIGNMENT
-            PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
-
-            for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
-                artistesMusiqueStatement.setInt(1, musiqueIdGenerated);
-                artistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
-                artistesMusiqueStatement.executeUpdate();
+            Integer musiqueIdGenerated;
+            try (PreparedStatement idMusiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                    MUSIQUE, TITRE_MUSIQUE, musiqueDb.getTitreMusique()))) {
+                try (ResultSet result = idMusiqueStatement.executeQuery()) {
+                    result.next();
+                    musiqueIdGenerated = result.getInt(CODE_MUSIQUE);
+                }
             }
 
-            artistesMusiqueStatement.close();
+            // MUSIC/ARTIST(S) ASSIGNMENT
+            try (PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)")) {
+
+                for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
+                    artistesMusiqueStatement.setInt(1, musiqueIdGenerated);
+                    artistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
+                    artistesMusiqueStatement.executeUpdate();
+                }
+            }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void update(MusiqueDb musiqueDb) throws TransactionalException {
+    public void update(MusiqueDb musiqueDb) {
         try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery("musique", musiqueDb));
-            statement.executeUpdate();
-            statement.close();
-
-            // MUSIC/ARTIST(S) ASSIGNMENT
-            Statement deletingArtistesMusiqueStatement = SQLiteConnection.getInstance().createStatement();
-            deletingArtistesMusiqueStatement.execute("DELETE FROM posseder WHERE codeMusique = " + musiqueDb.getCodeMusique());
-            deletingArtistesMusiqueStatement.close();
-
-            PreparedStatement insertingArtistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)");
-
-            for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
-                insertingArtistesMusiqueStatement.setInt(1, musiqueDb.getCodeMusique());
-                insertingArtistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
-                insertingArtistesMusiqueStatement.executeUpdate();
+            try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery(MUSIQUE, musiqueDb))) {
+                statement.executeUpdate();
             }
 
-            insertingArtistesMusiqueStatement.close();
+            // MUSIC/ARTIST(S) ASSIGNMENT
+            try (Statement deletingArtistesMusiqueStatement = SQLiteConnection.getInstance().createStatement()) {
+                deletingArtistesMusiqueStatement.execute("DELETE FROM posseder WHERE codeMusique = " + musiqueDb.getCodeMusique());
+            }
+
+            try (PreparedStatement insertingArtistesMusiqueStatement = CONNECTION.prepareStatement("INSERT INTO posseder VALUES (?, ?)")) {
+
+                for (AuteurDb artiste : musiqueDb.getListeAuteurs()) {
+                    insertingArtistesMusiqueStatement.setInt(1, musiqueDb.getCodeMusique());
+                    insertingArtistesMusiqueStatement.setInt(2, artiste.getIdentifiantAuteur());
+                    insertingArtistesMusiqueStatement.executeUpdate();
+                }
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void delete(MusiqueDb musiqueDb) throws TransactionalException {
+    public void delete(MusiqueDb musiqueDb) {
         try {
             MusiqueDao musiqueDao = new MusiqueDao();
 
-            PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("DELETE FROM posseder WHERE codeMusique=" + musiqueDb.getCodeMusique());
-            artistesMusiqueStatement.executeUpdate();
-            artistesMusiqueStatement.close();
+            try (PreparedStatement artistesMusiqueStatement = CONNECTION.prepareStatement("DELETE FROM posseder WHERE codeMusique=" + musiqueDb.getCodeMusique())) {
+                artistesMusiqueStatement.executeUpdate();
+            }
 
-            PreparedStatement musiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("musique", musiqueDb.getCodeMusique()));
-            musiqueStatement.executeUpdate();
-            musiqueStatement.close();
+            try (PreparedStatement musiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery(MUSIQUE, musiqueDb.getCodeMusique()))) {
+                musiqueStatement.executeUpdate();
+            }
 
             Integer nbMusiques = musiqueDao.findAll().size();
-            Statement statement = SQLiteConnection.getInstance().createStatement();
-            statement.execute("UPDATE sqlite_sequence SET seq = '" + nbMusiques + "' WHERE name = 'musique'");
-            statement.close();
+            try (Statement statement = SQLiteConnection.getInstance().createStatement()) {
+                statement.execute("UPDATE sqlite_sequence SET seq = '" + nbMusiques + "' WHERE name = 'musique'");
+            }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public MusiqueDb find(int id) throws TransactionalException {
+    public MusiqueDb find(int id) {
+        MusiqueDb musiqueDb = new MusiqueDb();
 
-        try {
-            MusiqueDb musiqueDb = new MusiqueDb();
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
+                MUSIQUE, id))) {
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                musiqueDb.setCodeMusique(result.getInt(CODE_MUSIQUE));
+                musiqueDb.setTitreMusique(result.getString(TITRE_MUSIQUE));
+                musiqueDb.setDureeMusique(result.getString("dureeMusique"));
+                musiqueDb.setDateActionMusique(result.getString("dateActionMusique"));
+                musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
 
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
-                    "musique", id));
-            ResultSet result = statement.executeQuery();
-            result.next();
-            musiqueDb.setCodeMusique(result.getInt("codeMusique"));
-            musiqueDb.setTitreMusique(result.getString("titreMusique"));
-            musiqueDb.setDureeMusique(result.getString("dureeMusique"));
-            musiqueDb.setDateActionMusique(result.getString("dateActionMusique"));
-            musiqueDb.setNomFichierMusique(result.getString("nomFichierMusique"));
+                // MUSIC ARTIST(S) RETRIEVING
+                List<AuteurDb> artistes;
+                try (PreparedStatement artistesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                        "posseder", CODE_MUSIQUE, musiqueDb.getCodeMusique()))) {
+                    try (ResultSet artistesResult = artistesStatement.executeQuery()) {
+                        AuteurDao auteurDao = new AuteurDao();
+                        artistes = new ArrayList<>();
 
-            // MUSIC ARTIST(S) RETRIEVING
-            PreparedStatement artistesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                    "posseder", "codeMusique", musiqueDb.getCodeMusique()));
-            ResultSet artistesResult = artistesStatement.executeQuery();
-            AuteurDao auteurDao = new AuteurDao();
-            List<AuteurDb> artistes = new ArrayList<>();
+                        while (artistesResult.next()) {
+                            AuteurDb auteur = auteurDao.find(artistesResult.getInt("identifiantAuteur"));
+                            artistes.add(auteur);
+                        }
+                    }
+                }
 
-            while (artistesResult.next()) {
-                AuteurDb auteur = auteurDao.find(artistesResult.getInt("identifiantAuteur"));
-                artistes.add(auteur);
+                musiqueDb.setListeAuteurs(artistes);
+
+                if (result.getInt(ALBUM_MUSIQUE) != 0) {
+                    musiqueDb.setAlbumMusique(albumDao.find(result.getInt(ALBUM_MUSIQUE)));
+                }
             }
-
-            musiqueDb.setListeAuteurs(artistes);
-
-            if (result.getInt("albumMusique") != 0) {
-                musiqueDb.setAlbumMusique(albumDao.find(result.getInt("albumMusique")));
-            }
-
-            result.close();
-            statement.close();
-
             return musiqueDb;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
         return null;
     }
 
     @Override
     public List<MusiqueDb> findAll() {
+        List<MusiqueDb> musiquesList = new ArrayList<>();
 
-        try {
-            List<MusiqueDb> musiquesList = new ArrayList<>();
-
-            PreparedStatement musiquesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
-                    "musique"));
-            ResultSet musiquesResult = musiquesStatement.executeQuery();
+        try (PreparedStatement musiquesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
+                MUSIQUE))) {
+            try (ResultSet musiquesResult = musiquesStatement.executeQuery()) {
 
 
-            while (musiquesResult.next()) {
-                MusiqueDb musiqueDb = new MusiqueDb();
-                List<AuteurDb> artistes = new ArrayList<>();
+                while (musiquesResult.next()) {
+                    MusiqueDb musiqueDb = new MusiqueDb();
+                    List<AuteurDb> artistes = new ArrayList<>();
 
-                musiqueDb.setCodeMusique(musiquesResult.getInt("codeMusique"));
-                musiqueDb.setTitreMusique(musiquesResult.getString("titreMusique"));
-                musiqueDb.setDureeMusique(musiquesResult.getString("dureeMusique"));
-                musiqueDb.setDateActionMusique(musiquesResult.getString("dateActionMusique"));
-                musiqueDb.setNomFichierMusique(musiquesResult.getString("nomFichierMusique"));
+                    musiqueDb.setCodeMusique(musiquesResult.getInt(CODE_MUSIQUE));
+                    musiqueDb.setTitreMusique(musiquesResult.getString(TITRE_MUSIQUE));
+                    musiqueDb.setDureeMusique(musiquesResult.getString("dureeMusique"));
+                    musiqueDb.setDateActionMusique(musiquesResult.getString("dateActionMusique"));
+                    musiqueDb.setNomFichierMusique(musiquesResult.getString("nomFichierMusique"));
 
-                // MUSIC ARTIST(S) RETRIEVING
-                PreparedStatement artistesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                        "posseder", "codeMusique", musiqueDb.getCodeMusique()));
-                ResultSet artistesResult = artistesStatement.executeQuery();
-                AuteurDao auteurDao = new AuteurDao();
+                    // MUSIC ARTIST(S) RETRIEVING
+                    try (PreparedStatement artistesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                            "posseder", CODE_MUSIQUE, musiqueDb.getCodeMusique()))) {
+                        try (ResultSet artistesResult = artistesStatement.executeQuery()) {
+                            AuteurDao auteurDao = new AuteurDao();
 
-                while (artistesResult.next()) {
-                    AuteurDb auteur = auteurDao.find(artistesResult.getInt("identifiantAuteur"));
-                    artistes.add(auteur);
+                            while (artistesResult.next()) {
+                                AuteurDb auteur = auteurDao.find(artistesResult.getInt("identifiantAuteur"));
+                                artistes.add(auteur);
+                            }
+                        }
+                    }
+
+                    if (musiquesResult.getInt(ALBUM_MUSIQUE) != 0) {
+                        musiqueDb.setAlbumMusique(albumDao.find(musiquesResult.getInt(ALBUM_MUSIQUE)));
+                    }
+                    musiqueDb.setListeAuteurs(artistes);
+                    musiquesList.add(musiqueDb);
                 }
-
-                if (musiquesResult.getInt("albumMusique") != 0) {
-                    musiqueDb.setAlbumMusique(albumDao.find(musiquesResult.getInt("albumMusique")));
-                }
-                musiqueDb.setListeAuteurs(artistes);
-                musiquesList.add(musiqueDb);
             }
-
-            musiquesResult.close();
-            musiquesStatement.close();
-
             return musiquesList;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
-        return null;
+        return Collections.emptyList();
     }
 }

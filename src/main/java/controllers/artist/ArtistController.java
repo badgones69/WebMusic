@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 import utils.PopUpUtils;
 
@@ -18,6 +20,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ArtistController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(ArtistController.class);
 
     // ARTIST'S NAME ERROR POP-UP STAGE
     protected static Stage artistNameErrorStage;
@@ -76,7 +80,7 @@ public class ArtistController implements Initializable {
     public void artistActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
         getArtistActionSuccessStage().close();
 
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
 
         try {
             ListMusicController listMusicController = new ListMusicController();
@@ -87,7 +91,7 @@ public class ArtistController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("IOException : " + e.getMessage(), e);
         }
     }
 }

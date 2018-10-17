@@ -1,20 +1,26 @@
 package controllers.common;
 
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
 import java.io.IOException;
 
-public class Home extends javafx.application.Application {
+public class Home extends Application {
+
+    private static final Logger LOG = LogManager.getLogger(Home.class);
+    private static final String IO_EXCEPTION = "IOException : ";
 
     // HOME PAGE STAGE
     private static Stage homeStage;
 
     // APP CLOSING CONFIRMATION POP-UP STAGE
-    private static Stage appCloseConfirmationStage;
+    private Stage appCloseConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -30,20 +36,20 @@ public class Home extends javafx.application.Application {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getHomeStage() {
-        return Home.homeStage;
+    public Stage getHomeStage() {
+        return homeStage;
     }
 
-    private void setHomeStage(Stage stage) {
-        Home.homeStage = stage;
+    private static void setHomeStage(Stage stage) {
+        homeStage = stage;
     }
 
-    public static Stage getAppCloseConfirmationStage() {
+    public Stage getAppCloseConfirmationStage() {
         return appCloseConfirmationStage;
     }
 
     public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
-        Home.appCloseConfirmationStage = appCloseConfirmationStage;
+        this.appCloseConfirmationStage = appCloseConfirmationStage;
     }
 
     // APPLICATION STARTING
@@ -81,7 +87,7 @@ public class Home extends javafx.application.Application {
             return stage;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
             return null;
         }
     }

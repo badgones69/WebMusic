@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.FormUtils;
 import utils.PopUpUtils;
 
@@ -21,6 +23,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddAlbumController extends AlbumController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(AddAlbumController.class);
+    private static final String IO_EXCEPTION = "IOException : ";
 
     /**
      * ARTIST ADDING FORM FIELDS
@@ -83,7 +88,7 @@ public class AddAlbumController extends AlbumController implements Initializable
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         }
 
@@ -98,7 +103,7 @@ public class AddAlbumController extends AlbumController implements Initializable
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         }
 
@@ -124,7 +129,7 @@ public class AddAlbumController extends AlbumController implements Initializable
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         }
     }

@@ -4,8 +4,19 @@ import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
 import db.PlaylistDb;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class DaoQueryUtils {
+
+    private static final Logger LOG = LogManager.getLogger(DaoQueryUtils.class);
+    private static final String WHERE = " WHERE ";
+    private static final String SELECT_FROM = "SELECT * FROM ";
+    private static final String COMA_SEPARATOR = "' , '";
+
+    private DaoQueryUtils() {
+        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+    }
 
     /**
      * METHODS TO INSERT A NEW RECORD IN ANY TABLE
@@ -70,9 +81,9 @@ public class DaoQueryUtils {
     private static String bindMusiqueToInsert(MusiqueDb musiqueDb) {
         String values = "'";
 
-        values += musiqueDb.getTitreMusique().replace("'", "''") + "' , '";
-        values += musiqueDb.getDureeMusique() + "' , '";
-        values += musiqueDb.getDateActionMusique() + "' , '";
+        values += musiqueDb.getTitreMusique().replace("'", "''") + COMA_SEPARATOR;
+        values += musiqueDb.getDureeMusique() + COMA_SEPARATOR;
+        values += musiqueDb.getDateActionMusique() + COMA_SEPARATOR;
         values += musiqueDb.getNomFichierMusique().replace("'", "''") + "' , ";
         values += musiqueDb.getAlbumMusique().getNumeroAlbum();
         values += ")";
@@ -118,7 +129,7 @@ public class DaoQueryUtils {
             values += ", ";
             values += "anneeAlbum = " + albumDb.getAnneeAlbum();
         }
-        values += " WHERE ";
+        values += WHERE;
         values += getIdColumnName(tableName);
         values += " = ";
         values += albumDb.getNumeroAlbum();
@@ -134,7 +145,7 @@ public class DaoQueryUtils {
             values += ", ";
             values += "prenomAuteur = '" + auteurDb.getPrenomAuteur().replace("'", "''") + "'";
         }
-        values += " WHERE ";
+        values += WHERE;
         values += getIdColumnName(tableName);
         values += " = ";
         values += auteurDb.getIdentifiantAuteur();
@@ -150,7 +161,7 @@ public class DaoQueryUtils {
         values += "dateActionMusique = '" + musiqueDb.getDateActionMusique() + "', ";
         values += "nomFichierMusique = '" + musiqueDb.getNomFichierMusique().replace("'", "''") + "', ";
         values += "albumMusique = " + musiqueDb.getAlbumMusique().getNumeroAlbum();
-        values += " WHERE ";
+        values += WHERE;
         values += getIdColumnName(tableName);
         values += " = ";
         values += musiqueDb.getCodeMusique();
@@ -160,7 +171,7 @@ public class DaoQueryUtils {
 
     private static String bindPlaylistToUpdate(String tableName, PlaylistDb playlistDb) {
         return "intitulePlaylist = '" + playlistDb.getIntitulePlaylist().replace("'", "''") + "'" +
-                " WHERE " + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
+                WHERE + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
     }
 
     /**
@@ -170,7 +181,7 @@ public class DaoQueryUtils {
     public static String generateDeletingQuery(String tableName, Integer id) {
         String query = "DELETE FROM ";
         query += tableName;
-        query += " WHERE ";
+        query += WHERE;
         query += getIdColumnName(tableName);
         query += " = ";
         query += id;
@@ -183,9 +194,9 @@ public class DaoQueryUtils {
      */
 
     public static String generateFindingByIdQuery(String tableName, Integer id) {
-        String query = "SELECT * FROM ";
+        String query = SELECT_FROM;
         query += tableName;
-        query += " WHERE ";
+        query += WHERE;
         query += getIdColumnName(tableName);
         query += " = ";
         query += id;
@@ -194,13 +205,13 @@ public class DaoQueryUtils {
     }
 
     public static String generateFindingAllQuery(String tableName) {
-        return "SELECT * FROM " + tableName;
+        return SELECT_FROM + tableName;
     }
 
     public static String findBySpecificColumn(String tableName, String columnName, String searchedValue) {
-        String query = "SELECT * FROM ";
+        String query = SELECT_FROM;
         query += tableName;
-        query += " WHERE ";
+        query += WHERE;
         query += columnName;
         query += " = ";
         query += "'" + searchedValue.replace("'", "''") + "'";
@@ -209,9 +220,9 @@ public class DaoQueryUtils {
     }
 
     public static String findBySpecificColumn(String tableName, String columnName, Integer searchedValue) {
-        String query = "SELECT * FROM ";
+        String query = SELECT_FROM;
         query += tableName;
-        query += " WHERE ";
+        query += WHERE;
         query += columnName;
         query += " = ";
         query += searchedValue;

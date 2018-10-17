@@ -1,11 +1,20 @@
 package utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class FormUtils {
+
+    private static final Logger LOG = LogManager.getLogger(FormUtils.class);
+
+    private FormUtils() {
+        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+    }
 
     // METHOD TO GET THE CURRENT DATE FORMATTED
     public static String getCurrentDate() {

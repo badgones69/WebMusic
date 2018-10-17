@@ -6,103 +6,90 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 
-import javax.transaction.TransactionalException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class PlaylistDao extends AbstractDao<PlaylistDb> {
+public class PlaylistDao implements AbstractDao<PlaylistDb> {
 
     private static final Logger LOG = LogManager.getLogger(PlaylistDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
+    private static final String PLAYLIST = "playlist";
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
 
     @Override
     public void insert(PlaylistDb playlistDb) {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("playlist", playlistDb));
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery(PLAYLIST, playlistDb))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void update(PlaylistDb playlistDb) throws TransactionalException {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery("playlist", playlistDb));
+    public void update(PlaylistDb playlistDb) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery(PLAYLIST, playlistDb))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void delete(PlaylistDb playlistDb) throws TransactionalException {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("playlist", playlistDb.getIdPlaylist()));
+    public void delete(PlaylistDb playlistDb) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery(PLAYLIST, playlistDb.getIdPlaylist()))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public PlaylistDb find(int id) throws TransactionalException {
-        try {
-            PlaylistDb playlistDb = new PlaylistDb();
+    public PlaylistDb find(int id) {
+        PlaylistDb playlistDb = new PlaylistDb();
 
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
-                    "playlist", id));
-            ResultSet result = statement.executeQuery();
-            result.next();
-            playlistDb.setIdPlaylist(result.getInt("idPlaylist"));
-            playlistDb.setIntitulePlaylist(result.getString("intitulePlaylist"));
-
-            result.close();
-            statement.close();
-
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
+                PLAYLIST, id))) {
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                playlistDb.setIdPlaylist(result.getInt("idPlaylist"));
+                playlistDb.setIntitulePlaylist(result.getString("intitulePlaylist"));
+            }
             return playlistDb;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
         return null;
     }
 
     @Override
     public List<PlaylistDb> findAll() {
+        List<PlaylistDb> playlistsList = new ArrayList<>();
 
-        try {
-            List<PlaylistDb> playlistsList = new ArrayList<>();
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
+                PLAYLIST))) {
+            try (ResultSet result = statement.executeQuery()) {
 
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
-                    "playlist"));
-            ResultSet result = statement.executeQuery();
+                while (result.next()) {
+                    PlaylistDb playlistDb = new PlaylistDb();
 
-            while (result.next()) {
-                PlaylistDb playlistDb = new PlaylistDb();
+                    playlistDb.setIdPlaylist(result.getInt("idPlaylist"));
+                    playlistDb.setIntitulePlaylist(result.getString("intitulePlaylist"));
 
-                playlistDb.setIdPlaylist(result.getInt("idPlaylist"));
-                playlistDb.setIntitulePlaylist(result.getString("intitulePlaylist"));
-
-                playlistsList.add(playlistDb);
+                    playlistsList.add(playlistDb);
+                }
             }
-
-            result.close();
-            statement.close();
-
             return playlistsList;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
-        return null;
+        return Collections.emptyList();
     }
 }

@@ -1,4 +1,4 @@
-package listeners.listArtist;
+package listeners;
 
 import dto.AuteurDto;
 import javafx.event.EventHandler;
@@ -8,17 +8,17 @@ import javafx.scene.input.MouseEvent;
 public class ListArtistSelectionListener implements EventHandler<MouseEvent> {
 
     // SELECTED ARTIST IN ARTIST LIST
-    private static AuteurDto auteurSelected;
+    private AuteurDto auteurSelected;
 
     /**
      * GETTER AND SETTER
      */
-    public static AuteurDto getAuteurSelected() {
-        return auteurSelected;
+    public AuteurDto getAuteurSelected() {
+        return this.auteurSelected;
     }
 
-    public static void setAuteurSelected(AuteurDto auteurSelected) {
-        ListArtistSelectionListener.auteurSelected = auteurSelected;
+    public void setAuteurSelected(AuteurDto auteurSelected) {
+        this.auteurSelected = auteurSelected;
     }
 
     // METHOD TO CONSERVE THE SELECTED ARTIST IN ARTIST LIST

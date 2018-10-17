@@ -1,30 +1,16 @@
 package dao;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import javax.transaction.TransactionalException;
 import java.util.List;
 
-public abstract class AbstractDao<T> {
+public interface AbstractDao<T> {
 
-    private static final Logger LOG = LogManager.getLogger(AbstractDao.class);
-    private Class<T> entity;
+    void insert(T t);
 
-    public AbstractDao() {
-    }
+    void update(T t);
 
-    public AbstractDao(Class<T> entity) {
-        this.entity = entity;
-    }
+    void delete(T t);
 
-    public abstract void insert(T t);
+    T find(int id);
 
-    public abstract void update(T t) throws TransactionalException;
-
-    public abstract void delete(T t) throws TransactionalException;
-
-    public abstract T find(int id) throws TransactionalException;
-
-    public abstract List<T> findAll();
+    List<T> findAll();
 }

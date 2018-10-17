@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.PopUpUtils;
 
 import java.io.IOException;
@@ -20,6 +22,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddArtistController extends ArtistController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(AddArtistController.class);
 
     /**
      * ARTIST ADDING FORM FIELDS
@@ -80,7 +84,7 @@ public class AddArtistController extends ArtistController implements Initializab
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error("IOException : " + e.getMessage(), e);
             }
         } else {
             AuteurDb auteurDb = new AuteurDb();
@@ -104,7 +108,7 @@ public class AddArtistController extends ArtistController implements Initializab
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error("IOException : " + e.getMessage(), e);
             }
         }
     }

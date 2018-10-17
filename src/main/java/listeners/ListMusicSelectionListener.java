@@ -1,4 +1,4 @@
-package listeners.listMusic;
+package listeners;
 
 import dto.MusiqueDto;
 import javafx.event.EventHandler;
@@ -8,17 +8,17 @@ import javafx.scene.input.MouseEvent;
 public class ListMusicSelectionListener implements EventHandler<MouseEvent> {
 
     // SELECTED MUSIC IN MUSIC LIST
-    private static MusiqueDto musiqueSelected;
+    private MusiqueDto musiqueSelected;
 
     /**
      * GETTER AND SETTER
      */
-    public static MusiqueDto getMusiqueSelected() {
-        return musiqueSelected;
+    public MusiqueDto getMusiqueSelected() {
+        return this.musiqueSelected;
     }
 
-    public static void setMusiqueSelected(MusiqueDto musiqueSelected) {
-        ListMusicSelectionListener.musiqueSelected = musiqueSelected;
+    public void setMusiqueSelected(MusiqueDto musiqueSelected) {
+        this.musiqueSelected = musiqueSelected;
     }
 
     // METHOD TO CONSERVE THE SELECTED MUSIC IN MUSIC LIST

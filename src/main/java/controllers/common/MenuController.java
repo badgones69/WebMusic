@@ -17,6 +17,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
 import java.io.IOException;
@@ -24,6 +26,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(MenuController.class);
+    private static final String IO_EXCEPTION = "IOException : ";
 
     // ABOUT POP-UP STAGE
     private static Stage aboutStage;
@@ -46,11 +51,11 @@ public class MenuController implements Initializable {
      */
 
     public static Stage getAboutStage() {
-        return MenuController.aboutStage;
+        return aboutStage;
     }
 
-    private void setAboutStage(Stage stage) {
-        MenuController.aboutStage = stage;
+    private static void setAboutStage(Stage stage) {
+        aboutStage = stage;
     }
 
     /**
@@ -78,18 +83,18 @@ public class MenuController implements Initializable {
      */
 
     public void appHomeItemClicked(ActionEvent actionEvent) {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
         homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Accueil"));
         try {
             homeStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/common/home.fxml")));
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
         homeStage.show();
     }
 
     public void appCloseItemClicked(ActionEvent actionEvent) {
-        Stage appCloseConfirmationStage = Home.getAppCloseConfirmationStage();
+        Stage appCloseConfirmationStage = new Home().getAppCloseConfirmationStage();
         appCloseConfirmationStage.show();
     }
 
@@ -98,7 +103,7 @@ public class MenuController implements Initializable {
      */
 
     public void listMusicItemClicked(ActionEvent actionEvent) {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
 
         try {
             ListMusicController listMusicController = new ListMusicController();
@@ -109,12 +114,12 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }
 
     public void addMusicItemClicked(ActionEvent actionEvent) {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
         try {
@@ -126,7 +131,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -135,7 +140,7 @@ public class MenuController implements Initializable {
      */
 
     /*public void listAlbumItemClicked() {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home(.getHomeStage();
         homeStage.show();
 
         try {
@@ -147,12 +152,12 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }*/
 
     public void addAlbumItemClicked() {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
         try {
@@ -164,7 +169,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -173,7 +178,7 @@ public class MenuController implements Initializable {
      */
 
     public void listArtistItemClicked() {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
         try {
@@ -185,12 +190,12 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }
 
     public void addArtistItemClicked() {
-        Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
         try {
@@ -202,7 +207,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -221,7 +226,7 @@ public class MenuController implements Initializable {
             stage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
     }
 }

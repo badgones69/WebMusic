@@ -6,107 +6,91 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 
-import javax.transaction.TransactionalException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class AlbumDao extends AbstractDao<AlbumDb> {
+public class AlbumDao implements AbstractDao<AlbumDb> {
 
     private static final Logger LOG = LogManager.getLogger(AlbumDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
-
-    public AlbumDao() {
-    }
+    private static final String ALBUM = "album";
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
     @Override
     public void insert(AlbumDb albumDb) {
-        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery("album", albumDb))) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery(ALBUM, albumDb))) {
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void update(AlbumDb albumDb) throws TransactionalException {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery("album", albumDb));
+    public void update(AlbumDb albumDb) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery(ALBUM, albumDb))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public void delete(AlbumDb albumDb) throws TransactionalException {
-        try {
-            PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery("album", albumDb.getNumeroAlbum()));
+    public void delete(AlbumDb albumDb) {
+        try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery(ALBUM, albumDb.getNumeroAlbum()))) {
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
     @Override
-    public AlbumDb find(int id) throws TransactionalException {
+    public AlbumDb find(int id) {
+        AlbumDb albumDb = new AlbumDb();
 
-        try {
-            AlbumDb albumDb = new AlbumDb();
-
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
-                    "album", id));
-            ResultSet result = statement.executeQuery();
-            result.next();
-            albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
-            albumDb.setTitreAlbum(result.getString("titreAlbum"));
-            albumDb.setAnneeAlbum(result.getInt("anneeAlbum"));
-
-            result.close();
-            statement.close();
-
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingByIdQuery(
+                ALBUM, id))) {
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
+                albumDb.setTitreAlbum(result.getString("titreAlbum"));
+                albumDb.setAnneeAlbum(result.getInt("anneeAlbum"));
+            }
             return albumDb;
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
         return null;
     }
 
     @Override
     public List<AlbumDb> findAll() {
+        List<AlbumDb> albumsList = new ArrayList<>();
 
-        try {
-            List<AlbumDb> albumsList = new ArrayList<>();
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
+                ALBUM))) {
+            try (ResultSet result = statement.executeQuery()) {
 
-            PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
-                    "album"));
-            ResultSet result = statement.executeQuery();
+                while (result.next()) {
+                    AlbumDb albumDb = new AlbumDb();
 
-            while (result.next()) {
-                AlbumDb albumDb = new AlbumDb();
+                    albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
+                    albumDb.setTitreAlbum(result.getString("titreAlbum"));
+                    albumDb.setAnneeAlbum(result.getInt("anneeAlbum"));
 
-                albumDb.setNumeroAlbum(result.getInt("numeroAlbum"));
-                albumDb.setTitreAlbum(result.getString("titreAlbum"));
-                albumDb.setAnneeAlbum(result.getInt("anneeAlbum"));
-
-                albumsList.add(albumDb);
+                    albumsList.add(albumDb);
+                }
             }
-
-            result.close();
-            statement.close();
-
             return albumsList;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
-        return null;
+        return Collections.emptyList();
     }
 
 }

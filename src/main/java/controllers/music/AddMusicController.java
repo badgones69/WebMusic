@@ -3,7 +3,6 @@ package controllers.music;
 import dao.AlbumDao;
 import dao.AuteurDao;
 import dao.MusiqueDao;
-import database.SQLiteConnection;
 import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
@@ -11,32 +10,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 import org.controlsfx.control.ListSelectionView;
-import utils.DaoQueryUtils;
 import utils.DaoTestsUtils;
 import utils.FormUtils;
-import utils.PopUpUtils;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.Collator;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class AddMusicController extends MusicController implements Initializable {
 
@@ -158,54 +146,20 @@ public class AddMusicController extends MusicController implements Initializable
         Boolean artistesInvalides = artistes.getTargetItems().size() == 0;
 
         if (titreInvalide) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicTitleError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 330, 140));
-                this.setMusicTitleErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            super.showTitleErrorPopUp();
         }
 
         if (dureeInvalide) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicLengthError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 330, 140));
-                this.setMusicLengthErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            super.showLengthErrorPopUp();
         }
 
         if (artistesInvalides) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicArtistError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 415, 140));
-                this.setMusicArtistErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            super.showArtistErrorPopUp();
         }
 
         if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(dureeInvalide) && Boolean.FALSE.equals(artistesInvalides)) {
             MusiqueDb musique = new MusiqueDb();
             AlbumDb albumMusique = new AlbumDb();
-            List<AuteurDb> artistesMusique = new ArrayList<>();
 
             if (album.getValue() != null) {
                 albumMusique.setTitreAlbum(album.getValue());
@@ -217,58 +171,12 @@ public class AddMusicController extends MusicController implements Initializable
             musique.setDateActionMusique(this.dateInsertion.getText());
             musique.setNomFichierMusique(this.nomFichier.getText());
             musique.setAlbumMusique(albumMusique);
-
-            for (int i = 0; i < this.artistes.getTargetItems().size(); i++) {
-                AuteurDb artiste = new AuteurDb();
-                String identiteArtiste = this.artistes.getTargetItems().get(i).getText();
-                Integer indexSeparateurIdentite = identiteArtiste.indexOf(" ");
-
-                // ARTIST(S) NAME RETRIEVING (TO KNOW IF WHITESPACES CONTAINING)
-                Boolean auteurHasWhitespacedName = Boolean.FALSE;
-                try {
-                    PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                            "auteur", "nomAuteur",
-                            indexSeparateurIdentite != -1 ? identiteArtiste.substring(indexSeparateurIdentite).trim() : identiteArtiste));
-                    ResultSet resultSet = statement.executeQuery();
-
-                    if (resultSet.isClosed()) {
-                        auteurHasWhitespacedName = Boolean.TRUE;
-                    }
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-                if (indexSeparateurIdentite == -1 || Boolean.TRUE.equals(auteurHasWhitespacedName)) {
-                    artiste.setNomAuteur(identiteArtiste);
-                } else {
-                    artiste.setNomAuteur(identiteArtiste.substring(indexSeparateurIdentite).trim());
-                    artiste.setPrenomAuteur(identiteArtiste.substring(0, indexSeparateurIdentite));
-                }
-
-                DaoTestsUtils.setIdentifiantToAuteur(artiste);
-                artistesMusique.add(artiste);
-            }
-            musique.setListeAuteurs(artistesMusique);
+            musique.setListeAuteurs(super.setArtistsToMusic(this.artistes.getTargetItems()));
 
             MusiqueDao musiqueDao = new MusiqueDao();
             musiqueDao.insert(musique);
 
-            Stage stage = new Stage();
-
-            try {
-                PopUpUtils.setActionDone("ajoutée");
-                MusicController musicController = new MusicController();
-                musicController.initialize(getClass().getResource("/views/music/musicActionSuccess.fxml"), null);
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/musicActionSuccess.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 390, 140));
-                this.setMusicActionSuccessStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            super.showSuccessPopUp("ajoutée");
         }
     }
 

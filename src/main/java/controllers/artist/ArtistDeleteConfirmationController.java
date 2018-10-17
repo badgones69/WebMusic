@@ -1,13 +1,14 @@
 package controllers.artist;
 
 import dao.AuteurDao;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import listeners.listArtist.ListArtistSelectionListener;
+import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 import utils.PopUpUtils;
 
@@ -15,13 +16,15 @@ import java.io.IOException;
 
 public class ArtistDeleteConfirmationController {
 
+    private static final Logger LOG = LogManager.getLogger(ArtistDeleteConfirmationController.class);
+
     private InformationsUtils informationsUtils = new InformationsUtils();
 
     // ARTIST DELETING CONFIRMATION POP-UP "YES" BUTTON CLICKED
-    public void artistDeleteYesClicked(ActionEvent actionEvent) {
+    public void artistDeleteYesClicked() {
         ListArtistController.getArtistDeleteConfirmationStage().close();
         AuteurDao auteurDao = new AuteurDao();
-        auteurDao.delete(AuteurMapper.toDb(ListArtistSelectionListener.getAuteurSelected()));
+        auteurDao.delete(AuteurMapper.toDb(new ListArtistSelectionListener().getAuteurSelected()));
 
         Stage stage = new Stage();
 
@@ -36,12 +39,12 @@ public class ArtistDeleteConfirmationController {
             stage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("IOException : " + e.getMessage(), e);
         }
     }
 
     // ARTIST DELETING CONFIRMATION POP-UP "NO" BUTTON CLICKED
-    public void artistDeleteNoClicked(ActionEvent actionEvent) {
+    public void artistDeleteNoClicked() {
         ListArtistController.getArtistDeleteConfirmationStage().close();
     }
 }

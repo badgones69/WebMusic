@@ -14,8 +14,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import listeners.listArtist.ListArtistSelectionListener;
+import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.PopUpUtils;
 
 import java.io.IOException;
@@ -23,6 +25,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditArtistController extends ArtistController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(EditArtistController.class);
+    private static final String IO_EXCEPTION = "IOException : ";
 
     /**
      * ARTIST EDITING FORM FIELDS
@@ -61,7 +66,7 @@ public class EditArtistController extends ArtistController implements Initializa
     }
 
     private void initializeForm() {
-        AuteurDto auteurDto = ListArtistSelectionListener.getAuteurSelected();
+        AuteurDto auteurDto = new ListArtistSelectionListener().getAuteurSelected();
         AuteurDb auteurDb = AuteurMapper.toDb(auteurDto);
 
         // "prenom" FIELD INITIALIZATION
@@ -85,12 +90,12 @@ public class EditArtistController extends ArtistController implements Initializa
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         } else {
             AuteurDb auteurDb = new AuteurDb();
 
-            auteurDb.setIdentifiantAuteur(ListArtistSelectionListener.getAuteurSelected().getIdentifiantAuteur());
+            auteurDb.setIdentifiantAuteur(new ListArtistSelectionListener().getAuteurSelected().getIdentifiantAuteur());
             auteurDb.setPrenomAuteur("".equals(this.prenom.getText()) ? null : this.prenom.getText());
             auteurDb.setNomAuteur(this.nom.getText());
 
@@ -110,7 +115,7 @@ public class EditArtistController extends ArtistController implements Initializa
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         }
     }
