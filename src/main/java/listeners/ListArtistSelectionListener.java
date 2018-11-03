@@ -8,24 +8,24 @@ import javafx.scene.input.MouseEvent;
 public class ListArtistSelectionListener implements EventHandler<MouseEvent> {
 
     // SELECTED ARTIST IN ARTIST LIST
-    private AuteurDto auteurSelected;
+    private static AuteurDto auteurSelected;
 
     /**
      * GETTER AND SETTER
      */
-    public AuteurDto getAuteurSelected() {
-        return this.auteurSelected;
+    public static AuteurDto getAuteurSelected() {
+        return auteurSelected;
     }
 
-    public void setAuteurSelected(AuteurDto auteurSelected) {
-        this.auteurSelected = auteurSelected;
+    public static void setAuteurSelected(AuteurDto authorSelected) {
+        auteurSelected = authorSelected;
     }
 
     // METHOD TO CONSERVE THE SELECTED ARTIST IN ARTIST LIST
     @Override
     public void handle(MouseEvent event) {
         TableView<AuteurDto> table = (TableView<AuteurDto>) event.getSource();
-        auteurSelected = table.getSelectionModel().getSelectedItem();
+        setAuteurSelected(table.getSelectionModel().getSelectedItem());
     }
 
 }

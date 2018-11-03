@@ -8,24 +8,24 @@ import javafx.scene.input.MouseEvent;
 public class ListMusicSelectionListener implements EventHandler<MouseEvent> {
 
     // SELECTED MUSIC IN MUSIC LIST
-    private MusiqueDto musiqueSelected;
+    private static MusiqueDto musiqueSelected;
 
     /**
      * GETTER AND SETTER
      */
-    public MusiqueDto getMusiqueSelected() {
-        return this.musiqueSelected;
+    public static MusiqueDto getMusiqueSelected() {
+        return musiqueSelected;
     }
 
-    public void setMusiqueSelected(MusiqueDto musiqueSelected) {
-        this.musiqueSelected = musiqueSelected;
+    public static void setMusiqueSelected(MusiqueDto musicSelected) {
+        musiqueSelected = musicSelected;
     }
 
     // METHOD TO CONSERVE THE SELECTED MUSIC IN MUSIC LIST
     @Override
     public void handle(MouseEvent event) {
         TableView<MusiqueDto> table = (TableView<MusiqueDto>) event.getSource();
-        musiqueSelected = table.getSelectionModel().getSelectedItem();
+        setMusiqueSelected(table.getSelectionModel().getSelectedItem());
     }
 
 }

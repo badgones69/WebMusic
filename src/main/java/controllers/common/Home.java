@@ -20,7 +20,7 @@ public class Home extends Application {
     private static Stage homeStage;
 
     // APP CLOSING CONFIRMATION POP-UP STAGE
-    private Stage appCloseConfirmationStage;
+    private static Stage appCloseConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -48,8 +48,8 @@ public class Home extends Application {
         return appCloseConfirmationStage;
     }
 
-    public void setAppCloseConfirmationStage(Stage appCloseConfirmationStage) {
-        this.appCloseConfirmationStage = appCloseConfirmationStage;
+    private static void setAppCloseConfirmationStage(Stage stage) {
+        appCloseConfirmationStage = stage;
     }
 
     // APPLICATION STARTING

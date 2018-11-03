@@ -25,7 +25,7 @@ public class MusicDeleteConfirmationController {
     public void musicDeleteYesClicked() {
         ListMusicController.getMusicDeleteConfirmationStage().close();
         MusiqueDao musiqueDao = new MusiqueDao();
-        musiqueDao.delete(MusiqueMapper.toDb(new ListMusicSelectionListener().getMusiqueSelected()));
+        musiqueDao.delete(MusiqueMapper.toDb(ListMusicSelectionListener.getMusiqueSelected()));
 
         Stage stage = new Stage();
 

@@ -66,7 +66,7 @@ public class EditArtistController extends ArtistController implements Initializa
     }
 
     private void initializeForm() {
-        AuteurDto auteurDto = new ListArtistSelectionListener().getAuteurSelected();
+        AuteurDto auteurDto = ListArtistSelectionListener.getAuteurSelected();
         AuteurDb auteurDb = AuteurMapper.toDb(auteurDto);
 
         // "prenom" FIELD INITIALIZATION
@@ -95,7 +95,7 @@ public class EditArtistController extends ArtistController implements Initializa
         } else {
             AuteurDb auteurDb = new AuteurDb();
 
-            auteurDb.setIdentifiantAuteur(new ListArtistSelectionListener().getAuteurSelected().getIdentifiantAuteur());
+            auteurDb.setIdentifiantAuteur(ListArtistSelectionListener.getAuteurSelected().getIdentifiantAuteur());
             auteurDb.setPrenomAuteur("".equals(this.prenom.getText()) ? null : this.prenom.getText());
             auteurDb.setNomAuteur(this.nom.getText());
 

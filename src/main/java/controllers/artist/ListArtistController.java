@@ -100,7 +100,7 @@ public class ListArtistController implements Initializable {
     }
 
     private void initializeList() {
-        new ListArtistSelectionListener().setAuteurSelected(null);
+        ListArtistSelectionListener.setAuteurSelected(null);
 
         Tooltip updatingActionTooltip = new Tooltip("Modifier");
         Tooltip.install(updatingActionImageView, updatingActionTooltip);
@@ -145,7 +145,7 @@ public class ListArtistController implements Initializable {
 
     // ARTIST EDITING ICON CLICKED
     public void artistEditingButtonClicked(MouseEvent mouseEvent) {
-        if (new ListArtistSelectionListener().getAuteurSelected() == null) {
+        if (ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {
@@ -178,7 +178,7 @@ public class ListArtistController implements Initializable {
 
     // ARTIST DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
-        if (new ListArtistSelectionListener().getAuteurSelected() == null) {
+        if (ListArtistSelectionListener.getAuteurSelected() == null) {
             Stage stage = new Stage();
 
             try {

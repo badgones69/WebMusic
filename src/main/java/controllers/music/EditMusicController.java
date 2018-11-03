@@ -76,7 +76,7 @@ public class EditMusicController extends MusicController implements Initializabl
     }
 
     private void initializeForm() {
-        MusiqueDto musiqueDto = new ListMusicSelectionListener().getMusiqueSelected();
+        MusiqueDto musiqueDto = ListMusicSelectionListener.getMusiqueSelected();
         MusiqueDb musiqueDb = MusiqueMapper.toDb(musiqueDto);
 
         // "titre" FIELD INITIALIZATION
@@ -194,7 +194,7 @@ public class EditMusicController extends MusicController implements Initializabl
                 DaoTestsUtils.setNumeroToAlbum(albumMusique);
             }
 
-            musique.setCodeMusique(new ListMusicSelectionListener().getMusiqueSelected().getCodeMusique());
+            musique.setCodeMusique(ListMusicSelectionListener.getMusiqueSelected().getCodeMusique());
             musique.setTitreMusique(this.titre.getText());
             musique.setDureeMusique(this.duree.getText());
             musique.setDateActionMusique(this.dateModification.getText());

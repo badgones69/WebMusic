@@ -1,7 +1,6 @@
 package controllers.album;
 
 import controllers.common.Home;
-import controllers.music.ListMusicController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 import utils.PopUpUtils;
 
@@ -18,6 +19,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AlbumController implements Initializable {
+
+    private static final Logger LOG = LogManager.getLogger(AlbumController.class);
+    private static final String IO_EXCEPTION = "IOException : ";
 
     // ALBUM'S NAME ERROR POP-UP STAGE
     protected static Stage albumTitleErrorStage;
@@ -92,10 +96,10 @@ public class AlbumController implements Initializable {
     public void albumActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
         getAlbumActionSuccessStage().close();
 
-        /*Stage homeStage = Home.getHomeStage();
+        Stage homeStage = new Home().getHomeStage();
 
         try {
-            ListMusicController listMusicController = new ListMusicController();
+            ListAlbumController listMusicController = new ListAlbumController();
             listMusicController.initialize(getClass().getResource("/views/album/listAlbum.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/album/listAlbum.fxml"));
             homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des albums"));
@@ -103,7 +107,55 @@ public class AlbumController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+        }
+    }
+
+    protected void showSuccessPopUp(String action) {
+        Stage stage = new Stage();
+
+        try {
+            PopUpUtils.setActionDone(action);
+            AlbumController albumController = new AlbumController();
+            albumController.initialize(getClass().getResource("/views/album/albumActionSuccess.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/album/albumActionSuccess.fxml"));
+            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
+            stage.setScene(new Scene(root, 390, 140));
+            this.setAlbumActionSuccessStage(stage);
+            stage.show();
+
+        } catch (IOException e) {
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+        }
+    }
+
+    protected void showYearErrorPopUp() {
+        Stage stage = new Stage();
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumYearError.fxml"));
+            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
+            stage.setScene(new Scene(root, 330, 140));
+            this.setAlbumYearErrorStage(stage);
+            stage.show();
+
+        } catch (IOException e) {
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+        }
+    }
+
+    protected void showTitleErrorPopUp() {
+        Stage stage = new Stage();
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumTitleError.fxml"));
+            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
+            stage.setScene(new Scene(root, 350, 140));
+            this.setAlbumTitleErrorStage(stage);
+            stage.show();
+
+        } catch (IOException e) {
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+        }
     }
 }

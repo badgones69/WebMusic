@@ -3,29 +3,18 @@ package controllers.album;
 import dao.AlbumDao;
 import db.AlbumDb;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import utils.FormUtils;
-import utils.PopUpUtils;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddAlbumController extends AlbumController implements Initializable {
-
-    private static final Logger LOG = LogManager.getLogger(AddAlbumController.class);
-    private static final String IO_EXCEPTION = "IOException : ";
 
     /**
      * ARTIST ADDING FORM FIELDS
@@ -74,40 +63,18 @@ public class AddAlbumController extends AlbumController implements Initializable
     // ARTIST ADDING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        Boolean nomInvalide = "".equals(titre.getText());
+        Boolean titreInvalide = "".equals(titre.getText());
         Boolean anneeInvalide = !FormUtils.anneeAlbumIsValid(annee.getText());
 
-        if (nomInvalide) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumNameError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 350, 140));
-                this.setAlbumTitleErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+        if (titreInvalide) {
+            super.showTitleErrorPopUp();
         }
 
         if (anneeInvalide) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumYearError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 330, 140));
-                this.setAlbumYearErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            super.showYearErrorPopUp();
         }
 
-        if (Boolean.FALSE.equals(nomInvalide) && Boolean.FALSE.equals(anneeInvalide)) {
+        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(anneeInvalide)) {
             AlbumDb albumDb = new AlbumDb();
 
             albumDb.setTitreAlbum(this.titre.getText());
@@ -116,21 +83,7 @@ public class AddAlbumController extends AlbumController implements Initializable
             AlbumDao albumDao = new AlbumDao();
             albumDao.insert(albumDb);
 
-            Stage stage = new Stage();
-
-            try {
-                PopUpUtils.setActionDone("ajouté");
-                AlbumController albumController = new AlbumController();
-                albumController.initialize(getClass().getResource("/views/album/albumActionSuccess.fxml"), null);
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/albumActionSuccess.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 390, 140));
-                this.setAlbumActionSuccessStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            super.showSuccessPopUp("ajouté");
         }
     }
 

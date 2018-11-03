@@ -24,7 +24,7 @@ public class ArtistDeleteConfirmationController {
     public void artistDeleteYesClicked() {
         ListArtistController.getArtistDeleteConfirmationStage().close();
         AuteurDao auteurDao = new AuteurDao();
-        auteurDao.delete(AuteurMapper.toDb(new ListArtistSelectionListener().getAuteurSelected()));
+        auteurDao.delete(AuteurMapper.toDb(ListArtistSelectionListener.getAuteurSelected()));
 
         Stage stage = new Stage();
 
