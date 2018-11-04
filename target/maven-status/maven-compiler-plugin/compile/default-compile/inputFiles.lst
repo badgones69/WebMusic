@@ -1,12 +1,14 @@
 C:\workspace\WebMusic\src\main\java\controllers\music\EditMusicController.java
 C:\workspace\WebMusic\src\main\java\database\SQLiteConnection.java
 C:\workspace\WebMusic\src\main\java\controllers\music\MusicController.java
+C:\workspace\WebMusic\src\main\java\controllers\album\EditAlbumController.java
 C:\workspace\WebMusic\src\main\java\controllers\album\AlbumController.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\ArtistDeleteConfirmationController.java
 C:\workspace\WebMusic\src\main\java\dto\AuteurDto.java
 C:\workspace\WebMusic\src\main\java\controllers\common\Home.java
 C:\workspace\WebMusic\src\main\java\controllers\common\AppCloseConfirmationController.java
 C:\workspace\WebMusic\src\main\java\utils\PopUpUtils.java
+C:\workspace\WebMusic\src\main\java\listeners\ListAlbumSelectionListener.java
 C:\workspace\WebMusic\src\main\java\db\AuteurDb.java
 C:\workspace\WebMusic\src\main\java\mapper\MusiqueMapper.java
 C:\workspace\WebMusic\src\main\java\controllers\common\MenuController.java
@@ -22,6 +24,8 @@ C:\workspace\WebMusic\src\main\java\controllers\album\AddAlbumController.java
 C:\workspace\WebMusic\src\main\java\dao\MusiqueDao.java
 C:\workspace\WebMusic\src\main\java\db\MusiqueDb.java
 C:\workspace\WebMusic\src\main\java\utils\DaoTestsUtils.java
+C:\workspace\WebMusic\src\main\java\controllers\album\ListAlbumController.java
+C:\workspace\WebMusic\src\main\java\controllers\album\ListenAlbumController.java
 C:\workspace\WebMusic\src\main\java\dao\AbstractDao.java
 C:\workspace\WebMusic\src\main\java\controllers\music\ListenMusicController.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\ListArtistController.java
@@ -38,3 +42,4 @@ C:\workspace\WebMusic\src\main\java\controllers\artist\AddArtistController.java
 C:\workspace\WebMusic\src\main\java\dto\AlbumDto.java
 C:\workspace\WebMusic\src\main\java\mapper\AuteurMapper.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\EditArtistController.java
+C:\workspace\WebMusic\src\main\java\utils\ListenUtils.java

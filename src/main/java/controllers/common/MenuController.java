@@ -1,6 +1,7 @@
 package controllers.common;
 
 import controllers.album.AddAlbumController;
+import controllers.album.ListAlbumController;
 import controllers.artist.AddArtistController;
 import controllers.artist.ListArtistController;
 import controllers.music.AddMusicController;
@@ -139,8 +140,8 @@ public class MenuController implements Initializable {
      * ITEMS LISTENERS OF "Album" MENU
      */
 
-    /*public void listAlbumItemClicked() {
-        Stage homeStage = new Home(.getHomeStage();
+    public void listAlbumItemClicked() {
+        Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
         try {
@@ -154,7 +155,7 @@ public class MenuController implements Initializable {
         } catch (IOException e) {
             LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
-    }*/
+    }
 
     public void addAlbumItemClicked() {
         Stage homeStage = new Home().getHomeStage();

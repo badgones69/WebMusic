@@ -4,7 +4,7 @@
          stylesheets="/styles/style.css"
          fx:controller="controllers.common.MenuController">
     <menus>
-        <Menu id="appMenu" mnemonicParsing="false" text="WebMusic">
+        <Menu mnemonicParsing="false" text="WebMusic">
             <items>
                 <MenuItem id="appHomeItem" mnemonicParsing="false" onAction="#appHomeItemClicked"
                           text="Accueil"/>
@@ -18,8 +18,9 @@
                 <MenuItem id="addMusicItem" mnemonicParsing="false" text="Ajout" onAction="#addMusicItemClicked"/>
             </items>
         </Menu>
-        <Menu id="albumMenu" mnemonicParsing="false" text="Album">
+        <Menu mnemonicParsing="false" text="Album">
             <items>
+                <MenuItem id="listAlbumItem" mnemonicParsing="false" text="Liste" onAction="#listAlbumItemClicked"/>
                 <MenuItem id="addAlbumItem" mnemonicParsing="false" text="Ajout" onAction="#addAlbumItemClicked"/>
             </items>
         </Menu>

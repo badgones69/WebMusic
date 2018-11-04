@@ -20,7 +20,7 @@ public class AlbumMapper {
         albumDto.setNumeroAlbum(auteurDb.getNumeroAlbum());
         albumDto.setTitreAlbum(auteurDb.getTitreAlbum());
 
-        if (auteurDb.getAnneeAlbum() == null) {
+        if (auteurDb.getAnneeAlbum() <= 0) {
             albumDto.setAnneeAlbum("-");
         } else {
             albumDto.setAnneeAlbum(String.valueOf(auteurDb.getAnneeAlbum()));
