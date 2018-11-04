@@ -2,6 +2,8 @@ package dao;
 
 import database.SQLiteConnection;
 import db.AlbumDb;
+import db.AuteurDb;
+import db.MusiqueDb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
@@ -86,6 +88,50 @@ public class AlbumDao implements AbstractDao<AlbumDb> {
                 }
             }
             return albumsList;
+
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+        }
+        return Collections.emptyList();
+    }
+
+    public List<MusiqueDb> getMusiques(AlbumDb albumDb) {
+        List<MusiqueDb> musiquesList = new ArrayList<>();
+
+        try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                "musique", "albumMusique", albumDb.getNumeroAlbum()))) {
+            try (ResultSet musiquesResult = statement.executeQuery()) {
+
+                while (musiquesResult.next()) {
+                    MusiqueDb musiqueDb = new MusiqueDb();
+                    List<AuteurDb> artistes = new ArrayList<>();
+
+                    musiqueDb.setCodeMusique(musiquesResult.getInt("codeMusique"));
+                    musiqueDb.setTitreMusique(musiquesResult.getString("titreMusique"));
+                    musiqueDb.setDureeMusique(musiquesResult.getString("dureeMusique"));
+                    musiqueDb.setDateActionMusique(musiquesResult.getString("dateActionMusique"));
+                    musiqueDb.setNomFichierMusique(musiquesResult.getString("nomFichierMusique"));
+
+                    // MUSIC ARTIST(S) RETRIEVING
+                    try (PreparedStatement artistesStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                            "posseder", "codeMusique", musiqueDb.getCodeMusique()))) {
+                        try (ResultSet artistesResult = artistesStatement.executeQuery()) {
+                            AuteurDao auteurDao = new AuteurDao();
+
+                            while (artistesResult.next()) {
+                                AuteurDb auteur = auteurDao.find(artistesResult.getInt("identifiantAuteur"));
+                                artistes.add(auteur);
+                            }
+                        }
+                    }
+
+                    musiqueDb.setAlbumMusique(albumDb);
+                    musiqueDb.setListeAuteurs(artistes);
+
+                    musiquesList.add(musiqueDb);
+                }
+            }
+            return musiquesList;
 
         } catch (SQLException e) {
             LOG.error(SQL_EXCEPTION + e.getMessage(), e);
