@@ -1,6 +1,7 @@
 controllers\music\ListMusicController.class
 listeners\ListAlbumSelectionListener.class
 dto\AuteurDto.class
+controllers\album\AlbumDeleteConfirmationController.class
 controllers\music\MusicDeleteConfirmationController.class
 mapper\MusiqueMapper.class
 dao\PlaylistDao.class

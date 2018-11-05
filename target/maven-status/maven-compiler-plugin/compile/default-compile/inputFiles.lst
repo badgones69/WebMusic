@@ -30,6 +30,7 @@ C:\workspace\WebMusic\src\main\java\dao\AbstractDao.java
 C:\workspace\WebMusic\src\main\java\controllers\music\ListenMusicController.java
 C:\workspace\WebMusic\src\main\java\controllers\artist\ListArtistController.java
 C:\workspace\WebMusic\src\main\java\controllers\music\ListMusicController.java
+C:\workspace\WebMusic\src\main\java\controllers\album\AlbumDeleteConfirmationController.java
 C:\workspace\WebMusic\src\main\java\listeners\ListMusicSelectionListener.java
 C:\workspace\WebMusic\src\main\java\utils\DaoQueryUtils.java
 C:\workspace\WebMusic\src\main\java\dao\PlaylistDao.java

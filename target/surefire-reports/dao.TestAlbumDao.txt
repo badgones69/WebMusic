@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: dao.TestAlbumDao
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.864 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.581 sec
