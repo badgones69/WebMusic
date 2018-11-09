@@ -1,6 +1,9 @@
 package dao;
 
 import database.SQLiteConnection;
+import db.AlbumDb;
+import db.AuteurDb;
+import db.MusiqueDb;
 import db.PlaylistDb;
 import org.junit.After;
 import org.junit.Before;
@@ -12,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
@@ -20,19 +24,79 @@ public class TestPlaylistDao {
 
     private PlaylistDao playlistDao;
     private PlaylistDb playlistDb;
+    private AlbumDao albumDao;
+    private AlbumDb albumMusique;
+    private AuteurDao auteurDao;
+    private AuteurDb artisteMusique;
+    private List<AuteurDb> artistesMusique;
+    private MusiqueDao musiqueDao;
+    private List<MusiqueDb> musiques;
+    private MusiqueDb musique1Playlist;
+    private MusiqueDb musique2Playlist;
+
+    private Integer idAuteur;
+    private Integer idPlaylist1;
+    private Integer idPlaylist2;
 
     @Before
     public void initialize() throws Exception {
 
         playlistDao = new PlaylistDao();
         playlistDb = new PlaylistDb();
+        albumDao = new AlbumDao();
+        albumMusique = new AlbumDb();
+        auteurDao = new AuteurDao();
+        artisteMusique = new AuteurDb();
+        artistesMusique = new ArrayList<>();
+        musiqueDao = new MusiqueDao();
+        musique1Playlist = new MusiqueDb();
+        musique2Playlist = new MusiqueDb();
+        musiques = new ArrayList<>();
+
+        albumMusique.setTitreAlbum("albumMusique");
+
+        artisteMusique.setNomAuteur("nom1Test");
+        artisteMusique.setPrenomAuteur("prenom1Test");
+
+        artistesMusique.add(artisteMusique);
+
+        musique1Playlist.setTitreMusique("musiqueTest");
+        musique1Playlist.setDureeMusique("00:03:57");
+        musique1Playlist.setDateActionMusique("09/04/2018");
+        musique1Playlist.setNomFichierMusique("musiqueTest.mp3");
+        musique1Playlist.setAlbumMusique(albumMusique);
+        musique1Playlist.setListeAuteurs(artistesMusique);
+
+        musique2Playlist.setTitreMusique("musiqueTest2");
+        musique2Playlist.setDureeMusique("00:04:21");
+        musique2Playlist.setDateActionMusique("25/04/2018");
+        musique2Playlist.setNomFichierMusique("musiqueTest2.mp3");
+        musique2Playlist.setAlbumMusique(albumMusique);
+        musique2Playlist.setListeAuteurs(artistesMusique);
+
+        musiques.add(musique1Playlist);
+        musiques.add(musique2Playlist);
+
+
         playlistDb.setIntitulePlaylist("playlistTest");
+        playlistDb.setDateActionPlaylist("02/11/2018");
+        playlistDb.setListeMusiques(musiques);
     }
 
     @Test
     public void insert() {
+        auteurDao.insert(artisteMusique);
+        DaoTestsUtils.setIdentifiantToAuteur(artisteMusique);
+        idAuteur = artisteMusique.getIdentifiantAuteur();
+        albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
+        musiqueDao.insert(musique1Playlist);
+        DaoTestsUtils.setCodeToMusique(musique1Playlist);
+        musiqueDao.insert(musique2Playlist);
+        DaoTestsUtils.setCodeToMusique(musique2Playlist);
         playlistDao.insert(playlistDb);
         DaoTestsUtils.setIdToPlaylist(playlistDb);
+        idPlaylist1 = playlistDb.getIdPlaylist();
 
         try {
             PlaylistDb resultDb = new PlaylistDb();
@@ -43,9 +107,11 @@ public class TestPlaylistDao {
             result.next();
             resultDb.setIdPlaylist(result.getInt("idPlaylist"));
             resultDb.setIntitulePlaylist(result.getString("intitulePlaylist"));
+            resultDb.setDateActionPlaylist(result.getString("dateActionPlaylist"));
 
             assertTrue(playlistDb.getIdPlaylist().equals(resultDb.getIdPlaylist()));
             assertTrue(playlistDb.getIntitulePlaylist().equals(resultDb.getIntitulePlaylist()));
+            assertTrue(playlistDb.getDateActionPlaylist().equals(resultDb.getDateActionPlaylist()));
 
             result.close();
             statement.close();
@@ -57,9 +123,20 @@ public class TestPlaylistDao {
 
     @Test
     public void update() {
+        auteurDao.insert(artisteMusique);
+        DaoTestsUtils.setIdentifiantToAuteur(artisteMusique);
+        idAuteur = artisteMusique.getIdentifiantAuteur();
+        albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
+        musiqueDao.insert(musique1Playlist);
+        DaoTestsUtils.setCodeToMusique(musique1Playlist);
+        musiqueDao.insert(musique2Playlist);
+        DaoTestsUtils.setCodeToMusique(musique2Playlist);
         playlistDao.insert(playlistDb);
         DaoTestsUtils.setIdToPlaylist(playlistDb);
         playlistDb.setIntitulePlaylist("playlistTestUpdated");
+        playlistDb.setDateActionPlaylist("07/11/2018");
+        idPlaylist1 = playlistDb.getIdPlaylist();
         playlistDao.update(playlistDb);
 
         try {
@@ -70,8 +147,10 @@ public class TestPlaylistDao {
             ResultSet result = statement.executeQuery();
             result.next();
             resultDb.setIntitulePlaylist(result.getString("intitulePlaylist"));
+            resultDb.setDateActionPlaylist(result.getString("dateActionPlaylist"));
 
             assertTrue("playlistTestUpdated".equals(resultDb.getIntitulePlaylist()));
+            assertTrue("07/11/2018".equals(resultDb.getDateActionPlaylist()));
 
             result.close();
             statement.close();
@@ -83,9 +162,18 @@ public class TestPlaylistDao {
 
     @Test
     public void delete() {
-
+        auteurDao.insert(artisteMusique);
+        DaoTestsUtils.setIdentifiantToAuteur(artisteMusique);
+        idAuteur = artisteMusique.getIdentifiantAuteur();
+        albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
+        musiqueDao.insert(musique1Playlist);
+        DaoTestsUtils.setCodeToMusique(musique1Playlist);
+        musiqueDao.insert(musique2Playlist);
+        DaoTestsUtils.setCodeToMusique(musique2Playlist);
         playlistDao.insert(playlistDb);
         DaoTestsUtils.setIdToPlaylist(playlistDb);
+        idPlaylist1 = playlistDb.getIdPlaylist();
         playlistDao.delete(playlistDb);
 
         try {
@@ -104,8 +192,18 @@ public class TestPlaylistDao {
 
     @Test
     public void find() {
+        auteurDao.insert(artisteMusique);
+        DaoTestsUtils.setIdentifiantToAuteur(artisteMusique);
+        idAuteur = artisteMusique.getIdentifiantAuteur();
+        albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
+        musiqueDao.insert(musique1Playlist);
+        DaoTestsUtils.setCodeToMusique(musique1Playlist);
+        musiqueDao.insert(musique2Playlist);
+        DaoTestsUtils.setCodeToMusique(musique2Playlist);
         playlistDao.insert(playlistDb);
         DaoTestsUtils.setIdToPlaylist(playlistDb);
+        idPlaylist1 = playlistDb.getIdPlaylist();
 
         try {
 
@@ -113,6 +211,7 @@ public class TestPlaylistDao {
 
             assertTrue(playlistDb.getIdPlaylist().equals(playlist.getIdPlaylist()));
             assertTrue(playlistDb.getIntitulePlaylist().equals(playlist.getIntitulePlaylist()));
+            assertTrue(playlistDb.getDateActionPlaylist().equals(playlist.getDateActionPlaylist()));
 
         } catch (NullPointerException npe) {
             throw new NullPointerException("Aucune playlist n'est présent dans la base de données.");
@@ -123,9 +222,24 @@ public class TestPlaylistDao {
     public void findAll() {
         PlaylistDb playlistDb2 = new PlaylistDb();
         playlistDb2.setIntitulePlaylist("playlistTest2");
+        playlistDb2.setDateActionPlaylist("05/11/2018");
+        playlistDb2.setListeMusiques(musiques);
 
+        auteurDao.insert(artisteMusique);
+        DaoTestsUtils.setIdentifiantToAuteur(artisteMusique);
+        idAuteur = artisteMusique.getIdentifiantAuteur();
+        albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
+        musiqueDao.insert(musique1Playlist);
+        DaoTestsUtils.setCodeToMusique(musique1Playlist);
+        musiqueDao.insert(musique2Playlist);
+        DaoTestsUtils.setCodeToMusique(musique2Playlist);
         playlistDao.insert(playlistDb);
+        DaoTestsUtils.setIdToPlaylist(playlistDb);
+        idPlaylist1 = playlistDb.getIdPlaylist();
         playlistDao.insert(playlistDb2);
+        DaoTestsUtils.setIdToPlaylist(playlistDb2);
+        idPlaylist2 = playlistDb2.getIdPlaylist();
 
         try {
             List<PlaylistDb> playlistsList = playlistDao.findAll();
@@ -141,9 +255,21 @@ public class TestPlaylistDao {
     @After
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
+        statement.executeUpdate("DELETE FROM album WHERE titreAlbum = 'albumMusique'");
+        statement.executeUpdate("DELETE FROM contenir WHERE idPlaylist IN (" +
+                idPlaylist1 + ", " + idPlaylist2 + ")");
         statement.executeUpdate("DELETE FROM playlist WHERE intitulePlaylist IN ('playlistTest', 'playlistTest2', 'playlistTestUpdated')");
+        statement.executeUpdate("DELETE FROM posseder WHERE identifiantAuteur = " + idAuteur);
+        statement.executeUpdate("DELETE FROM musique WHERE titreMusique IN ('musiqueTest', 'musiqueTest2', 'musiqueTestUpdated')");
+        statement.executeUpdate("DELETE FROM auteur WHERE prenomAuteur = 'prenom1Test'");
+        Integer nbAlbums = albumDao.findAll().size();
         Integer nbPlaylists = playlistDao.findAll().size();
+        Integer nbMusiques = musiqueDao.findAll().size();
+        Integer nbAuteurs = auteurDao.findAll().size();
 
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAlbums + "' WHERE name = 'album'");
         statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbPlaylists + "' WHERE name = 'playlist'");
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbMusiques + "' WHERE name = 'musique'");
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAuteurs + "' WHERE name = 'auteur'");
     }
 }

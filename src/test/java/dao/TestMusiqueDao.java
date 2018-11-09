@@ -161,6 +161,7 @@ public class TestMusiqueDao {
         auteurDao.insert(artiste2Musique);
         DaoTestsUtils.setIdentifiantToAuteur(artiste2Musique);
         albumDao.insert(albumMusique);
+        DaoTestsUtils.setNumeroToAlbum(albumMusique);
         musiqueDao.insert(musiqueDb);
         DaoTestsUtils.setCodeToMusique(musiqueDb);
         idMusique1 = musiqueDb.getCodeMusique();

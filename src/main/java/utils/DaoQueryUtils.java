@@ -92,7 +92,13 @@ public class DaoQueryUtils {
     }
 
     private static String bindPlaylistToInsert(PlaylistDb playlistDb) {
-        return "'" + playlistDb.getIntitulePlaylist().replace("'", "''") + "')";
+        String values = "'";
+
+        values += playlistDb.getIntitulePlaylist().replace("'", "''") + COMA_SEPARATOR;
+        values += playlistDb.getDateActionPlaylist();
+        values += "')";
+
+        return values;
     }
 
     /**
@@ -170,8 +176,11 @@ public class DaoQueryUtils {
     }
 
     private static String bindPlaylistToUpdate(String tableName, PlaylistDb playlistDb) {
-        return "intitulePlaylist = '" + playlistDb.getIntitulePlaylist().replace("'", "''") + "'" +
-                WHERE + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
+        String values = "intitulePlaylist = '" + playlistDb.getIntitulePlaylist().replace("'", "''") + "', ";
+        values += "dateActionPlaylist = '" + playlistDb.getDateActionPlaylist() + "'";
+        values += WHERE + getIdColumnName(tableName) + " = " + playlistDb.getIdPlaylist();
+
+        return values;
     }
 
     /**

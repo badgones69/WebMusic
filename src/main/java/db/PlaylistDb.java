@@ -10,6 +10,7 @@ public class PlaylistDb {
 
     private Integer idPlaylist;
     private String intitulePlaylist;
+    private String dateActionPlaylist;
     private List<MusiqueDb> listeMusiques;
 
     @Id
@@ -31,6 +32,16 @@ public class PlaylistDb {
 
     public void setIntitulePlaylist(String intitulePlaylist) {
         this.intitulePlaylist = intitulePlaylist;
+    }
+
+    @Basic
+    @Column(name = "dateActionPlaylist")
+    public String getDateActionPlaylist() {
+        return dateActionPlaylist;
+    }
+
+    public void setDateActionPlaylist(String dateActionPlaylist) {
+        this.dateActionPlaylist = dateActionPlaylist;
     }
 
     @ManyToMany
