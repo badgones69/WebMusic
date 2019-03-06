@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ALBUM ADDING FORM VIEW -->
+<!-- ALBUM EDITING FORM VIEW -->
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>

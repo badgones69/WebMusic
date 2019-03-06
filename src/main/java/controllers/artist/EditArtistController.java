@@ -39,7 +39,7 @@ public class EditArtistController extends ArtistController implements Initializa
     protected TextField nom = new TextField();
 
     /**
-     * ARTIST ADDING FORM CONTAINERS
+     * ARTIST EDITING FORM CONTAINERS
      */
 
     @FXML

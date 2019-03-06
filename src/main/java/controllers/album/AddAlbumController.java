@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class AddAlbumController extends AlbumController implements Initializable {
 
     /**
-     * ARTIST ADDING FORM FIELDS
+     * ALBUM ADDING FORM FIELDS
      */
 
     @FXML
@@ -26,7 +26,7 @@ public class AddAlbumController extends AlbumController implements Initializable
     protected TextField annee = new TextField();
 
     /**
-     * ARTIST ADDING FORM CONTAINERS
+     * ALBUM ADDING FORM CONTAINERS
      */
 
     @FXML
@@ -35,7 +35,7 @@ public class AddAlbumController extends AlbumController implements Initializable
     VBox addAlbumVBox = new VBox();
 
     /**
-     * ARTIST ADDING FORM INITIALIZATION
+     * ALBUM ADDING FORM INITIALIZATION
      */
 
     @Override
@@ -60,7 +60,7 @@ public class AddAlbumController extends AlbumController implements Initializable
         this.annee.clear();
     }
 
-    // ARTIST ADDING FORM VALIDATION AND SENDING
+    // ALBUM ADDING FORM VALIDATION AND SENDING
     public void validForm() {
 
         Boolean titreInvalide = "".equals(titre.getText());
@@ -87,7 +87,7 @@ public class AddAlbumController extends AlbumController implements Initializable
         }
     }
 
-    // ARTIST ADDING FORM CANCELING
+    // ALBUM ADDING FORM CANCELING
     public void cancelForm() {
         this.initializeForm();
     }

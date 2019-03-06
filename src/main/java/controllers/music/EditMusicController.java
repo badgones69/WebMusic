@@ -49,7 +49,7 @@ public class EditMusicController extends MusicController implements Initializabl
     protected ListSelectionView<Label> artistes = new ListSelectionView<>();
 
     /**
-     * MUSIC ADDING FORM CONTAINERS
+     * MUSIC EDITING FORM CONTAINERS
      */
 
     @FXML

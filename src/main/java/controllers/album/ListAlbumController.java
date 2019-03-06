@@ -39,8 +39,8 @@ public class ListAlbumController implements Initializable {
     // ALBUM SELECTION ERROR POP-UP STAGE
     private static Stage albumSelectionErrorStage;
 
-    // ALBUM FILE ERROR POP-UP STAGE
-    private static Stage albumFileErrorStage;
+    // ALBUM's MUSIC(S) FILE ERROR POP-UP STAGE
+    private static Stage albumMusicFileErrorStage;
 
     // ALBUM DELETING CONFIRMATION POP-UP STAGE
     private static Stage albumDeleteConfirmationStage;
@@ -100,12 +100,12 @@ public class ListAlbumController implements Initializable {
         ListAlbumController.albumSelectionErrorStage = albumSelectionErrorStage;
     }
 
-    public static Stage getAlbumFileErrorStage() {
-        return albumFileErrorStage;
+    public static Stage getAlbumMusicFileErrorStage() {
+        return albumMusicFileErrorStage;
     }
 
-    public static void setAlbumFileErrorStage(Stage albumFileErrorStage) {
-        ListAlbumController.albumFileErrorStage = albumFileErrorStage;
+    public static void setAlbumMusicFileErrorStage(Stage albumMusicFileErrorStage) {
+        ListAlbumController.albumMusicFileErrorStage = albumMusicFileErrorStage;
     }
 
     /**
@@ -170,8 +170,8 @@ public class ListAlbumController implements Initializable {
     }
 
     // ALBUM FILE ERROR POP-UP "OK" BUTTON CLICKED
-    public void albumFileErrorCloseButtonClicked() {
-        getAlbumFileErrorStage().close();
+    public void albumMusicFileErrorCloseButtonClicked() {
+        getAlbumMusicFileErrorStage().close();
     }
 
     // ALBUM LISTENING ICON CLICKED
