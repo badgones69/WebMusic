@@ -176,8 +176,35 @@ public class ListAlbumController implements Initializable {
 
     // ALBUM LISTENING ICON CLICKED
     public void albumListeningButtonClicked() {
+        boolean hasMusicWithNoFile = false;
+
+        if (ListAlbumSelectionListener.getAlbumSelected() != null) {
+            AlbumDao albumDao = new AlbumDao();
+            AlbumDb albumSelectedToDb = AlbumMapper.toDb(ListAlbumSelectionListener.getAlbumSelected());
+
+            hasMusicWithNoFile = albumDao.getMusiques(albumSelectedToDb)
+                    .stream()
+                    .anyMatch(musique -> musique.getNomFichierMusique() == null ||
+                            "".equals(musique.getNomFichierMusique()));
+        }
+
         if (ListAlbumSelectionListener.getAlbumSelected() == null) {
             this.showAlbumSelectionErrorPopUp();
+        } else if (hasMusicWithNoFile) {
+            AlbumDto albumSelected = ListAlbumSelectionListener.getAlbumSelected();
+            Stage stage = new Stage();
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumMusicFileError.fxml"));
+                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
+                stage.setScene(new Scene(root, 670, 140));
+                ListAlbumController.setAlbumMusicFileErrorStage(stage);
+                stage.show();
+                ListAlbumSelectionListener.setAlbumSelected(albumSelected);
+
+            } catch (IOException e) {
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            }
         } else {
             Stage stage = new Stage();
 
