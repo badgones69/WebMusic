@@ -4,6 +4,8 @@ import database.SQLiteConnection;
 import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +22,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class TestMusiqueDao {
+
+    private static final Logger LOG = LogManager.getLogger(TestMusiqueDao.class);
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
     private MusiqueDao musiqueDao;
     private MusiqueDb musiqueDb;
@@ -108,7 +113,7 @@ public class TestMusiqueDao {
             result.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -150,7 +155,7 @@ public class TestMusiqueDao {
             statement.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -177,7 +182,7 @@ public class TestMusiqueDao {
             result.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -245,12 +250,38 @@ public class TestMusiqueDao {
                 idMusique1 + ", " + idMusique2 + ")");
         statement.executeUpdate("DELETE FROM musique WHERE titreMusique IN ('musiqueTest', 'musiqueTest2', 'musiqueTestUpdated')");
         statement.executeUpdate("DELETE FROM auteur WHERE prenomAuteur IN ('prenom1Test', 'prenom2Test')");
-        Integer nbAlbums = albumDao.findAll().size();
-        Integer nbMusiques = musiqueDao.findAll().size();
-        Integer nbAuteurs = auteurDao.findAll().size();
 
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAlbums + "' WHERE name = 'album'");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbMusiques + "' WHERE name = 'musique'");
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAuteurs + "' WHERE name = 'auteur'");
+        Integer lastIdAlbum = 0;
+        Integer lastIdMusique = 0;
+        Integer lastIdAuteur = 0;
+
+        try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("album"))) {
+            try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
+                lastIdAlbum = sequenceResult.getInt(0);
+            }
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+        }
+
+        try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("musique"))) {
+            try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
+                lastIdMusique = sequenceResult.getInt(0);
+            }
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+        }
+
+        try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("auteur"))) {
+            try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
+                lastIdAuteur = sequenceResult.getInt(0);
+            }
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+        }
+
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + lastIdAlbum + "' WHERE name = 'album'");
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + lastIdMusique + "' WHERE name = 'musique'");
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + lastIdAuteur + "' WHERE name = 'auteur'");
+        statement.close();
     }
 }

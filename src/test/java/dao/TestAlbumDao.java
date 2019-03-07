@@ -2,6 +2,8 @@ package dao;
 
 import database.SQLiteConnection;
 import db.AlbumDb;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +19,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class TestAlbumDao {
+
+    private static final Logger LOG = LogManager.getLogger(TestAlbumDao.class);
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
     private AlbumDao albumDao;
     private AlbumDb albumDb;
@@ -54,7 +59,7 @@ public class TestAlbumDao {
             statement.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -83,7 +88,7 @@ public class TestAlbumDao {
             statement.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -104,7 +109,7 @@ public class TestAlbumDao {
             statement.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -150,9 +155,18 @@ public class TestAlbumDao {
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
         statement.executeUpdate("DELETE FROM album WHERE titreAlbum IN ('test', 'test2', 'testUpdated')");
-        Integer nbAlbums = albumDao.findAll().size();
 
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAlbums + "' WHERE name = 'album'");
+        Integer lastIdAlbum = 0;
+
+        try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("album"))) {
+            try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
+                lastIdAlbum = sequenceResult.getInt(0);
+            }
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+        }
+
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + lastIdAlbum + "' WHERE name = 'album'");
         statement.close();
     }
 }

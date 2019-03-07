@@ -2,6 +2,8 @@ package dao;
 
 import database.SQLiteConnection;
 import db.AuteurDb;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +19,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class TestAuteurDao {
+
+    private static final Logger LOG = LogManager.getLogger(TestAuteurDao.class);
+    private static final String SQL_EXCEPTION = "SQLException : ";
 
     private AuteurDao auteurDao;
     private AuteurDb auteurDb;
@@ -53,7 +58,7 @@ public class TestAuteurDao {
             result.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -82,7 +87,7 @@ public class TestAuteurDao {
             statement.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -102,7 +107,7 @@ public class TestAuteurDao {
             result.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
         }
     }
 
@@ -149,8 +154,18 @@ public class TestAuteurDao {
     public void reset() throws Exception {
         Statement statement = SQLiteConnection.getInstance().createStatement();
         statement.executeUpdate("DELETE FROM auteur WHERE nomAuteur IN ('nomTest', 'nomTest2', 'nomTestUpdated')");
-        Integer nbAuteurs = auteurDao.findAll().size();
 
-        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + nbAuteurs + "' WHERE name = 'auteur'");
+        Integer lastIdAuteur = 0;
+
+        try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("auteur"))) {
+            try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
+                lastIdAuteur = sequenceResult.getInt(0);
+            }
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+        }
+
+        statement.executeUpdate("UPDATE sqlite_sequence SET seq = '" + lastIdAuteur + "' WHERE name = 'auteur'");
+        statement.close();
     }
 }

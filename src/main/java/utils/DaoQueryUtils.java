@@ -239,6 +239,23 @@ public class DaoQueryUtils {
         return query;
     }
 
+    /**
+     * METHOD TO KNOW THE LAST ID USED IN ANY TABLE
+     */
+
+    public static String getLastIdOfTable(String tableName) {
+        String query = "SELECT MAX(";
+        query += getIdColumnName(tableName);
+        query += ") FROM";
+        query += tableName;
+
+        return query;
+    }
+
+    /**
+     * METHOD TO KNOW WHAT FIELD IS TABLE'S PRIMARY KEY
+     */
+
     private static String getIdColumnName(String tableName) {
         String idColumnName = null;
 
