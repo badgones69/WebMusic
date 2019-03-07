@@ -1,5 +1,6 @@
 package controllers.common;
 
+import database.SQLiteConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +10,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Home extends Application {
 
@@ -29,7 +34,23 @@ public class Home extends Application {
      */
 
     public static void main(String[] args) {
+        initializeDB();
         launch(args);
+    }
+
+    public static void initializeDB() {
+        InputStream inputStream = SQLiteConnection.class.getResourceAsStream("/WebMusicTest.db");
+
+        File file = new File(SQLiteConnection.getPathDb());
+        Path target = file.toPath();
+
+        if (!file.exists()) {
+            try {
+                Files.copy(inputStream, target);
+            } catch (IOException e) {
+                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            }
+        }
     }
 
     /**

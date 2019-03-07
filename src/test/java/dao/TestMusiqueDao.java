@@ -1,5 +1,6 @@
 package dao;
 
+import controllers.common.Home;
 import database.SQLiteConnection;
 import db.AlbumDb;
 import db.AuteurDb;
@@ -40,7 +41,8 @@ public class TestMusiqueDao {
     private Integer idMusique2;
 
     @Before
-    public void initialize() throws Exception {
+    public void initialize() {
+        Home.initializeDB();
 
         musiqueDao = new MusiqueDao();
         musiqueDb = new MusiqueDb();

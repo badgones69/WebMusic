@@ -3,6 +3,7 @@ package database;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,15 +17,20 @@ public class SQLiteConnection {
         LOG.error("This class cannot be instantiated because it's an 'Utility class'");
     }
 
+    public static String getPathDb(){
+        String userHome = System.getProperty("user.home");
+        return userHome + File.separator + "WebMusicTest.db";
+
+    }
+
     public static void connect() {
 
+        //DATABASE FILE URL
+        String url = "jdbc:sqlite:" + getPathDb();
+
+        // DATABASE CONNECTION CREATION
         try {
-            // DATABASE FILE URL
-            String url = "jdbc:sqlite:C:/workspace/WebMusicTest.db";
-
-            // DATABASE CONNECTION CREATION
             connection = DriverManager.getConnection(url);
-
             LOG.info("");
         } catch (SQLException e) {
             LOG.error("SQLException : " + e.getMessage(), e);

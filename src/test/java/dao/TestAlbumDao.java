@@ -1,5 +1,6 @@
 package dao;
 
+import controllers.common.Home;
 import database.SQLiteConnection;
 import db.AlbumDb;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +28,8 @@ public class TestAlbumDao {
     private AlbumDb albumDb;
 
     @Before
-    public void initialise() throws Exception {
+    public void initialise() {
+        Home.initializeDB();
 
         albumDao = new AlbumDao();
         albumDb = new AlbumDb();

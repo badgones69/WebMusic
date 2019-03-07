@@ -1,5 +1,6 @@
 package dao;
 
+import controllers.common.Home;
 import database.SQLiteConnection;
 import db.AuteurDb;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +28,8 @@ public class TestAuteurDao {
     private AuteurDb auteurDb;
 
     @Before
-    public void initialize() throws Exception {
+    public void initialize() {
+        Home.initializeDB();
 
         auteurDao = new AuteurDao();
         auteurDb = new AuteurDb();
