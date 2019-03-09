@@ -65,7 +65,7 @@
                         </HBox>
                         <ComboBox fx:id="album" prefWidth="350.0" styleClass="formField" GridPane.columnIndex="1"
                                   GridPane.rowIndex="4"/>
-                        <ListSelectionView fx:id="artistes" maxWidth="700.0" styleClass="formField"
+                        <ListSelectionView fx:id="artistes" maxWidth="700.0" minHeight="270.0" styleClass="formField"
                                            GridPane.columnIndex="1" GridPane.rowIndex="6"/>
                     </children>
                 </GridPane>
