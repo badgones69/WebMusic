@@ -217,8 +217,7 @@ public class MenuController implements Initializable {
     /**
      * ITEMS LISTENERS OF "Playlist" MENU
      */
-
-    /*public void listPlaylistItemClicked() {
+    public void listPlaylistItemClicked() {
         Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
@@ -233,7 +232,7 @@ public class MenuController implements Initializable {
         } catch (IOException e) {
             LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
-    }*/
+    }
 
     public void addPlaylistItemClicked() {
         Stage homeStage = new Home().getHomeStage();

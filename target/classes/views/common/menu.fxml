@@ -32,7 +32,7 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Playlist">
             <items>
-                <!--<MenuItem id="listPlaylistItem" mnemonicParsing="false" text="Liste" onAction="#listPlaylistItemClicked"/>-->
+                <MenuItem id="listPlaylistItem" mnemonicParsing="false" text="Liste" onAction="#listPlaylistItemClicked"/>
                 <MenuItem id="addPlaylistItem" mnemonicParsing="false" text="Ajout" onAction="#addPlaylistItemClicked"/>
             </items>
         </Menu>

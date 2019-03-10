@@ -99,7 +99,7 @@ public class PlaylistController implements Initializable {
     }
 
     // PLAYLIST ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
-    /*public void playlistActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
+    public void playlistActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
         getPlaylistActionSuccessStage().close();
 
         Stage homeStage = new Home().getHomeStage();
@@ -115,7 +115,7 @@ public class PlaylistController implements Initializable {
         } catch (IOException e) {
             LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
-    }*/
+    }
 
     protected List<MusiqueDb> setMusicsToPlaylist(ObservableList<Label> listMusics) {
         List<MusiqueDb> musiquesPlaylist = new ArrayList<>();
