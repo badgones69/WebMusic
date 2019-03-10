@@ -6,6 +6,8 @@ import controllers.artist.AddArtistController;
 import controllers.artist.ListArtistController;
 import controllers.music.AddMusicController;
 import controllers.music.ListMusicController;
+import controllers.playlist.AddPlaylistController;
+import controllers.playlist.ListPlaylistController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -204,6 +206,44 @@ public class MenuController implements Initializable {
             addArtistController.initialize(getClass().getResource("/views/artist/addArtist.fxml"), null);
             Parent root = FXMLLoader.load(getClass().getResource("/views/artist/addArtist.fxml"));
             homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'un(e) artiste"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * ITEMS LISTENERS OF "Playlist" MENU
+     */
+
+    /*public void listPlaylistItemClicked() {
+        Stage homeStage = new Home().getHomeStage();
+        homeStage.show();
+
+        try {
+            ListPlaylistController listPlaylistController = new ListPlaylistController();
+            listPlaylistController.initialize(getClass().getResource("/views/playlist/listPlaylist.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/listPlaylist.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des playlists"));
+            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
+            homeStage.show();
+
+        } catch (IOException e) {
+            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+        }
+    }*/
+
+    public void addPlaylistItemClicked() {
+        Stage homeStage = new Home().getHomeStage();
+        homeStage.show();
+
+        try {
+            AddPlaylistController addPlaylistController = new AddPlaylistController();
+            addPlaylistController.initialize(getClass().getResource("/views/playlist/addPlaylist.fxml"), null);
+            Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/addPlaylist.fxml"));
+            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Ajout d'une playlist"));
             homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
             homeStage.show();
 
