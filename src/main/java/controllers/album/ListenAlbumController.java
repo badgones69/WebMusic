@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
 public class ListenAlbumController implements Initializable {
 
     // CURRENT MEDIA PLAYER
-    private MediaPlayer mediaPlayer;
+    private static MediaPlayer mediaPlayer;
     // "PLAY" ICON
     private Image playButtonImage = new Image(getClass().getResourceAsStream("/icons/playing.png"));
     // "PAUSE" ICON
@@ -68,8 +68,8 @@ public class ListenAlbumController implements Initializable {
     private Label listeningTotalLengthLabel = new Label();
 
     // GETTER
-    public MediaPlayer getMediaPlayer() {
-        return this.mediaPlayer;
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
     }
 
     /**
@@ -117,10 +117,10 @@ public class ListenAlbumController implements Initializable {
 
         // FIRST MUSIC INITIALIZATION
         this.playPauseImageView.setImage(this.playButtonImage);
-        this.mediaPlayer = albumTracks.get(0);
-        this.mediaPlayer.setOnReady(() -> totalLength = this.mediaPlayer.getMedia().getDuration());
-        this.mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
-        this.albumListeningMediaView.setMediaPlayer(this.mediaPlayer);
+        mediaPlayer = albumTracks.get(0);
+        mediaPlayer.setOnReady(() -> totalLength = mediaPlayer.getMedia().getDuration());
+        mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
+        this.albumListeningMediaView.setMediaPlayer(mediaPlayer);
         this.listeningMusicTitleLabel.setText(musiquesAlbum.get(0).getTitreMusique());
         this.listeningProgressionSlider.setValue(Duration.ZERO.toSeconds());
         this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesAlbum.get(0)).getAuteurs());
@@ -142,9 +142,9 @@ public class ListenAlbumController implements Initializable {
 
             finalMediaPlayer.setOnEndOfMedia(() -> {
                 finalMediaPlayer.currentTimeProperty().removeListener(mediaPlayerListener);
-                this.mediaPlayer = finalNextMediaPlayer;
-                totalLength = this.mediaPlayer.getMedia().getDuration();
-                this.mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
+                mediaPlayer = finalNextMediaPlayer;
+                totalLength = mediaPlayer.getMedia().getDuration();
+                mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
                 this.playPauseImageView.setImage(this.pauseButtonImage);
 
                 if (finalI == albumTracks.size()-1) {
@@ -159,8 +159,8 @@ public class ListenAlbumController implements Initializable {
 
                 this.listeningProgressionSlider.setValue(Duration.ZERO.toSeconds());
                 this.listeningCurrentTimeLabel.setText("00:00");
-                albumListeningMediaView.setMediaPlayer(this.mediaPlayer);
-                this.mediaPlayer.play();
+                albumListeningMediaView.setMediaPlayer(mediaPlayer);
+                mediaPlayer.play();
             });
         }
     }

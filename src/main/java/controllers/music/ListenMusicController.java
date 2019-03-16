@@ -29,7 +29,7 @@ import static java.lang.String.format;
 public class ListenMusicController implements Initializable {
 
     // MEDIA PLAYER
-    private MediaPlayer mediaPlayer;
+    private static MediaPlayer mediaPlayer;
     // "PLAY" ICON
     private Image playButtonImage = new Image(getClass().getResourceAsStream("/icons/playing.png"));
     // "PAUSE" ICON
@@ -66,8 +66,8 @@ public class ListenMusicController implements Initializable {
     private Label listeningTotalLengthLabel = new Label();
 
     // GETTER
-    public MediaPlayer getMediaPlayer() {
-        return this.mediaPlayer;
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
     }
 
     /**
@@ -106,9 +106,9 @@ public class ListenMusicController implements Initializable {
         MusiqueDb musiqueDb = MusiqueMapper.toDb(musiqueDto);
         String musicPath = musiqueDb.getNomFichierMusique();
         Media media = new Media(new File(musicPath).toURI().toString());
-        this.mediaPlayer = new MediaPlayer(media);
-        this.mediaPlayer.setOnReady(() -> totalLength = mediaPlayer.getMedia().getDuration());
-        this.mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setOnReady(() -> totalLength = mediaPlayer.getMedia().getDuration());
+        mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
 
         // "PLAY"/"PAUSE" BUTTON
         this.playPauseImageView.setImage(this.playButtonImage);

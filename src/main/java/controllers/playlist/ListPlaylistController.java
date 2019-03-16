@@ -216,7 +216,7 @@ public class ListPlaylistController implements Initializable {
                 stage.setScene(new Scene(root, 600, 260));
                 setPlaylistListenStage(stage);
 
-                getPlaylistListenStage().setOnCloseRequest(event -> listenPlaylistController.getMediaPlayer().dispose());
+                getPlaylistListenStage().setOnCloseRequest(event -> ListenPlaylistController.getMediaPlayer().stop());
 
                 playlistListenStage.show();
 
