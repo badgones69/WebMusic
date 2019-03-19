@@ -246,7 +246,7 @@ public class DaoQueryUtils {
     public static String getLastIdOfTable(String tableName) {
         String query = "SELECT MAX(";
         query += getIdColumnName(tableName);
-        query += ") FROM";
+        query += ") FROM ";
         query += tableName;
 
         return query;

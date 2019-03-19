@@ -259,7 +259,7 @@ public class TestMusiqueDao {
 
         try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("album"))) {
             try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
-                lastIdAlbum = sequenceResult.getInt(0);
+                lastIdAlbum = sequenceResult.getInt(1);
             }
         } catch (SQLException e) {
             LOG.error(SQL_EXCEPTION + e.getMessage(), e);
@@ -267,7 +267,7 @@ public class TestMusiqueDao {
 
         try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("musique"))) {
             try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
-                lastIdMusique = sequenceResult.getInt(0);
+                lastIdMusique = sequenceResult.getInt(1);
             }
         } catch (SQLException e) {
             LOG.error(SQL_EXCEPTION + e.getMessage(), e);
@@ -275,7 +275,7 @@ public class TestMusiqueDao {
 
         try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("auteur"))) {
             try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
-                lastIdAuteur = sequenceResult.getInt(0);
+                lastIdAuteur = sequenceResult.getInt(1);
             }
         } catch (SQLException e) {
             LOG.error(SQL_EXCEPTION + e.getMessage(), e);

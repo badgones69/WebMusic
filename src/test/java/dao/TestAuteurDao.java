@@ -161,7 +161,7 @@ public class TestAuteurDao {
 
         try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("auteur"))) {
             try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
-                lastIdAuteur = sequenceResult.getInt(0);
+                lastIdAuteur = sequenceResult.getInt(1);
             }
         } catch (SQLException e) {
             LOG.error(SQL_EXCEPTION + e.getMessage(), e);

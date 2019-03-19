@@ -162,7 +162,7 @@ public class TestAlbumDao {
 
         try (PreparedStatement sequenceStatement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable("album"))) {
             try (ResultSet sequenceResult = sequenceStatement.executeQuery()) {
-                lastIdAlbum = sequenceResult.getInt(0);
+                lastIdAlbum = sequenceResult.getInt(1);
             }
         } catch (SQLException e) {
             LOG.error(SQL_EXCEPTION + e.getMessage(), e);
