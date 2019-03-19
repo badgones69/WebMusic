@@ -1,15 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Listening windows correction (song stopping when )">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9085bdb2-2dcf-446f-bc5b-2dd5207846f0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9085bdb2-2dcf-446f-bc5b-2dd5207846f0/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f6745347-329a-4d9b-a3de-f2004ca9ac9b/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_controlsfx_controlsfx_8_40_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_21_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/album/ListAlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/album/ListAlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/album/ListenAlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/album/ListenAlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/playlist/ListPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/playlist/ListPlaylistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/playlist/ListenPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/playlist/ListenPlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebMusic.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/deleting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/info.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/listening.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/pause.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/playing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/question.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/success.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/updating.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/addAlbum.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/albumActionSuccess.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/deleteAlbumConfirmation.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/editAlbum.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/errors/albumMusicFileError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/errors/albumSelectionError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/errors/albumTitleError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/errors/albumYearError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/listAlbum.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/album/listenAlbum.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/addArtist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/artistActionSuccess.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/deleteArtistConfirmation.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/editArtist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/errors/artistNameError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/errors/artistSelectionError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/artist/listArtist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/common/appCloseConfirmation.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/common/home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/common/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/help/about.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/addMusic.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/deleteMusicConfirmation.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/editMusic.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicArtistError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicFileError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicLengthError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicSelectionError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/errors/musicTitleError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/listMusic.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/listenMusic.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/music/musicActionSuccess.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/addPlaylist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/deletePlaylistConfirmation.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/editPlaylist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/errors/playlistMusicError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/errors/playlistMusicFileError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/errors/playlistSelectionError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/errors/playlistTitleError.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/listPlaylist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/listenPlaylist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/playlist/playlistActionSuccess.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAlbumDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestAuteurDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestMusiqueDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dao.TestPlaylistDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-database.TestSQLiteConnection.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAlbumDao.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestAuteurDao.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestMusiqueDao.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/dao.TestPlaylistDao.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/database.TestSQLiteConnection.txt" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,7 +171,7 @@
     <session id="-416262042">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="106" />
+          <entry key="project.closed" value="110" />
           <entry key="project.open.time.101" value="2" />
           <entry key="project.open.time.102" value="2" />
           <entry key="project.open.time.109" value="1" />
@@ -97,17 +187,17 @@
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.49" value="2" />
           <entry key="project.open.time.50" value="3" />
-          <entry key="project.open.time.51" value="5" />
+          <entry key="project.open.time.51" value="6" />
           <entry key="project.open.time.52" value="5" />
           <entry key="project.open.time.53" value="2" />
           <entry key="project.open.time.54" value="7" />
           <entry key="project.open.time.55" value="7" />
-          <entry key="project.open.time.56" value="3" />
+          <entry key="project.open.time.56" value="4" />
           <entry key="project.open.time.57" value="5" />
           <entry key="project.open.time.58" value="3" />
           <entry key="project.open.time.59" value="4" />
           <entry key="project.open.time.60" value="3" />
-          <entry key="project.open.time.61" value="2" />
+          <entry key="project.open.time.61" value="3" />
           <entry key="project.open.time.62" value="5" />
           <entry key="project.open.time.63" value="3" />
           <entry key="project.open.time.64" value="2" />
@@ -118,7 +208,7 @@
           <entry key="project.open.time.70" value="3" />
           <entry key="project.open.time.71" value="1" />
           <entry key="project.open.time.72" value="1" />
-          <entry key="project.open.time.75" value="2" />
+          <entry key="project.open.time.75" value="3" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.78" value="1" />
@@ -131,52 +221,52 @@
           <entry key="project.open.time.89" value="2" />
           <entry key="project.open.time.96" value="1" />
           <entry key="project.open.time.97" value="1" />
-          <entry key="project.opened" value="108" />
+          <entry key="project.opened" value="112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="15" />
           <entry key="fxml" value="1243" />
-          <entry key="gitignore" value="34" />
+          <entry key="gitignore" value="153" />
           <entry key="iml" value="5" />
-          <entry key="java" value="16433" />
+          <entry key="java" value="17479" />
           <entry key="log" value="4" />
           <entry key="md" value="463" />
-          <entry key="txt" value="486" />
+          <entry key="txt" value="742" />
           <entry key="xml" value="104" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="IDEA_MODULE" value="5" />
-          <entry key="JAVA" value="16433" />
+          <entry key="JAVA" value="17479" />
           <entry key="Markdown" value="463" />
-          <entry key="PLAIN_TEXT" value="539" />
+          <entry key="PLAIN_TEXT" value="914" />
           <entry key="XML" value="1347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="LICENSE" value="1" />
-          <entry key="fxml" value="81" />
-          <entry key="gitignore" value="3" />
+          <entry key="fxml" value="82" />
+          <entry key="gitignore" value="5" />
           <entry key="iml" value="1" />
-          <entry key="java" value="448" />
+          <entry key="java" value="460" />
           <entry key="log" value="9" />
           <entry key="md" value="4" />
           <entry key="sql" value="1" />
-          <entry key="xml" value="5" />
+          <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="448" />
+          <entry key="JAVA" value="460" />
           <entry key="Markdown" value="4" />
-          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="PLAIN_TEXT" value="15" />
           <entry key="Scratch" value="1" />
-          <entry key="XML" value="86" />
+          <entry key="XML" value="89" />
         </counts>
       </usages-collector>
     </session>
@@ -189,62 +279,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/ListMusicController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoTestsUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2958">
-              <caret line="218" column="112" selection-start-line="218" selection-start-column="112" selection-end-line="218" selection-end-column="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/ListenMusicController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="121" column="14" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/album/ListAlbumController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2975">
-              <caret line="218" column="112" selection-start-line="218" selection-start-column="112" selection-end-line="218" selection-end-column="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/album/ListenAlbumController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
-              <caret line="160" column="36" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
+            <state relative-caret-position="782">
+              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/playlist/ListPlaylistController.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="206" column="13" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
+            <state relative-caret-position="340">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/playlist/ListenPlaylistController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2210">
-              <caret line="139" column="16" selection-start-line="139" selection-start-column="16" selection-end-line="139" selection-end-column="16" />
-              <caret line="140" column="30" selection-start-line="140" selection-start-column="30" selection-end-line="140" selection-end-column="30" />
-              <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
-              <caret line="156" column="58" selection-start-line="156" selection-start-column="58" selection-end-line="156" selection-end-column="58" />
-              <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
+            <state relative-caret-position="5202">
+              <caret line="315" column="5" selection-start-line="315" selection-start-column="5" selection-end-line="315" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestPlaylistDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4743">
+              <caret line="300" selection-start-line="300" selection-end-line="300" />
             </state>
           </provider>
         </entry>
@@ -264,9 +329,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>music</find>
-      <find>Music</find>
-      <find>dateInsertion</find>
       <find>Auteur</find>
       <find>auteur</find>
       <find>Une des</find>
@@ -294,12 +356,16 @@
       <find>this.media</find>
       <find>this.mediaPlayer</find>
       <find>findBySpecificColumn(</find>
+      <find>setIdentifiantT</find>
+      <find>getInt(0)</find>
+      <find>sequenceResult.getInt(0)</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>ListMusicSelectionListener.</replace>
       <replace>ListArtistSelectionListener.</replace>
       <replace>ListAlbumSelectionListener.</replace>
+      <replace>sequenceResult.getInt(1)</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\workspace\WebMusic</dir>
@@ -321,7 +387,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/views/album/listenAlbum.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/album/AlbumDeleteConfirmationController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/album/deleteAlbumConfirmation.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/db/PlaylistDb.java" />
@@ -352,14 +417,11 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/AbstractDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/AlbumDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/dao/TestAlbumDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
         <option value="$PROJECT_DIR$/src/test/java/dao/TestAuteurDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/TestPlaylistDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/playlist/addPlaylist.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/playlist/editPlaylist.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/music/editMusic.fxml" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/test/java/dao/TestMusiqueDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/music/addMusic.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/views/common/menu.fxml" />
@@ -372,6 +434,10 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/playlist/ListenPlaylistController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/album/ListAlbumController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/playlist/ListPlaylistController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/TestPlaylistDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/DaoTestsUtils.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -441,7 +507,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -472,15 +537,36 @@
               <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="listeners" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -494,11 +580,11 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SONARLINT_ANALYSIS_RESULTS_SPLIT_PROPORTION" value="0.64818615" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="ListenPl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/ListenPlaylistController.java&#10;ListPl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/ListPlaylistController.java&#10;Listen&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/album/ListenAlbumController.java&#10;ListAl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/album/ListAlbumController.java&#10;Appclose&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/AppCloseConfirmationController.java&#10;AppClose&#9;PSI&#9;JAVA://controllers.common.AppCloseConfirmationController&#10;Home&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/Home.java&#10;listenm&#9;PSI&#9;JAVA://controllers.music.ListenMusicController&#10;PlaylistController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/PlaylistController.java&#10;MenuController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/MenuController.java&#10;AddPlaylist&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/AddPlaylistController.java&#10;menu&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/MenuController.java&#10;edit&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/music/editMusic.fxml&#10;addMusic.fxml&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/music/addMusic.fxml&#10;editPlaylist&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/playlist/editPlaylist.fxml&#10;editMusic&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/music/editMusic.fxml&#10;TestM&#9;FILE&#9;file://C:/workspace/WebMusic/src/test/java/dao/TestMusiqueDao.java&#10;Test*&#9;FILE&#9;file://C:/workspace/WebMusic/src/test/java/dao/TestAuteurDao.java&#10;Test*Da&#9;FILE&#9;file://C:/workspace/WebMusic/src/test/java/dao/TestPlaylistDao.java&#10;DaoQ&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/utils/DaoQueryUtils.java&#10;listAlbum&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/album/listAlbum.fxml&#10;ListMusicController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/music/ListMusicController.java&#10;addAl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/album/addAlbum.fxml&#10;IconOverview&#9;null&#9;null&#10;MusiqueMapper&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/mapper/MusiqueMapper.java&#10;MusiqueDa&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/dao/MusiqueDao.java&#10;AddMusic&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/AddMusicController.java&#10;MusiqueDao&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/dao/MusiqueDao.java&#10;pom.properties&#9;FILE&#9;jar://C:/Users/86lyo/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar!/META-INF/maven/javax.validation/validation-api/pom.properties&#10;pom.pro&#9;FILE&#9;jar://C:/Users/86lyo/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0.jar!/META-INF/maven/org.glassfish.main/javaee-api/pom.properties" />
+    <property name="SearchEverywhereHistoryKey" value="AddMusic&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/music/AddMusicController.java&#10;EditMusicController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/music/EditMusicController.java&#10;ListenPl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/ListenPlaylistController.java&#10;ListPl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/ListPlaylistController.java&#10;Listen&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/album/ListenAlbumController.java&#10;ListAl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/album/ListAlbumController.java&#10;Appclose&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/AppCloseConfirmationController.java&#10;AppClose&#9;PSI&#9;JAVA://controllers.common.AppCloseConfirmationController&#10;Home&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/Home.java&#10;listenm&#9;PSI&#9;JAVA://controllers.music.ListenMusicController&#10;PlaylistController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/PlaylistController.java&#10;MenuController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/MenuController.java&#10;AddPlaylist&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/playlist/AddPlaylistController.java&#10;menu&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/common/MenuController.java&#10;edit&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/music/editMusic.fxml&#10;addMusic.fxml&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/music/addMusic.fxml&#10;editPlaylist&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/playlist/editPlaylist.fxml&#10;editMusic&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/music/editMusic.fxml&#10;TestM&#9;FILE&#9;file://C:/workspace/WebMusic/src/test/java/dao/TestMusiqueDao.java&#10;Test*&#9;FILE&#9;file://C:/workspace/WebMusic/src/test/java/dao/TestAuteurDao.java&#10;Test*Da&#9;FILE&#9;file://C:/workspace/WebMusic/src/test/java/dao/TestPlaylistDao.java&#10;DaoQ&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/utils/DaoQueryUtils.java&#10;listAlbum&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/album/listAlbum.fxml&#10;ListMusicController&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/controllers/music/ListMusicController.java&#10;addAl&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/resources/views/album/addAlbum.fxml&#10;IconOverview&#9;null&#9;null&#10;MusiqueMapper&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/mapper/MusiqueMapper.java&#10;MusiqueDa&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/dao/MusiqueDao.java&#10;MusiqueDao&#9;FILE&#9;file://C:/workspace/WebMusic/src/main/java/dao/MusiqueDao.java&#10;pom.properties&#9;FILE&#9;jar://C:/Users/86lyo/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar!/META-INF/maven/javax.validation/validation-api/pom.properties&#10;pom.pro&#9;FILE&#9;jar://C:/Users/86lyo/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0.jar!/META-INF/maven/org.glassfish.main/javaee-api/pom.properties" />
     <property name="ToolWindowAnt Build.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552568017998" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553000312629" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/WebMusicTest.db" />
@@ -987,7 +1073,11 @@
       <workItem from="1552600859279" duration="844000" />
       <workItem from="1552652866256" duration="1851000" />
       <workItem from="1552687516036" duration="4719000" />
-      <workItem from="1552770540740" duration="281000" />
+      <workItem from="1552770540740" duration="2309000" />
+      <workItem from="1552910592204" duration="3759000" />
+      <workItem from="1552938124429" duration="4602000" />
+      <workItem from="1552997023572" duration="3100000" />
+      <workItem from="1553025200741" duration="4825000" />
     </task>
     <task id="LOCAL-00001" summary="ComboBox &amp; picklists alphabetical sorting">
       <created>1538826633889</created>
@@ -1101,16 +1191,31 @@
       <option name="project" value="LOCAL" />
       <updated>1552242902209</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Listening windows correction (music stopping when window closing)">
+      <created>1552771485307</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1552771485307</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Database sequences re-establishing with ID of the last record of each table correction">
+      <created>1553027877759</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1553027877759</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Same title musics (or playlists or albums) &amp; same name artists allowed">
+      <created>1553030573071</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1553030573071</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestPlaylistDao - 2018.11.12 at 13h 31m 05s.xml">
-      <configuration name="TestPlaylistDao" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestPlaylistDao_update - 2018.11.12 at 13h 32m 15s.xml">
-      <configuration name="TestPlaylistDao.update" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestPlaylistDao_update - 2018.11.12 at 13h 38m 23s.xml">
       <configuration name="TestPlaylistDao.update" configurationId="JUnit" />
     </history-entry>
@@ -1135,9 +1240,15 @@
     <history-entry file="All_in_WebMusic - 2018.11.23 at 13h 58m 15s.xml">
       <configuration name="All in WebMusic" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestAlbumDao - 2019.03.18 at 21h 14m 54s.xml">
+      <configuration name="TestAlbumDao" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestPlaylistDao - 2019.03.18 at 21h 43m 37s.xml">
+      <configuration name="TestPlaylistDao" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1068302000" />
+    <option name="totallyTimeSpent" value="1086616000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1150,9 +1261,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.556701" visible="true" weight="0.27785236" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.556701" visible="true" weight="0.29395974" />
       <window_info id="Structure" order="1" sideWeight="0.49896908" weight="0.24966443" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1166,7 +1276,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44113475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Run Dashboard" order="6" weight="0.31205675" />
+      <window_info anchor="bottom" id="Run Dashboard" order="6" weight="0.86950356" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32907802" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.648227" />
       <window_info anchor="bottom" id="Application Servers" order="9" />
@@ -1268,19 +1378,10 @@
     <MESSAGE value="Playlist list page creation" />
     <MESSAGE value="Playlist listening window creation" />
     <MESSAGE value="Playlist editing implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playlist editing implementation" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/listeners/ListMusicSelectionListener.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Listening windows correction (music stopping when window closing)" />
+    <MESSAGE value="Database sequences re-establishing with ID of the last record of each table correction" />
+    <MESSAGE value="Same title musics (or playlists or albums) &amp; same name artists allowed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Same title musics (or playlists or albums) &amp; same name artists allowed" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1296,95 +1397,57 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>table.getSelectionModel().getSelectedItem()</expression-string>
+        <expression-string>SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;)).executeQuery().getInt(1)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>listenMusicController.getMediaPlayer()</expression-string>
+        <expression-string>SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;)).executeQuery().getInt(0)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>listenMusicController.getMediaPlayer().stop()</expression-string>
+        <expression-string>SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;)).executeQuery()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>listenMusicController.getMediaPlayer().getMedia()</expression-string>
+        <expression-string>SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;)).executeQuery().getString(1)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>listenMusicController</expression-string>
+        <expression-string>SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;)).executeQuery().getString(0)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ListPlaylistSelectionListener.getPlaylistSelected().getListeMusiques().stream().anyMatch(musique -&gt; musique.getNomFichierMusique() == null || &quot;&quot;.equals(musique.getNomFichierMusique()))</expression-string>
+        <expression-string>sequenceStatement</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ListPlaylistSelectionListener.getPlaylistSelected().getListeMusiques().stream().noneMatch(musique -&gt; musique.getNomFichierMusique() == null || &quot;&quot;.equals(musique.getNomFichierMusique()))</expression-string>
+        <expression-string>sequenceStatement.executeQuery()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ListPlaylistSelectionListener.getPlaylistSelected().getListeMusiques()
-                .stream()
-                .noneMatch(musique -&gt; musique.getNomFichierMusique() == null ||
-                        &quot;&quot;.equals(musique.getNomFichierMusique()))</expression-string>
+        <expression-string>SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ListPlaylistSelectionListener.getPlaylistSelected().getListeMusiques()</expression-string>
+        <expression-string>DaoQueryUtils.getLastIdOfTable(&quot;playlist&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/album/EditAlbumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="40" column="40" lean-forward="true" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/AddMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1411">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f6745347-329a-4d9b-a3de-f2004ca9ac9b/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/album/errors/albumMusicError.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/playlist/EditPlaylistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/album/AddAlbumController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/EditMusicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1989">
-          <caret line="144" column="77" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -1456,13 +1519,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/playlist/addPlaylist.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -1471,30 +1527,9 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestAuteurDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestPlaylistDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestAlbumDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2046">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
@@ -1533,13 +1568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="225" column="16" selection-start-line="225" selection-start-column="16" selection-end-line="225" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/playlist/PlaylistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1661,9 +1689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="121" column="14" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1696,6 +1721,89 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="206" column="13" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/playlist/PlaylistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="128" column="26" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/album/errors/albumYearError.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255" />
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/FormUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/EditMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1170">
+          <caret line="111" column="35" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/music/AddMusicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="165" column="30" selection-start-line="165" selection-start-column="30" selection-end-line="165" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestAlbumDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="162" column="122" selection-start-line="162" selection-start-column="122" selection-end-line="162" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/database/SQLiteConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-728">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoTestsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/DaoQueryUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5202">
+          <caret line="315" column="5" selection-start-line="315" selection-start-column="5" selection-end-line="315" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/TestPlaylistDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4743">
+          <caret line="300" selection-start-line="300" selection-end-line="300" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
         </state>
       </provider>
     </entry>

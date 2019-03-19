@@ -1,5 +1,7 @@
-# Compiled class file
+# Compiled files
 *.class
+./target
+./dependency-reduced-pom.xml
 
 # Log file
 *.log
@@ -7,13 +9,14 @@
 # BlueJ files
 *.ctxt
 
+# IntelliJ files
+*.iml
+./.idea
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Database file
-*.db
-
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.ear
