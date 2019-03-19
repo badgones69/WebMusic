@@ -24,8 +24,8 @@ public class DaoTestsUtils {
     // METHOD TO KNOW WHAT'S CODE WAS SET TO THE ALBUM WHICH WAS INSERTED
     public static void setNumeroToAlbum(AlbumDb album) {
         try {
-            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("album",
-                    "titreAlbum", album.getTitreAlbum()))) {
+            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(
+                    DaoQueryUtils.findBySpecificsColumns("album", album))) {
 
                 try (ResultSet result = statement.executeQuery()) {
                     result.next();
@@ -41,8 +41,8 @@ public class DaoTestsUtils {
     // METHOD TO KNOW WHAT'S CODE WAS SET TO THE MUSIC WHICH WAS INSERTED
     public static void setCodeToMusique(MusiqueDb musique) {
         try {
-            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("musique",
-                    "titreMusique", musique.getTitreMusique()))) {
+            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(
+                    DaoQueryUtils.findBySpecificsColumns("musique", musique))) {
 
                 try (ResultSet result = statement.executeQuery()) {
                     result.next();
@@ -58,8 +58,8 @@ public class DaoTestsUtils {
     // METHOD TO KNOW WHAT'S CODE WAS SET TO THE ARTIST WHICH WAS INSERTED
     public static void setIdentifiantToAuteur(AuteurDb auteur) {
         try {
-            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("auteur",
-                    "nomAuteur", auteur.getNomAuteur()))) {
+            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(
+                    DaoQueryUtils.findBySpecificsColumns("auteur", auteur))) {
 
                 try (ResultSet result = statement.executeQuery()) {
                     result.next();

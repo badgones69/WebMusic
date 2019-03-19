@@ -11,6 +11,7 @@ public class DaoQueryUtils {
 
     private static final Logger LOG = LogManager.getLogger(DaoQueryUtils.class);
     private static final String WHERE = " WHERE ";
+    private static final String AND = " AND ";
     private static final String SELECT_FROM = "SELECT * FROM ";
     private static final String COMA_SEPARATOR = "' , '";
 
@@ -237,6 +238,81 @@ public class DaoQueryUtils {
         query += searchedValue;
 
         return query;
+    }
+
+    public static String findBySpecificsColumns(String tableName, Object entity) {
+        String query = SELECT_FROM;
+        query += tableName;
+        query += WHERE;
+        query += generateSearchingConditions(entity);
+
+        return query;
+    }
+
+    private static String generateSearchingConditions(Object entity) {
+        if (entity instanceof AlbumDb) {
+            return bindAlbumToSearch((AlbumDb) entity);
+        } else if (entity instanceof AuteurDb) {
+            return bindAuteurToSearch((AuteurDb) entity);
+        } else if (entity instanceof MusiqueDb) {
+            return bindMusiqueToSearch((MusiqueDb) entity);
+        } else if (entity instanceof PlaylistDb) {
+            return bindPlaylistToSearch((PlaylistDb) entity);
+        }
+        return "";
+    }
+
+    private static String bindAlbumToSearch(AlbumDb albumDb) {
+        String conditions = "";
+
+        conditions += "titreAlbum = '" + albumDb.getTitreAlbum().replace("'", "''") + "'";
+        conditions += AND;
+        if (albumDb.getAnneeAlbum() != null) {
+            conditions += "anneeAlbum = " + albumDb.getAnneeAlbum();
+        } else {
+            conditions += "anneeAlbum IS NULL";
+        }
+
+        return conditions;
+    }
+
+    private static String bindAuteurToSearch(AuteurDb auteurDb) {
+        String conditions = "";
+
+        conditions += "nomAuteur = '" + auteurDb.getNomAuteur().replace("'", "''") + "'";
+        conditions += AND;
+
+        if (auteurDb.getPrenomAuteur() != null) {
+            conditions += "prenomAuteur = '" + auteurDb.getPrenomAuteur().replace("'", "''") + "'";
+        } else {
+            conditions += "prenomAuteur IS NULL";
+        }
+
+        return conditions;
+    }
+
+    private static String bindMusiqueToSearch(MusiqueDb musiqueDb) {
+        String conditions = "";
+
+        conditions += "titreMusique = '" + musiqueDb.getTitreMusique().replace("'", "''") + "'";
+        conditions += AND + "dureeMusique = '" + musiqueDb.getDureeMusique() + "'";
+        conditions += AND + "dateActionMusique = '" + musiqueDb.getDateActionMusique() + "'";
+        conditions += AND + "nomFichierMusique = '" + musiqueDb.getNomFichierMusique().replace("'", "''") + "'";
+        conditions += AND;
+        if (musiqueDb.getAlbumMusique().getNumeroAlbum() != null) {
+            conditions += "albumMusique = " + musiqueDb.getAlbumMusique().getNumeroAlbum();
+        } else {
+            conditions += "albumMusique IS NULL";
+        }
+
+        return conditions;
+    }
+
+    private static String bindPlaylistToSearch(PlaylistDb playlistDb) {
+        String conditions = "intitulePlaylist = '" + playlistDb.getIntitulePlaylist().replace("'", "''") + "'";
+        conditions += AND + "dateActionPlaylist = '" + playlistDb.getDateActionPlaylist() + "'";
+
+        return conditions;
     }
 
     /**
