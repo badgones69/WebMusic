@@ -1,7 +1,7 @@
 # Compiled files
 *.class
-./target
-./dependency-reduced-pom.xml
+target
+dependency-reduced-pom.xml
 
 # Log file
 *.log
@@ -11,7 +11,7 @@
 
 # IntelliJ files
 *.iml
-./.idea
+.idea
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
