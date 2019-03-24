@@ -1,7 +1,7 @@
 package controllers.playlist;
 
-import db.PlaylistDb;
 import db.MusiqueDb;
+import db.PlaylistDb;
 import dto.PlaylistDto;
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
@@ -17,8 +17,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import listeners.ListPlaylistSelectionListener;
-import mapper.PlaylistMapper;
 import mapper.MusiqueMapper;
+import mapper.PlaylistMapper;
 import utils.ListenUtils;
 
 import java.io.File;

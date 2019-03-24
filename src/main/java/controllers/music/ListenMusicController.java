@@ -23,9 +23,6 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static java.lang.Math.floor;
-import static java.lang.String.format;
-
 public class ListenMusicController implements Initializable {
 
     // MEDIA PLAYER
