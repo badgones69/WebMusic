@@ -19,7 +19,7 @@ public class SQLiteConnection {
 
     public static String getPathDb(){
         String userHome = System.getProperty("user.home");
-        return userHome + File.separator + "WebMusicTest.db";
+        return userHome + File.separator + "WebMusic.db";
 
     }
 

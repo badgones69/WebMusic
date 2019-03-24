@@ -39,7 +39,7 @@ public class Home extends Application {
     }
 
     public static void initializeDB() {
-        InputStream inputStream = SQLiteConnection.class.getResourceAsStream("/WebMusicTest.db");
+        InputStream inputStream = SQLiteConnection.class.getResourceAsStream("/WebMusic.db");
 
         File file = new File(SQLiteConnection.getPathDb());
         Path target = file.toPath();
