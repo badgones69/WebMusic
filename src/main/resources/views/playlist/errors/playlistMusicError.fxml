@@ -43,7 +43,8 @@
                       GridPane.rowIndex="2">
                     <children>
                         <Button id="playlistMusicErrorButton" alignment="TOP_CENTER" contentDisplay="CENTER"
-                                mnemonicParsing="false" onAction="#playlistMusicErrorCloseButtonClicked" prefWidth="65.0"
+                                mnemonicParsing="false" onAction="#playlistMusicErrorCloseButtonClicked"
+                                prefWidth="65.0"
                                 text="OK"/>
                     </children>
                 </HBox>

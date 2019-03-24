@@ -8,7 +8,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="113.0" prefWidth="670.0" styleClass="panel"
       stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
       fx:controller="controllers.album.ListAlbumController">
@@ -42,7 +43,8 @@
                       GridPane.rowIndex="2">
                     <children>
                         <Button id="albumMusicFileErrorButton" alignment="TOP_CENTER" contentDisplay="CENTER"
-                                mnemonicParsing="false" onAction="#albumMusicFileErrorCloseButtonClicked" prefWidth="65.0"
+                                mnemonicParsing="false" onAction="#albumMusicFileErrorCloseButtonClicked"
+                                prefWidth="65.0"
                                 text="OK"/>
                     </children>
                 </HBox>

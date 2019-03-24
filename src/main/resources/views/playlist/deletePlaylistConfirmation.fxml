@@ -45,7 +45,8 @@
                       GridPane.rowIndex="2">
                     <children>
                         <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                onAction="#playlistDeleteYesClicked" prefWidth="65.0" styleClass="yesButton" text="Oui"/>
+                                onAction="#playlistDeleteYesClicked" prefWidth="65.0" styleClass="yesButton"
+                                text="Oui"/>
                         <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
                                 onAction="#playlistDeleteNoClicked" prefWidth="65.0" styleClass="noButton" text="Non"/>
                     </children>

@@ -16,12 +16,12 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
 
     private static final Logger LOG = LogManager.getLogger(MusiqueDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
-    private AlbumDao albumDao = new AlbumDao();
     private static final String MUSIQUE = "musique";
     private static final String CODE_MUSIQUE = "codeMusique";
     private static final String ALBUM_MUSIQUE = "albumMusique";
     private static final String TITRE_MUSIQUE = "titreMusique";
     private static final String SQL_EXCEPTION = "SQLException : ";
+    private AlbumDao albumDao = new AlbumDao();
 
     @Override
     public void insert(MusiqueDb musiqueDb) {

@@ -126,7 +126,7 @@ public class ListenPlaylistController implements Initializable {
         for (int i = 0; i < playlistTracks.size(); i++) {
             MediaPlayer finalMediaPlayer = playlistTracks.get(i);
             MediaPlayer nextMediaPlayer;
-            if (i == playlistTracks.size()-1) {
+            if (i == playlistTracks.size() - 1) {
                 nextMediaPlayer = playlistTracks.get(0);
             } else {
                 nextMediaPlayer = playlistTracks.get(i + 1);
@@ -142,14 +142,14 @@ public class ListenPlaylistController implements Initializable {
                 mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
                 this.playPauseImageView.setImage(this.pauseButtonImage);
 
-                if (finalI == playlistTracks.size()-1) {
+                if (finalI == playlistTracks.size() - 1) {
                     this.listeningMusicTitleLabel.setText(musiquesPlaylist.get(0).getTitreMusique());
                     this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesPlaylist.get(0)).getAuteurs());
                     this.listeningTotalLengthLabel.setText(musiquesPlaylist.get(0).getDureeMusique().substring(3));
                 } else {
-                    this.listeningMusicTitleLabel.setText(musiquesPlaylist.get(finalI+1).getTitreMusique());
-                    this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesPlaylist.get(finalI+1)).getAuteurs());
-                    this.listeningTotalLengthLabel.setText(musiquesPlaylist.get(finalI+1).getDureeMusique().substring(3));
+                    this.listeningMusicTitleLabel.setText(musiquesPlaylist.get(finalI + 1).getTitreMusique());
+                    this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesPlaylist.get(finalI + 1)).getAuteurs());
+                    this.listeningTotalLengthLabel.setText(musiquesPlaylist.get(finalI + 1).getDureeMusique().substring(3));
                 }
 
                 this.listeningProgressionSlider.setValue(Duration.ZERO.toSeconds());

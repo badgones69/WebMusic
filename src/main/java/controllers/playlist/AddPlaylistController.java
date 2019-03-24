@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
-public class AddPlaylistController extends PlaylistController implements Initializable{
+public class AddPlaylistController extends PlaylistController implements Initializable {
 
     /**
      * PLAYLIST ADDING FORM FIELDS

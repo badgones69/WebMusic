@@ -19,7 +19,8 @@
         <VBox fx:id="editPlaylistVBox" alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
-                       text="Formulaire de modification d'une playlist" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                       text="Formulaire de modification d'une playlist" textAlignment="CENTER"
+                       BorderPane.alignment="CENTER"/>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
@@ -33,7 +34,8 @@
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "
                                textAlignment="RIGHT"/>
-                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date de modification : "
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel"
+                               text="Date de modification : "
                                textAlignment="CENTER" GridPane.rowIndex="1"/>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Musique(s) : "
                                textAlignment="RIGHT" GridPane.rowIndex="2"/>
@@ -48,10 +50,12 @@
                 </GridPane>
                 <HBox styleClass="formButtonsHBox" alignment="TOP_CENTER" prefHeight="52.0" prefWidth="570.0">
                     <children>
-                        <Button onAction="#validForm" styleClass="yesButton" alignment="TOP_CENTER" contentDisplay="CENTER"
-                                 mnemonicParsing="false" prefWidth="80.0" text="Valider"/>
-                        <Button onAction="#cancelForm" styleClass="noButton" alignment="TOP_CENTER" contentDisplay="CENTER"
-                                 mnemonicParsing="false" prefWidth="80.0" text="Annuler"/>
+                        <Button onAction="#validForm" styleClass="yesButton" alignment="TOP_CENTER"
+                                contentDisplay="CENTER"
+                                mnemonicParsing="false" prefWidth="80.0" text="Valider"/>
+                        <Button onAction="#cancelForm" styleClass="noButton" alignment="TOP_CENTER"
+                                contentDisplay="CENTER"
+                                mnemonicParsing="false" prefWidth="80.0" text="Annuler"/>
                     </children>
                 </HBox>
             </children>

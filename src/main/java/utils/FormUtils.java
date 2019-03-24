@@ -31,7 +31,7 @@ public class FormUtils {
     // ALBUM YEAR CHECKING
     public static Boolean anneeAlbumIsValid(String annee) {
         Boolean isValid = annee.matches("[0-9][0-9][0-9][0-9]");
-        if(isValid) {
+        if (isValid) {
             Integer year = Integer.parseInt(annee);
             isValid = year <= Integer.parseInt(getCurrentDate().substring(6));
         }

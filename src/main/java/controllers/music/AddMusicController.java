@@ -112,9 +112,9 @@ public class AddMusicController extends MusicController implements Initializable
         List<String> auteursInString = new ArrayList<>();
         for (AuteurDb auteurDb : listAuteursValues) {
             auteursInString.add(
-                auteurDb.getPrenomAuteur() != null ?
-                        (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
-                        auteurDb.getNomAuteur()
+                    auteurDb.getPrenomAuteur() != null ?
+                            (auteurDb.getPrenomAuteur() + " " + auteurDb.getNomAuteur()).trim() :
+                            auteurDb.getNomAuteur()
             );
         }
 

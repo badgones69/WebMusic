@@ -50,7 +50,7 @@ public class DaoQueryUtils {
 
         values += albumDb.getTitreAlbum().replace("'", "''") + "',";
 
-        if(albumDb.getAnneeAlbum() == null) {
+        if (albumDb.getAnneeAlbum() == null) {
             values += "null";
         } else {
             values += albumDb.getAnneeAlbum();

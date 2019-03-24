@@ -90,7 +90,7 @@ public class EditAlbumController extends AlbumController implements Initializabl
             AlbumDao albumDao = new AlbumDao();
             albumDao.update(album);
 
-           super.showSuccessPopUp("modifié");
+            super.showSuccessPopUp("modifié");
         }
     }
 

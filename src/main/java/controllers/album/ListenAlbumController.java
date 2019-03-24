@@ -131,7 +131,7 @@ public class ListenAlbumController implements Initializable {
         for (int i = 0; i < albumTracks.size(); i++) {
             MediaPlayer finalMediaPlayer = albumTracks.get(i);
             MediaPlayer nextMediaPlayer;
-            if (i == albumTracks.size()-1) {
+            if (i == albumTracks.size() - 1) {
                 nextMediaPlayer = albumTracks.get(0);
             } else {
                 nextMediaPlayer = albumTracks.get(i + 1);
@@ -147,14 +147,14 @@ public class ListenAlbumController implements Initializable {
                 mediaPlayer.currentTimeProperty().addListener(mediaPlayerListener);
                 this.playPauseImageView.setImage(this.pauseButtonImage);
 
-                if (finalI == albumTracks.size()-1) {
+                if (finalI == albumTracks.size() - 1) {
                     this.listeningMusicTitleLabel.setText(musiquesAlbum.get(0).getTitreMusique());
                     this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesAlbum.get(0)).getAuteurs());
                     this.listeningTotalLengthLabel.setText(musiquesAlbum.get(0).getDureeMusique().substring(3));
                 } else {
-                    this.listeningMusicTitleLabel.setText(musiquesAlbum.get(finalI+1).getTitreMusique());
-                    this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesAlbum.get(finalI+1)).getAuteurs());
-                    this.listeningTotalLengthLabel.setText(musiquesAlbum.get(finalI+1).getDureeMusique().substring(3));
+                    this.listeningMusicTitleLabel.setText(musiquesAlbum.get(finalI + 1).getTitreMusique());
+                    this.listeningMusicArtistsLabel.setText(MusiqueMapper.toDto(musiquesAlbum.get(finalI + 1)).getAuteurs());
+                    this.listeningTotalLengthLabel.setText(musiquesAlbum.get(finalI + 1).getDureeMusique().substring(3));
                 }
 
                 this.listeningProgressionSlider.setValue(Duration.ZERO.toSeconds());

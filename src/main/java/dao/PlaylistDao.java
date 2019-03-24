@@ -146,7 +146,7 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
         List<PlaylistDb> playlistsList = new ArrayList<>();
 
         try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.generateFindingAllQuery(
-        PLAYLIST))) {
+                PLAYLIST))) {
             try (ResultSet result = statement.executeQuery()) {
 
                 while (result.next()) {

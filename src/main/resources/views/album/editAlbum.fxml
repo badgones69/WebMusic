@@ -18,7 +18,8 @@
         <VBox fx:id="editAlbumVBox" alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
-                       text="Formulaire de modification d'un album" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                       text="Formulaire de modification d'un album" textAlignment="CENTER"
+                       BorderPane.alignment="CENTER"/>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>

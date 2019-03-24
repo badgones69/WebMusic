@@ -17,7 +17,7 @@ public class SQLiteConnection {
         LOG.error("This class cannot be instantiated because it's an 'Utility class'");
     }
 
-    public static String getPathDb(){
+    public static String getPathDb() {
         String userHome = System.getProperty("user.home");
         return userHome + File.separator + "WebMusic.db";
 
