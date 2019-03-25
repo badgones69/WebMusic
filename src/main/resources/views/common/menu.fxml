@@ -1,0 +1,46 @@
+<!-- APP MENU VIEW -->
+<?import javafx.scene.control.*?>
+<MenuBar xmlns:fx="http://javafx.com/fxml/1" id="menuBar" xmlns="http://javafx.com/javafx/8.0"
+         stylesheets="/styles/style.css"
+         fx:controller="controllers.common.MenuController">
+    <menus>
+        <Menu mnemonicParsing="false" text="WebMusic">
+            <items>
+                <MenuItem id="appHomeItem" mnemonicParsing="false" onAction="#appHomeItemClicked"
+                          text="Accueil"/>
+                <MenuItem id="appCloseItem" mnemonicParsing="false" onAction="#appCloseItemClicked"
+                          text="Fermer"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Musique">
+            <items>
+                <MenuItem id="listMusicItem" mnemonicParsing="false" text="Liste" onAction="#listMusicItemClicked"/>
+                <MenuItem id="addMusicItem" mnemonicParsing="false" text="Ajout" onAction="#addMusicItemClicked"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Album">
+            <items>
+                <MenuItem id="listAlbumItem" mnemonicParsing="false" text="Liste" onAction="#listAlbumItemClicked"/>
+                <MenuItem id="addAlbumItem" mnemonicParsing="false" text="Ajout" onAction="#addAlbumItemClicked"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Artiste">
+            <items>
+                <MenuItem id="listMusicItem" mnemonicParsing="false" text="Liste" onAction="#listArtistItemClicked"/>
+                <MenuItem id="addArtistItem" mnemonicParsing="false" text="Ajout" onAction="#addArtistItemClicked"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Playlist">
+            <items>
+                <MenuItem id="listPlaylistItem" mnemonicParsing="false" text="Liste"
+                          onAction="#listPlaylistItemClicked"/>
+                <MenuItem id="addPlaylistItem" mnemonicParsing="false" text="Ajout" onAction="#addPlaylistItemClicked"/>
+            </items>
+        </Menu>
+        <Menu id="helpMenu" mnemonicParsing="false" text="Aide">
+            <items>
+                <MenuItem id="aboutItem" mnemonicParsing="false" onAction="#aboutItemClicked" text="À propos"/>
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- HOME PAGE VIEW -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="homeBorderPane" styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="controllers.common.MenuController">
+    <top>
+        <fx:include source="menu.fxml"/>
+    </top>
+
+    <center>
+        <Pane fx:id="homePane" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" fx:id="homeVBox">
+                    <children>
+                        <ImageView>
+                            <Image url="@../../icons/logo.png"/>
+                        </ImageView>
+                        <Label id="welcomeMessage" alignment="CENTER" contentDisplay="TOP"
+                               text="Bienvenue sur WebMusic, votre espace musical !" textAlignment="CENTER"/>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>

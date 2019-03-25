@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- PLAYLIST ADDING FORM VIEW -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.ListSelectionView?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="addPlaylistBorderPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" styleClass="panel"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="controllers.playlist.AddPlaylistController">
+    <top>
+        <fx:include source="../common/menu.fxml"/>
+    </top>
+
+    <center>
+        <VBox fx:id="addPlaylistVBox" alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
+                       text="Formulaire d'ajout d'une playlist" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
+                        <ColumnConstraints hgrow="SOMETIMES"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints maxHeight="700.0"/>
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "
+                               textAlignment="RIGHT"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date d'insertion : "
+                               textAlignment="CENTER" GridPane.rowIndex="1"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Musique(s) : "
+                               textAlignment="RIGHT" GridPane.rowIndex="2"/>
+
+                        <TextField fx:id="titre" alignment="CENTER_LEFT" maxWidth="350.0" styleClass="formField"
+                                   GridPane.columnIndex="1"/>
+                        <TextField fx:id="dateInsertion" alignment="CENTER_LEFT" disable="true" maxWidth="120.0"
+                                   styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <ListSelectionView fx:id="musiques" maxWidth="700.0" minHeight="360.0" styleClass="formField"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </children>
+                </GridPane>
+                <HBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="570.0" styleClass="formButtonsHBox">
+                    <children>
+                        <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onAction="#validForm" prefWidth="80.0" styleClass="yesButton" text="Valider"/>
+                        <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onAction="#cancelForm" prefWidth="80.0" styleClass="noButton" text="Annuler"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
