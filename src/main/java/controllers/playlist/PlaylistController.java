@@ -1,9 +1,8 @@
 package controllers.playlist;
 
 import controllers.common.Home;
-import dao.MusiqueDao;
 import db.MusiqueDb;
-import javafx.collections.ObservableList;
+import dto.MusiqueDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import mapper.MusiqueMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.DaoTestsUtils;
 import utils.InformationsUtils;
 import utils.PopUpUtils;
 
@@ -117,19 +116,11 @@ public class PlaylistController implements Initializable {
         }
     }
 
-    protected List<MusiqueDb> setMusicsToPlaylist(ObservableList<Label> listMusics) {
+    protected List<MusiqueDb> setMusicsToPlaylist(List<MusiqueDto> musiqueDtoList) {
         List<MusiqueDb> musiquesPlaylist = new ArrayList<>();
-        MusiqueDao musiqueDao = new MusiqueDao();
 
-        for (int i = 0; i < listMusics.size(); i++) {
-            MusiqueDb musique = new MusiqueDb();
-
-            String titreMusique = listMusics.get(i).getText();
-            musique.setTitreMusique(titreMusique);
-            DaoTestsUtils.setCodeToMusique(musique);
-            musique = musiqueDao.find(musique.getCodeMusique());
-
-            musiquesPlaylist.add(musique);
+        for (MusiqueDto musiqueDto : musiqueDtoList) {
+            musiquesPlaylist.add(MusiqueMapper.toDb(musiqueDto));
         }
         return musiquesPlaylist;
     }

@@ -4,6 +4,7 @@ import dao.MusiqueDao;
 import dao.PlaylistDao;
 import db.MusiqueDb;
 import db.PlaylistDb;
+import dto.MusiqueDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,10 +21,10 @@ import org.controlsfx.control.ListSelectionView;
 import utils.FormUtils;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.TreeMap;
 
 public class AddPlaylistController extends PlaylistController implements Initializable {
 
@@ -37,7 +38,6 @@ public class AddPlaylistController extends PlaylistController implements Initial
     protected TextField dateInsertion = new TextField();
     @FXML
     protected ListSelectionView<Label> musiques = new ListSelectionView<>();
-
     /**
      * PLAYLIST ADDING FORM CONTAINERS
      */
@@ -46,6 +46,8 @@ public class AddPlaylistController extends PlaylistController implements Initial
     BorderPane addPlaylistBorderPane = new BorderPane();
     @FXML
     VBox addPlaylistVBox = new VBox();
+    // ALPHABETICAL SORTED LIST OF MUSIC
+    private List<MusiqueDto> musiquesSorted = new LinkedList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,17 +78,20 @@ public class AddPlaylistController extends PlaylistController implements Initial
         MusiqueDao musiqueDao = new MusiqueDao();
         ObservableList<Label> musiqueSourceValues = FXCollections.observableArrayList();
         List<MusiqueDb> listMusiquesValues = musiqueDao.findAll();
-        Map<String, String> musiquesSorted = new TreeMap<>();
+
         for (MusiqueDb musiqueDb : listMusiquesValues) {
-            musiquesSorted.put(musiqueDb.getTitreMusique(), MusiqueMapper.toDto(musiqueDb).getAuteurs());
+            this.musiquesSorted.add(MusiqueMapper.toDto(musiqueDb));
         }
+
+        this.musiquesSorted.sort((musique1, musique2) -> musique1.getTitreMusique().compareToIgnoreCase(musique2.getTitreMusique()));
 
         int i = 0;
 
-        for (Map.Entry<String, String> musique : musiquesSorted.entrySet()) {
-            musiqueSourceValues.add(new Label(musique.getKey()));
-            Tooltip tooltip = new Tooltip(musique.getValue());
+        for (MusiqueDto musiqueDto : musiquesSorted) {
+            musiqueSourceValues.add(new Label(musiqueDto.getTitreMusique()));
+            Tooltip tooltip = new Tooltip(musiqueDto.getAuteurs());
             Tooltip.install(musiqueSourceValues.get(i), tooltip);
+            musiqueSourceValues.get(i).setTooltip(tooltip);
             i++;
         }
 
@@ -115,10 +120,21 @@ public class AddPlaylistController extends PlaylistController implements Initial
 
         if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(musiquesInvalides)) {
             PlaylistDb playlist = new PlaylistDb();
+            List<MusiqueDto> musiquesSelected = new LinkedList<>();
 
             playlist.setIntitulePlaylist(this.titre.getText());
             playlist.setDateActionPlaylist(this.dateInsertion.getText());
-            playlist.setListeMusiques(super.setMusicsToPlaylist(this.musiques.getTargetItems()));
+
+            for (Label label : this.musiques.getTargetItems()) {
+                Optional<MusiqueDto> musiqueSelected = this.musiquesSorted.stream()
+                        .filter(musiqueDto -> musiqueDto.getTitreMusique().equals(label.getText()))
+                        .filter(musiqueDto -> musiqueDto.getAuteurs().equals(label.getTooltip().getText()))
+                        .findFirst();
+
+                musiqueSelected.ifPresent(musiquesSelected::add);
+            }
+
+            playlist.setListeMusiques(super.setMusicsToPlaylist(musiquesSelected));
 
             PlaylistDao playlistDao = new PlaylistDao();
             playlistDao.insert(playlist);
