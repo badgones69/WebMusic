@@ -32,8 +32,8 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
 
             // INSERTED PLAYLIST CODE RETRIEVING
             Integer playlistIdGenerated;
-            try (PreparedStatement idPlaylistStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                    PLAYLIST, INTITULE_PLAYLIST, playlistDb.getIntitulePlaylist()))) {
+            try (PreparedStatement idPlaylistStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificsColumns(
+                    PLAYLIST, playlistDb))) {
                 try (ResultSet result = idPlaylistStatement.executeQuery()) {
                     result.next();
                     playlistIdGenerated = result.getInt(ID_PLAYLIST);
