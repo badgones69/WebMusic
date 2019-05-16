@@ -1,10 +1,10 @@
 # Change Log
 
-## [1.0.1](https://github.com/badgones69/WebMusic/tree/1.0.1) (2019-05-??)
+## [1.0.1](https://github.com/badgones69/WebMusic/tree/1.0.1) (2019-05-17)
 
 ### Bug Fixes
 
-* **Playlist** : form correction (case where 2 different musics have the same title wasn't managed in the picklist) 
+* **Playlist** : form correction (cases where 2 different musics or 2 different playlists have the same title weren't managed) 
 
 # [1.0.0](https://github.com/badgones69/WebMusic/tree/1.0.0) (2019-03-24)
 
