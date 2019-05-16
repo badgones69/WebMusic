@@ -160,21 +160,23 @@ public class MusicController implements Initializable {
             Integer indexSeparateurIdentite = identiteArtiste.indexOf(' ');
 
             // ARTIST(S) NAME RETRIEVING (TO KNOW IF WHITESPACES CONTAINING)
-            Boolean auteurHasWhitespacedName = Boolean.FALSE;
-            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                    "auteur", "nomAuteur",
-                    indexSeparateurIdentite != -1 ? identiteArtiste.substring(indexSeparateurIdentite).trim() : identiteArtiste))) {
-                try (ResultSet resultSet = statement.executeQuery()) {
+            Boolean auteurHasWhitespacedPseudo = Boolean.FALSE;
 
-                    if (resultSet.isClosed()) {
-                        auteurHasWhitespacedName = Boolean.TRUE;
+            if (indexSeparateurIdentite != -1) {
+                try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn(
+                        "auteur", "nomAuteur", identiteArtiste.substring(indexSeparateurIdentite).trim()))) {
+                    try (ResultSet resultSet = statement.executeQuery()) {
+
+                        if (resultSet.isClosed()) {
+                            auteurHasWhitespacedPseudo = Boolean.TRUE;
+                        }
                     }
+                } catch (SQLException e) {
+                    LOG.error(IO_EXCEPTION + e.getMessage(), e);
                 }
-            } catch (SQLException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
 
-            if (indexSeparateurIdentite == -1 || Boolean.TRUE.equals(auteurHasWhitespacedName)) {
+            if (indexSeparateurIdentite == -1 || Boolean.TRUE.equals(auteurHasWhitespacedPseudo)) {
                 artiste.setNomAuteur(identiteArtiste);
             } else {
                 artiste.setNomAuteur(identiteArtiste.substring(indexSeparateurIdentite).trim());

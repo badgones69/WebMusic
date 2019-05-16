@@ -33,8 +33,8 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
 
             // INSERTED MUSIC CODE RETRIEVING
             Integer musiqueIdGenerated;
-            try (PreparedStatement idMusiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificColumn(
-                    MUSIQUE, TITRE_MUSIQUE, musiqueDb.getTitreMusique()))) {
+            try (PreparedStatement idMusiqueStatement = CONNECTION.prepareStatement(DaoQueryUtils.findBySpecificsColumns(
+                    MUSIQUE, musiqueDb))) {
                 try (ResultSet result = idMusiqueStatement.executeQuery()) {
                     result.next();
                     musiqueIdGenerated = result.getInt(CODE_MUSIQUE);
