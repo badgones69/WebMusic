@@ -75,8 +75,8 @@ public class DaoTestsUtils {
     // METHOD TO KNOW WHAT'S CODE WAS SET TO THE PLAYLIST WHICH WAS INSERTED
     public static void setIdToPlaylist(PlaylistDb playlist) {
         try {
-            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(DaoQueryUtils.findBySpecificColumn("playlist",
-                    "intitulePlaylist", playlist.getIntitulePlaylist()))) {
+            try (PreparedStatement statement = SQLiteConnection.getInstance().prepareStatement(
+                    DaoQueryUtils.findBySpecificsColumns("playlist", playlist))) {
 
                 try (ResultSet result = statement.executeQuery()) {
                     result.next();
