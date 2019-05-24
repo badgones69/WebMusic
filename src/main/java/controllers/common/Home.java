@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import modal.AppCloseModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -23,9 +24,6 @@ public class Home extends Application {
 
     // HOME PAGE STAGE
     private static Stage homeStage;
-
-    // APP CLOSING CONFIRMATION POP-UP STAGE
-    private static Stage appCloseConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -65,14 +63,6 @@ public class Home extends Application {
         homeStage = stage;
     }
 
-    public Stage getAppCloseConfirmationStage() {
-        return appCloseConfirmationStage;
-    }
-
-    private static void setAppCloseConfirmationStage(Stage stage) {
-        appCloseConfirmationStage = stage;
-    }
-
     // APPLICATION STARTING
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -80,7 +70,6 @@ public class Home extends Application {
         primaryStage.setTitle(informationsUtils.buildStageTitleBar(primaryStage, "Accueil"));
         primaryStage.setScene(new Scene(root));
         this.setHomeStage(primaryStage);
-        this.initializeAppClose();
         this.configurateAppClose();
         primaryStage.show();
     }
@@ -92,24 +81,7 @@ public class Home extends Application {
     private void configurateAppClose() {
         getHomeStage().setOnCloseRequest(event -> {
             event.consume();
-            appCloseConfirmationStage.show();
+            AppCloseModal.getAppCloseAlert();
         });
-    }
-
-    private Stage initializeAppClose() {
-        Stage stage = new Stage();
-
-        try {
-            Parent appCloseConfirmationParent = FXMLLoader.load(getClass().getResource("/views/common/appCloseConfirmation.fxml"));
-            stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Fermeture"));
-            stage.setScene(new Scene(appCloseConfirmationParent, 650, 140));
-            this.setAppCloseConfirmationStage(stage);
-
-            return stage;
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            return null;
-        }
     }
 }
