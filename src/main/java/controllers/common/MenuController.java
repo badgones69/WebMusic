@@ -20,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import modal.AboutModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -33,9 +34,6 @@ public class MenuController implements Initializable {
     private static final Logger LOG = LogManager.getLogger(MenuController.class);
     private static final String IO_EXCEPTION = "IOException : ";
 
-    // ABOUT POP-UP STAGE
-    private static Stage aboutStage;
-
     private final InformationsUtils informationsUtils = new InformationsUtils();
 
     /**
@@ -48,18 +46,6 @@ public class MenuController implements Initializable {
     Pane homePane = new Pane();
     @FXML
     VBox homeVBox = new VBox();
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getAboutStage() {
-        return aboutStage;
-    }
-
-    private static void setAboutStage(Stage stage) {
-        aboutStage = stage;
-    }
 
     /**
      * HOME PAGE CONTAINERS INITIALIZATION
@@ -256,17 +242,6 @@ public class MenuController implements Initializable {
      */
 
     public void aboutItemClicked(ActionEvent actionEvent) {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/help/about.fxml"));
-            stage.setTitle(informationsUtils.buildStageTitleBar(stage, "À propos"));
-            stage.setScene(new Scene(root, 450, 140));
-            this.setAboutStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        AboutModal.getAboutAlert();
     }
 }

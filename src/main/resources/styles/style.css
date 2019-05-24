@@ -28,21 +28,16 @@
     -fx-font-size: 40;
 }
 
-/* ANY CONFIRMATION POP-UP "YES" BUTTON AND ANY FORM VALIDATION BUTTON */
+/* ANY FORM VALIDATION BUTTON */
 .yesButton {
     -fx-font-weight: bold;
     -fx-background-color: #00FF00;
 }
 
-/* ANY CONFIRMATION POP-UP "NO" BUTTON AND ANY FORM CANCELING BUTTON */
+/* ANY FORM CANCELING BUTTON */
 .noButton {
     -fx-font-weight: bold;
     -fx-background-color: #FF0000;
-}
-
-/* ANY CONFIRMATION POP-UP BUTTON */
-.confirmationButtonsHBox {
-    -fx-spacing: 30;
 }
 
 /* ANY FORM VALIDATION AND CANCELING BUTTON */
@@ -99,4 +94,21 @@
 
 .listeningLengthHBox {
     -fx-spacing: 15;
+}
+
+/**
+ * ANY MODAL
+ */
+
+.modalBody > *.label.content {
+    -fx-font-size: 18;
+}
+
+.modalBody .button {
+    -fx-font-weight: bold;
+    -fx-faint-focus-color: #0080FF;
+}
+
+.modalBody .button:default {
+    -fx-base: #80BFFF;
 }

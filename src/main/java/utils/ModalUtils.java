@@ -3,14 +3,14 @@ package utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class PopUpUtils {
+public class ModalUtils {
 
-    private static final Logger LOG = LogManager.getLogger(PopUpUtils.class);
+    private static final Logger LOG = LogManager.getLogger(ModalUtils.class);
 
     // CUURENT ACTION DONE (WITH A FORM OR A LIST)
     private static String actionDone = "";
 
-    private PopUpUtils() {
+    private ModalUtils() {
         LOG.error("This class cannot be instantiated because it's an 'Utility class'");
     }
 
@@ -23,6 +23,10 @@ public class PopUpUtils {
     }
 
     public static void setActionDone(String actionDone) {
-        PopUpUtils.actionDone = actionDone;
+        ModalUtils.actionDone = actionDone;
+    }
+
+    public static String getSystemLineSeparator() {
+        return System.getProperty("line.separator");
     }
 }
