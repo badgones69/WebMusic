@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import modal.AlbumErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -25,9 +26,6 @@ public class AlbumController implements Initializable {
 
     // ALBUM'S NAME ERROR POP-UP STAGE
     protected static Stage albumTitleErrorStage;
-
-    // ALBUM'S YEAR ERROR POP-UP STAGE
-    protected static Stage albumYearErrorStage;
 
     // ALBUM ACTION SUCCESSFUL POP-UP STAGE
     protected static Stage albumActionSuccessStage;
@@ -51,14 +49,6 @@ public class AlbumController implements Initializable {
 
     public static void setAlbumTitleErrorStage(Stage albumTitleErrorStage) {
         AlbumController.albumTitleErrorStage = albumTitleErrorStage;
-    }
-
-    public static Stage getAlbumYearErrorStage() {
-        return albumYearErrorStage;
-    }
-
-    public static void setAlbumYearErrorStage(Stage albumYearErrorStage) {
-        AlbumController.albumYearErrorStage = albumYearErrorStage;
     }
 
     public static Stage getAlbumActionSuccessStage() {
@@ -85,11 +75,6 @@ public class AlbumController implements Initializable {
     // ALBUM'S NAME ERROR POP-UP "OK" BUTTON CLICKED
     public void albumNameErrorCloseButtonClicked(ActionEvent actionEvent) {
         getAlbumTitleErrorStage().close();
-    }
-
-    // ALBUM'S YEAR ERROR POP-UP "OK" BUTTON CLICKED
-    public void albumYearErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getAlbumYearErrorStage().close();
     }
 
     // ALBUM ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
@@ -130,18 +115,7 @@ public class AlbumController implements Initializable {
     }
 
     protected void showYearErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumYearError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 330, 140));
-            this.setAlbumYearErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        AlbumErrorModal.getAlbumYearErrorAlert();
     }
 
     protected void showTitleErrorPopUp() {
