@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import modal.MusicErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
@@ -35,14 +36,8 @@ public class MusicController implements Initializable {
     private static final Logger LOG = LogManager.getLogger(MusicController.class);
     private static final String IO_EXCEPTION = "IOException : ";
 
-    // MUSIC'S LENGTH ERROR POP-UP STAGE
-    protected static Stage musicLengthErrorStage;
-
     // MUSIC'S TITLE ERROR POP-UP STAGE
     protected static Stage musicTitleErrorStage;
-
-    // MUSIC'S ARTIST(S) ERROR POP-UP STAGE
-    protected static Stage musicArtistErrorStage;
 
     // MUSIC ACTION SUCCESSFUL POP-UP STAGE
     protected static Stage musicActionSuccessStage;
@@ -60,28 +55,12 @@ public class MusicController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getMusicLengthErrorStage() {
-        return musicLengthErrorStage;
-    }
-
-    public static void setMusicLengthErrorStage(Stage musicLengthErrorStage) {
-        AddMusicController.musicLengthErrorStage = musicLengthErrorStage;
-    }
-
     public static Stage getMusicTitleErrorStage() {
         return musicTitleErrorStage;
     }
 
     public static void setMusicTitleErrorStage(Stage musicTitleErrorStage) {
         MusicController.musicTitleErrorStage = musicTitleErrorStage;
-    }
-
-    public static Stage getMusicArtistErrorStage() {
-        return musicArtistErrorStage;
-    }
-
-    public static void setMusicArtistErrorStage(Stage musicArtistErrorStage) {
-        MusicController.musicArtistErrorStage = musicArtistErrorStage;
     }
 
     public static Stage getMusicActionSuccessStage() {
@@ -118,19 +97,9 @@ public class MusicController implements Initializable {
         return "";
     }
 
-    // MUSIC'S LENGTH ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicLengthErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicLengthErrorStage().close();
-    }
-
     // MUSIC'S TITLE ERROR POP-UP "OK" BUTTON CLICKED
     public void musicTitleErrorCloseButtonClicked(ActionEvent actionEvent) {
         getMusicTitleErrorStage().close();
-    }
-
-    // MUSIC'S ARTIST(S) ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicArtistErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicArtistErrorStage().close();
     }
 
     // MUSIC ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
@@ -208,33 +177,11 @@ public class MusicController implements Initializable {
     }
 
     protected void showArtistErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicArtistError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 415, 140));
-            this.setMusicArtistErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        MusicErrorModal.getMusicArtistErrorAlert();
     }
 
     protected void showLengthErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicLengthError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 330, 140));
-            this.setMusicLengthErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        MusicErrorModal.getMusicLengthErrorAlert();
     }
 
     protected void showTitleErrorPopUp() {
