@@ -30,16 +30,16 @@ public class MusicErrorModal {
     }
 
     public static void getMusicLengthErrorAlert() {
-        Alert musicArtistErrorAlert = ErrorModal.initAlert();
+        Alert musicLengthErrorAlert = ErrorModal.initAlert();
 
-        musicArtistErrorAlert.setContentText(musicArtistErrorAlert.getContentText() + "Vous avez renseigné une durée invalide");
-        musicArtistErrorAlert.setContentText(musicArtistErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
-        musicArtistErrorAlert.setContentText(musicArtistErrorAlert.getContentText() + "pour cette musique ! ");
+        musicLengthErrorAlert.setContentText(musicLengthErrorAlert.getContentText() + "Vous avez renseigné une durée invalide");
+        musicLengthErrorAlert.setContentText(musicLengthErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
+        musicLengthErrorAlert.setContentText(musicLengthErrorAlert.getContentText() + "pour cette musique ! ");
 
-        Stage musicArtistErrorStage = Modal.initStage(musicArtistErrorAlert);
-        musicArtistErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(musicArtistErrorStage, ErrorModal.ERROR_MODAL_TITLE));
-        new ErrorModal().initPane(musicArtistErrorAlert);
+        Stage musicLengthErrorStage = Modal.initStage(musicLengthErrorAlert);
+        musicLengthErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(musicLengthErrorStage, ErrorModal.ERROR_MODAL_TITLE));
+        new ErrorModal().initPane(musicLengthErrorAlert);
 
-        musicArtistErrorAlert.showAndWait();
+        musicLengthErrorAlert.showAndWait();
     }
 }
