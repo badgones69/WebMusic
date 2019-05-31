@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import mapper.MusiqueMapper;
+import modal.PlaylistErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -30,9 +31,6 @@ public class PlaylistController implements Initializable {
 
     // PLAYLIST'S TITLE ERROR POP-UP STAGE
     protected static Stage playlistTitleErrorStage;
-
-    // PLAYLIST'S MUSIC(S) ERROR POP-UP STAGE
-    protected static Stage playlistMusicErrorStage;
 
     // PLAYLIST ACTION SUCCESSFUL POP-UP STAGE
     protected static Stage playlistActionSuccessStage;
@@ -56,14 +54,6 @@ public class PlaylistController implements Initializable {
 
     public static void setPlaylistTitleErrorStage(Stage playlistTitleErrorStage) {
         PlaylistController.playlistTitleErrorStage = playlistTitleErrorStage;
-    }
-
-    public static Stage getPlaylistMusicErrorStage() {
-        return playlistMusicErrorStage;
-    }
-
-    public static void setPlaylistMusicErrorStage(Stage playlistMusicErrorStage) {
-        PlaylistController.playlistMusicErrorStage = playlistMusicErrorStage;
     }
 
     public static Stage getPlaylistActionSuccessStage() {
@@ -90,11 +80,6 @@ public class PlaylistController implements Initializable {
     // PLAYLIST'S TITLE ERROR POP-UP "OK" BUTTON CLICKED
     public void playlistTitleErrorCloseButtonClicked(ActionEvent actionEvent) {
         getPlaylistTitleErrorStage().close();
-    }
-
-    // PLAYLIST'S MUSIC(S) ERROR POP-UP "OK" BUTTON CLICKED
-    public void playlistMusicErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getPlaylistMusicErrorStage().close();
     }
 
     // PLAYLIST ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
@@ -144,18 +129,7 @@ public class PlaylistController implements Initializable {
     }
 
     protected void showMusicErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/errors/playlistMusicError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 415, 140));
-            this.setPlaylistMusicErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        PlaylistErrorModal.getPlaylistMusicErrorAlert();
     }
 
     protected void showTitleErrorPopUp() {
