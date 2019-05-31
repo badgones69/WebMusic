@@ -74,18 +74,7 @@ public class AddArtistController extends ArtistController implements Initializab
     public void validForm() {
 
         if (nom.getText() == null || "".equals(nom.getText().trim())) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistNameError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 350, 140));
-                this.setArtistNameErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error("IOException : " + e.getMessage(), e);
-            }
+            super.showNameErrorPopUp();
         } else {
             AuteurDb auteurDb = new AuteurDb();
 

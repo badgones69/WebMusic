@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import modal.ArtistErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -22,9 +23,6 @@ import java.util.ResourceBundle;
 public class ArtistController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(ArtistController.class);
-
-    // ARTIST'S NAME ERROR POP-UP STAGE
-    protected static Stage artistNameErrorStage;
 
     // ARTIST ACTION SUCCESSFUL POP-UP STAGE
     protected static Stage artistActionSuccessStage;
@@ -41,14 +39,6 @@ public class ArtistController implements Initializable {
     /**
      * GETTERS AND SETTERS
      */
-
-    public static Stage getArtistNameErrorStage() {
-        return artistNameErrorStage;
-    }
-
-    public static void setArtistNameErrorStage(Stage artistNameErrorStage) {
-        ArtistController.artistNameErrorStage = artistNameErrorStage;
-    }
 
     public static Stage getArtistActionSuccessStage() {
         return artistActionSuccessStage;
@@ -71,11 +61,6 @@ public class ArtistController implements Initializable {
         this.artistActionSuccessLabel.setText("Votre artiste a bien été " + PopUpUtils.getActionDone() + ".");
     }
 
-    // ARTIST'S NAME ERROR POP-UP "OK" BUTTON CLICKED
-    public void artistNameErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getArtistNameErrorStage().close();
-    }
-
     // ARTIST ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
     public void artistActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
         getArtistActionSuccessStage().close();
@@ -93,5 +78,9 @@ public class ArtistController implements Initializable {
         } catch (IOException e) {
             LOG.error("IOException : " + e.getMessage(), e);
         }
+    }
+
+    protected void showNameErrorPopUp() {
+        ArtistErrorModal.getArtistNameErrorAlert();
     }
 }
