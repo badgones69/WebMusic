@@ -21,7 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import modal.AboutModal;
-import modal.AppCloseModal;
+import modal.AppCloseConfirmationModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -84,7 +84,7 @@ public class MenuController implements Initializable {
     }
 
     public void appCloseItemClicked(ActionEvent actionEvent) {
-        AppCloseModal.getAppCloseAlert();
+        AppCloseConfirmationModal.getAppCloseConfirmationAlert();
     }
 
     /**
