@@ -6,6 +6,7 @@ import db.MusiqueDb;
 import db.PlaylistDb;
 import dto.MusiqueDto;
 import dto.PlaylistDto;
+import enums.TypeAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -175,7 +176,7 @@ public class EditPlaylistController extends PlaylistController implements Initia
             PlaylistDao playlistDao = new PlaylistDao();
             playlistDao.update(playlist);
 
-            super.showSuccessPopUp("modifiée");
+            super.showSuccessPopUp(TypeAction.EDIT);
         }
     }
 

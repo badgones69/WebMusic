@@ -1,30 +1,25 @@
 package controllers.playlist;
 
-import controllers.common.Home;
 import db.MusiqueDb;
 import dto.MusiqueDto;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import enums.TypeAction;
+import enums.TypeSource;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import mapper.MusiqueMapper;
+import modal.ActionSuccessModal;
 import modal.PlaylistErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
-import utils.PopUpUtils;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class PlaylistController implements Initializable {
+public class PlaylistController {
 
     private static final Logger LOG = LogManager.getLogger(PlaylistController.class);
     private static final String IO_EXCEPTION = "IOException : ";
@@ -32,17 +27,7 @@ public class PlaylistController implements Initializable {
     // PLAYLIST'S TITLE ERROR POP-UP STAGE
     protected static Stage playlistTitleErrorStage;
 
-    // PLAYLIST ACTION SUCCESSFUL POP-UP STAGE
-    protected static Stage playlistActionSuccessStage;
-
-    // PLAYLIST LIST PAGE STAGE
-    protected static Stage listPlaylistStage;
-
     protected final InformationsUtils informationsUtils = new InformationsUtils();
-
-    // PLAYLIST ACTION SUCCESSFUL POP-UP LABEL
-    @FXML
-    private Label playlistActionSuccessLabel = new Label();
 
     /**
      * GETTERS AND SETTERS
@@ -56,49 +41,9 @@ public class PlaylistController implements Initializable {
         PlaylistController.playlistTitleErrorStage = playlistTitleErrorStage;
     }
 
-    public static Stage getPlaylistActionSuccessStage() {
-        return playlistActionSuccessStage;
-    }
-
-    public static void setPlaylistActionSuccessStage(Stage playlistActionSuccessStage) {
-        PlaylistController.playlistActionSuccessStage = playlistActionSuccessStage;
-    }
-
-    public static Stage getListPlaylistStage() {
-        return listPlaylistStage;
-    }
-
-    public static void setListPlaylistStage(Stage listPlaylistStage) {
-        PlaylistController.listPlaylistStage = listPlaylistStage;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        this.playlistActionSuccessLabel.setText("Votre playlist a bien été " + PopUpUtils.getActionDone() + ".");
-    }
-
     // PLAYLIST'S TITLE ERROR POP-UP "OK" BUTTON CLICKED
-    public void playlistTitleErrorCloseButtonClicked(ActionEvent actionEvent) {
+    public void playlistTitleErrorCloseButtonClicked() {
         getPlaylistTitleErrorStage().close();
-    }
-
-    // PLAYLIST ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
-    public void playlistActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
-        getPlaylistActionSuccessStage().close();
-
-        Stage homeStage = new Home().getHomeStage();
-
-        try {
-            ListPlaylistController listPlaylistController = new ListPlaylistController();
-            listPlaylistController.initialize(getClass().getResource("/views/playlist/listPlaylist.fxml"), null);
-            Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/listPlaylist.fxml"));
-            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des playlists"));
-            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
-            homeStage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
     }
 
     protected List<MusiqueDb> setMusicsToPlaylist(List<MusiqueDto> musiqueDtoList) {
@@ -110,22 +55,8 @@ public class PlaylistController implements Initializable {
         return musiquesPlaylist;
     }
 
-    protected void showSuccessPopUp(String action) {
-        Stage stage = new Stage();
-
-        try {
-            PopUpUtils.setActionDone(action);
-            PlaylistController playlistController = new PlaylistController();
-            playlistController.initialize(getClass().getResource("/views/playlist/playlistActionSuccess.fxml"), null);
-            Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/playlistActionSuccess.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 390, 140));
-            this.setPlaylistActionSuccessStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+    protected void showSuccessPopUp(TypeAction action) {
+        ActionSuccessModal.getSuccessAlert(TypeSource.PLAYLIST, action);
     }
 
     protected void showMusicErrorPopUp() {

@@ -6,9 +6,9 @@ import dao.MusiqueDao;
 import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
+import enums.TypeAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -134,8 +134,8 @@ public class AddMusicController extends MusicController implements Initializable
     }
 
     // MUSIC SELECTION FILE CHOOSER OPENING
-    public void openMusicFileChooser(ActionEvent actionEvent) {
-        this.nomFichier.setText(super.getFileSelected(actionEvent));
+    public void openMusicFileChooser() {
+        this.nomFichier.setText(super.getFileSelected());
     }
 
     // MUSIC ADDING FORM VALIDATION AND SENDING
@@ -176,7 +176,7 @@ public class AddMusicController extends MusicController implements Initializable
             MusiqueDao musiqueDao = new MusiqueDao();
             musiqueDao.insert(musique);
 
-            super.showSuccessPopUp("ajoutée");
+            super.showSuccessPopUp(TypeAction.ADD);
         }
     }
 
