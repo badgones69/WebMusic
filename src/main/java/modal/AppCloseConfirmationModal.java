@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
-import utils.ModalUtils;
 
 import java.util.Optional;
 
@@ -22,9 +21,7 @@ public class AppCloseConfirmationModal {
     public static void getAppCloseConfirmationAlert() {
         Alert appCloseConfirmationAlert = ConfirmationModal.initAlert();
 
-        appCloseConfirmationAlert.setContentText("Êtes-vous sûr(e) de bien vouloir fermer");
-        appCloseConfirmationAlert.setContentText(appCloseConfirmationAlert.getContentText() + ModalUtils.getSystemLineSeparator());
-        appCloseConfirmationAlert.setContentText(appCloseConfirmationAlert.getContentText() + "l'application WebMusic ?");
+        appCloseConfirmationAlert.setContentText(appCloseConfirmationAlert.getContentText() + "fermer l'application WebMusic ?");
 
         Stage appCloseConfirmationStage = Modal.initStage(appCloseConfirmationAlert);
         appCloseConfirmationStage.setTitle(new InformationsUtils().buildStageTitleBar(appCloseConfirmationStage, "Fermeture"));

@@ -1,5 +1,6 @@
 package modal;
 
+import enums.TypeSource;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -8,6 +9,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import utils.ModalUtils;
 
 public class ConfirmationModal {
 
@@ -39,6 +41,8 @@ public class ConfirmationModal {
     public static Alert initAlert() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(null);
+        alert.setContentText("Êtes-vous " + ModalUtils.feminiseWord("sûr", TypeSource.COMMON) + " de bien vouloir");
+        alert.setContentText(alert.getContentText() + ModalUtils.getSystemLineSeparator());
 
         return alert;
     }

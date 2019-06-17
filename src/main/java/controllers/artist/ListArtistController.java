@@ -4,6 +4,7 @@ import controllers.common.Home;
 import dao.AuteurDao;
 import db.AuteurDb;
 import dto.AuteurDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
+import modal.DeleteConfirmationModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -178,7 +180,9 @@ public class ListArtistController implements Initializable {
 
     // ARTIST DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
-        if (ListArtistSelectionListener.getAuteurSelected() == null) {
+        AuteurDto auteurSelected = ListArtistSelectionListener.getAuteurSelected();
+
+        if (auteurSelected == null) {
             Stage stage = new Stage();
 
             try {
@@ -192,18 +196,7 @@ public class ListArtistController implements Initializable {
                 LOG.error(IO_EXCEPTION + e.getMessage(), e);
             }
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/deleteArtistConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'un(e) artiste"));
-                stage.setScene(new Scene(root, 630, 140));
-                setArtistDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.ARTIST, auteurSelected);
         }
     }
 }

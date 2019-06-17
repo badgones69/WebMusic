@@ -4,6 +4,7 @@ import controllers.common.Home;
 import dao.PlaylistDao;
 import db.PlaylistDb;
 import dto.PlaylistDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListPlaylistSelectionListener;
 import mapper.PlaylistMapper;
+import modal.DeleteConfirmationModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -250,21 +252,12 @@ public class ListPlaylistController implements Initializable {
 
     // PLAYLIST DELETING ICON CLICKED
     public void playlistDeletingButtonClicked() {
-        if (ListPlaylistSelectionListener.getPlaylistSelected() == null) {
+        PlaylistDto playlistSelected = ListPlaylistSelectionListener.getPlaylistSelected();
+
+        if (playlistSelected == null) {
             this.showPlaylistSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/deletePlaylistConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'une playlist"));
-                stage.setScene(new Scene(root, 630, 140));
-                setPlaylistDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.PLAYLIST, playlistSelected);
         }
     }
 

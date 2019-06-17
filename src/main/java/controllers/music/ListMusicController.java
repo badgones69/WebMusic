@@ -4,6 +4,7 @@ import controllers.common.Home;
 import dao.MusiqueDao;
 import db.MusiqueDb;
 import dto.MusiqueDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
+import modal.DeleteConfirmationModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -250,21 +252,12 @@ public class ListMusicController implements Initializable {
 
     // MUSIC DELETING ICON CLICKED
     public void musicDeletingButtonClicked() {
-        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
+        MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
+
+        if (musiqueSelected == null) {
             this.showMusicSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/deleteMusicConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'une musique"));
-                stage.setScene(new Scene(root, 630, 140));
-                setMusicDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.MUSIC, musiqueSelected);
         }
     }
 

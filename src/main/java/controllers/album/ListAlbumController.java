@@ -4,6 +4,7 @@ import controllers.common.Home;
 import dao.AlbumDao;
 import db.AlbumDb;
 import dto.AlbumDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import listeners.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
+import modal.DeleteConfirmationModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -250,21 +252,12 @@ public class ListAlbumController implements Initializable {
 
     // ALBUM DELETING ICON CLICKED
     public void albumDeletingButtonClicked() {
-        if (ListAlbumSelectionListener.getAlbumSelected() == null) {
+        AlbumDto albumSelected = ListAlbumSelectionListener.getAlbumSelected();
+
+        if (albumSelected == null) {
             this.showAlbumSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/deleteAlbumConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'un album"));
-                stage.setScene(new Scene(root, 630, 140));
-                setAlbumDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.ALBUM, albumSelected);
         }
     }
 
