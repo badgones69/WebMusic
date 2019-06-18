@@ -8,7 +8,6 @@ import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,6 +24,7 @@ import javafx.stage.Stage;
 import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
 import modal.DeleteConfirmationModal;
+import modal.SelectionErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -39,12 +39,6 @@ public class ListArtistController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(ListArtistController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-
-    // ARTIST SELECTION ERROR POP-UP STAGE
-    private static Stage artistSelectionErrorStage;
-
-    // ARTIST DELETING CONFIRMATION POP-UP STAGE
-    private static Stage artistDeleteConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -66,26 +60,6 @@ public class ListArtistController implements Initializable {
 
     @FXML
     private ImageView deletingActionImageView = new ImageView();
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getArtistDeleteConfirmationStage() {
-        return artistDeleteConfirmationStage;
-    }
-
-    public static void setArtistDeleteConfirmationStage(Stage artistDeleteConfirmationStage) {
-        ListArtistController.artistDeleteConfirmationStage = artistDeleteConfirmationStage;
-    }
-
-    public static Stage getArtistSelectionErrorStage() {
-        return artistSelectionErrorStage;
-    }
-
-    public static void setArtistSelectionErrorStage(Stage artistSelectionErrorStage) {
-        ListArtistController.artistSelectionErrorStage = artistSelectionErrorStage;
-    }
 
     /**
      * ARTIST LIST INITIALIZATION
@@ -140,26 +114,10 @@ public class ListArtistController implements Initializable {
         Platform.runLater(() -> listArtist.refresh());
     }
 
-    // ARTIST SELECTION ERROR POP-UP "OK" BUTTON CLICKED
-    public void artistSelectionErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getArtistSelectionErrorStage().close();
-    }
-
     // ARTIST EDITING ICON CLICKED
     public void artistEditingButtonClicked(MouseEvent mouseEvent) {
         if (ListArtistSelectionListener.getAuteurSelected() == null) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 455, 140));
-                ListArtistController.setArtistSelectionErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            this.showArtistSelectionErrorPopUp();
         } else {
             Stage homeStage = new Home().getHomeStage();
             homeStage.show();
@@ -183,20 +141,13 @@ public class ListArtistController implements Initializable {
         AuteurDto auteurSelected = ListArtistSelectionListener.getAuteurSelected();
 
         if (auteurSelected == null) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 455, 140));
-                ListArtistController.setArtistSelectionErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            this.showArtistSelectionErrorPopUp();
         } else {
             DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.ARTIST, auteurSelected);
         }
+    }
+
+    private void showArtistSelectionErrorPopUp() {
+        SelectionErrorModal.getSelectionErrorAlert(TypeSource.ARTIST);
     }
 }

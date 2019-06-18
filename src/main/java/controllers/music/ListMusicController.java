@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
 import modal.DeleteConfirmationModal;
+import modal.SelectionErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -38,16 +39,9 @@ public class ListMusicController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(ListMusicController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-    private static final String MUSIC_SELECTION_ERROR_FXML = "/views/music/errors/musicSelectionError.fxml";
-
-    // MUSIC SELECTION ERROR POP-UP STAGE
-    private static Stage musicSelectionErrorStage;
 
     // MUSIC FILE ERROR POP-UP STAGE
     private static Stage musicFileErrorStage;
-
-    // MUSIC DELETING CONFIRMATION POP-UP STAGE
-    private static Stage musicDeleteConfirmationStage;
 
     // MUSIC LISTENING POP-UP STAGE
     private static Stage musicListenStage;
@@ -86,28 +80,12 @@ public class ListMusicController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getMusicDeleteConfirmationStage() {
-        return musicDeleteConfirmationStage;
-    }
-
-    public static void setMusicDeleteConfirmationStage(Stage musicDeleteConfirmationStage) {
-        ListMusicController.musicDeleteConfirmationStage = musicDeleteConfirmationStage;
-    }
-
     public static Stage getMusicListenStage() {
         return musicListenStage;
     }
 
     public static void setMusicListenStage(Stage musicListenStage) {
         ListMusicController.musicListenStage = musicListenStage;
-    }
-
-    public static Stage getMusicSelectionErrorStage() {
-        return musicSelectionErrorStage;
-    }
-
-    public static void setMusicSelectionErrorStage(Stage musicSelectionErrorStage) {
-        ListMusicController.musicSelectionErrorStage = musicSelectionErrorStage;
     }
 
     public static Stage getMusicFileErrorStage() {
@@ -174,11 +152,6 @@ public class ListMusicController implements Initializable {
         }
 
         Platform.runLater(() -> listMusic.refresh());
-    }
-
-    // MUSIC SELECTION ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicSelectionErrorCloseButtonClicked() {
-        getMusicSelectionErrorStage().close();
     }
 
     // MUSIC FILE ERROR POP-UP "OK" BUTTON CLICKED
@@ -262,17 +235,6 @@ public class ListMusicController implements Initializable {
     }
 
     private void showMusicSelectionErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(MUSIC_SELECTION_ERROR_FXML));
-            stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 455, 140));
-            ListMusicController.setMusicSelectionErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        SelectionErrorModal.getSelectionErrorAlert(TypeSource.MUSIC);
     }
 }
