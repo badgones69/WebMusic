@@ -63,7 +63,7 @@ public class DeleteConfirmationModal {
                 playlistDao.delete(PlaylistMapper.toDb((PlaylistDto) objectSelected));
             }
 
-            ActionSuccessModal.getSuccessAlert(source, TypeAction.DELETE);
+            ActionSuccessModal.getActionSuccessAlert(source, TypeAction.DELETE);
         }
     }
 }

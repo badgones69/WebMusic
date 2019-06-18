@@ -42,7 +42,7 @@ public class AlbumController {
     }
 
     protected void showSuccessPopUp(TypeAction action) {
-        ActionSuccessModal.getSuccessAlert(TypeSource.ALBUM, action);
+        ActionSuccessModal.getActionSuccessAlert(TypeSource.ALBUM, action);
     }
 
     protected void showYearErrorPopUp() {

@@ -106,7 +106,7 @@ public class MusicController {
     }
 
     protected void showSuccessPopUp(TypeAction action) {
-        ActionSuccessModal.getSuccessAlert(TypeSource.MUSIC, action);
+        ActionSuccessModal.getActionSuccessAlert(TypeSource.MUSIC, action);
     }
 
     protected void showArtistErrorPopUp() {

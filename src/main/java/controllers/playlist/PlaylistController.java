@@ -56,7 +56,7 @@ public class PlaylistController {
     }
 
     protected void showSuccessPopUp(TypeAction action) {
-        ActionSuccessModal.getSuccessAlert(TypeSource.PLAYLIST, action);
+        ActionSuccessModal.getActionSuccessAlert(TypeSource.PLAYLIST, action);
     }
 
     protected void showMusicErrorPopUp() {

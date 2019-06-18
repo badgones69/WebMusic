@@ -11,7 +11,7 @@ public class ArtistController {
     protected final InformationsUtils informationsUtils = new InformationsUtils();
 
     protected void showSuccessPopUp(TypeAction action) {
-        ActionSuccessModal.getSuccessAlert(TypeSource.ARTIST, action);
+        ActionSuccessModal.getActionSuccessAlert(TypeSource.ARTIST, action);
     }
 
     protected void showNameErrorPopUp() {

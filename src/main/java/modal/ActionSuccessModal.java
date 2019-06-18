@@ -32,7 +32,7 @@ public class ActionSuccessModal {
         LOG.error("This class cannot be instantiated because it's an 'Utility class'");
     }
 
-    public static void getSuccessAlert(TypeSource source, TypeAction action) {
+    public static void getActionSuccessAlert(TypeSource source, TypeAction action) {
         Alert actionSuccessAlert = SuccessModal.initAlert();
 
         actionSuccessAlert.setContentText("Votre ");
