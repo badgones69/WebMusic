@@ -8,7 +8,6 @@ import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,6 +24,7 @@ import javafx.stage.Stage;
 import listeners.ListPlaylistSelectionListener;
 import mapper.PlaylistMapper;
 import modal.DeleteConfirmationModal;
+import modal.MusicErrorModal;
 import modal.SelectionErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,9 +43,6 @@ public class ListPlaylistController implements Initializable {
 
     // PLAYLIST LISTENING POP-UP STAGE
     private static Stage playlistListenStage;
-
-    // PLAYLIST's MUSIC(S) FILE ERROR POP-UP STAGE
-    private static Stage playlistMusicFileErrorStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -81,14 +78,6 @@ public class ListPlaylistController implements Initializable {
 
     public static void setPlaylistListenStage(Stage playlistListenStage) {
         ListPlaylistController.playlistListenStage = playlistListenStage;
-    }
-
-    public static Stage getPlaylistMusicFileErrorStage() {
-        return playlistMusicFileErrorStage;
-    }
-
-    public static void setPlaylistMusicFileErrorStage(Stage playlistMusicFileErrorStage) {
-        ListPlaylistController.playlistMusicFileErrorStage = playlistMusicFileErrorStage;
     }
 
     /**
@@ -147,11 +136,6 @@ public class ListPlaylistController implements Initializable {
         Platform.runLater(() -> listPlaylist.refresh());
     }
 
-    // PLAYLIST's MUSIC(S) FILE ERROR POP-UP "OK" BUTTON CLICKED
-    public void playlistMusicFileErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getPlaylistMusicFileErrorStage().close();
-    }
-
     // PLAYLIST LISTENING ICON CLICKED
     public void playlistListeningButtonClicked(MouseEvent mouseEvent) {
         boolean hasMusicWithNoFile = false;
@@ -166,20 +150,7 @@ public class ListPlaylistController implements Initializable {
         if (ListPlaylistSelectionListener.getPlaylistSelected() == null) {
             this.showPlaylistSelectionErrorPopUp();
         } else if (hasMusicWithNoFile) {
-            PlaylistDto playlistSelected = ListPlaylistSelectionListener.getPlaylistSelected();
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/errors/playlistMusicFileError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 670, 140));
-                ListPlaylistController.setPlaylistMusicFileErrorStage(stage);
-                stage.show();
-                ListPlaylistSelectionListener.setPlaylistSelected(playlistSelected);
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            MusicErrorModal.getMusicFileErrorAlert(TypeSource.PLAYLIST);
         } else {
             Stage stage = new Stage();
 

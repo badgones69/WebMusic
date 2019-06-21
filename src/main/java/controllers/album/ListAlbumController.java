@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import listeners.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
 import modal.DeleteConfirmationModal;
+import modal.MusicErrorModal;
 import modal.SelectionErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,9 +38,6 @@ import java.util.ResourceBundle;
 public class ListAlbumController implements Initializable {
     private static final Logger LOG = LogManager.getLogger(ListAlbumController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-
-    // ALBUM's MUSIC(S) FILE ERROR POP-UP STAGE
-    private static Stage albumMusicFileErrorStage;
 
     // ALBUM LISTENING POP-UP STAGE
     private static Stage albumListenStage;
@@ -78,14 +76,6 @@ public class ListAlbumController implements Initializable {
 
     public static void setAlbumListenStage(Stage albumListenStage) {
         ListAlbumController.albumListenStage = albumListenStage;
-    }
-
-    public static Stage getAlbumMusicFileErrorStage() {
-        return albumMusicFileErrorStage;
-    }
-
-    public static void setAlbumMusicFileErrorStage(Stage albumMusicFileErrorStage) {
-        ListAlbumController.albumMusicFileErrorStage = albumMusicFileErrorStage;
     }
 
     /**
@@ -144,11 +134,6 @@ public class ListAlbumController implements Initializable {
         Platform.runLater(() -> listAlbum.refresh());
     }
 
-    // ALBUM FILE ERROR POP-UP "OK" BUTTON CLICKED
-    public void albumMusicFileErrorCloseButtonClicked() {
-        getAlbumMusicFileErrorStage().close();
-    }
-
     // ALBUM LISTENING ICON CLICKED
     public void albumListeningButtonClicked() {
         boolean hasMusicWithNoFile = false;
@@ -166,20 +151,7 @@ public class ListAlbumController implements Initializable {
         if (ListAlbumSelectionListener.getAlbumSelected() == null) {
             this.showAlbumSelectionErrorPopUp();
         } else if (hasMusicWithNoFile) {
-            AlbumDto albumSelected = ListAlbumSelectionListener.getAlbumSelected();
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumMusicFileError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 670, 140));
-                ListAlbumController.setAlbumMusicFileErrorStage(stage);
-                stage.show();
-                ListAlbumSelectionListener.setAlbumSelected(albumSelected);
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            MusicErrorModal.getMusicFileErrorAlert(TypeSource.ALBUM);
         } else {
             Stage stage = new Stage();
 

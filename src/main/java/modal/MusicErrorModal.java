@@ -1,5 +1,6 @@
 package modal;
 
+import enums.TypeSource;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
@@ -41,5 +42,26 @@ public class MusicErrorModal {
         new ErrorModal().initPane(musicLengthErrorAlert);
 
         musicLengthErrorAlert.showAndWait();
+    }
+
+    public static void getMusicFileErrorAlert(TypeSource source) {
+        Alert musicFileErrorAlert = ErrorModal.initAlert();
+
+        if (source.equals(TypeSource.MUSIC)) {
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + "Votre musique possède un fichier");
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + "introuvable !");
+        } else {
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + "Une des musiques de votre ");
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + source.getLibelle());
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
+            musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + "possède un fichier introuvable !");
+        }
+
+        Stage musicFileErrorStage = Modal.initStage(musicFileErrorAlert);
+        musicFileErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(musicFileErrorStage, ErrorModal.ERROR_MODAL_TITLE));
+        new ErrorModal().initPane(musicFileErrorAlert);
+
+        musicFileErrorAlert.showAndWait();
     }
 }
