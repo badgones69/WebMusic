@@ -6,14 +6,11 @@ import db.AuteurDb;
 import enums.TypeAction;
 import enums.TypeSource;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import modal.ActionSuccessModal;
 import modal.MusicErrorModal;
+import modal.TitleErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
@@ -21,7 +18,6 @@ import utils.DaoTestsUtils;
 import utils.InformationsUtils;
 
 import java.io.File;
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,22 +29,7 @@ public class MusicController {
     private static final Logger LOG = LogManager.getLogger(MusicController.class);
     private static final String IO_EXCEPTION = "IOException : ";
 
-    // MUSIC'S TITLE ERROR POP-UP STAGE
-    protected static Stage musicTitleErrorStage;
-
     protected final InformationsUtils informationsUtils = new InformationsUtils();
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getMusicTitleErrorStage() {
-        return musicTitleErrorStage;
-    }
-
-    public static void setMusicTitleErrorStage(Stage musicTitleErrorStage) {
-        MusicController.musicTitleErrorStage = musicTitleErrorStage;
-    }
 
     // MUSIC'S FILE SELECTION
     public String getFileSelected() {
@@ -61,11 +42,6 @@ public class MusicController {
             return musicFile.getAbsolutePath();
         }
         return "";
-    }
-
-    // MUSIC'S TITLE ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicTitleErrorCloseButtonClicked() {
-        getMusicTitleErrorStage().close();
     }
 
     protected List<AuteurDb> setArtistsToMusic(ObservableList<Label> listArtists) {
@@ -118,17 +94,6 @@ public class MusicController {
     }
 
     protected void showTitleErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicTitleError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 330, 140));
-            this.setMusicTitleErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        TitleErrorModal.getTitleErrorAlert(TypeSource.MUSIC);
     }
 }
