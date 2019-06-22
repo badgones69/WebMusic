@@ -8,6 +8,13 @@ import modal.Modal;
 public class ErrorModal {
     public static final String ERROR_MODAL_TITLE = "Erreur";
 
+    public static Alert initAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+
+        return alert;
+    }
+
     public void initPane(Alert alert) {
         DialogPane pane = Modal.initPane(alert);
 
@@ -17,12 +24,5 @@ public class ErrorModal {
         infoImageView.setPreserveRatio(true);
 
         pane.setGraphic(infoImageView);
-    }
-
-    public static Alert initAlert() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-
-        return alert;
     }
 }

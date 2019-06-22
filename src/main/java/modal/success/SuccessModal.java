@@ -8,6 +8,13 @@ import modal.Modal;
 public class SuccessModal {
     public static final String SUCCESS_MODAL_TITLE = "Succès";
 
+    public static Alert initAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+
+        return alert;
+    }
+
     public void initPane(Alert alert) {
         DialogPane pane = Modal.initPane(alert);
 
@@ -17,12 +24,5 @@ public class SuccessModal {
         infoImageView.setPreserveRatio(true);
 
         pane.setGraphic(infoImageView);
-    }
-
-    public static Alert initAlert() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-
-        return alert;
     }
 }

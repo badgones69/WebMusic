@@ -14,6 +14,15 @@ import utils.ModalUtils;
 
 public class ConfirmationModal {
 
+    public static Alert initAlert() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Êtes-vous " + ModalUtils.feminiseWord("sûr", TypeSource.COMMON) + " de bien vouloir");
+        alert.setContentText(alert.getContentText() + ModalUtils.getSystemLineSeparator());
+
+        return alert;
+    }
+
     public void initPane(Alert alert) {
         DialogPane pane = Modal.initPane(alert);
 
@@ -37,14 +46,5 @@ public class ConfirmationModal {
                 .stream()
                 .map(pane::lookupButton)
                 .forEach(button -> button.addEventHandler(KeyEvent.KEY_PRESSED, fireOnEnter));
-    }
-
-    public static Alert initAlert() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(null);
-        alert.setContentText("Êtes-vous " + ModalUtils.feminiseWord("sûr", TypeSource.COMMON) + " de bien vouloir");
-        alert.setContentText(alert.getContentText() + ModalUtils.getSystemLineSeparator());
-
-        return alert;
     }
 }
