@@ -1,8 +1,9 @@
-package modal;
+package modal.success;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import modal.Modal;
 
 public class SuccessModal {
     public static final String SUCCESS_MODAL_TITLE = "Succès";

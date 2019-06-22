@@ -1,7 +1,8 @@
-package modal;
+package modal.info;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import modal.Modal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;

@@ -1,4 +1,4 @@
-package modal;
+package modal.success;
 
 import controllers.album.ListAlbumController;
 import controllers.artist.ListArtistController;
@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import modal.Modal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;

@@ -1,4 +1,4 @@
-package modal;
+package modal.confirmation;
 
 import enums.TypeSource;
 import javafx.event.EventHandler;
@@ -9,6 +9,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import modal.Modal;
 import utils.ModalUtils;
 
 public class ConfirmationModal {

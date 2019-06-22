@@ -1,8 +1,9 @@
-package modal;
+package modal.error;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import modal.Modal;
 
 public class ErrorModal {
     public static final String ERROR_MODAL_TITLE = "Erreur";

@@ -8,9 +8,9 @@ import enums.TypeSource;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
-import modal.ActionSuccessModal;
-import modal.MusicErrorModal;
-import modal.TitleErrorModal;
+import modal.error.CommonErrorModal;
+import modal.success.ActionSuccessModal;
+import modal.error.MusicErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
@@ -94,6 +94,6 @@ public class MusicController {
     }
 
     protected void showTitleErrorPopUp() {
-        TitleErrorModal.getTitleErrorAlert(TypeSource.MUSIC);
+        CommonErrorModal.getTitleErrorAlert(TypeSource.MUSIC);
     }
 }

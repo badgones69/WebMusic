@@ -1,8 +1,9 @@
-package modal;
+package modal.info;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import modal.Modal;
 
 public class InfoModal {
     public void initPane(Alert alert) {

@@ -22,9 +22,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import listeners.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
-import modal.DeleteConfirmationModal;
-import modal.MusicErrorModal;
-import modal.SelectionErrorModal;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.MusicErrorModal;
+import modal.error.CommonErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -202,11 +202,11 @@ public class ListAlbumController implements Initializable {
         if (albumSelected == null) {
             this.showAlbumSelectionErrorPopUp();
         } else {
-            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.ALBUM, albumSelected);
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.ALBUM, albumSelected);
         }
     }
 
     private void showAlbumSelectionErrorPopUp() {
-        SelectionErrorModal.getSelectionErrorAlert(TypeSource.ALBUM);
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.ALBUM);
     }
 }

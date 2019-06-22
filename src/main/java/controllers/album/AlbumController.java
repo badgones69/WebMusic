@@ -2,9 +2,9 @@ package controllers.album;
 
 import enums.TypeAction;
 import enums.TypeSource;
-import modal.ActionSuccessModal;
-import modal.AlbumErrorModal;
-import modal.TitleErrorModal;
+import modal.error.CommonErrorModal;
+import modal.success.ActionSuccessModal;
+import modal.error.AlbumErrorModal;
 import utils.InformationsUtils;
 
 public class AlbumController {
@@ -20,6 +20,6 @@ public class AlbumController {
     }
 
     protected void showTitleErrorPopUp() {
-        TitleErrorModal.getTitleErrorAlert(TypeSource.ALBUM);
+        CommonErrorModal.getTitleErrorAlert(TypeSource.ALBUM);
     }
 }

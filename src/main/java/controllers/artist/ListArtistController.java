@@ -23,8 +23,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
-import modal.DeleteConfirmationModal;
-import modal.SelectionErrorModal;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.CommonErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -143,11 +143,11 @@ public class ListArtistController implements Initializable {
         if (auteurSelected == null) {
             this.showArtistSelectionErrorPopUp();
         } else {
-            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.ARTIST, auteurSelected);
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.ARTIST, auteurSelected);
         }
     }
 
     private void showArtistSelectionErrorPopUp() {
-        SelectionErrorModal.getSelectionErrorAlert(TypeSource.ARTIST);
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.ARTIST);
     }
 }

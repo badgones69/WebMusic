@@ -5,9 +5,9 @@ import dto.MusiqueDto;
 import enums.TypeAction;
 import enums.TypeSource;
 import mapper.MusiqueMapper;
-import modal.ActionSuccessModal;
-import modal.PlaylistErrorModal;
-import modal.TitleErrorModal;
+import modal.error.CommonErrorModal;
+import modal.success.ActionSuccessModal;
+import modal.error.PlaylistErrorModal;
 import utils.InformationsUtils;
 
 import java.util.ArrayList;
@@ -35,6 +35,6 @@ public class PlaylistController {
     }
 
     protected void showTitleErrorPopUp() {
-        TitleErrorModal.getTitleErrorAlert(TypeSource.PLAYLIST);
+        CommonErrorModal.getTitleErrorAlert(TypeSource.PLAYLIST);
     }
 }

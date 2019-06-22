@@ -23,9 +23,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
-import modal.DeleteConfirmationModal;
-import modal.MusicErrorModal;
-import modal.SelectionErrorModal;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.MusicErrorModal;
+import modal.error.CommonErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -201,11 +201,11 @@ public class ListMusicController implements Initializable {
         if (musiqueSelected == null) {
             this.showMusicSelectionErrorPopUp();
         } else {
-            DeleteConfirmationModal.getDeleteConfirmationAlert(TypeSource.MUSIC, musiqueSelected);
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.MUSIC, musiqueSelected);
         }
     }
 
     private void showMusicSelectionErrorPopUp() {
-        SelectionErrorModal.getSelectionErrorAlert(TypeSource.MUSIC);
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.MUSIC);
     }
 }

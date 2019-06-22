@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import modal.AppCloseConfirmationModal;
+import modal.confirmation.CommonConfirmationModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -81,7 +81,7 @@ public class Home extends Application {
     private void configurateAppClose() {
         getHomeStage().setOnCloseRequest(event -> {
             event.consume();
-            AppCloseConfirmationModal.getAppCloseConfirmationAlert();
+            CommonConfirmationModal.getAppCloseConfirmationAlert();
         });
     }
 }
