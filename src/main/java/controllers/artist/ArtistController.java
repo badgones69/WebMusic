@@ -2,8 +2,8 @@ package controllers.artist;
 
 import enums.TypeAction;
 import enums.TypeSource;
-import modal.success.ActionSuccessModal;
 import modal.error.ArtistErrorModal;
+import modal.success.ActionSuccessModal;
 import utils.InformationsUtils;
 
 public class ArtistController {

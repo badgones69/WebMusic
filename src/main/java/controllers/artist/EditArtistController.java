@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 

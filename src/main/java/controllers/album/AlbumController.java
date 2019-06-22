@@ -2,9 +2,9 @@ package controllers.album;
 
 import enums.TypeAction;
 import enums.TypeSource;
+import modal.error.AlbumErrorModal;
 import modal.error.CommonErrorModal;
 import modal.success.ActionSuccessModal;
-import modal.error.AlbumErrorModal;
 import utils.InformationsUtils;
 
 public class AlbumController {
