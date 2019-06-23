@@ -3,110 +3,36 @@ package controllers.music;
 import controllers.common.Home;
 import database.SQLiteConnection;
 import db.AuteurDb;
+import enums.TypeAction;
+import enums.TypeSource;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import modal.error.CommonErrorModal;
+import modal.error.MusicErrorModal;
+import modal.success.ActionSuccessModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 import utils.DaoTestsUtils;
 import utils.InformationsUtils;
-import utils.PopUpUtils;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class MusicController implements Initializable {
+public class MusicController {
 
     private static final Logger LOG = LogManager.getLogger(MusicController.class);
     private static final String IO_EXCEPTION = "IOException : ";
 
-    // MUSIC'S LENGTH ERROR POP-UP STAGE
-    protected static Stage musicLengthErrorStage;
-
-    // MUSIC'S TITLE ERROR POP-UP STAGE
-    protected static Stage musicTitleErrorStage;
-
-    // MUSIC'S ARTIST(S) ERROR POP-UP STAGE
-    protected static Stage musicArtistErrorStage;
-
-    // MUSIC ACTION SUCCESSFUL POP-UP STAGE
-    protected static Stage musicActionSuccessStage;
-
-    // MUSIC LIST PAGE STAGE
-    protected static Stage listMusicStage;
-
     protected final InformationsUtils informationsUtils = new InformationsUtils();
 
-    // MUSIC ACTION SUCCESSFUL POP-UP LABEL
-    @FXML
-    private Label musicActionSuccessLabel = new Label();
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getMusicLengthErrorStage() {
-        return musicLengthErrorStage;
-    }
-
-    public static void setMusicLengthErrorStage(Stage musicLengthErrorStage) {
-        AddMusicController.musicLengthErrorStage = musicLengthErrorStage;
-    }
-
-    public static Stage getMusicTitleErrorStage() {
-        return musicTitleErrorStage;
-    }
-
-    public static void setMusicTitleErrorStage(Stage musicTitleErrorStage) {
-        MusicController.musicTitleErrorStage = musicTitleErrorStage;
-    }
-
-    public static Stage getMusicArtistErrorStage() {
-        return musicArtistErrorStage;
-    }
-
-    public static void setMusicArtistErrorStage(Stage musicArtistErrorStage) {
-        MusicController.musicArtistErrorStage = musicArtistErrorStage;
-    }
-
-    public static Stage getMusicActionSuccessStage() {
-        return musicActionSuccessStage;
-    }
-
-    public static void setMusicActionSuccessStage(Stage musicActionSuccessStage) {
-        MusicController.musicActionSuccessStage = musicActionSuccessStage;
-    }
-
-    public static Stage getListMusicStage() {
-        return listMusicStage;
-    }
-
-    public static void setListMusicStage(Stage listMusicStage) {
-        MusicController.listMusicStage = listMusicStage;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        this.musicActionSuccessLabel.setText("Votre musique a bien été " + PopUpUtils.getActionDone() + ".");
-    }
-
     // MUSIC'S FILE SELECTION
-    public String getFileSelected(ActionEvent actionEvent) {
+    public String getFileSelected() {
         FileChooser musicFileChooser = new FileChooser();
         musicFileChooser.setTitle("Sélection de la musique");
         musicFileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("MP3", "*.mp3"));
@@ -116,40 +42,6 @@ public class MusicController implements Initializable {
             return musicFile.getAbsolutePath();
         }
         return "";
-    }
-
-    // MUSIC'S LENGTH ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicLengthErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicLengthErrorStage().close();
-    }
-
-    // MUSIC'S TITLE ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicTitleErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicTitleErrorStage().close();
-    }
-
-    // MUSIC'S ARTIST(S) ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicArtistErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicArtistErrorStage().close();
-    }
-
-    // MUSIC ACTION SUCCESSFUL POP-UP "OK" BUTTON CLICKED
-    public void musicActionSuccessCloseButtonClicked(ActionEvent actionEvent) {
-        getMusicActionSuccessStage().close();
-
-        Stage homeStage = new Home().getHomeStage();
-
-        try {
-            ListMusicController listMusicController = new ListMusicController();
-            listMusicController.initialize(getClass().getResource("/views/music/listMusic.fxml"), null);
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/listMusic.fxml"));
-            homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Liste des musiques"));
-            homeStage.setScene(new Scene(root, homeStage.getScene().getWidth(), homeStage.getScene().getHeight()));
-            homeStage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
     }
 
     protected List<AuteurDb> setArtistsToMusic(ObservableList<Label> listArtists) {
@@ -189,66 +81,19 @@ public class MusicController implements Initializable {
         return artistesMusique;
     }
 
-    protected void showSuccessPopUp(String action) {
-        Stage stage = new Stage();
-
-        try {
-            PopUpUtils.setActionDone(action);
-            MusicController musicController = new MusicController();
-            musicController.initialize(getClass().getResource("/views/music/musicActionSuccess.fxml"), null);
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/musicActionSuccess.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 390, 140));
-            this.setMusicActionSuccessStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+    protected void showSuccessPopUp(TypeAction action) {
+        ActionSuccessModal.getActionSuccessAlert(TypeSource.MUSIC, action);
     }
 
     protected void showArtistErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicArtistError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 415, 140));
-            this.setMusicArtistErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        MusicErrorModal.getMusicArtistErrorAlert();
     }
 
     protected void showLengthErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicLengthError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 330, 140));
-            this.setMusicLengthErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        MusicErrorModal.getMusicLengthErrorAlert();
     }
 
     protected void showTitleErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicTitleError.fxml"));
-            stage.setTitle(this.informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 330, 140));
-            this.setMusicTitleErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        CommonErrorModal.getTitleErrorAlert(TypeSource.MUSIC);
     }
 }

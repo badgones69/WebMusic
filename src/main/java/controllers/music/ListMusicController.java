@@ -4,6 +4,7 @@ import controllers.common.Home;
 import dao.MusiqueDao;
 import db.MusiqueDb;
 import dto.MusiqueDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.CommonErrorModal;
+import modal.error.MusicErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -36,16 +40,6 @@ public class ListMusicController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(ListMusicController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-    private static final String MUSIC_SELECTION_ERROR_FXML = "/views/music/errors/musicSelectionError.fxml";
-
-    // MUSIC SELECTION ERROR POP-UP STAGE
-    private static Stage musicSelectionErrorStage;
-
-    // MUSIC FILE ERROR POP-UP STAGE
-    private static Stage musicFileErrorStage;
-
-    // MUSIC DELETING CONFIRMATION POP-UP STAGE
-    private static Stage musicDeleteConfirmationStage;
 
     // MUSIC LISTENING POP-UP STAGE
     private static Stage musicListenStage;
@@ -84,36 +78,12 @@ public class ListMusicController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getMusicDeleteConfirmationStage() {
-        return musicDeleteConfirmationStage;
-    }
-
-    public static void setMusicDeleteConfirmationStage(Stage musicDeleteConfirmationStage) {
-        ListMusicController.musicDeleteConfirmationStage = musicDeleteConfirmationStage;
-    }
-
     public static Stage getMusicListenStage() {
         return musicListenStage;
     }
 
     public static void setMusicListenStage(Stage musicListenStage) {
         ListMusicController.musicListenStage = musicListenStage;
-    }
-
-    public static Stage getMusicSelectionErrorStage() {
-        return musicSelectionErrorStage;
-    }
-
-    public static void setMusicSelectionErrorStage(Stage musicSelectionErrorStage) {
-        ListMusicController.musicSelectionErrorStage = musicSelectionErrorStage;
-    }
-
-    public static Stage getMusicFileErrorStage() {
-        return musicFileErrorStage;
-    }
-
-    public static void setMusicFileErrorStage(Stage musicFileErrorStage) {
-        ListMusicController.musicFileErrorStage = musicFileErrorStage;
     }
 
     /**
@@ -174,37 +144,13 @@ public class ListMusicController implements Initializable {
         Platform.runLater(() -> listMusic.refresh());
     }
 
-    // MUSIC SELECTION ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicSelectionErrorCloseButtonClicked() {
-        getMusicSelectionErrorStage().close();
-    }
-
-    // MUSIC FILE ERROR POP-UP "OK" BUTTON CLICKED
-    public void musicFileErrorCloseButtonClicked() {
-        getMusicFileErrorStage().close();
-    }
-
     // MUSIC LISTENING ICON CLICKED
     public void musicListeningButtonClicked(MouseEvent mouseEvent) {
         if (ListMusicSelectionListener.getMusiqueSelected() == null) {
             this.showMusicSelectionErrorPopUp();
         } else if (ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique() == null ||
                 "".equals(ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique())) {
-
-            MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/errors/musicFileError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 470, 140));
-                ListMusicController.setMusicFileErrorStage(stage);
-                stage.show();
-                ListMusicSelectionListener.setMusiqueSelected(musiqueSelected);
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            MusicErrorModal.getMusicFileErrorAlert(TypeSource.MUSIC);
         } else {
             Stage stage = new Stage();
 
@@ -250,36 +196,16 @@ public class ListMusicController implements Initializable {
 
     // MUSIC DELETING ICON CLICKED
     public void musicDeletingButtonClicked() {
-        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
+        MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
+
+        if (musiqueSelected == null) {
             this.showMusicSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/music/deleteMusicConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'une musique"));
-                stage.setScene(new Scene(root, 630, 140));
-                setMusicDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.MUSIC, musiqueSelected);
         }
     }
 
     private void showMusicSelectionErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(MUSIC_SELECTION_ERROR_FXML));
-            stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 455, 140));
-            ListMusicController.setMusicSelectionErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.MUSIC);
     }
 }

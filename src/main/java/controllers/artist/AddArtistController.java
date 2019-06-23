@@ -2,28 +2,19 @@ package controllers.artist;
 
 import dao.AuteurDao;
 import db.AuteurDb;
+import enums.TypeAction;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import utils.PopUpUtils;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddArtistController extends ArtistController implements Initializable {
-
-    private static final Logger LOG = LogManager.getLogger(AddArtistController.class);
 
     /**
      * ARTIST ADDING FORM FIELDS
@@ -74,18 +65,7 @@ public class AddArtistController extends ArtistController implements Initializab
     public void validForm() {
 
         if (nom.getText() == null || "".equals(nom.getText().trim())) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistNameError.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 350, 140));
-                this.setArtistNameErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error("IOException : " + e.getMessage(), e);
-            }
+            super.showNameErrorPopUp();
         } else {
             AuteurDb auteurDb = new AuteurDb();
 
@@ -95,21 +75,7 @@ public class AddArtistController extends ArtistController implements Initializab
             AuteurDao auteurDao = new AuteurDao();
             auteurDao.insert(auteurDb);
 
-            Stage stage = new Stage();
-
-            try {
-                PopUpUtils.setActionDone("ajouté(e)");
-                ArtistController artistController = new ArtistController();
-                artistController.initialize(getClass().getResource("/views/artist/artistActionSuccess.fxml"), null);
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/artistActionSuccess.fxml"));
-                stage.setTitle(super.informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 390, 140));
-                this.setArtistActionSuccessStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error("IOException : " + e.getMessage(), e);
-            }
+            super.showSuccessPopUp(TypeAction.ADD);
         }
     }
 

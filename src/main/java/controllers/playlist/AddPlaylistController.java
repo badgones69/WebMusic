@@ -5,6 +5,7 @@ import dao.PlaylistDao;
 import db.MusiqueDb;
 import db.PlaylistDb;
 import dto.MusiqueDto;
+import enums.TypeAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -139,7 +140,7 @@ public class AddPlaylistController extends PlaylistController implements Initial
             PlaylistDao playlistDao = new PlaylistDao();
             playlistDao.insert(playlist);
 
-            super.showSuccessPopUp("ajoutée");
+            super.showSuccessPopUp(TypeAction.ADD);
         }
     }
 

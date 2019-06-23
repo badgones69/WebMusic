@@ -4,6 +4,7 @@ import controllers.common.Home;
 import dao.AlbumDao;
 import db.AlbumDb;
 import dto.AlbumDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import listeners.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.CommonErrorModal;
+import modal.error.MusicErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -34,16 +38,6 @@ import java.util.ResourceBundle;
 public class ListAlbumController implements Initializable {
     private static final Logger LOG = LogManager.getLogger(ListAlbumController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-    private static final String ALBUM_SELECTION_ERROR_FXML = "/views/album/errors/albumSelectionError.fxml";
-
-    // ALBUM SELECTION ERROR POP-UP STAGE
-    private static Stage albumSelectionErrorStage;
-
-    // ALBUM's MUSIC(S) FILE ERROR POP-UP STAGE
-    private static Stage albumMusicFileErrorStage;
-
-    // ALBUM DELETING CONFIRMATION POP-UP STAGE
-    private static Stage albumDeleteConfirmationStage;
 
     // ALBUM LISTENING POP-UP STAGE
     private static Stage albumListenStage;
@@ -76,36 +70,12 @@ public class ListAlbumController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getAlbumDeleteConfirmationStage() {
-        return albumDeleteConfirmationStage;
-    }
-
-    public static void setAlbumDeleteConfirmationStage(Stage albumDeleteConfirmationStage) {
-        ListAlbumController.albumDeleteConfirmationStage = albumDeleteConfirmationStage;
-    }
-
     public static Stage getAlbumListenStage() {
         return albumListenStage;
     }
 
     public static void setAlbumListenStage(Stage albumListenStage) {
         ListAlbumController.albumListenStage = albumListenStage;
-    }
-
-    public static Stage getAlbumSelectionErrorStage() {
-        return albumSelectionErrorStage;
-    }
-
-    public static void setAlbumSelectionErrorStage(Stage albumSelectionErrorStage) {
-        ListAlbumController.albumSelectionErrorStage = albumSelectionErrorStage;
-    }
-
-    public static Stage getAlbumMusicFileErrorStage() {
-        return albumMusicFileErrorStage;
-    }
-
-    public static void setAlbumMusicFileErrorStage(Stage albumMusicFileErrorStage) {
-        ListAlbumController.albumMusicFileErrorStage = albumMusicFileErrorStage;
     }
 
     /**
@@ -164,16 +134,6 @@ public class ListAlbumController implements Initializable {
         Platform.runLater(() -> listAlbum.refresh());
     }
 
-    // ALBUM SELECTION ERROR POP-UP "OK" BUTTON CLICKED
-    public void albumSelectionErrorCloseButtonClicked() {
-        getAlbumSelectionErrorStage().close();
-    }
-
-    // ALBUM FILE ERROR POP-UP "OK" BUTTON CLICKED
-    public void albumMusicFileErrorCloseButtonClicked() {
-        getAlbumMusicFileErrorStage().close();
-    }
-
     // ALBUM LISTENING ICON CLICKED
     public void albumListeningButtonClicked() {
         boolean hasMusicWithNoFile = false;
@@ -191,20 +151,7 @@ public class ListAlbumController implements Initializable {
         if (ListAlbumSelectionListener.getAlbumSelected() == null) {
             this.showAlbumSelectionErrorPopUp();
         } else if (hasMusicWithNoFile) {
-            AlbumDto albumSelected = ListAlbumSelectionListener.getAlbumSelected();
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/errors/albumMusicFileError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 670, 140));
-                ListAlbumController.setAlbumMusicFileErrorStage(stage);
-                stage.show();
-                ListAlbumSelectionListener.setAlbumSelected(albumSelected);
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            MusicErrorModal.getMusicFileErrorAlert(TypeSource.ALBUM);
         } else {
             Stage stage = new Stage();
 
@@ -250,36 +197,16 @@ public class ListAlbumController implements Initializable {
 
     // ALBUM DELETING ICON CLICKED
     public void albumDeletingButtonClicked() {
-        if (ListAlbumSelectionListener.getAlbumSelected() == null) {
+        AlbumDto albumSelected = ListAlbumSelectionListener.getAlbumSelected();
+
+        if (albumSelected == null) {
             this.showAlbumSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/album/deleteAlbumConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'un album"));
-                stage.setScene(new Scene(root, 630, 140));
-                setAlbumDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.ALBUM, albumSelected);
         }
     }
 
     private void showAlbumSelectionErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(ALBUM_SELECTION_ERROR_FXML));
-            stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 455, 140));
-            ListAlbumController.setAlbumSelectionErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.ALBUM);
     }
 }

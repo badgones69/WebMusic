@@ -2,6 +2,7 @@ package controllers.album;
 
 import dao.AlbumDao;
 import db.AlbumDb;
+import enums.TypeAction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -83,7 +84,7 @@ public class AddAlbumController extends AlbumController implements Initializable
             AlbumDao albumDao = new AlbumDao();
             albumDao.insert(albumDb);
 
-            super.showSuccessPopUp("ajouté");
+            super.showSuccessPopUp(TypeAction.ADD);
         }
     }
 

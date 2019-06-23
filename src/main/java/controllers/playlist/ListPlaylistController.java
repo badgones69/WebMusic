@@ -4,10 +4,10 @@ import controllers.common.Home;
 import dao.PlaylistDao;
 import db.PlaylistDb;
 import dto.PlaylistDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +23,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListPlaylistSelectionListener;
 import mapper.PlaylistMapper;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.CommonErrorModal;
+import modal.error.MusicErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -37,19 +40,9 @@ public class ListPlaylistController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(ListPlaylistController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-    private static final String PLAYLIST_SELECTION_ERROR_FXML = "/views/playlist/errors/playlistSelectionError.fxml";
-
-    // PLAYLIST SELECTION ERROR POP-UP STAGE
-    private static Stage playlistSelectionErrorStage;
-
-    // PLAYLIST DELETING CONFIRMATION POP-UP STAGE
-    private static Stage playlistDeleteConfirmationStage;
 
     // PLAYLIST LISTENING POP-UP STAGE
     private static Stage playlistListenStage;
-
-    // PLAYLIST's MUSIC(S) FILE ERROR POP-UP STAGE
-    private static Stage playlistMusicFileErrorStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -79,36 +72,12 @@ public class ListPlaylistController implements Initializable {
      * GETTERS AND SETTERS
      */
 
-    public static Stage getPlaylistDeleteConfirmationStage() {
-        return playlistDeleteConfirmationStage;
-    }
-
-    public static void setPlaylistDeleteConfirmationStage(Stage playlistDeleteConfirmationStage) {
-        ListPlaylistController.playlistDeleteConfirmationStage = playlistDeleteConfirmationStage;
-    }
-
     public static Stage getPlaylistListenStage() {
         return playlistListenStage;
     }
 
     public static void setPlaylistListenStage(Stage playlistListenStage) {
         ListPlaylistController.playlistListenStage = playlistListenStage;
-    }
-
-    public static Stage getPlaylistSelectionErrorStage() {
-        return playlistSelectionErrorStage;
-    }
-
-    public static void setPlaylistSelectionErrorStage(Stage playlistSelectionErrorStage) {
-        ListPlaylistController.playlistSelectionErrorStage = playlistSelectionErrorStage;
-    }
-
-    public static Stage getPlaylistMusicFileErrorStage() {
-        return playlistMusicFileErrorStage;
-    }
-
-    public static void setPlaylistMusicFileErrorStage(Stage playlistMusicFileErrorStage) {
-        ListPlaylistController.playlistMusicFileErrorStage = playlistMusicFileErrorStage;
     }
 
     /**
@@ -167,16 +136,6 @@ public class ListPlaylistController implements Initializable {
         Platform.runLater(() -> listPlaylist.refresh());
     }
 
-    // PLAYLIST SELECTION ERROR POP-UP "OK" BUTTON CLICKED
-    public void playlistSelectionErrorCloseButtonClicked() {
-        getPlaylistSelectionErrorStage().close();
-    }
-
-    // PLAYLIST's MUSIC(S) FILE ERROR POP-UP "OK" BUTTON CLICKED
-    public void playlistMusicFileErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getPlaylistMusicFileErrorStage().close();
-    }
-
     // PLAYLIST LISTENING ICON CLICKED
     public void playlistListeningButtonClicked(MouseEvent mouseEvent) {
         boolean hasMusicWithNoFile = false;
@@ -191,20 +150,7 @@ public class ListPlaylistController implements Initializable {
         if (ListPlaylistSelectionListener.getPlaylistSelected() == null) {
             this.showPlaylistSelectionErrorPopUp();
         } else if (hasMusicWithNoFile) {
-            PlaylistDto playlistSelected = ListPlaylistSelectionListener.getPlaylistSelected();
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/errors/playlistMusicFileError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 670, 140));
-                ListPlaylistController.setPlaylistMusicFileErrorStage(stage);
-                stage.show();
-                ListPlaylistSelectionListener.setPlaylistSelected(playlistSelected);
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            MusicErrorModal.getMusicFileErrorAlert(TypeSource.PLAYLIST);
         } else {
             Stage stage = new Stage();
 
@@ -250,37 +196,17 @@ public class ListPlaylistController implements Initializable {
 
     // PLAYLIST DELETING ICON CLICKED
     public void playlistDeletingButtonClicked() {
-        if (ListPlaylistSelectionListener.getPlaylistSelected() == null) {
+        PlaylistDto playlistSelected = ListPlaylistSelectionListener.getPlaylistSelected();
+
+        if (playlistSelected == null) {
             this.showPlaylistSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/playlist/deletePlaylistConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'une playlist"));
-                stage.setScene(new Scene(root, 630, 140));
-                setPlaylistDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.PLAYLIST, playlistSelected);
         }
     }
 
     private void showPlaylistSelectionErrorPopUp() {
-        Stage stage = new Stage();
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(PLAYLIST_SELECTION_ERROR_FXML));
-            stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-            stage.setScene(new Scene(root, 455, 140));
-            ListPlaylistController.setPlaylistSelectionErrorStage(stage);
-            stage.show();
-
-        } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
-        }
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.PLAYLIST);
     }
 
 }

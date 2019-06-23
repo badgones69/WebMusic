@@ -4,10 +4,10 @@ import controllers.common.Home;
 import dao.AuteurDao;
 import db.AuteurDb;
 import dto.AuteurDto;
+import enums.TypeSource;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +23,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.ListArtistSelectionListener;
 import mapper.AuteurMapper;
+import modal.confirmation.CommonConfirmationModal;
+import modal.error.CommonErrorModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -37,12 +39,6 @@ public class ListArtistController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(ListArtistController.class);
     private static final String IO_EXCEPTION = "IOException : ";
-
-    // ARTIST SELECTION ERROR POP-UP STAGE
-    private static Stage artistSelectionErrorStage;
-
-    // ARTIST DELETING CONFIRMATION POP-UP STAGE
-    private static Stage artistDeleteConfirmationStage;
 
     private InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -64,26 +60,6 @@ public class ListArtistController implements Initializable {
 
     @FXML
     private ImageView deletingActionImageView = new ImageView();
-
-    /**
-     * GETTERS AND SETTERS
-     */
-
-    public static Stage getArtistDeleteConfirmationStage() {
-        return artistDeleteConfirmationStage;
-    }
-
-    public static void setArtistDeleteConfirmationStage(Stage artistDeleteConfirmationStage) {
-        ListArtistController.artistDeleteConfirmationStage = artistDeleteConfirmationStage;
-    }
-
-    public static Stage getArtistSelectionErrorStage() {
-        return artistSelectionErrorStage;
-    }
-
-    public static void setArtistSelectionErrorStage(Stage artistSelectionErrorStage) {
-        ListArtistController.artistSelectionErrorStage = artistSelectionErrorStage;
-    }
 
     /**
      * ARTIST LIST INITIALIZATION
@@ -138,26 +114,10 @@ public class ListArtistController implements Initializable {
         Platform.runLater(() -> listArtist.refresh());
     }
 
-    // ARTIST SELECTION ERROR POP-UP "OK" BUTTON CLICKED
-    public void artistSelectionErrorCloseButtonClicked(ActionEvent actionEvent) {
-        getArtistSelectionErrorStage().close();
-    }
-
     // ARTIST EDITING ICON CLICKED
     public void artistEditingButtonClicked(MouseEvent mouseEvent) {
         if (ListArtistSelectionListener.getAuteurSelected() == null) {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 455, 140));
-                ListArtistController.setArtistSelectionErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            this.showArtistSelectionErrorPopUp();
         } else {
             Stage homeStage = new Home().getHomeStage();
             homeStage.show();
@@ -178,32 +138,16 @@ public class ListArtistController implements Initializable {
 
     // ARTIST DELETING ICON CLICKED
     public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
-        if (ListArtistSelectionListener.getAuteurSelected() == null) {
-            Stage stage = new Stage();
+        AuteurDto auteurSelected = ListArtistSelectionListener.getAuteurSelected();
 
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/errors/artistSelectionError.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, null));
-                stage.setScene(new Scene(root, 455, 140));
-                ListArtistController.setArtistSelectionErrorStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+        if (auteurSelected == null) {
+            this.showArtistSelectionErrorPopUp();
         } else {
-            Stage stage = new Stage();
-
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/views/artist/deleteArtistConfirmation.fxml"));
-                stage.setTitle(informationsUtils.buildStageTitleBar(stage, "Suppression d'un(e) artiste"));
-                stage.setScene(new Scene(root, 630, 140));
-                setArtistDeleteConfirmationStage(stage);
-                stage.show();
-
-            } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
-            }
+            CommonConfirmationModal.getDeleteConfirmationAlert(TypeSource.ARTIST, auteurSelected);
         }
+    }
+
+    private void showArtistSelectionErrorPopUp() {
+        CommonErrorModal.getSelectionErrorAlert(TypeSource.ARTIST);
     }
 }
