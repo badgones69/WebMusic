@@ -20,6 +20,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaException;
 import javafx.stage.Stage;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
@@ -30,6 +32,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -146,10 +149,28 @@ public class ListMusicController implements Initializable {
 
     // MUSIC LISTENING ICON CLICKED
     public void musicListeningButtonClicked(MouseEvent mouseEvent) {
-        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
+        MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
+        boolean isMusicWithNoFile = false;
+        boolean isMusicWithWrongFile = false;
+
+        if (musiqueSelected != null) {
+            String nomFichierMusique = musiqueSelected.getNomFichierMusique();
+
+            isMusicWithNoFile = nomFichierMusique == null ||
+                    "".equals(nomFichierMusique);
+
+            if (!isMusicWithNoFile) {
+                try {
+                    new Media(new File(nomFichierMusique).toURI().toString());
+                } catch (MediaException mediaException) {
+                    isMusicWithWrongFile = true;
+                }
+            }
+        }
+
+        if (musiqueSelected == null) {
             this.showMusicSelectionErrorPopUp();
-        } else if (ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique() == null ||
-                "".equals(ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique())) {
+        } else if (isMusicWithNoFile || isMusicWithWrongFile) {
             MusicErrorModal.getMusicFileErrorAlert(TypeSource.MUSIC);
         } else {
             Stage stage = new Stage();

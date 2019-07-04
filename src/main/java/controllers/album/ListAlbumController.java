@@ -19,6 +19,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaException;
 import javafx.stage.Stage;
 import listeners.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
@@ -29,6 +31,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -136,21 +139,30 @@ public class ListAlbumController implements Initializable {
 
     // ALBUM LISTENING ICON CLICKED
     public void albumListeningButtonClicked() {
+        AlbumDto albumSelected = ListAlbumSelectionListener.getAlbumSelected();
         boolean hasMusicWithNoFile = false;
+        boolean hasMusicWithWrongFile = false;
 
-        if (ListAlbumSelectionListener.getAlbumSelected() != null) {
+        if (albumSelected != null) {
             AlbumDao albumDao = new AlbumDao();
-            AlbumDb albumSelectedToDb = AlbumMapper.toDb(ListAlbumSelectionListener.getAlbumSelected());
+            AlbumDb albumSelectedToDb = AlbumMapper.toDb(albumSelected);
 
             hasMusicWithNoFile = albumDao.getMusiques(albumSelectedToDb)
                     .stream()
                     .anyMatch(musique -> musique.getNomFichierMusique() == null ||
                             "".equals(musique.getNomFichierMusique()));
+
+            try {
+                albumDao.getMusiques(albumSelectedToDb)
+                        .forEach((musique) -> new Media(new File(musique.getNomFichierMusique()).toURI().toString()));
+            } catch (MediaException mediaException) {
+                hasMusicWithWrongFile = true;
+            }
         }
 
-        if (ListAlbumSelectionListener.getAlbumSelected() == null) {
+        if (albumSelected == null) {
             this.showAlbumSelectionErrorPopUp();
-        } else if (hasMusicWithNoFile) {
+        } else if (hasMusicWithNoFile || hasMusicWithWrongFile) {
             MusicErrorModal.getMusicFileErrorAlert(TypeSource.ALBUM);
         } else {
             Stage stage = new Stage();
