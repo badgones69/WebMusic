@@ -17,16 +17,15 @@ public class InformationsUtils {
 
     // APP VERSION NUMBER RETRIEVING
     private String getVersionApplication() {
-        URL manifestUrl = this.getClass().getResource("/META-INF/MANIFEST.MF");
-        Manifest manifest = null;
         try {
-            manifest = new Manifest(manifestUrl.openStream());
+            URL manifestUrl = this.getClass().getResource("/META-INF/MANIFEST.MF");
+            Manifest manifest = new Manifest(manifestUrl.openStream());
+            Attributes attributes = manifest.getMainAttributes();
+            return attributes.getValue("Implementation-Version");
         } catch (IOException e) {
             LOG.error(IO_EXCEPTION + e.getMessage(), e);
         }
-        Attributes attributes = manifest.getMainAttributes();
-
-        return attributes.getValue("Implementation-Version");
+        return "";
     }
 
     // STAGE TITLE BUILDING

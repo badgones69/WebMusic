@@ -30,6 +30,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -146,10 +147,24 @@ public class ListMusicController implements Initializable {
 
     // MUSIC LISTENING ICON CLICKED
     public void musicListeningButtonClicked(MouseEvent mouseEvent) {
-        if (ListMusicSelectionListener.getMusiqueSelected() == null) {
+        MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
+        boolean isMusicWithNoFile = false;
+        boolean isMusicWithWrongFile = false;
+
+        if (musiqueSelected != null) {
+            String nomFichierMusique = musiqueSelected.getNomFichierMusique();
+
+            isMusicWithNoFile = nomFichierMusique == null ||
+                    "".equals(nomFichierMusique);
+
+            if (!isMusicWithNoFile) {
+                isMusicWithWrongFile = !(new File(nomFichierMusique).exists());
+            }
+        }
+
+        if (musiqueSelected == null) {
             this.showMusicSelectionErrorPopUp();
-        } else if (ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique() == null ||
-                "".equals(ListMusicSelectionListener.getMusiqueSelected().getNomFichierMusique())) {
+        } else if (isMusicWithNoFile || isMusicWithWrongFile) {
             MusicErrorModal.getMusicFileErrorAlert(TypeSource.MUSIC);
         } else {
             Stage stage = new Stage();

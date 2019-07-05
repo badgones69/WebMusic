@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.1.1](https://github.com/badgones69/WebMusic/tree/1.1.1) (2019-07-05)
+
+### Bug Fixes
+
+* **Music** : list correction (case where a music has a non-existent path in computer wasn't managed)
+* **Album** : list correction (case where a music has a non-existent path in computer wasn't managed)
+* **Playlist** : list correction (case where a music has a non-existent path in computer wasn't managed)
+
 # [1.1.0](https://github.com/badgones69/WebMusic/tree/1.1.0) (2019-06-23)
 
 ### Features

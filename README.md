@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.1.0-brightgreen.svg"></a>
+    <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.1.1-brightgreen.svg"></a>
     <a><img src="https://img.shields.io/badge/size-9%20MB-ff69b4.svg"></a>
 </p>
 

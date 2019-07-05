@@ -30,6 +30,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -138,18 +139,26 @@ public class ListPlaylistController implements Initializable {
 
     // PLAYLIST LISTENING ICON CLICKED
     public void playlistListeningButtonClicked(MouseEvent mouseEvent) {
+        PlaylistDto playlistSelected = ListPlaylistSelectionListener.getPlaylistSelected();
         boolean hasMusicWithNoFile = false;
+        boolean hasMusicWithWrongFile = false;
 
-        if (ListPlaylistSelectionListener.getPlaylistSelected() != null) {
-            hasMusicWithNoFile = ListPlaylistSelectionListener.getPlaylistSelected().getListeMusiques()
+        if (playlistSelected != null) {
+            hasMusicWithNoFile = playlistSelected.getListeMusiques()
                     .stream()
                     .anyMatch(musique -> musique.getNomFichierMusique() == null ||
                             "".equals(musique.getNomFichierMusique()));
+
+            hasMusicWithWrongFile = Boolean.TRUE.equals(playlistSelected.getListeMusiques()
+                    .stream()
+                    .map(musique -> !(new File(musique.getNomFichierMusique()).exists()))
+                    .reduce((wrongFile1, wrongFile2) -> wrongFile1 || wrongFile2)
+                    .orElse(Boolean.FALSE));
         }
 
-        if (ListPlaylistSelectionListener.getPlaylistSelected() == null) {
+        if (playlistSelected == null) {
             this.showPlaylistSelectionErrorPopUp();
-        } else if (hasMusicWithNoFile) {
+        } else if (hasMusicWithNoFile || hasMusicWithWrongFile) {
             MusicErrorModal.getMusicFileErrorAlert(TypeSource.PLAYLIST);
         } else {
             Stage stage = new Stage();
