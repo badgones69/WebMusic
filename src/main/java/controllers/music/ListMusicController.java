@@ -20,8 +20,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaException;
 import javafx.stage.Stage;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
@@ -160,11 +158,7 @@ public class ListMusicController implements Initializable {
                     "".equals(nomFichierMusique);
 
             if (!isMusicWithNoFile) {
-                try {
-                    new Media(new File(nomFichierMusique).toURI().toString());
-                } catch (MediaException mediaException) {
-                    isMusicWithWrongFile = true;
-                }
+                isMusicWithWrongFile = !(new File(nomFichierMusique).exists());
             }
         }
 

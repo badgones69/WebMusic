@@ -19,8 +19,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaException;
 import javafx.stage.Stage;
 import listeners.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
@@ -152,12 +150,11 @@ public class ListAlbumController implements Initializable {
                     .anyMatch(musique -> musique.getNomFichierMusique() == null ||
                             "".equals(musique.getNomFichierMusique()));
 
-            try {
-                albumDao.getMusiques(albumSelectedToDb)
-                        .forEach((musique) -> new Media(new File(musique.getNomFichierMusique()).toURI().toString()));
-            } catch (MediaException mediaException) {
-                hasMusicWithWrongFile = true;
-            }
+            hasMusicWithWrongFile = Boolean.TRUE.equals(albumDao.getMusiques(albumSelectedToDb)
+                    .stream()
+                    .map(musique -> !(new File(musique.getNomFichierMusique()).exists()))
+                    .reduce((wrongFile1, wrongFile2) -> wrongFile1 || wrongFile2)
+                    .orElse(Boolean.FALSE));
         }
 
         if (albumSelected == null) {
