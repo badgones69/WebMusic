@@ -4,7 +4,8 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import org.controlsfx.control.ListSelectionView?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="addPlaylistBorderPane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" styleClass="panel"
             stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
@@ -31,17 +32,55 @@
                     <children>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "
                                textAlignment="RIGHT"/>
-                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date d'insertion : "
-                               textAlignment="CENTER" GridPane.rowIndex="1"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Date d'insertion : " textAlignment="CENTER" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="20.0" />
+                            </GridPane.margin>
+                        </Label>
                         <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Musique(s) : "
                                textAlignment="RIGHT" GridPane.rowIndex="2"/>
 
-                        <TextField fx:id="titre" alignment="CENTER_LEFT" maxWidth="350.0" styleClass="formField"
+                        <TextField fx:id="titre" maxWidth="350.0" styleClass="formField"
                                    GridPane.columnIndex="1"/>
-                        <TextField fx:id="dateInsertion" alignment="CENTER_LEFT" disable="true" maxWidth="120.0"
-                                   styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                        <ListSelectionView fx:id="musiques" maxWidth="700.0" minHeight="360.0" styleClass="formField"
-                                           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <TextField fx:id="dateInsertion" disable="true" maxWidth="120.0" styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <HBox maxWidth="900.0" minHeight="360.0" styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <VBox alignment="CENTER">
+                                <Label styleClass="picklistHeading" text="Liste des musiques" />
+                                <ListView fx:id="source" prefWidth="350.0" />
+                            </VBox>
+
+                            <VBox alignment="CENTER">
+                                <Button fx:id="addMusic" styleClass="picklistButton">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="CARET_RIGHT" size="16.0" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="addAllMusic" styleClass="picklistButton">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="STEP_FORWARD" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="removeMusic" styleClass="picklistButton">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="CARET_LEFT" size="16.0" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="removeAllMusic" styleClass="picklistButton">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="STEP_BACKWARD" />
+                                    </graphic>
+                                </Button>
+                            </VBox>
+
+                            <VBox alignment="CENTER">
+                                <Label styleClass="picklistHeading" text="Musique(s) de la playlist" />
+                                <ListView fx:id="target" prefWidth="350.0" />
+                            </VBox>
+                        </HBox>
                     </children>
                 </GridPane>
                 <HBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="570.0" styleClass="formButtonsHBox">
