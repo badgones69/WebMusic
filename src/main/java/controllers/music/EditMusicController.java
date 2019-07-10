@@ -10,18 +10,21 @@ import dto.MusiqueDto;
 import enums.TypeAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import listeners.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
-import org.controlsfx.control.ListSelectionView;
 import utils.DaoTestsUtils;
 import utils.FormUtils;
 
@@ -46,7 +49,17 @@ public class EditMusicController extends MusicController implements Initializabl
     @FXML
     protected ComboBox<String> album = new ComboBox<>();
     @FXML
-    protected ListSelectionView<Label> artistes = new ListSelectionView<>();
+    protected ListView<Label> source = new ListView<>();
+    @FXML
+    protected ListView<Label> target = new ListView<>();
+    @FXML
+    protected Button addArtist = new Button();
+    @FXML
+    protected Button removeArtist = new Button();
+    @FXML
+    protected Button addAllArtist = new Button();
+    @FXML
+    protected Button removeAllArtist = new Button();
 
     /**
      * MUSIC EDITING FORM CONTAINERS
@@ -112,11 +125,9 @@ public class EditMusicController extends MusicController implements Initializabl
             this.album.setValue(null);
         }
         // "artistes" PICKLIST INITIALIZATION
-        Label sourceLabel = new Label("Liste des artistes");
-        sourceLabel.setStyle("-fx-font-weight:bold");
-        this.artistes.setSourceHeader(sourceLabel);
         AuteurDao auteurDao = new AuteurDao();
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
+        ObservableList<Label> auteurTargetValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursSourceValues = auteurDao.findAll();
         listAuteursSourceValues.removeAll(musiqueDb.getListeAuteurs());
 
@@ -135,13 +146,6 @@ public class EditMusicController extends MusicController implements Initializabl
             auteurSourceValues.add(new Label(auteur));
         }
 
-        this.artistes.getSourceItems().clear();
-        this.artistes.getSourceItems().addAll(auteurSourceValues);
-
-        Label targetLabel = new Label("Artiste(s) de la musique");
-        targetLabel.setStyle("-fx-font-weight:bold");
-        this.artistes.setTargetHeader(targetLabel);
-        ObservableList<Label> auteurTargetValues = FXCollections.observableArrayList();
         List<AuteurDb> listAuteursTargetValues = musiqueDb.getListeAuteurs();
         List<String> auteursTargetInString = new ArrayList<>();
         for (AuteurDb auteurDb : listAuteursTargetValues) {
@@ -157,8 +161,50 @@ public class EditMusicController extends MusicController implements Initializabl
         for (String auteur : auteursTargetInString) {
             auteurTargetValues.add(new Label(auteur));
         }
-        this.artistes.getTargetItems().clear();
-        this.artistes.getTargetItems().addAll(auteurTargetValues);
+
+        this.source.getItems().addAll(auteurSourceValues);
+        this.target.getItems().addAll(auteurTargetValues);
+
+        this.source.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        this.target.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        this.addArtist.setOnAction((ActionEvent event) -> {
+            auteurSourceValues.removeAll(source.getSelectionModel().getSelectedItems());
+            auteurTargetValues.addAll(source.getSelectionModel().getSelectedItems());
+            auteurTargetValues.sort((artist1, artist2) -> artist1.getText().compareToIgnoreCase(artist2.getText()));
+            this.source.getItems().clear();
+            this.source.getItems().addAll(auteurSourceValues);
+            this.target.getItems().clear();
+            this.target.getItems().addAll(auteurTargetValues);
+        });
+
+        this.addAllArtist.setOnAction((ActionEvent event) -> {
+            auteurTargetValues.addAll(auteurSourceValues);
+            auteurSourceValues.clear();
+            auteurTargetValues.sort((artist1, artist2) -> artist1.getText().compareToIgnoreCase(artist2.getText()));
+            this.source.getItems().clear();
+            this.target.getItems().clear();
+            this.target.getItems().addAll(auteurTargetValues);
+        });
+
+        this.removeArtist.setOnAction((ActionEvent event) -> {
+            auteurTargetValues.removeAll(target.getSelectionModel().getSelectedItems());
+            auteurSourceValues.addAll(target.getSelectionModel().getSelectedItems());
+            auteurSourceValues.sort((artist1, artist2) -> artist1.getText().compareToIgnoreCase(artist2.getText()));
+            this.source.getItems().clear();
+            this.source.getItems().addAll(auteurSourceValues);
+            this.target.getItems().clear();
+            this.target.getItems().addAll(auteurTargetValues);
+        });
+
+        this.removeAllArtist.setOnAction((ActionEvent event) -> {
+            auteurSourceValues.addAll(auteurTargetValues);
+            auteurTargetValues.clear();
+            auteurSourceValues.sort((artist1, artist2) -> artist1.getText().compareToIgnoreCase(artist2.getText()));
+            this.source.getItems().clear();
+            this.source.getItems().addAll(auteurSourceValues);
+            this.target.getItems().clear();
+        });
     }
 
     // MUSIC SELECTION FILE CHOOSER OPENING
@@ -171,7 +217,7 @@ public class EditMusicController extends MusicController implements Initializabl
 
         Boolean titreInvalide = "".equals(titre.getText());
         Boolean dureeInvalide = !FormUtils.dureeMusiqueIsValid(duree.getText());
-        Boolean artistesInvalides = artistes.getTargetItems().size() == 0;
+        Boolean artistesInvalides = this.target.getItems().size() == 0;
 
         if (titreInvalide) {
             super.showTitleErrorPopUp();
@@ -200,7 +246,7 @@ public class EditMusicController extends MusicController implements Initializabl
             musique.setDateActionMusique(this.dateModification.getText());
             musique.setNomFichierMusique(this.nomFichier.getText());
             musique.setAlbumMusique(albumMusique);
-            musique.setListeAuteurs(super.setArtistsToMusic(this.artistes.getTargetItems()));
+            musique.setListeAuteurs(super.setArtistsToMusic(this.target.getItems()));
 
             MusiqueDao musiqueDao = new MusiqueDao();
             musiqueDao.update(musique);
