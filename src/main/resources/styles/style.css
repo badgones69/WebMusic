@@ -112,3 +112,15 @@
 .modalBody .button:default {
     -fx-base: #80BFFF;
 }
+
+/**
+ * ANY PICKLIST
+ */
+
+.picklistButton {
+    -fx-max-width: 50.0;
+}
+
+.picklistHeading {
+    -fx-font-weight: bold;
+}

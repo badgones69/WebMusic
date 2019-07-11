@@ -9,19 +9,22 @@ import dto.PlaylistDto;
 import enums.TypeAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import listeners.ListPlaylistSelectionListener;
 import mapper.MusiqueMapper;
 import mapper.PlaylistMapper;
-import org.controlsfx.control.ListSelectionView;
 import utils.FormUtils;
 
 import java.net.URL;
@@ -41,7 +44,17 @@ public class EditPlaylistController extends PlaylistController implements Initia
     @FXML
     protected TextField dateModification = new TextField();
     @FXML
-    protected ListSelectionView<Label> musiques = new ListSelectionView<>();
+    protected ListView<Label> source = new ListView<>();
+    @FXML
+    protected ListView<Label> target = new ListView<>();
+    @FXML
+    protected Button addMusic = new Button();
+    @FXML
+    protected Button removeMusic = new Button();
+    @FXML
+    protected Button addAllMusic = new Button();
+    @FXML
+    protected Button removeAllMusic = new Button();
     /**
      * PLAYLIST EDITING FORM CONTAINERS
      */
@@ -82,11 +95,9 @@ public class EditPlaylistController extends PlaylistController implements Initia
         this.dateModification.setText(FormUtils.getCurrentDate());
 
         // "musiques" PICKLIST INITIALIZATION
-        Label sourceLabel = new Label("Liste des musiques");
-        sourceLabel.setStyle("-fx-font-weight:bold");
-        this.musiques.setSourceHeader(sourceLabel);
         MusiqueDao musiqueDao = new MusiqueDao();
         ObservableList<Label> musiqueSourceValues = FXCollections.observableArrayList();
+        ObservableList<Label> musiqueTargetValues = FXCollections.observableArrayList();
         List<MusiqueDb> listMusiquesSourceValues = musiqueDao.findAll();
 
         for (MusiqueDb musiqueDb : listMusiquesSourceValues) {
@@ -111,13 +122,6 @@ public class EditPlaylistController extends PlaylistController implements Initia
             i++;
         }
 
-        this.musiques.getSourceItems().clear();
-        this.musiques.getSourceItems().addAll(musiqueSourceValues);
-
-        Label targetLabel = new Label("Musique(s) de la playlist");
-        targetLabel.setStyle("-fx-font-weight:bold");
-        this.musiques.setTargetHeader(targetLabel);
-        ObservableList<Label> musiqueTargetValues = FXCollections.observableArrayList();
         List<MusiqueDb> listMusiquesTargetValues = playlistDb.getListeMusiques();
 
         for (MusiqueDb musiqueDb : listMusiquesTargetValues) {
@@ -136,15 +140,56 @@ public class EditPlaylistController extends PlaylistController implements Initia
             j++;
         }
 
-        this.musiques.getTargetItems().clear();
-        this.musiques.getTargetItems().addAll(musiqueTargetValues);
+        this.source.getItems().addAll(musiqueSourceValues);
+        this.target.getItems().addAll(musiqueTargetValues);
+
+        this.source.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        this.target.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        this.addMusic.setOnAction((ActionEvent event) -> {
+            musiqueSourceValues.removeAll(source.getSelectionModel().getSelectedItems());
+            musiqueTargetValues.addAll(source.getSelectionModel().getSelectedItems());
+            musiqueTargetValues.sort((musique1, musique2) -> musique1.getText().compareToIgnoreCase(musique2.getText()));
+            this.source.getItems().clear();
+            this.source.getItems().addAll(musiqueSourceValues);
+            this.target.getItems().clear();
+            this.target.getItems().addAll(musiqueTargetValues);
+        });
+
+        this.addAllMusic.setOnAction((ActionEvent event) -> {
+            musiqueTargetValues.addAll(musiqueSourceValues);
+            musiqueSourceValues.clear();
+            musiqueTargetValues.sort((musique1, musique2) -> musique1.getText().compareToIgnoreCase(musique2.getText()));
+            this.source.getItems().clear();
+            this.target.getItems().clear();
+            this.target.getItems().addAll(musiqueTargetValues);
+        });
+
+        this.removeMusic.setOnAction((ActionEvent event) -> {
+            musiqueTargetValues.removeAll(target.getSelectionModel().getSelectedItems());
+            musiqueSourceValues.addAll(target.getSelectionModel().getSelectedItems());
+            musiqueSourceValues.sort((musique1, musique2) -> musique1.getText().compareToIgnoreCase(musique2.getText()));
+            this.source.getItems().clear();
+            this.source.getItems().addAll(musiqueSourceValues);
+            this.target.getItems().clear();
+            this.target.getItems().addAll(musiqueTargetValues);
+        });
+
+        this.removeAllMusic.setOnAction((ActionEvent event) -> {
+            musiqueSourceValues.addAll(musiqueTargetValues);
+            musiqueTargetValues.clear();
+            musiqueSourceValues.sort((musique1, musique2) -> musique1.getText().compareToIgnoreCase(musique2.getText()));
+            this.source.getItems().clear();
+            this.source.getItems().addAll(musiqueSourceValues);
+            this.target.getItems().clear();
+        });
     }
 
     // PLAYLIST EDITING FORM VALIDATION AND SENDING
     public void validForm() {
 
         Boolean titreInvalide = "".equals(titre.getText());
-        Boolean musiquesInvalides = musiques.getTargetItems().size() == 0;
+        Boolean musiquesInvalides = this.target.getItems().size() == 0;
 
         if (titreInvalide) {
             super.showTitleErrorPopUp();
@@ -162,7 +207,7 @@ public class EditPlaylistController extends PlaylistController implements Initia
             playlist.setIntitulePlaylist(this.titre.getText());
             playlist.setDateActionPlaylist(this.dateModification.getText());
 
-            for (Label label : this.musiques.getTargetItems()) {
+            for (Label label : this.target.getItems()) {
                 Optional<MusiqueDto> musiqueSelected = this.listMusiquesValues.stream()
                         .filter(musiqueDto -> musiqueDto.getTitreMusique().equals(label.getText()))
                         .filter(musiqueDto -> musiqueDto.getAuteurs().equals(label.getTooltip().getText()))

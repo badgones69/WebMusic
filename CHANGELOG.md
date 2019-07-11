@@ -1,5 +1,12 @@
 # Change Log
 
+# [1.2.0](https://github.com/badgones69/WebMusic/tree/1.2.0) (2019-07-11)
+
+### Features
+
+* **Music** : artists picklists overhauling
+* **Playlist** : musics picklists overhauling
+
 ## [1.1.1](https://github.com/badgones69/WebMusic/tree/1.1.1) (2019-07-05)
 
 ### Bug Fixes
