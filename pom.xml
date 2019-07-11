@@ -45,10 +45,11 @@
             </exclusions>
         </dependency>
 
+        <!-- GUI -->
         <dependency>
-            <groupId>org.controlsfx</groupId>
-            <artifactId>controlsfx</artifactId>
-            <version>8.40.14</version>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx-commons</artifactId>
+            <version>9.1.2</version>
         </dependency>
 
         <!-- Logging -->
