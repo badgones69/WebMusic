@@ -37,9 +37,10 @@
                 <MenuItem id="addPlaylistItem" mnemonicParsing="false" text="Ajout" onAction="#addPlaylistItemClicked"/>
             </items>
         </Menu>
-        <Menu id="helpMenu" mnemonicParsing="false" text="Aide">
+        <Menu mnemonicParsing="false" text="Aide">
             <items>
                 <MenuItem id="aboutItem" mnemonicParsing="false" onAction="#aboutItemClicked" text="À propos"/>
+                <MenuItem id="creditsItem" mnemonicParsing="false" onAction="#creditsItemClicked" text="Crédits"/>
             </items>
         </Menu>
     </menus>

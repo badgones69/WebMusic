@@ -21,7 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import modal.confirmation.CommonConfirmationModal;
-import modal.info.AboutModal;
+import modal.info.CommonInfoModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -242,6 +242,10 @@ public class MenuController implements Initializable {
      */
 
     public void aboutItemClicked(ActionEvent actionEvent) {
-        AboutModal.getAboutAlert();
+        CommonInfoModal.getAboutAlert();
+    }
+
+    public void creditsItemClicked(ActionEvent actionEvent) {
+        CommonInfoModal.getCreditsAlert();
     }
 }
