@@ -1,5 +1,11 @@
 # Change Log
 
+# [1.3.0](https://github.com/badgones69/WebMusic/tree/1.3.0) (2019-07-16)
+
+### Features
+
+Credits modal window adding
+
 # [1.2.0](https://github.com/badgones69/WebMusic/tree/1.2.0) (2019-07-11)
 
 ### Features
