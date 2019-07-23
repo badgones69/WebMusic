@@ -28,8 +28,8 @@
                         <TableView fx:id="listMusic" focusTraversable="false">
                             <columns>
                                 <TableColumn fx:id="titreColumn" text="Titre"/>
-                                <TableColumn fx:id="artisteColumn" editable="false" sortable="false" text="Artiste(s)"/>
-                                <TableColumn fx:id="dureeColumn" text="Durée"/>
+                                <TableColumn fx:id="artisteColumn" editable="false" sortable="false" minWidth="150.0" text="Artiste(s)"/>
+                                <TableColumn fx:id="dureeColumn" resizable="false" minWidth="80.0" maxWidth="80.0" text="Durée"/>
                                 <TableColumn fx:id="albumColumn" text="Album"/>
                             </columns>
                         </TableView>

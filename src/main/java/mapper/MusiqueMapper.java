@@ -66,13 +66,13 @@ public class MusiqueMapper {
 
         for (int i = 0; i < artistsList.size(); i++) {
             if (artistsList.get(i).getPrenomAuteur() != null) {
-                stringListBuilder.append(artistsList.get(i).getPrenomAuteur() + " ");
+                stringListBuilder.append(artistsList.get(i).getPrenomAuteur()).append(" ");
             }
 
             stringListBuilder.append(artistsList.get(i).getNomAuteur());
 
             if (i != artistsList.size() - 1) {
-                stringListBuilder.append(" & ");
+                stringListBuilder.append(", ");
             }
         }
         return stringListBuilder.toString();
