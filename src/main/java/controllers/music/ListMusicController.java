@@ -131,16 +131,17 @@ public class ListMusicController implements Initializable {
 
         for (int i = 0; i < this.listMusic.getItems().size(); i++) {
 
-            titreColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("titreMusique"));
-            artisteColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("auteurs"));
-            dureeColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("dureeMusique"));
-            albumColumn.setCellValueFactory(new PropertyValueFactory<MusiqueDto, String>("titreAlbumMusique"));
-            listMusic.getColumns().clear();
-            listMusic.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-            listMusic.setOnMouseClicked(new ListMusicSelectionListener());
-            listMusic.getColumns().addAll(titreColumn, artisteColumn, dureeColumn, albumColumn);
-            listMusic.getSortOrder().add(titreColumn);
+            titreColumn.setCellValueFactory(new PropertyValueFactory<>("titreMusique"));
+            artisteColumn.setCellValueFactory(new PropertyValueFactory<>("auteurs"));
+            dureeColumn.setCellValueFactory(new PropertyValueFactory<>("dureeMusique"));
+            albumColumn.setCellValueFactory(new PropertyValueFactory<>("titreAlbumMusique"));
         }
+
+        listMusic.getColumns().clear();
+        listMusic.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        listMusic.setOnMouseClicked(new ListMusicSelectionListener());
+        listMusic.getColumns().addAll(titreColumn, artisteColumn, dureeColumn, albumColumn);
+        listMusic.getSortOrder().add(titreColumn);
 
         Platform.runLater(() -> listMusic.refresh());
     }
