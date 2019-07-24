@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.3.3](https://github.com/badgones69/WebMusic/tree/1.3.3) (2019-07-24)
+
+### Bug Fixes
+
+Useless logs generation deleting
+
 ## [1.3.2](https://github.com/badgones69/WebMusic/tree/1.3.2) (2019-07-23)
 
 ### Bug Fixes
