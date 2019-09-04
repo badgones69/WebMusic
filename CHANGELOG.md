@@ -1,5 +1,14 @@
 # Change Log
 
+# [1.4.0](https://github.com/badgones69/WebMusic/tree/1.4.0) (2019-09-04)
+
+### Features
+
+* **Music** : list improvement (paging adding)
+* **Album** : list improvement (paging adding)
+* **Artist** : list improvement (paging adding)
+* **Playlist** : list improvement (paging adding)
+
 ## [1.3.3](https://github.com/badgones69/WebMusic/tree/1.3.3) (2019-07-24)
 
 ### Bug Fixes
