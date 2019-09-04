@@ -23,7 +23,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import listeners.ListMusicSelectionListener;
+import listeners.music.ListMusicSelectionListener;
 import mapper.MusiqueMapper;
 import utils.DaoTestsUtils;
 import utils.FormUtils;

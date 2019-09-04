@@ -2,7 +2,10 @@
 
 <!-- ALBUM LIST PAGE VIEW -->
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.*?>
@@ -26,12 +29,64 @@
                         <RowConstraints/>
                     </rowConstraints>
                     <children>
-                        <TableView fx:id="listAlbum" focusTraversable="false">
+                        <TableView fx:id="listAlbum" maxHeight="389.0">
                             <columns>
                                 <TableColumn fx:id="titreColumn" text="Titre"/>
                                 <TableColumn fx:id="anneeColumn" text="Année"/>
                             </columns>
                         </TableView>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0"/>
+                    </VBox.margin>
+                </GridPane>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="nbAlbum" styleClass="paginationLabel" alignment="CENTER" textAlignment="CENTER"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Button fx:id="firstPage" styleClass="paginationBarButton">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="STEP_BACKWARD" size="32.0"/>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="fifthPreviousPage" styleClass="paginationBarButton">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="BACKWARD" size="32.0"/>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="previousPage" styleClass="paginationBarButton">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="CARET_LEFT" size="32.0"/>
+                                </graphic>
+                            </Button>
+                            <Label fx:id="currentPage" styleClass="paginationLabel"/>
+                            <Button fx:id="nextPage" styleClass="paginationBarButton">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="CARET_RIGHT" size="32.0"/>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="fifthNextPage" styleClass="paginationBarButton">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FORWARD" size="32.0"/>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="lastPage" styleClass="paginationBarButton">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="STEP_FORWARD" size="32.0"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
+                        <Label fx:id="nbPage" styleClass="paginationLabel" alignment="CENTER" textAlignment="CENTER"
+                               GridPane.columnIndex="2" GridPane.rowIndex="0"/>
                     </children>
                 </GridPane>
             </children>

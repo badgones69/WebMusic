@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import listeners.ListAlbumSelectionListener;
+import listeners.album.ListAlbumSelectionListener;
 import mapper.AlbumMapper;
 import utils.FormUtils;
 

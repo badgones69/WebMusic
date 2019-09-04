@@ -16,7 +16,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
-import listeners.ListPlaylistSelectionListener;
+import listeners.playlist.ListPlaylistSelectionListener;
 import mapper.MusiqueMapper;
 import mapper.PlaylistMapper;
 import utils.ListenUtils;
