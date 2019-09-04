@@ -1,24 +1,14 @@
-package listeners;
+package listeners.album;
 
 import dto.AlbumDto;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 
-public class ListAlbumSelectionListener implements EventHandler<MouseEvent> {
+public class ListAlbumMouseSelectionListener extends ListAlbumSelectionListener implements EventHandler<MouseEvent> {
 
-    // SELECTED ALBUM IN ALBUM LIST
-    private static AlbumDto albumSelected;
-
-    /**
-     * GETTER AND SETTER
-     */
-    public static AlbumDto getAlbumSelected() {
-        return albumSelected;
-    }
-
-    public static void setAlbumSelected(AlbumDto albumDtoSelected) {
-        albumSelected = albumDtoSelected;
+    public ListAlbumMouseSelectionListener() {
+        super();
     }
 
     // METHOD TO CONSERVE THE SELECTED ALBUM IN ALBUM LIST
