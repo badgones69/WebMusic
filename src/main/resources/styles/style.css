@@ -15,7 +15,7 @@
     -fx-text-fill: #FFFFFF;
 }
 
-#menuBar .menu {
+#menuBar .menu, .paginationLabel {
     -fx-font-weight: bold;
     -fx-font-size: 18;
 }
@@ -77,8 +77,16 @@
 }
 
 .table-view {
-    -fx-selction-bar: #0080FF;
-    -fx-selection-bar-non-focused: #0080FF;
+    -fx-selection-bar-non-focused: #0096C9;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #E6CCFF;
+}
+
+.paginationBarButton {
+    -fx-background-color: #E6CCFF;
+
+    /*TOP, RIGHT, BOTTOM, LEFT*/
+    -fx-padding: 0 10 0 10;
 }
 
 /**
