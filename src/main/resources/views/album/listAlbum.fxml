@@ -33,6 +33,7 @@
                             <columns>
                                 <TableColumn fx:id="titreColumn" text="Titre"/>
                                 <TableColumn fx:id="anneeColumn" text="Année"/>
+                                <TableColumn fx:id="nbMusicsColumn"/>
                             </columns>
                         </TableView>
                     </children>

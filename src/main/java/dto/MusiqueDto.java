@@ -1,9 +1,5 @@
 package dto;
 
-import db.PlaylistDb;
-
-import java.util.List;
-
 public class MusiqueDto {
 
     private Integer codeMusique;
@@ -13,7 +9,6 @@ public class MusiqueDto {
     private String nomFichierMusique;
     private Integer numeroAlbumMusique;
     private String titreAlbumMusique;
-    private List<PlaylistDb> listePlaylists;
     private String auteurs;
 
     public Integer getCodeMusique() {
@@ -70,14 +65,6 @@ public class MusiqueDto {
 
     public void setTitreAlbumMusique(String titreAlbumMusique) {
         this.titreAlbumMusique = titreAlbumMusique;
-    }
-
-    public List<PlaylistDb> getListePlaylists() {
-        return listePlaylists;
-    }
-
-    public void setListePlaylists(List<PlaylistDb> listePlaylists) {
-        this.listePlaylists = listePlaylists;
     }
 
     public String getAuteurs() {

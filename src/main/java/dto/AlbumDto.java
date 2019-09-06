@@ -5,6 +5,7 @@ public class AlbumDto {
     private Integer numeroAlbum;
     private String titreAlbum;
     private String anneeAlbum;
+    private String nbMusicsAlbum;
 
     public Integer getNumeroAlbum() {
         return numeroAlbum;
@@ -28,5 +29,13 @@ public class AlbumDto {
 
     public void setAnneeAlbum(String anneeAlbum) {
         this.anneeAlbum = anneeAlbum;
+    }
+
+    public String getNbMusicsAlbum() {
+        return nbMusicsAlbum;
+    }
+
+    public void setNbMusicsAlbum(String nbMusicsAlbum) {
+        this.nbMusicsAlbum = nbMusicsAlbum;
     }
 }

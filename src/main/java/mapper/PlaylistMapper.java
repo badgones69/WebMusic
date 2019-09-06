@@ -17,11 +17,20 @@ public class PlaylistMapper {
     // PlaylistDb TO PlaylistDto CONVERTING
     public static PlaylistDto toDto(PlaylistDb playlistDb) {
         PlaylistDto playlistDto = new PlaylistDto();
+        Integer nbMusiques = playlistDb.getListeMusiques().size();
 
         playlistDto.setIdPlaylist(playlistDb.getIdPlaylist());
         playlistDto.setIntitulePlaylist(playlistDb.getIntitulePlaylist());
         playlistDto.setDateActionPlaylist(String.valueOf(playlistDb.getDateActionPlaylist()));
         playlistDto.setListeMusiques(playlistDb.getListeMusiques());
+
+        playlistDto.setNbMusicsPlaylist(nbMusiques.toString());
+
+        if (nbMusiques <= 1) {
+            playlistDto.setNbMusicsPlaylist(playlistDto.getNbMusicsPlaylist() + " musique");
+        } else {
+            playlistDto.setNbMusicsPlaylist(playlistDto.getNbMusicsPlaylist() + " musiques");
+        }
 
         return playlistDto;
     }

@@ -1,5 +1,12 @@
 # Change Log
 
+# [1.5.0](https://github.com/badgones69/WebMusic/tree/1.5.0) (2019-09-06)
+
+### Features
+
+* **Album** : list updating (new column added for musics number)
+* **Playlist** : list updating (new column added for musics number)
+
 # [1.4.0](https://github.com/badgones69/WebMusic/tree/1.4.0) (2019-09-04)
 
 ### Features
