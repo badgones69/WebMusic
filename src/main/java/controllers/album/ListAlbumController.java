@@ -80,6 +80,9 @@ public class ListAlbumController implements Initializable {
     @FXML
     private TableColumn<AlbumDto, String> anneeColumn = new TableColumn<>();
 
+    @FXML
+    private TableColumn<AlbumDto, String> nbMusicsColumn = new TableColumn<>();
+
     /**
      * ALBUM LIST PAGINATION COMPONENTS
      */
@@ -165,11 +168,12 @@ public class ListAlbumController implements Initializable {
 
             this.titreColumn.setCellValueFactory(new PropertyValueFactory<>("titreAlbum"));
             this.anneeColumn.setCellValueFactory(new PropertyValueFactory<>("anneeAlbum"));
+            this.nbMusicsColumn.setCellValueFactory(new PropertyValueFactory<>("nbMusicsAlbum"));
             this.listAlbum.getColumns().clear();
             this.listAlbum.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
             this.listAlbum.setOnMouseClicked(new ListAlbumMouseSelectionListener());
             this.listAlbum.setOnKeyReleased(new ListAlbumKeySelectionListener());
-            this.listAlbum.getColumns().addAll(this.titreColumn, this.anneeColumn);
+            this.listAlbum.getColumns().addAll(this.titreColumn, this.anneeColumn, this.nbMusicsColumn);
         }
 
         this.listAlbum.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
