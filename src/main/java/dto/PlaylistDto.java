@@ -10,6 +10,7 @@ public class PlaylistDto {
     private String intitulePlaylist;
     private String dateActionPlaylist;
     private List<MusiqueDb> listeMusiques;
+    private String nbMusicsPlaylist;
 
     public Integer getIdPlaylist() {
         return idPlaylist;
@@ -41,5 +42,13 @@ public class PlaylistDto {
 
     public void setListeMusiques(List<MusiqueDb> listeMusiques) {
         this.listeMusiques = listeMusiques;
+    }
+
+    public String getNbMusicsPlaylist() {
+        return nbMusicsPlaylist;
+    }
+
+    public void setNbMusicsPlaylist(String nbMusicsPlaylist) {
+        this.nbMusicsPlaylist = nbMusicsPlaylist;
     }
 }

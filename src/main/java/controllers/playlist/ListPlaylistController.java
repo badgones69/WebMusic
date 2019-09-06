@@ -81,6 +81,9 @@ public class ListPlaylistController implements Initializable {
     @FXML
     private TableColumn<PlaylistDto, String> dateActionColumn = new TableColumn<>();
 
+    @FXML
+    private TableColumn<PlaylistDto, String> nbMusicsColumn = new TableColumn<>();
+
     /**
      * PLAYLIST LIST PAGINATION COMPONENTS
      */
@@ -166,11 +169,12 @@ public class ListPlaylistController implements Initializable {
 
             this.titreColumn.setCellValueFactory(new PropertyValueFactory<>("intitulePlaylist"));
             this.dateActionColumn.setCellValueFactory(new PropertyValueFactory<>("dateActionPlaylist"));
+            this.nbMusicsColumn.setCellValueFactory(new PropertyValueFactory<>("nbMusicsPlaylist"));
             this.listPlaylist.getColumns().clear();
             this.listPlaylist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
             this.listPlaylist.setOnMouseClicked(new ListPlaylistMouseSelectionListener());
             this.listPlaylist.setOnKeyReleased(new ListPlaylistKeySelectionListener());
-            this.listPlaylist.getColumns().addAll(this.titreColumn, this.dateActionColumn);
+            this.listPlaylist.getColumns().addAll(this.titreColumn, this.dateActionColumn, this.nbMusicsColumn);
         }
 
         this.listPlaylist.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
