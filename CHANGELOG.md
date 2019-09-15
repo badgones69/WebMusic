@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.5.1](https://github.com/badgones69/WebMusic/tree/1.5.1) (2019-09-15)
+
+### Bug Fixes
+
+* **Music** : form correction (case where any album is selected was mismanaged)
+
 # [1.5.0](https://github.com/badgones69/WebMusic/tree/1.5.0) (2019-09-06)
 
 ### Features
