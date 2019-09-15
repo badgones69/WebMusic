@@ -111,9 +111,9 @@ public class AddMusicController extends MusicController implements Initializable
         Collections.sort(albumValues, Collator.getInstance(new Locale("fr")));
 
         this.album.getItems().clear();
-        this.album.getItems().add(null);
+        this.album.getItems().add("");
         this.album.getItems().addAll(albumValues);
-        this.album.setValue(null);
+        this.album.setValue("");
 
         // "artistes" PICKLIST INITIALIZATION
         AuteurDao auteurDao = new AuteurDao();
@@ -209,7 +209,7 @@ public class AddMusicController extends MusicController implements Initializable
             MusiqueDb musique = new MusiqueDb();
             AlbumDb albumMusique = new AlbumDb();
 
-            if (album.getValue() != null) {
+            if (!"".equals(album.getValue())) {
                 albumMusique.setTitreAlbum(album.getValue());
                 DaoTestsUtils.setNumeroToAlbum(albumMusique);
             }
