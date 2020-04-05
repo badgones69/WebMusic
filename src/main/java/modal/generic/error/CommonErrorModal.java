@@ -1,9 +1,9 @@
-package modal.error;
+package modal.generic.error;
 
 import enums.TypeSource;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import modal.Modal;
+import modal.generic.GenericModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -25,7 +25,7 @@ public class CommonErrorModal {
         selectionErrorAlert.setContentText(selectionErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         selectionErrorAlert.setContentText(selectionErrorAlert.getContentText() + source.getLibelle() + " !");
 
-        Stage selectionErrorStage = Modal.initStage(selectionErrorAlert);
+        Stage selectionErrorStage = GenericModal.initStage(selectionErrorAlert);
         selectionErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(selectionErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(selectionErrorAlert);
 
@@ -41,7 +41,7 @@ public class CommonErrorModal {
         titleErrorAlert.setContentText(titleErrorAlert.getContentText() + ModalUtils.getWordThisFeminised(source));
         titleErrorAlert.setContentText(titleErrorAlert.getContentText() + " " + source.getLibelle() + " !");
 
-        Stage titleErrorStage = Modal.initStage(titleErrorAlert);
+        Stage titleErrorStage = GenericModal.initStage(titleErrorAlert);
         titleErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(titleErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(titleErrorAlert);
 

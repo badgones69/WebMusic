@@ -1,6 +1,5 @@
 package controllers.music;
 
-import dao.AlbumDao;
 import dao.AuteurDao;
 import dao.MusiqueDao;
 import db.AlbumDb;
@@ -13,23 +12,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Button;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import utils.DaoTestsUtils;
+import modal.editable.AlbumModal;
+import modal.generic.confirmation.AlbumConfirmationModal;
 import utils.FormUtils;
+import utils.StyleUtils;
 
 import java.net.URL;
-import java.text.Collator;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class AddMusicController extends MusicController implements Initializable {
+
+    private AlbumDb currentAlbumSelected;
 
     /**
      * MUSIC ADDING FORM FIELDS
@@ -44,7 +45,8 @@ public class AddMusicController extends MusicController implements Initializable
     @FXML
     protected TextField nomFichier = new TextField();
     @FXML
-    protected ComboBox<String> album = new ComboBox<>();
+    protected HBox albumHBox = new HBox();
+    protected TextField textFieldAlbumSelected = new TextField();
     @FXML
     protected ListView<Label> source = new ListView<>();
     @FXML
@@ -99,22 +101,6 @@ public class AddMusicController extends MusicController implements Initializable
         // "dateInsertion" FIELD INITIALIZATION
         this.dateInsertion.setText(FormUtils.getCurrentDate());
 
-        // "album" FIELD INITIALIZATION
-        AlbumDao albumDao = new AlbumDao();
-        List<String> albumValues = new ArrayList<>();
-        List<AlbumDb> listAlbums = albumDao.findAll();
-
-        for (AlbumDb albumDb : listAlbums) {
-            albumValues.add(albumDb.getTitreAlbum());
-        }
-
-        Collections.sort(albumValues, Collator.getInstance(new Locale("fr")));
-
-        this.album.getItems().clear();
-        this.album.getItems().add("");
-        this.album.getItems().addAll(albumValues);
-        this.album.setValue("");
-
         // "artistes" PICKLIST INITIALIZATION
         AuteurDao auteurDao = new AuteurDao();
         ObservableList<Label> auteurSourceValues = FXCollections.observableArrayList();
@@ -130,7 +116,7 @@ public class AddMusicController extends MusicController implements Initializable
             );
         }
 
-        Collections.sort(auteursInString, Collator.getInstance(new Locale("fr")));
+        Collections.sort(auteursInString, FormUtils.getFrenchCollator());
 
         for (String auteur : auteursInString) {
             auteurSourceValues.add(new Label(auteur));
@@ -186,12 +172,89 @@ public class AddMusicController extends MusicController implements Initializable
         this.nomFichier.setText(super.getFileSelected());
     }
 
+    // MUSIC SELECTION FILE CHOOSER OPENING
+    public void openNewAlbumAddingModal() {
+        AlbumModal albumModal = new AlbumModal();
+        AlbumModal.setCurrentAlbumPreSelected(new AlbumDb());
+        this.currentAlbumSelected = albumModal.getAddNewAlbumAlert();
+
+        if(this.currentAlbumSelected.getTitreAlbum() != null) {
+            albumHBox.getChildren().clear();
+
+            this.textFieldAlbumSelected.setDisable(true);
+            this.textFieldAlbumSelected.getStylesheets().add(StyleUtils.getStylesheet());
+            this.textFieldAlbumSelected.getStyleClass().add(StyleUtils.getFormFieldClass());
+
+            Button updatingChoice = new Button("Modifier");
+            updatingChoice.setMnemonicParsing(false);
+            updatingChoice.getStylesheets().add(StyleUtils.getStylesheet());
+            updatingChoice.getStyleClass().add(StyleUtils.getFormFieldClass());
+
+            updatingChoice.setOnAction(action -> {
+                AlbumDb newAlbumAdded = AlbumConfirmationModal.getAlbumSelectChoiceConfirmationAlert(this.currentAlbumSelected);
+
+                if (newAlbumAdded.getNumeroAlbum() != null) {
+                    this.textFieldAlbumSelected.setText(newAlbumAdded.toString());
+                } else {
+                    this.textFieldAlbumSelected.setText("");
+                }
+                this.currentAlbumSelected = newAlbumAdded;
+            });
+
+            albumHBox.getChildren().addAll(this.textFieldAlbumSelected, updatingChoice);
+
+            if (this.currentAlbumSelected.getNumeroAlbum() != null) {
+                this.textFieldAlbumSelected.setText(this.currentAlbumSelected.toString());
+            } else {
+                this.textFieldAlbumSelected.setText("");
+            }
+        }
+    }
+
+    public void openExistingAlbumSelectingModal() {
+        AlbumModal albumModal = new AlbumModal();
+        AlbumModal.setCurrentAlbumPreSelected(new AlbumDb());
+        this.currentAlbumSelected = albumModal.getSelectAlbumAlert();
+
+        if(this.currentAlbumSelected.getTitreAlbum() != null) {
+            albumHBox.getChildren().clear();
+
+            this.textFieldAlbumSelected.setDisable(true);
+            this.textFieldAlbumSelected.getStylesheets().add(StyleUtils.getStylesheet());
+            this.textFieldAlbumSelected.getStyleClass().add(StyleUtils.getFormFieldClass());
+
+            Button updatingChoice = new Button("Modifier");
+            updatingChoice.setMnemonicParsing(false);
+            updatingChoice.getStylesheets().add(StyleUtils.getStylesheet());
+            updatingChoice.getStyleClass().add(StyleUtils.getFormFieldClass());
+
+            updatingChoice.setOnAction(action -> {
+                AlbumDb newAlbumSelected = AlbumConfirmationModal.getAlbumSelectChoiceConfirmationAlert(this.currentAlbumSelected);
+
+                if (newAlbumSelected.getNumeroAlbum() != null) {
+                    this.textFieldAlbumSelected.setText(newAlbumSelected.toString());
+                } else {
+                    this.textFieldAlbumSelected.setText("");
+                }
+                this.currentAlbumSelected = newAlbumSelected;
+            });
+
+            albumHBox.getChildren().addAll(this.textFieldAlbumSelected, updatingChoice);
+
+            if (this.currentAlbumSelected.getNumeroAlbum() != null) {
+                this.textFieldAlbumSelected.setText(this.currentAlbumSelected.toString());
+            } else {
+                this.textFieldAlbumSelected.setText("");
+            }
+        }
+    }
+
     // MUSIC ADDING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        Boolean titreInvalide = "".equals(titre.getText());
-        Boolean dureeInvalide = !FormUtils.dureeMusiqueIsValid(duree.getText());
-        Boolean artistesInvalides = this.target.getItems().size() == 0;
+        boolean titreInvalide = "".equals(titre.getText());
+        boolean dureeInvalide = !FormUtils.dureeMusiqueIsValid(duree.getText());
+        boolean artistesInvalides = this.target.getItems().isEmpty();
 
         if (titreInvalide) {
             super.showTitleErrorPopUp();
@@ -205,20 +268,14 @@ public class AddMusicController extends MusicController implements Initializable
             super.showArtistErrorPopUp();
         }
 
-        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(dureeInvalide) && Boolean.FALSE.equals(artistesInvalides)) {
+        if (!titreInvalide && !dureeInvalide && !artistesInvalides) {
             MusiqueDb musique = new MusiqueDb();
-            AlbumDb albumMusique = new AlbumDb();
-
-            if (!"".equals(album.getValue())) {
-                albumMusique.setTitreAlbum(album.getValue());
-                DaoTestsUtils.setNumeroToAlbum(albumMusique);
-            }
 
             musique.setTitreMusique(this.titre.getText());
             musique.setDureeMusique(this.duree.getText());
             musique.setDateActionMusique(this.dateInsertion.getText());
             musique.setNomFichierMusique(this.nomFichier.getText());
-            musique.setAlbumMusique(albumMusique);
+            musique.setAlbumMusique(this.currentAlbumSelected);
             musique.setListeAuteurs(super.setArtistsToMusic(this.target.getItems()));
 
             MusiqueDao musiqueDao = new MusiqueDao();

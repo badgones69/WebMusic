@@ -1,4 +1,4 @@
-package modal.confirmation;
+package modal.generic.confirmation;
 
 import enums.TypeSource;
 import javafx.event.EventHandler;
@@ -9,7 +9,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import modal.Modal;
+import modal.generic.GenericModal;
 import utils.ModalUtils;
 
 public class ConfirmationModal {
@@ -24,7 +24,7 @@ public class ConfirmationModal {
     }
 
     public void initPane(Alert alert) {
-        DialogPane pane = Modal.initPane(alert);
+        DialogPane pane = GenericModal.initPane(alert);
 
         ImageView infoImageView = new ImageView(getClass().getResource("/icons/question.png").toString());
         infoImageView.setFitHeight(60);

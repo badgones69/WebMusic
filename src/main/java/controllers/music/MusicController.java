@@ -8,9 +8,9 @@ import enums.TypeSource;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
-import modal.error.CommonErrorModal;
-import modal.error.MusicErrorModal;
-import modal.success.ActionSuccessModal;
+import modal.generic.error.CommonErrorModal;
+import modal.generic.error.MusicErrorModal;
+import modal.generic.success.ActionSuccessModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
@@ -82,7 +82,7 @@ public class MusicController {
     }
 
     protected void showSuccessPopUp(TypeAction action) {
-        ActionSuccessModal.getActionSuccessAlert(TypeSource.MUSIC, action);
+        ActionSuccessModal.getActionSuccessAlert(TypeSource.MUSIC, action, true);
     }
 
     protected void showArtistErrorPopUp() {

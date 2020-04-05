@@ -1,9 +1,9 @@
-package modal.error;
+package modal.generic.error;
 
 import enums.TypeSource;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import modal.Modal;
+import modal.generic.GenericModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -24,7 +24,7 @@ public class MusicErrorModal {
         musicArtistErrorAlert.setContentText(musicArtistErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         musicArtistErrorAlert.setContentText(musicArtistErrorAlert.getContentText() + "cette musique ! ");
 
-        Stage musicArtistErrorStage = Modal.initStage(musicArtistErrorAlert);
+        Stage musicArtistErrorStage = GenericModal.initStage(musicArtistErrorAlert);
         musicArtistErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(musicArtistErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(musicArtistErrorAlert);
 
@@ -38,7 +38,7 @@ public class MusicErrorModal {
         musicLengthErrorAlert.setContentText(musicLengthErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         musicLengthErrorAlert.setContentText(musicLengthErrorAlert.getContentText() + "pour cette musique ! ");
 
-        Stage musicLengthErrorStage = Modal.initStage(musicLengthErrorAlert);
+        Stage musicLengthErrorStage = GenericModal.initStage(musicLengthErrorAlert);
         musicLengthErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(musicLengthErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(musicLengthErrorAlert);
 
@@ -59,7 +59,7 @@ public class MusicErrorModal {
             musicFileErrorAlert.setContentText(musicFileErrorAlert.getContentText() + "possède un fichier introuvable !");
         }
 
-        Stage musicFileErrorStage = Modal.initStage(musicFileErrorAlert);
+        Stage musicFileErrorStage = GenericModal.initStage(musicFileErrorAlert);
         musicFileErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(musicFileErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(musicFileErrorAlert);
 

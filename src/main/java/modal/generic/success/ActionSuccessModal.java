@@ -1,4 +1,4 @@
-package modal.success;
+package modal.generic.success;
 
 import controllers.album.ListAlbumController;
 import controllers.artist.ListArtistController;
@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import modal.Modal;
+import modal.generic.GenericModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -33,7 +33,7 @@ public class ActionSuccessModal {
         LOG.error("This class cannot be instantiated because it's an 'Utility class'");
     }
 
-    public static void getActionSuccessAlert(TypeSource source, TypeAction action) {
+    public static void getActionSuccessAlert(TypeSource source, TypeAction action, boolean needRedirection) {
         Alert actionSuccessAlert = SuccessModal.initAlert();
 
         actionSuccessAlert.setContentText("Votre ");
@@ -42,19 +42,18 @@ public class ActionSuccessModal {
         actionSuccessAlert.setContentText(actionSuccessAlert.getContentText() + ModalUtils.feminiseWord(action.getLibelle(), source));
         actionSuccessAlert.setContentText(actionSuccessAlert.getContentText() + ".");
 
-        Stage actionSuccessStage = Modal.initStage(actionSuccessAlert);
+        Stage actionSuccessStage = GenericModal.initStage(actionSuccessAlert);
         actionSuccessStage.setTitle(informationsUtils.buildStageTitleBar(actionSuccessStage, SuccessModal.SUCCESS_MODAL_TITLE));
         new SuccessModal().initPane(actionSuccessAlert);
 
         Optional<ButtonType> result = actionSuccessAlert.showAndWait();
 
-        if (result.isPresent() && ButtonType.OK.equals(result.get())) {
+        if (result.isPresent() && ButtonType.OK.equals(result.get()) && needRedirection) {
             String stageTitle = "Liste des " + source.getLibelle() + "s";
             Stage homeStage = new Home().getHomeStage();
             Parent root = null;
 
             try {
-
                 switch (source) {
                     case PLAYLIST:
                         ListPlaylistController listPlaylistController = new ListPlaylistController();

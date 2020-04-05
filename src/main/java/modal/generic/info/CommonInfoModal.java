@@ -1,9 +1,9 @@
-package modal.info;
+package modal.generic.info;
 
 import enums.TypeVersion;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import modal.Modal;
+import modal.generic.GenericModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -25,7 +25,7 @@ public class CommonInfoModal {
         aboutAlert.setContentText(aboutAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         aboutAlert.setContentText(aboutAlert.getContentText() + "Licence : GNU General Public License v3.0");
 
-        Stage aboutStage = Modal.initStage(aboutAlert);
+        Stage aboutStage = GenericModal.initStage(aboutAlert);
         aboutStage.setTitle(new InformationsUtils().buildStageTitleBar(aboutStage, "À propos"));
         new InfoModal().initPane(aboutAlert);
 
@@ -45,7 +45,7 @@ public class CommonInfoModal {
         creditsAlert.setContentText(creditsAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         creditsAlert.setContentText(creditsAlert.getContentText() + "Log4j : version " + informationsUtils.getVersion(TypeVersion.LOG4J));
 
-        Stage creditsStage = Modal.initStage(creditsAlert);
+        Stage creditsStage = GenericModal.initStage(creditsAlert);
         creditsStage.setTitle(informationsUtils.buildStageTitleBar(creditsStage, "Crédits"));
         new InfoModal().initPane(creditsAlert);
 

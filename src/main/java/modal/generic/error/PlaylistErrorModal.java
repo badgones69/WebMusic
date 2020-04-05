@@ -1,8 +1,8 @@
-package modal.error;
+package modal.generic.error;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import modal.Modal;
+import modal.generic.GenericModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -23,7 +23,7 @@ public class PlaylistErrorModal {
         playlistMusicErrorAlert.setContentText(playlistMusicErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         playlistMusicErrorAlert.setContentText(playlistMusicErrorAlert.getContentText() + "pour cette playlist ! ");
 
-        Stage playlistMusicErrorStage = Modal.initStage(playlistMusicErrorAlert);
+        Stage playlistMusicErrorStage = GenericModal.initStage(playlistMusicErrorAlert);
         playlistMusicErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(playlistMusicErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(playlistMusicErrorAlert);
 

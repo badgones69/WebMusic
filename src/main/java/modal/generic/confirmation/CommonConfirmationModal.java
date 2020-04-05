@@ -1,4 +1,4 @@
-package modal.confirmation;
+package modal.generic.confirmation;
 
 import dao.AlbumDao;
 import dao.AuteurDao;
@@ -18,8 +18,8 @@ import mapper.AlbumMapper;
 import mapper.AuteurMapper;
 import mapper.MusiqueMapper;
 import mapper.PlaylistMapper;
-import modal.Modal;
-import modal.success.ActionSuccessModal;
+import modal.generic.GenericModal;
+import modal.generic.success.ActionSuccessModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -42,7 +42,7 @@ public class CommonConfirmationModal {
         deleteConfirmationAlert.setContentText(deleteConfirmationAlert.getContentText() + ModalUtils.getWordThisFeminised(source));
         deleteConfirmationAlert.setContentText(deleteConfirmationAlert.getContentText() + " " + source.getLibelle() + " ?");
 
-        Stage deleteConfirmationStage = Modal.initStage(deleteConfirmationAlert);
+        Stage deleteConfirmationStage = GenericModal.initStage(deleteConfirmationAlert);
         String title = "Suppression d'";
         title += ModalUtils.feminiseWord("un", source);
         title += " " + source.getLibelle();
@@ -66,7 +66,7 @@ public class CommonConfirmationModal {
                 playlistDao.delete(PlaylistMapper.toDb((PlaylistDto) objectSelected));
             }
 
-            ActionSuccessModal.getActionSuccessAlert(source, TypeAction.DELETE);
+            ActionSuccessModal.getActionSuccessAlert(source, TypeAction.DELETE, true);
         }
     }
 
@@ -75,7 +75,7 @@ public class CommonConfirmationModal {
 
         appCloseConfirmationAlert.setContentText(appCloseConfirmationAlert.getContentText() + "fermer l'application WebMusic ?");
 
-        Stage appCloseConfirmationStage = Modal.initStage(appCloseConfirmationAlert);
+        Stage appCloseConfirmationStage = GenericModal.initStage(appCloseConfirmationAlert);
         appCloseConfirmationStage.setTitle(new InformationsUtils().buildStageTitleBar(appCloseConfirmationStage, "Fermeture"));
         new ConfirmationModal().initPane(appCloseConfirmationAlert);
 

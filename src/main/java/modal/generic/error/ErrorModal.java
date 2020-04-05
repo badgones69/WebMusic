@@ -1,9 +1,9 @@
-package modal.error;
+package modal.generic.error;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
-import modal.Modal;
+import modal.generic.GenericModal;
 
 public class ErrorModal {
     public static final String ERROR_MODAL_TITLE = "Erreur";
@@ -16,7 +16,7 @@ public class ErrorModal {
     }
 
     public void initPane(Alert alert) {
-        DialogPane pane = Modal.initPane(alert);
+        DialogPane pane = GenericModal.initPane(alert);
 
         ImageView infoImageView = new ImageView(getClass().getResource("/icons/error.png").toString());
         infoImageView.setFitHeight(60);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            styleClass="panel, modalBody" stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0.121"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="modal.editable.AlbumModal">
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
+                       text="Sélection d'un album" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
+                        <ColumnConstraints fillWidth="false" hgrow="SOMETIMES"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Album : "
+                               textAlignment="RIGHT"/>
+
+                        <ComboBox fx:id="albumSelect" maxWidth="350.0" styleClass="formField" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

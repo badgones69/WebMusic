@@ -5,11 +5,8 @@ import db.AlbumDb;
 import enums.TypeAction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
+import utils.DaoTestsUtils;
 import utils.FormUtils;
 
 import java.net.URL;
@@ -27,30 +24,12 @@ public class AddAlbumController extends AlbumController implements Initializable
     protected TextField annee = new TextField();
 
     /**
-     * ALBUM ADDING FORM CONTAINERS
-     */
-
-    @FXML
-    BorderPane addAlbumBorderPane = new BorderPane();
-    @FXML
-    VBox addAlbumVBox = new VBox();
-
-    /**
      * ALBUM ADDING FORM INITIALIZATION
      */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.initializeSizes();
         this.initializeForm();
-    }
-
-    private void initializeSizes() {
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        addAlbumBorderPane.setPrefWidth(primaryScreenBounds.getWidth());
-        addAlbumBorderPane.setPrefHeight(primaryScreenBounds.getHeight() - 32);
-        addAlbumVBox.setPrefWidth(primaryScreenBounds.getWidth());
-        addAlbumVBox.setPrefHeight(addAlbumBorderPane.getPrefHeight() - 32);
     }
 
     private void initializeForm() {
@@ -63,9 +42,12 @@ public class AddAlbumController extends AlbumController implements Initializable
 
     // ALBUM ADDING FORM VALIDATION AND SENDING
     public void validForm() {
+        this.validatingForm(this.titre, this.annee, true);
+    }
 
-        Boolean titreInvalide = "".equals(titre.getText());
-        Boolean anneeInvalide = !FormUtils.anneeAlbumIsValid(annee.getText());
+    public AlbumDb validatingForm(TextField titre, TextField annee, boolean needRedirection) {
+        boolean titreInvalide = "".equals(titre.getText());
+        boolean anneeInvalide = !FormUtils.anneeAlbumIsValid(annee.getText());
 
         if (titreInvalide) {
             super.showTitleErrorPopUp();
@@ -78,14 +60,17 @@ public class AddAlbumController extends AlbumController implements Initializable
         if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(anneeInvalide)) {
             AlbumDb albumDb = new AlbumDb();
 
-            albumDb.setTitreAlbum(this.titre.getText());
-            albumDb.setAnneeAlbum("".equals(this.annee.getText()) ? null : Integer.parseInt(this.annee.getText()));
+            albumDb.setTitreAlbum(titre.getText());
+            albumDb.setAnneeAlbum("".equals(annee.getText()) ? null : Integer.parseInt(annee.getText()));
 
             AlbumDao albumDao = new AlbumDao();
             albumDao.insert(albumDb);
 
-            super.showSuccessPopUp(TypeAction.ADD);
+            super.showSuccessPopUp(TypeAction.ADD, needRedirection);
+            DaoTestsUtils.setNumeroToAlbum(albumDb);
+            return albumDb;
         }
+        return new AlbumDb();
     }
 
     // ALBUM ADDING FORM CANCELING

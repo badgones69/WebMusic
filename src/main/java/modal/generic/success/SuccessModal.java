@@ -1,9 +1,9 @@
-package modal.success;
+package modal.generic.success;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
-import modal.Modal;
+import modal.generic.GenericModal;
 
 public class SuccessModal {
     public static final String SUCCESS_MODAL_TITLE = "Succès";
@@ -16,7 +16,7 @@ public class SuccessModal {
     }
 
     public void initPane(Alert alert) {
-        DialogPane pane = Modal.initPane(alert);
+        DialogPane pane = GenericModal.initPane(alert);
 
         ImageView infoImageView = new ImageView(getClass().getResource("/icons/success.png").toString());
         infoImageView.setFitHeight(60);

@@ -67,11 +67,11 @@
                             <Button mnemonicParsing="false" onAction="#openMusicFileChooser" styleClass="formField"
                                     text="Choisir"/>
                         </HBox>
-                        <ComboBox fx:id="album" prefWidth="350.0" styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                            <GridPane.margin>
-                                <Insets bottom="20.0" />
-                            </GridPane.margin>
-                        </ComboBox>
+                        <HBox fx:id="albumHBox" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <TextField fx:id="textFieldAlbumSelected" disable="true" styleClass="formField" />
+                            <Button fx:id="updatingChoice" mnemonicParsing="false"
+                                    styleClass="formField" text="Modifier"/>
+                        </HBox>
                         <HBox maxWidth="900.0" minHeight="300.0" styleClass="formField" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <VBox alignment="CENTER">
                                 <Label styleClass="picklistHeading" text="Liste des artistes" />

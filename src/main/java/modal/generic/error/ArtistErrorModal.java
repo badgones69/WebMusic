@@ -1,8 +1,8 @@
-package modal.error;
+package modal.generic.error;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import modal.Modal;
+import modal.generic.GenericModal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.InformationsUtils;
@@ -23,7 +23,7 @@ public class ArtistErrorModal {
         artistNameErrorAlert.setContentText(artistNameErrorAlert.getContentText() + ModalUtils.getSystemLineSeparator());
         artistNameErrorAlert.setContentText(artistNameErrorAlert.getContentText() + "pseudo pour cet(te) artiste ! ");
 
-        Stage artistNameErrorStage = Modal.initStage(artistNameErrorAlert);
+        Stage artistNameErrorStage = GenericModal.initStage(artistNameErrorAlert);
         artistNameErrorStage.setTitle(new InformationsUtils().buildStageTitleBar(artistNameErrorStage, ErrorModal.ERROR_MODAL_TITLE));
         new ErrorModal().initPane(artistNameErrorAlert);
 

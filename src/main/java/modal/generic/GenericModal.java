@@ -1,4 +1,4 @@
-package modal;
+package modal.generic;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
@@ -6,11 +6,11 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Modal {
+public class GenericModal {
 
-    private static final Logger LOG = LogManager.getLogger(Modal.class);
+    private static final Logger LOG = LogManager.getLogger(GenericModal.class);
 
-    private Modal() {
+    private GenericModal() {
         LOG.error("This class cannot be instantiated because it's an 'Utility class'");
     }
 
@@ -23,10 +23,9 @@ public class Modal {
     }
 
     public static DialogPane initPane(Alert alert) {
-        DialogPane aboutAlertPane = alert.getDialogPane();
-        aboutAlertPane.getStylesheets().add("/styles/style.css");
-        aboutAlertPane.getStyleClass().add("panel");
-        aboutAlertPane.getStyleClass().add("modalBody");
-        return aboutAlertPane;
+        DialogPane alertPane = alert.getDialogPane();
+        alertPane.getStylesheets().add("/styles/style.css");
+        alertPane.getStyleClass().addAll("panel", "modalBody");
+        return alertPane;
     }
 }

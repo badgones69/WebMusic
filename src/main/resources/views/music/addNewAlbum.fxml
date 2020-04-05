@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ALBUM ADDING FORM VIEW -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="panel, modalBody" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            stylesheets="/styles/style.css" xmlns="http://javafx.com/javafx/8.0"
+            fx:controller="modal.editable.AlbumModal">
+
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" styleClass="formTitle"
+                       text="Ajout d'un album" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES"/>
+                        <ColumnConstraints fillWidth="false" hgrow="SOMETIMES"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Titre : "
+                               textAlignment="CENTER"/>
+                        <Label alignment="CENTER" contentDisplay="TOP" styleClass="formLabel" text="Année : "
+                               textAlignment="RIGHT" GridPane.rowIndex="1"/>
+
+                        <TextField fx:id="titreModal" alignment="CENTER_LEFT" maxWidth="350.0"
+                                   styleClass="formField"
+                                   GridPane.columnIndex="1"/>
+                        <TextField fx:id="anneeModal" alignment="CENTER_LEFT" maxWidth="350.0" styleClass="formField"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

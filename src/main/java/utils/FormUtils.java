@@ -3,10 +3,12 @@ package utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class FormUtils {
 
@@ -36,5 +38,13 @@ public class FormUtils {
             isValid = year <= Integer.parseInt(getCurrentDate().substring(6));
         }
         return isValid;
+    }
+
+    // METHOD TO GET THE FRENCH COLLATOR
+    public static Collator getFrenchCollator() {
+        Collator frenchCollator = Collator.getInstance(Locale.FRANCE);
+        frenchCollator.setStrength(Collator.SECONDARY);
+
+        return frenchCollator;
     }
 }
