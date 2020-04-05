@@ -54,4 +54,9 @@ public class AlbumDb {
     public int hashCode() {
         return Objects.hash(numeroAlbum);
     }
+
+    @Override
+    public String toString() {
+        return this.titreAlbum;
+    }
 }

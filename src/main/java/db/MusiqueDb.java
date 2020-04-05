@@ -113,7 +113,11 @@ public class MusiqueDb {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(codeMusique);
+    }
+
+    @Override
+    public String toString() {
+        return this.titreMusique;
     }
 }

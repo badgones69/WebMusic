@@ -70,7 +70,11 @@ public class PlaylistDb {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(idPlaylist);
+    }
+
+    @Override
+    public String toString() {
+        return this.intitulePlaylist;
     }
 }

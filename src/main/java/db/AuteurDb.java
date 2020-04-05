@@ -65,4 +65,16 @@ public class AuteurDb {
     public int hashCode() {
         return Objects.hash(identifiantAuteur);
     }
+
+    @Override
+    public String toString() {
+        String identite = "";
+
+        if(this.prenomAuteur != null) {
+            identite = prenomAuteur + " ";
+        }
+        identite += nomAuteur;
+
+        return identite;
+    }
 }
