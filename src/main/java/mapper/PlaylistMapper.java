@@ -3,15 +3,12 @@ package mapper;
 import dao.PlaylistDao;
 import db.PlaylistDb;
 import dto.PlaylistDto;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 
 public class PlaylistMapper {
 
-    private static final Logger LOG = LogManager.getLogger(PlaylistMapper.class);
-
     private PlaylistMapper() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(PlaylistMapper.class);
     }
 
     // PlaylistDb TO PlaylistDto CONVERTING

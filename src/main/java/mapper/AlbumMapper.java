@@ -3,15 +3,12 @@ package mapper;
 import dao.AlbumDao;
 import db.AlbumDb;
 import dto.AlbumDto;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 
 public class AlbumMapper {
 
-    private static final Logger LOG = LogManager.getLogger(AlbumMapper.class);
-
     private AlbumMapper() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(AlbumMapper.class);
     }
 
     // AlbumDb TO AlbumDto CONVERTING

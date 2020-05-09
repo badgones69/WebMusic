@@ -8,15 +8,13 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
+import utils.StyleUtils;
 
 public class EditableModal {
 
-    private static final Logger LOG = LogManager.getLogger(EditableModal.class);
-
     private EditableModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(EditableModal.class);
     }
 
     public static Stage initStage(Alert alert) {
@@ -25,8 +23,8 @@ public class EditableModal {
 
     public static void initPane(Alert alert) {
         DialogPane alertPane = alert.getDialogPane();
-        alertPane.getStylesheets().add("/styles/style.css");
-        alertPane.getStyleClass().addAll("panel", "modalBody");
+        alertPane.getStylesheets().add(StyleUtils.getStylesheet());
+        alertPane.getStyleClass().addAll(StyleUtils.getPanelClass(), StyleUtils.getModalBodyClass());
         alertPane.setGraphic(null);
 
         alertPane.getButtonTypes().clear();

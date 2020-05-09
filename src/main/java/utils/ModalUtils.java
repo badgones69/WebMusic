@@ -1,15 +1,11 @@
 package utils;
 
 import enums.TypeSource;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class ModalUtils {
 
-    private static final Logger LOG = LogManager.getLogger(ModalUtils.class);
-
     private ModalUtils() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(ModalUtils.class);
     }
 
     public static String getSystemLineSeparator() {

@@ -1,18 +1,14 @@
 package utils;
 
 import javafx.util.Duration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import static java.lang.Math.floor;
 import static java.lang.String.format;
 
 public class ListenUtils {
 
-    private static final Logger LOG = LogManager.getLogger(FormUtils.class);
-
     private ListenUtils() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(ListenUtils.class);
     }
 
     // PROGRESSION TIMES FORMATTING

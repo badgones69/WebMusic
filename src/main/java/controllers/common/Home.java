@@ -7,8 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import modal.generic.confirmation.CommonConfirmationModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 
 import java.io.File;
@@ -18,9 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Home extends Application {
-
-    private static final Logger LOG = LogManager.getLogger(Home.class);
-    private static final String IO_EXCEPTION = "IOException : ";
 
     // HOME PAGE STAGE
     private static Stage homeStage;
@@ -46,7 +42,7 @@ public class Home extends Application {
             try {
                 Files.copy(inputStream, target);
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(Home.class, e);
             }
         }
     }
@@ -69,7 +65,7 @@ public class Home extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/views/common/home.fxml"));
         primaryStage.setTitle(informationsUtils.buildStageTitleBar(primaryStage, "Accueil"));
         primaryStage.setScene(new Scene(root));
-        this.setHomeStage(primaryStage);
+        setHomeStage(primaryStage);
         this.configurateAppClose();
         primaryStage.show();
     }

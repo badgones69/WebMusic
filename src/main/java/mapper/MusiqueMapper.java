@@ -5,17 +5,14 @@ import dao.MusiqueDao;
 import db.AuteurDb;
 import db.MusiqueDb;
 import dto.MusiqueDto;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 
 import java.util.List;
 
 public class MusiqueMapper {
 
-    private static final Logger LOG = LogManager.getLogger(MusiqueMapper.class);
-
     private MusiqueMapper() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(MusiqueMapper.class);
     }
 
     // MusiqueDb TO MusiqueDto CONVERTING

@@ -70,8 +70,8 @@ public class EditAlbumController extends AlbumController implements Initializabl
     // ALBUM EDITING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        Boolean titreInvalide = "".equals(titre.getText());
-        Boolean anneeInvalide = !FormUtils.anneeAlbumIsValid(annee.getText());
+        boolean titreInvalide = "".equals(titre.getText());
+        boolean anneeInvalide = !FormUtils.anneeAlbumIsValid(annee.getText());
 
         if (titreInvalide) {
             super.showTitleErrorPopUp();
@@ -81,7 +81,7 @@ public class EditAlbumController extends AlbumController implements Initializabl
             super.showYearErrorPopUp();
         }
 
-        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(anneeInvalide)) {
+        if (!titreInvalide && !anneeInvalide) {
             AlbumDb album = new AlbumDb();
 
             album.setNumeroAlbum(ListAlbumSelectionListener.getAlbumSelected().getNumeroAlbum());

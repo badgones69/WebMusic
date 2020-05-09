@@ -30,8 +30,7 @@ import mapper.AlbumMapper;
 import modal.generic.confirmation.CommonConfirmationModal;
 import modal.generic.error.CommonErrorModal;
 import modal.generic.error.MusicErrorModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ListUtils;
 
@@ -43,8 +42,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListAlbumController implements Initializable {
-    private static final Logger LOG = LogManager.getLogger(ListAlbumController.class);
-    private static final String IO_EXCEPTION = "IOException : ";
     private static final String PAGE = "Page : ";
     private static final String SUR = " / ";
 
@@ -372,7 +369,7 @@ public class ListAlbumController implements Initializable {
                 albumListenStage.show();
 
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(ListAlbumController.class, e);
             }
         }
     }
@@ -394,7 +391,7 @@ public class ListAlbumController implements Initializable {
                 homeStage.show();
 
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(ListAlbumController.class, e);
             }
         }
     }

@@ -4,19 +4,16 @@ import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
 import db.PlaylistDb;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class DaoQueryUtils {
 
-    private static final Logger LOG = LogManager.getLogger(DaoQueryUtils.class);
     private static final String WHERE = " WHERE ";
     private static final String AND = " AND ";
     private static final String SELECT_FROM = "SELECT * FROM ";
     private static final String COMA_SEPARATOR = "' , '";
 
     private DaoQueryUtils() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(DaoQueryUtils.class);
     }
 
     /**

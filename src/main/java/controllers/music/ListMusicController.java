@@ -22,7 +22,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.music.ListMusicKeySelectionListener;
 import listeners.music.ListMusicMouseSelectionListener;
@@ -31,8 +30,7 @@ import mapper.MusiqueMapper;
 import modal.generic.confirmation.CommonConfirmationModal;
 import modal.generic.error.CommonErrorModal;
 import modal.generic.error.MusicErrorModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ListUtils;
 
@@ -44,8 +42,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListMusicController implements Initializable {
-    private static final Logger LOG = LogManager.getLogger(ListMusicController.class);
-    private static final String IO_EXCEPTION = "IOException : ";
     private static final String PAGE = "Page : ";
     private static final String SUR = " / ";
 
@@ -339,7 +335,7 @@ public class ListMusicController implements Initializable {
     }
 
     // MUSIC LISTENING ICON CLICKED
-    public void musicListeningButtonClicked(MouseEvent mouseEvent) {
+    public void musicListeningButtonClicked() {
         MusiqueDto musiqueSelected = ListMusicSelectionListener.getMusiqueSelected();
         boolean isMusicWithNoFile = false;
         boolean isMusicWithWrongFile = false;
@@ -375,7 +371,7 @@ public class ListMusicController implements Initializable {
                 musicListenStage.show();
 
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(ListMusicController.class, e);
             }
         }
     }
@@ -397,7 +393,7 @@ public class ListMusicController implements Initializable {
                 homeStage.show();
 
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(ListMusicController.class, e);
             }
         }
     }

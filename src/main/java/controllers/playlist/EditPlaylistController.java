@@ -188,8 +188,8 @@ public class EditPlaylistController extends PlaylistController implements Initia
     // PLAYLIST EDITING FORM VALIDATION AND SENDING
     public void validForm() {
 
-        Boolean titreInvalide = "".equals(titre.getText());
-        Boolean musiquesInvalides = this.target.getItems().size() == 0;
+        boolean titreInvalide = "".equals(titre.getText());
+        boolean musiquesInvalides = this.target.getItems().isEmpty();
 
         if (titreInvalide) {
             super.showTitleErrorPopUp();
@@ -199,7 +199,7 @@ public class EditPlaylistController extends PlaylistController implements Initia
             super.showMusicErrorPopUp();
         }
 
-        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(musiquesInvalides)) {
+        if (!titreInvalide && !musiquesInvalides) {
             PlaylistDb playlist = new PlaylistDb();
             List<MusiqueDto> musiquesSelected = new LinkedList<>();
 

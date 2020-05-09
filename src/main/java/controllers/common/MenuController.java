@@ -8,7 +8,6 @@ import controllers.music.AddMusicController;
 import controllers.music.ListMusicController;
 import controllers.playlist.AddPlaylistController;
 import controllers.playlist.ListPlaylistController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,8 +21,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import modal.generic.confirmation.CommonConfirmationModal;
 import modal.generic.info.CommonInfoModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 
 import java.io.IOException;
@@ -31,9 +29,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
-
-    private static final Logger LOG = LogManager.getLogger(MenuController.class);
-    private static final String IO_EXCEPTION = "IOException : ";
 
     private final InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -72,18 +67,18 @@ public class MenuController implements Initializable {
      * ITEMS LISTENERS OF "WebMusic" MENU
      */
 
-    public void appHomeItemClicked(ActionEvent actionEvent) {
+    public void appHomeItemClicked() {
         Stage homeStage = new Home().getHomeStage();
         homeStage.setTitle(informationsUtils.buildStageTitleBar(homeStage, "Accueil"));
         try {
             homeStage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/common/home.fxml")));
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
         homeStage.show();
     }
 
-    public void appCloseItemClicked(ActionEvent actionEvent) {
+    public void appCloseItemClicked() {
         CommonConfirmationModal.getAppCloseConfirmationAlert();
     }
 
@@ -91,7 +86,7 @@ public class MenuController implements Initializable {
      * ITEMS LISTENERS OF "Musique" MENU
      */
 
-    public void listMusicItemClicked(ActionEvent actionEvent) {
+    public void listMusicItemClicked() {
         Stage homeStage = new Home().getHomeStage();
 
         try {
@@ -103,11 +98,11 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
-    public void addMusicItemClicked(ActionEvent actionEvent) {
+    public void addMusicItemClicked() {
         Stage homeStage = new Home().getHomeStage();
         homeStage.show();
 
@@ -120,7 +115,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -141,7 +136,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -158,7 +153,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -179,7 +174,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -196,7 +191,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -216,7 +211,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -233,7 +228,7 @@ public class MenuController implements Initializable {
             homeStage.show();
 
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(MenuController.class, e);
         }
     }
 
@@ -241,11 +236,11 @@ public class MenuController implements Initializable {
      * ITEM LISTENER OF "Aide" MENU
      */
 
-    public void aboutItemClicked(ActionEvent actionEvent) {
+    public void aboutItemClicked() {
         CommonInfoModal.getAboutAlert();
     }
 
-    public void creditsItemClicked(ActionEvent actionEvent) {
+    public void creditsItemClicked() {
         CommonInfoModal.getCreditsAlert();
     }
 }

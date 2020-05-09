@@ -4,18 +4,16 @@ import enums.TypeVersion;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import modal.generic.GenericModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ModalUtils;
 
 public class CommonInfoModal {
 
-    private static final Logger LOG = LogManager.getLogger(CommonInfoModal.class);
     private static InformationsUtils informationsUtils = new InformationsUtils();
 
     private CommonInfoModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(CommonInfoModal.class);
     }
 
     public static void getAboutAlert() {

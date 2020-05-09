@@ -3,9 +3,8 @@ package dao;
 import database.SQLiteConnection;
 import db.MusiqueDb;
 import db.PlaylistDb;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
+import utils.LogUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,13 +13,10 @@ import java.util.List;
 
 public class PlaylistDao implements AbstractDao<PlaylistDb> {
 
-    private static final Logger LOG = LogManager.getLogger(PlaylistDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
     private static final String PLAYLIST = "playlist";
     private static final String ID_PLAYLIST = "idPlaylist";
     private static final String INTITULE_PLAYLIST = "intitulePlaylist";
-    private static final String SQL_EXCEPTION = "SQLException : ";
-
 
     @Override
     public void insert(PlaylistDb playlistDb) {
@@ -51,7 +47,7 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(PlaylistDao.class, e);
         }
     }
 
@@ -76,7 +72,7 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
                 }
             }
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(PlaylistDao.class, e);
         }
     }
 
@@ -99,7 +95,7 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(PlaylistDao.class, e);
         }
     }
 
@@ -136,7 +132,7 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
             return playlistDb;
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(PlaylistDao.class, e);
         }
         return null;
     }
@@ -176,7 +172,7 @@ public class PlaylistDao implements AbstractDao<PlaylistDb> {
             return playlistsList;
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(PlaylistDao.class, e);
         }
         return Collections.emptyList();
     }

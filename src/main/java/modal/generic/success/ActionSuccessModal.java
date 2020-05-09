@@ -14,8 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import modal.generic.GenericModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ModalUtils;
 
@@ -25,12 +24,10 @@ import java.util.Optional;
 
 public class ActionSuccessModal {
 
-    private static final Logger LOG = LogManager.getLogger(ActionSuccessModal.class);
-    private static final String IO_EXCEPTION = "IOException : ";
     private static InformationsUtils informationsUtils = new InformationsUtils();
 
     private ActionSuccessModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(ActionSuccessModal.class);
     }
 
     public static void getActionSuccessAlert(TypeSource source, TypeAction action, boolean needRedirection) {
@@ -84,7 +81,7 @@ public class ActionSuccessModal {
                 homeStage.show();
 
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(ActionSuccessModal.class, e);
 
             }
         }

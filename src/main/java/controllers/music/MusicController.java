@@ -11,10 +11,9 @@ import javafx.stage.FileChooser;
 import modal.generic.error.CommonErrorModal;
 import modal.generic.error.MusicErrorModal;
 import modal.generic.success.ActionSuccessModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
 import utils.DaoTestsUtils;
+import utils.LogUtils;
 import utils.InformationsUtils;
 
 import java.io.File;
@@ -25,9 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MusicController {
-
-    private static final Logger LOG = LogManager.getLogger(MusicController.class);
-    private static final String IO_EXCEPTION = "IOException : ";
 
     protected final InformationsUtils informationsUtils = new InformationsUtils();
 
@@ -64,7 +60,7 @@ public class MusicController {
                         }
                     }
                 } catch (SQLException e) {
-                    LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                    LogUtils.generateSQLExceptionLog(MusicController.class, e);
                 }
             }
 

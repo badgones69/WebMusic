@@ -3,9 +3,8 @@ package dao;
 import database.SQLiteConnection;
 import db.AuteurDb;
 import db.MusiqueDb;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
+import utils.LogUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,13 +13,11 @@ import java.util.List;
 
 public class MusiqueDao implements AbstractDao<MusiqueDb> {
 
-    private static final Logger LOG = LogManager.getLogger(MusiqueDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
     private static final String MUSIQUE = "musique";
     private static final String CODE_MUSIQUE = "codeMusique";
     private static final String ALBUM_MUSIQUE = "albumMusique";
     private static final String TITRE_MUSIQUE = "titreMusique";
-    private static final String SQL_EXCEPTION = "SQLException : ";
     private AlbumDao albumDao = new AlbumDao();
 
     @Override
@@ -52,7 +49,7 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(MusiqueDao.class, e);
         }
     }
 
@@ -77,7 +74,7 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
                 }
             }
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(MusiqueDao.class, e);
         }
     }
 
@@ -100,7 +97,7 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(MusiqueDao.class, e);
         }
     }
 
@@ -142,7 +139,7 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
             return musiqueDb;
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(MusiqueDao.class, e);
         }
         return null;
     }
@@ -189,7 +186,7 @@ public class MusiqueDao implements AbstractDao<MusiqueDb> {
             return musiquesList;
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(MusiqueDao.class, e);
         }
         return Collections.emptyList();
     }

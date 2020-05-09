@@ -3,15 +3,13 @@ package modal.generic;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
+import utils.StyleUtils;
 
 public class GenericModal {
 
-    private static final Logger LOG = LogManager.getLogger(GenericModal.class);
-
     private GenericModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(GenericModal.class);
     }
 
     public static Stage initStage(Alert alert) {
@@ -24,8 +22,8 @@ public class GenericModal {
 
     public static DialogPane initPane(Alert alert) {
         DialogPane alertPane = alert.getDialogPane();
-        alertPane.getStylesheets().add("/styles/style.css");
-        alertPane.getStyleClass().addAll("panel", "modalBody");
+        alertPane.getStylesheets().add(StyleUtils.getStylesheet());
+        alertPane.getStyleClass().addAll(StyleUtils.getPanelClass(), StyleUtils.getModalBodyClass());
         return alertPane;
     }
 }

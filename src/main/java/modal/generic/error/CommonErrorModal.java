@@ -4,17 +4,14 @@ import enums.TypeSource;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import modal.generic.GenericModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ModalUtils;
 
 public class CommonErrorModal {
 
-    private static final Logger LOG = LogManager.getLogger(CommonErrorModal.class);
-
     private CommonErrorModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(CommonErrorModal.class);
     }
 
     public static void getSelectionErrorAlert(TypeSource source) {

@@ -1,7 +1,6 @@
 package database;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 
 import java.io.File;
 import java.sql.Connection;
@@ -10,12 +9,11 @@ import java.sql.SQLException;
 
 public class SQLiteConnection {
 
-    private static final Logger LOG = LogManager.getLogger(SQLiteConnection.class);
-    private static volatile Connection connection = null;
+    private static Connection connection = null;
     private static Boolean connectionEstablished = Boolean.FALSE;
 
     private SQLiteConnection() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(SQLiteConnection.class);
     }
 
     public static String getPathDb() {
@@ -36,7 +34,7 @@ public class SQLiteConnection {
             connection = DriverManager.getConnection(url);
             connectionEstablished = Boolean.TRUE;
         } catch (SQLException e) {
-            LOG.error("SQLException : " + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(SQLiteConnection.class, e);
         }
     }
 

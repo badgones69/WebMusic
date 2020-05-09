@@ -5,8 +5,6 @@ import db.AlbumDb;
 import db.AuteurDb;
 import db.MusiqueDb;
 import db.PlaylistDb;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,11 +12,8 @@ import java.sql.SQLException;
 
 public class DaoTestsUtils {
 
-    private static final Logger LOG = LogManager.getLogger(DaoTestsUtils.class);
-    private static final String SQL_EXCEPTION = "SQLException : ";
-
     private DaoTestsUtils() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(DaoTestsUtils.class);
     }
 
     // METHOD TO KNOW WHAT'S CODE WAS SET TO THE ALBUM WHICH WAS INSERTED
@@ -34,7 +29,7 @@ public class DaoTestsUtils {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(DaoTestsUtils.class, e);
         }
     }
 
@@ -51,7 +46,7 @@ public class DaoTestsUtils {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(DaoTestsUtils.class, e);
         }
     }
 
@@ -68,7 +63,7 @@ public class DaoTestsUtils {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(DaoTestsUtils.class, e);
         }
     }
 
@@ -85,7 +80,7 @@ public class DaoTestsUtils {
             }
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(DaoTestsUtils.class, e);
         }
     }
 }

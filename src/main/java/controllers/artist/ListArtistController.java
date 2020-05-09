@@ -22,7 +22,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import listeners.artist.ListArtistKeySelectionListener;
 import listeners.artist.ListArtistMouseSelectionListener;
@@ -30,8 +29,7 @@ import listeners.artist.ListArtistSelectionListener;
 import mapper.AuteurMapper;
 import modal.generic.confirmation.CommonConfirmationModal;
 import modal.generic.error.CommonErrorModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ListUtils;
 
@@ -43,8 +41,6 @@ import java.util.ResourceBundle;
 
 public class ListArtistController implements Initializable {
 
-    private static final Logger LOG = LogManager.getLogger(ListArtistController.class);
-    private static final String IO_EXCEPTION = "IOException : ";
     private static final String PAGE = "Page : ";
     private static final String SUR = " / ";
 
@@ -306,7 +302,7 @@ public class ListArtistController implements Initializable {
     }
 
     // ARTIST EDITING ICON CLICKED
-    public void artistEditingButtonClicked(MouseEvent mouseEvent) {
+    public void artistEditingButtonClicked() {
         if (ListArtistSelectionListener.getAuteurSelected() == null) {
             this.showArtistSelectionErrorPopUp();
         } else {
@@ -322,13 +318,13 @@ public class ListArtistController implements Initializable {
                 homeStage.show();
 
             } catch (IOException e) {
-                LOG.error(IO_EXCEPTION + e.getMessage(), e);
+                LogUtils.generateIOExceptionLog(ListArtistController.class, e);
             }
         }
     }
 
     // ARTIST DELETING ICON CLICKED
-    public void artistDeletingButtonClicked(MouseEvent mouseEvent) {
+    public void artistDeletingButtonClicked() {
         AuteurDto auteurSelected = ListArtistSelectionListener.getAuteurSelected();
 
         if (auteurSelected == null) {

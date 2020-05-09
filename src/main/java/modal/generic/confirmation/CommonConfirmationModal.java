@@ -20,8 +20,7 @@ import mapper.MusiqueMapper;
 import mapper.PlaylistMapper;
 import modal.generic.GenericModal;
 import modal.generic.success.ActionSuccessModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ModalUtils;
 
@@ -29,10 +28,8 @@ import java.util.Optional;
 
 public class CommonConfirmationModal {
 
-    private static final Logger LOG = LogManager.getLogger(CommonConfirmationModal.class);
-
     private CommonConfirmationModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(CommonConfirmationModal.class);
     }
 
     public static void getDeleteConfirmationAlert(TypeSource source, Object objectSelected) {

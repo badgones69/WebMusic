@@ -3,17 +3,14 @@ package modal.generic.error;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import modal.generic.GenericModal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.InformationsUtils;
 import utils.ModalUtils;
 
 public class ArtistErrorModal {
 
-    private static final Logger LOG = LogManager.getLogger(ArtistErrorModal.class);
-
     private ArtistErrorModal() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(ArtistErrorModal.class);
     }
 
     public static void getArtistNameErrorAlert() {

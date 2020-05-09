@@ -12,8 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 import utils.FormUtils;
 import utils.InformationsUtils;
 
@@ -23,9 +22,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AlbumModal extends AddAlbumController implements Initializable {
-
-    private static final Logger LOG = LogManager.getLogger(AlbumModal.class);
-    private static final String IO_EXCEPTION = "IOException : ";
 
     private static AlbumDb currentAlbumPreSelected;
 
@@ -84,7 +80,7 @@ public class AlbumModal extends AddAlbumController implements Initializable {
         try {
             dialogPane.setContent(FXMLLoader.load(getClass().getResource("/views/music/selectExistingAlbum.fxml")));
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(AlbumModal.class, e);
         }
         selectAlbumAlert.setDialogPane(dialogPane);
 
@@ -128,7 +124,7 @@ public class AlbumModal extends AddAlbumController implements Initializable {
         try {
             dialogPane.setContent(FXMLLoader.load(getClass().getResource("/views/music/addNewAlbum.fxml")));
         } catch (IOException e) {
-            LOG.error(IO_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateIOExceptionLog(AlbumModal.class, e);
         }
         addNewAlbumAlert.setDialogPane(dialogPane);
 

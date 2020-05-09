@@ -9,15 +9,11 @@ import listeners.artist.ListArtistSelectionListener;
 import listeners.music.ListMusicSelectionListener;
 import listeners.playlist.ListPlaylistSelectionListener;
 import listeners.album.ListAlbumSelectionListener;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class ListUtils {
 
-    private static final Logger LOG = LogManager.getLogger(ListUtils.class);
-
     private ListUtils() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(ListUtils.class);
     }
 
     public static Integer getCountPage(Integer nbElements) {

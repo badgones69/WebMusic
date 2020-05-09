@@ -57,7 +57,7 @@ public class AddAlbumController extends AlbumController implements Initializable
             super.showYearErrorPopUp();
         }
 
-        if (Boolean.FALSE.equals(titreInvalide) && Boolean.FALSE.equals(anneeInvalide)) {
+        if (!titreInvalide && !anneeInvalide) {
             AlbumDb albumDb = new AlbumDb();
 
             albumDb.setTitreAlbum(titre.getText());

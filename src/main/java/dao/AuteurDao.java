@@ -2,9 +2,8 @@ package dao;
 
 import database.SQLiteConnection;
 import db.AuteurDb;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import utils.DaoQueryUtils;
+import utils.LogUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,17 +15,15 @@ import java.util.List;
 
 public class AuteurDao implements AbstractDao<AuteurDb> {
 
-    private static final Logger LOG = LogManager.getLogger(AuteurDao.class);
     private static final Connection CONNECTION = SQLiteConnection.getInstance();
     private static final String AUTEUR = "auteur";
-    private static final String SQL_EXCEPTION = "SQLException : ";
 
     @Override
     public void insert(AuteurDb auteurDb) {
         try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateInsertingQuery(AUTEUR, auteurDb))) {
             statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(AuteurDao.class, e);
         }
     }
 
@@ -35,7 +32,7 @@ public class AuteurDao implements AbstractDao<AuteurDb> {
         try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateUpdatingQuery(AUTEUR, auteurDb))) {
             statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(AuteurDao.class, e);
         }
     }
 
@@ -44,7 +41,7 @@ public class AuteurDao implements AbstractDao<AuteurDb> {
         try (PreparedStatement statement = CONNECTION.prepareStatement(DaoQueryUtils.generateDeletingQuery(AUTEUR, auteurDb.getIdentifiantAuteur()))) {
             statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(AuteurDao.class, e);
         }
     }
 
@@ -63,7 +60,7 @@ public class AuteurDao implements AbstractDao<AuteurDb> {
             return auteurDb;
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(AuteurDao.class, e);
         }
         return null;
     }
@@ -89,7 +86,7 @@ public class AuteurDao implements AbstractDao<AuteurDb> {
             return auteursList;
 
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION + e.getMessage(), e);
+            LogUtils.generateSQLExceptionLog(AuteurDao.class, e);
         }
         return Collections.emptyList();
     }

@@ -2,15 +2,12 @@ package mapper;
 
 import db.AuteurDb;
 import dto.AuteurDto;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import utils.LogUtils;
 
 public class AuteurMapper {
 
-    private static final Logger LOG = LogManager.getLogger(AuteurMapper.class);
-
     private AuteurMapper() {
-        LOG.error("This class cannot be instantiated because it's an 'Utility class'");
+        LogUtils.generateConstructorLog(AuteurMapper.class);
     }
 
     // AuteurDb TO AuteurDto CONVERTING

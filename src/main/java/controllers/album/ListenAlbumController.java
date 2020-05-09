@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -166,7 +165,7 @@ public class ListenAlbumController implements Initializable {
     }
 
     // "PLAY"/"PAUSE" ICON CLICKED
-    public void playPauseButtonClicked(MouseEvent mouseEvent) {
+    public void playPauseButtonClicked() {
         if (this.playPauseImageView.getImage().equals(this.pauseButtonImage)) {
             this.playPauseImageView.setImage(playButtonImage);
             mediaPlayer.pause();
