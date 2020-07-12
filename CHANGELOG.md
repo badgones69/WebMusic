@@ -1,5 +1,11 @@
 # Change Log
 
+# [1.6.0](https://github.com/badgones69/WebMusic/tree/1.6.0) (2020-07-12)
+
+### Security
+
+* log4j repository upgrading (vulnerability solving)
+
 ## [1.5.1](https://github.com/badgones69/WebMusic/tree/1.5.1) (2019-09-15)
 
 ### Bug Fixes
