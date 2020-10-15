@@ -1,5 +1,11 @@
 # Change Log
 
+# [1.7.0](https://github.com/badgones69/WebMusic/tree/1.7.0) (2020-10-15)
+
+### Security
+
+* JUnit repository upgrading (vulnerability solving)
+
 # [1.6.0](https://github.com/badgones69/WebMusic/tree/1.6.0) (2020-07-12)
 
 ### Security
