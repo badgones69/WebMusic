@@ -3,7 +3,7 @@
 <p align="center">
    <a href="https://github.com/badgones69/WebMusic">
      <img src="./src/main/resources/icons/logo.png">
-     <img src="./src/main/resources/icons/logo-AM-redimenssioné.png">
+     <img src="./src/main/resources/icons/logo-AM-redimenssioné_2.png">
    </a>
 </p>
 
